@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -276,7 +274,7 @@ class Negotiate
     protected function match(array $acceptable, string $supported, bool $enforceTypes = false, $matchLocales = false): bool
     {
         $supported = $this->parseHeader($supported);
-        if (count($supported) === 1) {
+        if (is_array($supported) && count($supported) === 1) {
             $supported = $supported[0];
         }
 

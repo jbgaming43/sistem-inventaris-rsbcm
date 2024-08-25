@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -108,8 +106,8 @@ class Exceptions
      */
     public function initialize()
     {
-        set_exception_handler($this->exceptionHandler(...));
-        set_error_handler($this->errorHandler(...));
+        set_exception_handler([$this, 'exceptionHandler']);
+        set_error_handler([$this, 'errorHandler']);
         register_shutdown_function([$this, 'shutdownHandler']);
     }
 
@@ -126,18 +124,12 @@ class Exceptions
 
         [$statusCode, $exitCode] = $this->determineCodes($exception);
 
-        $this->request = Services::request();
-
         if ($this->config->log === true && ! in_array($statusCode, $this->config->ignoreCodes, true)) {
-            $uri       = $this->request->getPath() === '' ? '/' : $this->request->getPath();
-            $routeInfo = '[Method: ' . $this->request->getMethod() . ', Route: ' . $uri . ']';
-
-            log_message('critical', $exception::class . ": {message}\n{routeInfo}\nin {exFile} on line {exLine}.\n{trace}", [
-                'message'   => $exception->getMessage(),
-                'routeInfo' => $routeInfo,
-                'exFile'    => clean_path($exception->getFile()), // {file} refers to THIS file
-                'exLine'    => $exception->getLine(), // {line} refers to THIS line
-                'trace'     => self::renderBacktrace($exception->getTrace()),
+            log_message('critical', get_class($exception) . ": {message}\nin {exFile} on line {exLine}.\n{trace}", [
+                'message' => $exception->getMessage(),
+                'exFile'  => clean_path($exception->getFile()), // {file} refers to THIS file
+                'exLine'  => $exception->getLine(), // {line} refers to THIS line
+                'trace'   => self::renderBacktrace($exception->getTrace()),
             ]);
 
             // Get the first exception.
@@ -146,7 +138,7 @@ class Exceptions
             while ($prevException = $last->getPrevious()) {
                 $last = $prevException;
 
-                log_message('critical', '[Caused by] ' . $prevException::class . ": {message}\nin {exFile} on line {exLine}.\n{trace}", [
+                log_message('critical', '[Caused by] ' . get_class($prevException) . ": {message}\nin {exFile} on line {exLine}.\n{trace}", [
                     'message' => $prevException->getMessage(),
                     'exFile'  => clean_path($prevException->getFile()), // {file} refers to THIS file
                     'exLine'  => $prevException->getLine(), // {line} refers to THIS line
@@ -155,6 +147,7 @@ class Exceptions
             }
         }
 
+        $this->request  = Services::request();
         $this->response = Services::response();
 
         if (method_exists($this->config, 'handler')) {
@@ -175,7 +168,7 @@ class Exceptions
         if (! is_cli()) {
             try {
                 $this->response->setStatusCode($statusCode);
-            } catch (HTTPException) {
+            } catch (HTTPException $e) {
                 // Workaround for invalid HTTP status code.
                 $statusCode = 500;
                 $this->response->setStatusCode($statusCode);
@@ -185,7 +178,7 @@ class Exceptions
                 header(sprintf('HTTP/%s %s %s', $this->request->getProtocolVersion(), $this->response->getStatusCode(), $this->response->getReasonPhrase()), true, $statusCode);
             }
 
-            if (! str_contains($this->request->getHeaderLine('accept'), 'text/html')) {
+            if (strpos($this->request->getHeaderLine('accept'), 'text/html') === false) {
                 $this->respond(ENVIRONMENT === 'development' ? $this->collectVars($exception, $statusCode) : '', $statusCode)->send();
 
                 exit($exitCode);
@@ -243,7 +236,7 @@ class Exceptions
 
         if ($this->exceptionCaughtByExceptionHandler instanceof Throwable) {
             $message .= "\n【Previous Exception】\n"
-                . $this->exceptionCaughtByExceptionHandler::class . "\n"
+                . get_class($this->exceptionCaughtByExceptionHandler) . "\n"
                 . $this->exceptionCaughtByExceptionHandler->getMessage() . "\n"
                 . $this->exceptionCaughtByExceptionHandler->getTraceAsString();
         }
@@ -355,8 +348,8 @@ class Exceptions
         }
 
         return [
-            'title'   => $exception::class,
-            'type'    => $exception::class,
+            'title'   => get_class($exception),
+            'type'    => get_class($exception),
             'code'    => $statusCode,
             'message' => $exception->getMessage(),
             'file'    => $exception->getFile(),
@@ -396,7 +389,7 @@ class Exceptions
             $explode = explode('/', $keyToMask);
             $index   = end($explode);
 
-            if (str_starts_with(strrev($path . '/' . $index), strrev($keyToMask))) {
+            if (strpos(strrev($path . '/' . $index), strrev($keyToMask)) === 0) {
                 if (is_array($args) && array_key_exists($index, $args)) {
                     $args[$index] = '******************';
                 } elseif (
@@ -480,13 +473,25 @@ class Exceptions
      */
     public static function cleanPath(string $file): string
     {
-        return match (true) {
-            str_starts_with($file, APPPATH)                             => 'APPPATH' . DIRECTORY_SEPARATOR . substr($file, strlen(APPPATH)),
-            str_starts_with($file, SYSTEMPATH)                          => 'SYSTEMPATH' . DIRECTORY_SEPARATOR . substr($file, strlen(SYSTEMPATH)),
-            str_starts_with($file, FCPATH)                              => 'FCPATH' . DIRECTORY_SEPARATOR . substr($file, strlen(FCPATH)),
-            defined('VENDORPATH') && str_starts_with($file, VENDORPATH) => 'VENDORPATH' . DIRECTORY_SEPARATOR . substr($file, strlen(VENDORPATH)),
-            default                                                     => $file,
-        };
+        switch (true) {
+            case strpos($file, APPPATH) === 0:
+                $file = 'APPPATH' . DIRECTORY_SEPARATOR . substr($file, strlen(APPPATH));
+                break;
+
+            case strpos($file, SYSTEMPATH) === 0:
+                $file = 'SYSTEMPATH' . DIRECTORY_SEPARATOR . substr($file, strlen(SYSTEMPATH));
+                break;
+
+            case strpos($file, FCPATH) === 0:
+                $file = 'FCPATH' . DIRECTORY_SEPARATOR . substr($file, strlen(FCPATH));
+                break;
+
+            case defined('VENDORPATH') && strpos($file, VENDORPATH) === 0:
+                $file = 'VENDORPATH' . DIRECTORY_SEPARATOR . substr($file, strlen(VENDORPATH));
+                break;
+        }
+
+        return $file;
     }
 
     /**
@@ -532,7 +537,7 @@ class Exceptions
 
         try {
             $source = file_get_contents($file);
-        } catch (Throwable) {
+        } catch (Throwable $e) {
             return false;
         }
 
@@ -597,12 +602,23 @@ class Exceptions
             $idx = $index;
             $idx = str_pad((string) ++$idx, 2, ' ', STR_PAD_LEFT);
 
-            $args = implode(', ', array_map(static fn ($value): string => match (true) {
-                is_object($value)   => sprintf('Object(%s)', $value::class),
-                is_array($value)    => $value !== [] ? '[...]' : '[]',
-                $value === null     => 'null',
-                is_resource($value) => sprintf('resource (%s)', get_resource_type($value)),
-                default             => var_export($value, true),
+            $args = implode(', ', array_map(static function ($value): string {
+                switch (true) {
+                    case is_object($value):
+                        return sprintf('Object(%s)', get_class($value));
+
+                    case is_array($value):
+                        return $value !== [] ? '[...]' : '[]';
+
+                    case $value === null:
+                        return 'null';
+
+                    case is_resource($value):
+                        return sprintf('resource (%s)', get_resource_type($value));
+
+                    default:
+                        return var_export($value, true);
+                }
             }, $frame['args']));
 
             $backtraces[] = sprintf(

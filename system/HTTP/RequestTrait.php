@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -27,13 +25,6 @@ use Config\App;
  */
 trait RequestTrait
 {
-    /**
-     * Configuration settings.
-     *
-     * @var App
-     */
-    protected $config;
-
     /**
      * IP address of the current user.
      *
@@ -68,7 +59,7 @@ trait RequestTrait
             'valid_ip',
         ];
 
-        $proxyIPs = $this->config->proxyIPs;
+        $proxyIPs = config(App::class)->proxyIPs;
 
         if (! empty($proxyIPs) && (! is_array($proxyIPs) || is_int(array_key_first($proxyIPs)))) {
             throw new ConfigException(
@@ -86,7 +77,7 @@ trait RequestTrait
         // @TODO Extract all this IP address logic to another class.
         foreach ($proxyIPs as $proxyIP => $header) {
             // Check if we have an IP address or a subnet
-            if (! str_contains($proxyIP, '/')) {
+            if (strpos($proxyIP, '/') === false) {
                 // An IP address (and not a subnet) is specified.
                 // We can compare right away.
                 if ($proxyIP === $this->ipAddress) {
@@ -107,7 +98,7 @@ trait RequestTrait
             }
 
             // If the proxy entry doesn't match the IP protocol - skip it
-            if (! str_contains($proxyIP, $separator)) {
+            if (strpos($proxyIP, $separator) === false) {
                 continue;
             }
 
@@ -322,7 +313,7 @@ trait RequestTrait
             )
         ) {
             // Iterate over array and append filter and flags
-            array_walk_recursive($value, static function (&$val) use ($filter, $flags): void {
+            array_walk_recursive($value, static function (&$val) use ($filter, $flags) {
                 $val = filter_var($val, $filter, $flags);
             });
 

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -116,11 +114,11 @@ class Forge extends BaseForge
             }
         }
 
-        if ($this->db->charset !== '' && ! strpos($sql, 'CHARACTER SET') && ! strpos($sql, 'CHARSET')) {
+        if (! empty($this->db->charset) && ! strpos($sql, 'CHARACTER SET') && ! strpos($sql, 'CHARSET')) {
             $sql .= ' DEFAULT CHARACTER SET = ' . $this->db->escapeString($this->db->charset);
         }
 
-        if ($this->db->DBCollat !== '' && ! strpos($sql, 'COLLATE')) {
+        if (! empty($this->db->DBCollat) && ! strpos($sql, 'COLLATE')) {
             $sql .= ' COLLATE = ' . $this->db->escapeString($this->db->DBCollat);
         }
 

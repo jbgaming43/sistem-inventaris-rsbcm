@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -554,7 +552,7 @@ trait TimeTrait
     public function setMonth($value)
     {
         if (is_numeric($value) && ($value < 1 || $value > 12)) {
-            throw I18nException::forInvalidMonth((string) $value);
+            throw I18nException::forInvalidMonth($value);
         }
 
         if (is_string($value) && ! is_numeric($value)) {
@@ -576,13 +574,13 @@ trait TimeTrait
     public function setDay($value)
     {
         if ($value < 1 || $value > 31) {
-            throw I18nException::forInvalidDay((string) $value);
+            throw I18nException::forInvalidDay($value);
         }
 
         $date    = $this->getYear() . '-' . $this->getMonth();
         $lastDay = date('t', strtotime($date));
         if ($value > $lastDay) {
-            throw I18nException::forInvalidOverDay($lastDay, (string) $value);
+            throw I18nException::forInvalidOverDay($lastDay, $value);
         }
 
         return $this->setValue('day', $value);
@@ -600,7 +598,7 @@ trait TimeTrait
     public function setHour($value)
     {
         if ($value < 0 || $value > 23) {
-            throw I18nException::forInvalidHour((string) $value);
+            throw I18nException::forInvalidHour($value);
         }
 
         return $this->setValue('hour', $value);
@@ -618,7 +616,7 @@ trait TimeTrait
     public function setMinute($value)
     {
         if ($value < 0 || $value > 59) {
-            throw I18nException::forInvalidMinutes((string) $value);
+            throw I18nException::forInvalidMinutes($value);
         }
 
         return $this->setValue('minute', $value);
@@ -636,7 +634,7 @@ trait TimeTrait
     public function setSecond($value)
     {
         if ($value < 0 || $value > 59) {
-            throw I18nException::forInvalidSeconds((string) $value);
+            throw I18nException::forInvalidSeconds($value);
         }
 
         return $this->setValue('second', $value);
@@ -1019,7 +1017,7 @@ trait TimeTrait
      */
     public function humanize()
     {
-        $now  = IntlCalendar::fromDateTime(self::now($this->timezone)->toDateTime());
+        $now  = IntlCalendar::fromDateTime(self::now($this->timezone));
         $time = $this->getCalendar()->getTime();
 
         $years   = $now->fieldDifference($time, IntlCalendar::FIELD_YEAR);
@@ -1071,21 +1069,8 @@ trait TimeTrait
      */
     public function difference($testTime, ?string $timezone = null)
     {
-        if (is_string($testTime)) {
-            $timezone = ($timezone !== null) ? new DateTimeZone($timezone) : $this->timezone;
-            $testTime = new DateTime($testTime, $timezone);
-        } elseif ($testTime instanceof self) {
-            $testTime = $testTime->toDateTime();
-        }
-
-        assert($testTime instanceof DateTime);
-
-        if ($this->timezone->getOffset($this) !== $testTime->getTimezone()->getOffset($this)) {
-            $testTime = $this->getUTCObject($testTime, $timezone);
-            $ourTime  = $this->getUTCObject($this);
-        } else {
-            $ourTime = $this->toDateTime();
-        }
+        $testTime = $this->getUTCObject($testTime, $timezone);
+        $ourTime  = $this->getUTCObject($this);
 
         return new TimeDifference($ourTime, $testTime);
     }
@@ -1133,7 +1118,7 @@ trait TimeTrait
      */
     public function getCalendar()
     {
-        return IntlCalendar::fromDateTime($this->toDateTime());
+        return IntlCalendar::fromDateTime($this);
     }
 
     /**

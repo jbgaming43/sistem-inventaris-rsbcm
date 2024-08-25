@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -16,6 +14,7 @@ namespace CodeIgniter\Session;
 use CodeIgniter\Cookie\Cookie;
 use CodeIgniter\I18n\Time;
 use Config\Cookie as CookieConfig;
+use Config\Services;
 use Config\Session as SessionConfig;
 use Psr\Log\LoggerAwareTrait;
 use SessionHandlerInterface;
@@ -405,7 +404,7 @@ class Session implements SessionInterface
 
     private function removeOldSessionCookie(): void
     {
-        $response              = service('response');
+        $response              = Services::response();
         $cookieStoreInResponse = $response->getCookieStore();
 
         if (! $cookieStoreInResponse->has($this->config->cookieName)) {
@@ -930,7 +929,7 @@ class Session implements SessionInterface
         $expiration   = $this->config->expiration === 0 ? 0 : Time::now()->getTimestamp() + $this->config->expiration;
         $this->cookie = $this->cookie->withValue(session_id())->withExpires($expiration);
 
-        $response = service('response');
+        $response = Services::response();
         $response->setCookie($this->cookie);
     }
 }

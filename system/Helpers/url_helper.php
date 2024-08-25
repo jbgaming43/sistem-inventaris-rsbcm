@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -17,6 +15,7 @@ use CodeIgniter\HTTP\SiteURI;
 use CodeIgniter\HTTP\URI;
 use CodeIgniter\Router\Exceptions\RouterException;
 use Config\App;
+use Config\Services;
 
 // CodeIgniter URL Helpers
 
@@ -32,7 +31,7 @@ if (! function_exists('site_url')) {
      */
     function site_url($relativePath = '', ?string $scheme = null, ?App $config = null): string
     {
-        $currentURI = service('request')->getUri();
+        $currentURI = Services::request()->getUri();
 
         assert($currentURI instanceof SiteURI);
 
@@ -52,7 +51,7 @@ if (! function_exists('base_url')) {
      */
     function base_url($relativePath = '', ?string $scheme = null): string
     {
-        $currentURI = service('request')->getUri();
+        $currentURI = Services::request()->getUri();
 
         assert($currentURI instanceof SiteURI);
 
@@ -72,7 +71,7 @@ if (! function_exists('current_url')) {
      */
     function current_url(bool $returnObject = false, ?IncomingRequest $request = null)
     {
-        $request ??= service('request');
+        $request ??= Services::request();
         /** @var CLIRequest|IncomingRequest $request */
         $uri = $request->getUri();
 
@@ -112,9 +111,9 @@ if (! function_exists('uri_string')) {
      */
     function uri_string(): string
     {
-        // The value of service('request')->getUri()->getPath() returns
+        // The value of Services::request()->getUri()->getPath() returns
         // full URI path.
-        $uri = service('request')->getUri();
+        $uri = Services::request()->getUri();
 
         $path = $uri instanceof SiteURI ? $uri->getRoutePath() : $uri->getPath();
 
@@ -319,7 +318,7 @@ if (! function_exists('safe_mailto')) {
 
         // improve obfuscation by eliminating newlines & whitespace
         $cspNonce = csp_script_nonce();
-        $cspNonce = $cspNonce !== '' ? ' ' . $cspNonce : $cspNonce;
+        $cspNonce = $cspNonce ? ' ' . $cspNonce : $cspNonce;
         $output   = '<script' . $cspNonce . '>'
                 . 'var l=new Array();';
 

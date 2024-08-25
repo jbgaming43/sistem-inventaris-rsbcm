@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -87,7 +85,7 @@ class ControllerGenerator extends BaseCommand
         $this->template  = 'controller.tpl.php';
 
         $this->classNameLang = 'CLI.generator.className.controller';
-        $this->generateClass($params);
+        $this->execute($params);
     }
 
     /**

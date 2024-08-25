@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -41,7 +39,7 @@ class Forge
     /**
      * List of keys.
      *
-     * @var list<array{fields?: list<string>, keyName?: string}>
+     * @var list<array{fields?: string[], keyName?: string}>
      */
     protected $keys = [];
 
@@ -55,7 +53,7 @@ class Forge
     /**
      * Primary keys.
      *
-     * @var array{fields?: list<string>, keyName?: string}
+     * @var array{fields?: string[], keyName?: string}
      */
     protected $primaryKeys = [];
 
@@ -229,14 +227,7 @@ class Forge
         }
 
         try {
-            if (! $this->db->query(
-                sprintf(
-                    $ifNotExists ? $this->createDatabaseIfStr : $this->createDatabaseStr,
-                    $this->db->escapeIdentifier($dbName),
-                    $this->db->charset,
-                    $this->db->DBCollat
-                )
-            )) {
+            if (! $this->db->query(sprintf($ifNotExists ? $this->createDatabaseIfStr : $this->createDatabaseStr, $dbName, $this->db->charset, $this->db->DBCollat))) {
                 // @codeCoverageIgnoreStart
                 if ($this->db->DBDebug) {
                     throw new DatabaseException('Unable to create the specified database.');
@@ -293,9 +284,7 @@ class Forge
             return false;
         }
 
-        if (! $this->db->query(
-            sprintf($this->dropDatabaseStr, $this->db->escapeIdentifier($dbName))
-        )) {
+        if (! $this->db->query(sprintf($this->dropDatabaseStr, $dbName))) {
             if ($this->db->DBDebug) {
                 throw new DatabaseException('Unable to drop the specified database.');
             }
@@ -304,11 +293,7 @@ class Forge
         }
 
         if (! empty($this->db->dataCache['db_names'])) {
-            $key = array_search(
-                strtolower($dbName),
-                array_map(strtolower(...), $this->db->dataCache['db_names']),
-                true
-            );
+            $key = array_search(strtolower($dbName), array_map('strtolower', $this->db->dataCache['db_names']), true);
             if ($key !== false) {
                 unset($this->db->dataCache['db_names'][$key]);
             }
@@ -383,7 +368,7 @@ class Forge
                 ]);
                 $this->addKey('id', true);
             } else {
-                if (! str_contains($fields, ' ')) {
+                if (strpos($fields, ' ') === false) {
                     throw new InvalidArgumentException('Field information is required for that operation.');
                 }
 
@@ -414,8 +399,8 @@ class Forge
     /**
      * Add Foreign Key
      *
-     * @param list<string>|string $fieldName
-     * @param list<string>|string $tableField
+     * @param string|string[] $fieldName
+     * @param string|string[] $tableField
      *
      * @throws DatabaseException
      */
@@ -650,7 +635,7 @@ class Forge
             return false;
         }
 
-        if ($this->db->DBPrefix && str_starts_with($tableName, $this->db->DBPrefix)) {
+        if ($this->db->DBPrefix && strpos($tableName, $this->db->DBPrefix) === 0) {
             $tableName = substr($tableName, strlen($this->db->DBPrefix));
         }
 
@@ -667,7 +652,7 @@ class Forge
         if ($query && ! empty($this->db->dataCache['table_names'])) {
             $key = array_search(
                 strtolower($this->db->DBPrefix . $tableName),
-                array_map(strtolower(...), $this->db->dataCache['table_names']),
+                array_map('strtolower', $this->db->dataCache['table_names']),
                 true
             );
 
@@ -729,7 +714,7 @@ class Forge
         if ($result && ! empty($this->db->dataCache['table_names'])) {
             $key = array_search(
                 strtolower($this->db->DBPrefix . $tableName),
-                array_map(strtolower(...), $this->db->dataCache['table_names']),
+                array_map('strtolower', $this->db->dataCache['table_names']),
                 true
             );
 

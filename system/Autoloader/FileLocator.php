@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -19,7 +17,7 @@ namespace CodeIgniter\Autoloader;
  *
  * @see \CodeIgniter\Autoloader\FileLocatorTest
  */
-class FileLocator implements FileLocatorInterface
+class FileLocator
 {
     /**
      * The Autoloader to use.
@@ -27,13 +25,6 @@ class FileLocator implements FileLocatorInterface
      * @var Autoloader
      */
     protected $autoloader;
-
-    /**
-     * List of classnames that did not exist.
-     *
-     * @var list<class-string>
-     */
-    private array $invalidClassnames = [];
 
     public function __construct(Autoloader $autoloader)
     {
@@ -60,12 +51,12 @@ class FileLocator implements FileLocatorInterface
         $file = $this->ensureExt($file, $ext);
 
         // Clears the folder name if it is at the beginning of the filename
-        if ($folder !== null && str_starts_with($file, $folder)) {
+        if ($folder !== null && strpos($file, $folder) === 0) {
             $file = substr($file, strlen($folder . '/'));
         }
 
         // Is not namespaced? Try the application folder.
-        if (! str_contains($file, '\\')) {
+        if (strpos($file, '\\') === false) {
             return $this->legacyLocate($file, $folder);
         }
 
@@ -110,7 +101,7 @@ class FileLocator implements FileLocatorInterface
             // If we have a folder name, then the calling function
             // expects this file to be within that folder, like 'Views',
             // or 'libraries'.
-            if ($folder !== null && ! str_contains($path . $filename, '/' . $folder . '/')) {
+            if ($folder !== null && strpos($path . $filename, '/' . $folder . '/') === false) {
                 $path .= trim($folder, '/') . '/';
             }
 
@@ -182,8 +173,6 @@ class FileLocator implements FileLocatorInterface
      *      'app/Modules/foo/Config/Routes.php',
      *      'app/Modules/bar/Config/Routes.php',
      *  ]
-     *
-     * @return list<string>
      */
     public function search(string $path, string $ext = 'php', bool $prioritizeApp = true): array
     {
@@ -199,7 +188,7 @@ class FileLocator implements FileLocatorInterface
 
                 if ($prioritizeApp) {
                     $foundPaths[] = $fullPath;
-                } elseif (str_starts_with($fullPath, APPPATH)) {
+                } elseif (strpos($fullPath, APPPATH) === 0) {
                     $appPaths[] = $fullPath;
                 } else {
                     $foundPaths[] = $fullPath;
@@ -212,7 +201,7 @@ class FileLocator implements FileLocatorInterface
         }
 
         // Remove any duplicates
-        return array_values(array_unique($foundPaths));
+        return array_unique($foundPaths);
     }
 
     /**
@@ -223,7 +212,7 @@ class FileLocator implements FileLocatorInterface
         if ($ext !== '') {
             $ext = '.' . $ext;
 
-            if (! str_ends_with($path, $ext)) {
+            if (substr($path, -strlen($ext)) !== $ext) {
                 $path .= $ext;
             }
         }
@@ -246,7 +235,7 @@ class FileLocator implements FileLocatorInterface
         foreach ($this->autoloader->getNamespace() as $prefix => $paths) {
             foreach ($paths as $path) {
                 if ($prefix === 'CodeIgniter') {
-                    $system[] = [
+                    $system = [
                         'prefix' => $prefix,
                         'path'   => rtrim($path, '\\/') . DIRECTORY_SEPARATOR,
                     ];
@@ -261,7 +250,9 @@ class FileLocator implements FileLocatorInterface
             }
         }
 
-        return array_merge($namespaces, $system);
+        $namespaces[] = $system;
+
+        return $namespaces;
     }
 
     /**
@@ -286,29 +277,20 @@ class FileLocator implements FileLocatorInterface
             }
 
             if (mb_strpos($path, $namespace['path']) === 0) {
-                $className = $namespace['prefix'] . '\\' .
-                    ltrim(
-                        str_replace(
+                $className = '\\' . $namespace['prefix'] . '\\' .
+                        ltrim(str_replace(
                             '/',
                             '\\',
                             mb_substr($path, mb_strlen($namespace['path']))
-                        ),
-                        '\\'
-                    );
+                        ), '\\');
+
                 // Remove the file extension (.php)
                 $className = mb_substr($className, 0, -4);
-
-                if (in_array($className, $this->invalidClassnames, true)) {
-                    continue;
-                }
 
                 // Check if this exists
                 if (class_exists($className)) {
                     return $className;
                 }
-
-                // If the class does not exist, it is an invalid classname.
-                $this->invalidClassnames[] = $className;
             }
         }
 
@@ -319,7 +301,7 @@ class FileLocator implements FileLocatorInterface
      * Scans the defined namespaces, returning a list of all files
      * that are contained within the subpath specified by $path.
      *
-     * @return list<string> List of file paths
+     * @return string[] List of file paths
      */
     public function listFiles(string $path): array
     {
@@ -352,7 +334,7 @@ class FileLocator implements FileLocatorInterface
      * Scans the provided namespace, returning a list of all files
      * that are contained within the sub path specified by $path.
      *
-     * @return list<string> List of file paths
+     * @return string[] List of file paths
      */
     public function listNamespaceFiles(string $prefix, string $path): array
     {

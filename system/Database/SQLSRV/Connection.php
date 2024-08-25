@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -79,7 +77,7 @@ class Connection extends BaseConnection
      *
      * Identifiers that must NOT be escaped.
      *
-     * @var list<string>
+     * @var string[]
      */
     protected $_reserved_identifiers = ['*'];
 
@@ -123,7 +121,7 @@ class Connection extends BaseConnection
             unset($connection['UID'], $connection['PWD']);
         }
 
-        if (! str_contains($this->hostname, ',') && $this->port !== '') {
+        if (strpos($this->hostname, ',') === false && $this->port !== '') {
             $this->hostname .= ', ' . $this->port;
         }
 
@@ -164,8 +162,6 @@ class Connection extends BaseConnection
     /**
      * Keep or establish the connection if no queries have been sent for
      * a length of time exceeding the server's idle timeout.
-     *
-     * @return void
      */
     public function reconnect()
     {
@@ -175,8 +171,6 @@ class Connection extends BaseConnection
 
     /**
      * Close the database connection.
-     *
-     * @return void
      */
     protected function _close()
     {
@@ -196,7 +190,7 @@ class Connection extends BaseConnection
      */
     public function insertID(): int
     {
-        return (int) ($this->query('SELECT SCOPE_IDENTITY() AS insert_id')->getRow()->insert_id ?? 0);
+        return $this->query('SELECT SCOPE_IDENTITY() AS insert_id')->getRow()->insert_id ?? 0;
     }
 
     /**
@@ -237,7 +231,7 @@ class Connection extends BaseConnection
     /**
      * Returns an array of objects with index data
      *
-     * @return array<string, stdClass>
+     * @return stdClass[]
      *
      * @throws DatabaseException
      */
@@ -259,10 +253,10 @@ class Connection extends BaseConnection
             $_fields     = explode(',', trim($row->index_keys));
             $obj->fields = array_map(static fn ($v) => trim($v), $_fields);
 
-            if (str_contains($row->index_description, 'primary key located on')) {
+            if (strpos($row->index_description, 'primary key located on') !== false) {
                 $obj->type = 'PRIMARY';
             } else {
-                $obj->type = (str_contains($row->index_description, 'nonclustered, unique')) ? 'UNIQUE' : 'INDEX';
+                $obj->type = (strpos($row->index_description, 'nonclustered, unique') !== false) ? 'UNIQUE' : 'INDEX';
             }
 
             $retVal[$obj->name] = $obj;
@@ -275,7 +269,7 @@ class Connection extends BaseConnection
      * Returns an array of objects with Foreign key data
      * referenced_object_id  parent_object_id
      *
-     * @return array<string, stdClass>
+     * @return stdClass[]
      *
      * @throws DatabaseException
      */
@@ -341,7 +335,7 @@ class Connection extends BaseConnection
     /**
      * Returns an array of objects with field data
      *
-     * @return list<stdClass>
+     * @return stdClass[]
      *
      * @throws DatabaseException
      */

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -17,14 +15,13 @@ use BadMethodCallException;
 use CodeIgniter\HTTP\Exceptions\HTTPException;
 use Config\App;
 use InvalidArgumentException;
-use Stringable;
 
 /**
  * Abstraction for a uniform resource identifier (URI).
  *
  * @see \CodeIgniter\HTTP\URITest
  */
-class URI implements Stringable
+class URI
 {
     /**
      * Sub-delimiters used in query strings and fragments.
@@ -175,7 +172,7 @@ class URI implements Stringable
         }
 
         if (isset($path) && $path !== '') {
-            $uri .= ! str_ends_with($uri, '/')
+            $uri .= substr($uri, -1, 1) !== '/'
                 ? '/' . ltrim($path, '/')
                 : ltrim($path, '/');
         }
@@ -231,12 +228,12 @@ class URI implements Stringable
         $output = trim($output, '/ ');
 
         // Add leading slash if necessary
-        if (str_starts_with($path, '/')) {
+        if (strpos($path, '/') === 0) {
             $output = '/' . $output;
         }
 
         // Add trailing slash if necessary
-        if ($output !== '/' && str_ends_with($path, '/')) {
+        if ($output !== '/' && substr($path, -1, 1) === '/') {
             $output .= '/';
         }
 
@@ -655,14 +652,14 @@ class URI implements Stringable
         $baseUri = new self($config->baseURL);
 
         if (
-            str_starts_with($this->getScheme(), 'http')
+            substr($this->getScheme(), 0, 4) === 'http'
             && $this->getHost() === $baseUri->getHost()
         ) {
             // Check for additional segments
             $basePath = trim($baseUri->getPath(), '/') . '/';
             $trimPath = ltrim($path, '/');
 
-            if ($basePath !== '/' && ! str_starts_with($trimPath, $basePath)) {
+            if ($basePath !== '/' && strpos($trimPath, $basePath) !== 0) {
                 $path = $basePath . $trimPath;
             }
 
@@ -880,7 +877,7 @@ class URI implements Stringable
      */
     public function setQuery(string $query)
     {
-        if (str_contains($query, '#')) {
+        if (strpos($query, '#') !== false) {
             if ($this->silent) {
                 return $this;
             }
@@ -889,7 +886,7 @@ class URI implements Stringable
         }
 
         // Can't have leading ?
-        if ($query !== '' && str_starts_with($query, '?')) {
+        if ($query !== '' && strpos($query, '?') === 0) {
             $query = substr($query, 1);
         }
 
@@ -1011,10 +1008,10 @@ class URI implements Stringable
         $path = self::removeDotSegments($path);
 
         // Fix up some leading slash edge cases...
-        if (str_starts_with($orig, './')) {
+        if (strpos($orig, './') === 0) {
             $path = '/' . $path;
         }
-        if (str_starts_with($orig, '../')) {
+        if (strpos($orig, '../') === 0) {
             $path = '/' . $path;
         }
 
@@ -1115,7 +1112,7 @@ class URI implements Stringable
                     $transformed->setQuery($this->getQuery());
                 }
             } else {
-                if (str_starts_with($relative->getPath(), '/')) {
+                if (strpos($relative->getPath(), '/') === 0) {
                     $transformed->setPath($relative->getPath());
                 } else {
                     $transformed->setPath($this->mergePaths($this, $relative));

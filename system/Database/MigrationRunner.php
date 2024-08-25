@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -445,7 +443,7 @@ class MigrationRunner
      */
     protected function migrationFromFile(string $path, string $namespace)
     {
-        if (! str_ends_with($path, '.php')) {
+        if (substr($path, -4) !== '.php') {
             return false;
         }
 
@@ -686,7 +684,7 @@ class MigrationRunner
             ->get()
             ->getResultArray();
 
-        return array_map(intval(...), array_column($batches, 'batch'));
+        return array_map('intval', array_column($batches, 'batch'));
     }
 
     /**
@@ -747,7 +745,7 @@ class MigrationRunner
             ->get()
             ->getResultObject();
 
-        return $migration === [] ? '0' : $migration[0]->version;
+        return count($migration) ? $migration[0]->version : 0;
     }
 
     /**

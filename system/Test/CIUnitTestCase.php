@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -52,7 +50,7 @@ abstract class CIUnitTestCase extends TestCase
      * WARNING: Do not override unless you know exactly what you are doing.
      *          This property may be deprecated in the future.
      *
-     * @var list<string> array of methods
+     * @var array of methods
      */
     protected $setUpMethods = [
         'resetFactories',
@@ -66,7 +64,7 @@ abstract class CIUnitTestCase extends TestCase
      *
      * WARNING: This property may be deprecated in the future.
      *
-     * @var list<string> array of methods
+     * @var array of methods
      */
     protected $tearDownMethods = [];
 
@@ -111,7 +109,7 @@ abstract class CIUnitTestCase extends TestCase
      * The seed file(s) used for all tests within this test case.
      * Should be fully-namespaced or relative to $basePath
      *
-     * @var class-string<Seeder>|list<class-string<Seeder>>
+     * @var array|string
      */
     protected $seed = '';
 
@@ -441,7 +439,7 @@ abstract class CIUnitTestCase extends TestCase
      * where the result is close but not exactly equal to the
      * expected time, for reasons beyond our control.
      *
-     * @param float|int $actual
+     * @param mixed $actual
      *
      * @throws Exception
      */
@@ -479,7 +477,7 @@ abstract class CIUnitTestCase extends TestCase
             $difference = abs($expected - $actual);
 
             $this->assertLessThanOrEqual($tolerance, $difference, $message);
-        } catch (Exception) {
+        } catch (Exception $e) {
             return false;
         }
     }
@@ -497,7 +495,7 @@ abstract class CIUnitTestCase extends TestCase
     protected function createApplication()
     {
         // Initialize the autoloader.
-        service('autoloader')->initialize(new Autoload(), new Modules());
+        Services::autoloader()->initialize(new Autoload(), new Modules());
 
         $app = new MockCodeIgniter(new App());
         $app->initialize();
@@ -517,7 +515,7 @@ abstract class CIUnitTestCase extends TestCase
         foreach (xdebug_get_headers() as $emittedHeader) {
             $found = $ignoreCase
                 ? (stripos($emittedHeader, $header) === 0)
-                : (str_starts_with($emittedHeader, $header));
+                : (strpos($emittedHeader, $header) === 0);
 
             if ($found) {
                 return $emittedHeader;

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -101,7 +99,7 @@ class Forge extends BaseForge
         }
 
         if (! empty($this->db->dataCache['db_names'])) {
-            $key = array_search(strtolower($dbName), array_map(strtolower(...), $this->db->dataCache['db_names']), true);
+            $key = array_search(strtolower($dbName), array_map('strtolower', $this->db->dataCache['db_names']), true);
             if ($key !== false) {
                 unset($this->db->dataCache['db_names'][$key]);
             }
@@ -169,7 +167,7 @@ class Forge extends BaseForge
      */
     protected function _processColumn(array $processedField): string
     {
-        if ($processedField['type'] === 'TEXT' && str_starts_with($processedField['length'], "('")) {
+        if ($processedField['type'] === 'TEXT' && strpos($processedField['length'], "('") === 0) {
             $processedField['type'] .= ' CHECK(' . $this->db->escapeIdentifiers($processedField['name'])
                 . ' IN ' . $processedField['length'] . ')';
         }

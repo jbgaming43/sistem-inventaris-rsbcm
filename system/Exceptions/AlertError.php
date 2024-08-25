@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -11,13 +9,13 @@ declare(strict_types=1);
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace CodeIgniter\DataCaster\Exceptions;
+namespace CodeIgniter\Exceptions;
 
-use CodeIgniter\Entity\Exceptions\CastException as EntityCastException;
+use Error;
 
 /**
- * CastException is thrown for invalid cast initialization and management.
+ * Error: Action must be taken immediately (system/db down, etc)
  */
-class CastException extends EntityCastException
+class AlertError extends Error
 {
 }

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * This file is part of CodeIgniter 4 framework.
  *
@@ -68,10 +66,10 @@ class Cell
     /**
      * Render a cell, returning its body as a string.
      *
-     * @param string                            $library   Cell class and method name.
-     * @param array<string, string>|string|null $params    Parameters to pass to the method.
-     * @param int                               $ttl       Number of seconds to cache the cell.
-     * @param string|null                       $cacheName Cache item name.
+     * @param string            $library   Cell class and method name.
+     * @param array|string|null $params    Parameters to pass to the method.
+     * @param int               $ttl       Number of seconds to cache the cell.
+     * @param string|null       $cacheName Cache item name.
      *
      * @throws ReflectionException
      */
@@ -80,7 +78,7 @@ class Cell
         [$instance, $method] = $this->determineClass($library);
 
         $class = is_object($instance)
-            ? $instance::class
+            ? get_class($instance)
             : null;
 
         $params = $this->prepareParams($params);
@@ -93,7 +91,7 @@ class Cell
         }
 
         if (method_exists($instance, 'initController')) {
-            $instance->initController(Services::request(), service('response'), service('logger'));
+            $instance->initController(Services::request(), Services::response(), Services::logger());
         }
 
         if (! method_exists($instance, $method)) {
@@ -117,10 +115,9 @@ class Cell
      * If a string, it should be in the format "key1=value key2=value".
      * It will be split and returned as an array.
      *
-     * @param         array<string, string>|string|null       $params
-     * @phpstan-param array<string, string>|string|float|null $params
+     * @param array|string|null $params
      *
-     * @return array<string, string>
+     * @return array
      */
     public function prepareParams($params)
     {
@@ -135,7 +132,7 @@ class Cell
             $newParams = [];
             $separator = ' ';
 
-            if (str_contains($params, ',')) {
+            if (strpos($params, ',') !== false) {
                 $separator = ',';
             }
 
@@ -173,7 +170,7 @@ class Cell
 
         // controlled cells might be called with just
         // the class name, so add a default method
-        if (! str_contains($library, ':')) {
+        if (strpos($library, ':') === false) {
             $library .= ':render';
         }
 
@@ -212,7 +209,7 @@ class Cell
         $publicParams      = array_intersect_key($params, $publicProperties);
 
         foreach ($params as $key => $value) {
-            $getter = 'get' . ucfirst((string) $key) . 'Property';
+            $getter = 'get' . ucfirst($key) . 'Property';
             if (in_array($key, $privateProperties, true) && method_exists($instance, $getter)) {
                 $publicParams[$key] = $value;
             }
@@ -254,7 +251,7 @@ class Cell
                     $mountParams[] = $params[$paramName];
                 }
             }
-        } catch (ReflectionException) {
+        } catch (ReflectionException $e) {
             // do nothing
         }
 
