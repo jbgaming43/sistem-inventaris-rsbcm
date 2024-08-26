@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Inventari Barang RSBCM</title>
 
-    <link rel="icon" type="image/png" href="<?= base_url(); ?>/assets/img/icon/Pancasila.png" />
+    <link rel="icon" type="image/png" href="<?= base_url(); ?>/assets/img/icon/rsbcm_logo.png" />
 
     <!-- CSS files -->
     <link href="<?= base_url('assets/dist/css/tabler.min.css?1684106062') ?>" rel="stylesheet" />

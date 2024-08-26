@@ -8,6 +8,7 @@ use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
+use App\Filters\LoginFilter;
 
 class Filters extends BaseConfig
 {
@@ -24,6 +25,7 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'isLoggedIn'    => LoginFilter::class,
     ];
 
     /**
@@ -65,5 +67,20 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
-    public array $filters = [];
+    public array $filters = [
+        'isLoggedIn' => [
+            'before' => [
+                'dashboard', // Semua akses ke /dashboard dibatasi oleh filter
+                'pengguna', // Semua akses ke /pengguna dibatasi oleh filter
+                'pengguna/*', // Semua akses ke /pengguna/xxx dibatasi oleh filter
+                
+            ],
+        ],
+        /* 'isLoggedIn' => [
+            'before' => [
+                'pengguna/*' => ['Admin'], // Membatasi akses ke /admin/* hanya untuk admin
+                'report/*' => ['Admin'], // Membatasi akses ke /report/* hanya untuk admin
+            ],
+        ], */
+    ];
 }
