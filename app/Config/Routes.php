@@ -5,7 +5,12 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'DashboardController::index');
+// Routes untuk mengelola auth
+$routes->get('/', 'AuthController::login');
+$routes->post('/login', 'AuthController::login');
+$routes->get('/logout', 'AuthController::logout');
+
+$routes->get('/dashboard', 'DashboardController::index');
 
 // Routes untuk mengelola pengguna
 $routes->get('/pengguna', 'PenggunaController::index');
