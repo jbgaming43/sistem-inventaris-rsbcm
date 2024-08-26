@@ -8,7 +8,8 @@ use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
-use App\Filters\LoginFilter;
+use App\Filters\FilterAdmin;
+use App\Filters\FilterPetugas;
 
 class Filters extends BaseConfig
 {
@@ -25,7 +26,8 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'isLoggedIn'    => LoginFilter::class,
+        'filterAdmin'   => FilterAdmin::class,
+        'filterPetugas' => FilterPetugas::class,
     ];
 
     /**
@@ -36,12 +38,29 @@ class Filters extends BaseConfig
      */
     public array $globals = [
         'before' => [
-            // 'honeypot',
-            // 'csrf',
-            // 'invalidchars',
+            'filterAdmin' => [
+                'except' => [
+                    'login','/'
+                ]
+            ],
+            'filterPetugas' => [
+                'except' => [
+                    'login','/'
+                ]
+            ]
         ],
         'after' => [
             'toolbar',
+            'filterAdmin' => [
+                'except' => [
+                    'dashboard/*', 'dashboard', 'pengguna', 'pengguna/*'
+                ]
+            ],
+            'filterPetugas' => [
+                'except' => [
+                    'dashboard/*', 'dashboard'
+                ]
+            ]
             // 'honeypot',
             // 'secureheaders',
         ],
@@ -68,14 +87,14 @@ class Filters extends BaseConfig
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
     public array $filters = [
-        'isLoggedIn' => [
-            'before' => [
-                'dashboard', // Semua akses ke /dashboard dibatasi oleh filter
-                'pengguna', // Semua akses ke /pengguna dibatasi oleh filter
-                'pengguna/*', // Semua akses ke /pengguna/xxx dibatasi oleh filter
+        // 'isLoggedIn' => [
+        //     'before' => [
+        //         'dashboard', // Semua akses ke /dashboard dibatasi oleh filter
+        //         'pengguna', // Semua akses ke /pengguna dibatasi oleh filter
+        //         'pengguna/*', // Semua akses ke /pengguna/xxx dibatasi oleh filter
                 
-            ],
-        ],
+        //     ],
+        // ],
         /* 'isLoggedIn' => [
             'before' => [
                 'pengguna/*' => ['Admin'], // Membatasi akses ke /admin/* hanya untuk admin

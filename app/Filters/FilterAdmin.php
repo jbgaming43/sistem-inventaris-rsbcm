@@ -6,7 +6,7 @@ use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class LoginFilter implements FilterInterface
+class FilterAdmin implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
@@ -17,6 +17,8 @@ class LoginFilter implements FilterInterface
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        // Do something here
+        if (session()->get('level') == 'Admin') {
+            return redirect()->to('/dashboard');
+        }
     }
 }
