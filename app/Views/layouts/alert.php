@@ -25,7 +25,7 @@
                 </svg>
             </div>
             <div>
-                Data berhasi <strong><?= session()->getFlashdata('success') ?></strong>!
+                Data berhasil <strong><?= session()->getFlashdata('success') ?></strong>!
             </div>
         </div>
         <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>

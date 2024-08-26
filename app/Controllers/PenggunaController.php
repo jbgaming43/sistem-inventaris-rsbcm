@@ -120,17 +120,22 @@ class PenggunaController extends BaseController
         // Dapatkan data pengguna yang akan dihapus
         $pengguna = $pm->find($id);
 
-        // Hapus file gambar terkait jika bukan default.jpg
-        if ($pengguna['profile_image'] !== 'default.jpg') {
-            $imagePath = ROOTPATH . 'public/assets/avatars/' . $pengguna['profile_image'];
-            if (file_exists($imagePath)) {
-                unlink($imagePath);
+        if ($pengguna['id'] == session()->get('id')) {
+            session()->setFlashdata('error', 'tidak bisa menghapus akun sendiri');
+            return redirect()->to('/pengguna');
+        } else {
+            // Hapus file gambar terkait jika bukan default.jpg
+            if ($pengguna['profile_image'] !== 'default.jpg') {
+                $imagePath = ROOTPATH . 'public/assets/avatars/' . $pengguna['profile_image'];
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
             }
+
+            $pm->deleteData($id);
+
+            session()->setFlashdata('success', 'dihapus');
+            return redirect()->to('/pengguna');
         }
-
-        $pm->deleteData($id);
-
-        session()->setFlashdata('success', 'dihapus');
-        return redirect()->to('/pengguna');
     }
 }
