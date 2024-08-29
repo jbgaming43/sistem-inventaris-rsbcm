@@ -168,6 +168,85 @@
                 ...element
             })
         });
+
+        // VALIDASI UNTUK DATA PENGGUNA
+        $('.validation_pengajuan_inventaris').each(function() {
+            var form = $(this);
+            form.validate({
+                rules: {
+                    no_pengajuan: {
+                        required: true,
+                    },
+                    tanggal: {
+                        required: true,
+                    },
+                    nik: {
+                        required: true,
+                    },
+                    urgensi: {
+                        required: true,
+                    },
+                    latar_belakang: {
+                        required: true,
+                    },
+                    nama_barang: {
+                        required: true,
+                    },
+                    spesifikasi: {
+                        required: true,
+                    },
+                    jumlah: {
+                        required: true,
+                    },
+                    harga: {
+                        required: true,
+                    },
+                    keterangan: {
+                        required: true,
+                    },
+                    nik_pj: {
+                        required: true,
+                    },
+                    
+                },
+                messages: {
+                    no_pengajuan: {
+                        required: req,
+                    },
+                    tanggal: {
+                        required: req,
+                    },
+                    nik: {
+                        required: chose,
+                    },
+                    urgensi: {
+                        required: chose,
+                    },
+                    latar_belakang: {
+                        required: req,
+                    },
+                    nama_barang: {
+                        required: req,
+                    },
+                    spesifikasi: {
+                        required: req,
+                    },
+                    jumlah: {
+                        required: req,
+                    },
+                    harga: {
+                        required: req,
+                    },
+                    keterangan: {
+                        required: req,
+                    },
+                    nik_pj: {
+                        required: chose,
+                    },
+                },
+                ...element
+            })
+        });
     });
 </script>
 
@@ -175,20 +254,8 @@
 <script>
     $(document).ready(function() {
         // Inisialisasi Select2 untuk Modal Tambah Desa
-        $('.select2-kecamatan').select2({
-            dropdownParent: $('#add_desa')
-        });
-    });
-    $(document).ready(function() {
-        // Inisialisasi Select2 untuk Modal Tambah Desa
-        $('.select2-desa').select2({
-            dropdownParent: $('#add_calonmustahik')
-        });
-    });
-    $(document).ready(function() {
-        // Inisialisasi Select2 untuk Modal Tambah Desa
-        $('.select2-desa2').select2({
-            dropdownParent: $('#add_mustahik')
+        $('.select2-pegawai').select2({
+            dropdownParent: $('#add_pengajuan_inventaris')
         });
     });
 
