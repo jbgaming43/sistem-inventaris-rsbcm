@@ -69,7 +69,7 @@
                                         <td><?= $dt_pengajuan_inventaris['nama_pj']; ?></td>
                                         <td><?= $dt_pengajuan_inventaris['status']; ?></td>
                                         <td>
-                                            <span data-bs-toggle="modal" data-bs-target="#edit_pengguna<?= $dt_pengajuan_inventaris['id']; ?>">
+                                            <span data-bs-toggle="modal" data-bs-target="#edit_pengajuan_inventaris<?= $dt_pengajuan_inventaris['no_pengajuan']; ?>">
                                                 <button type="button" class="btn btn-icon btn-yellow btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="true" />
@@ -78,7 +78,7 @@
                                                     </svg>
                                                 </button>
                                             </span>
-                                            <span data-bs-toggle="modal" data-bs-target="#delete_pengguna<?= $dt_pengajuan_inventaris['id']; ?>">
+                                            <span data-bs-toggle="modal" data-bs-target="#delete_pengajuan_inventaris<?= $dt_pengajuan_inventaris['no_pengajuan']; ?>">
                                                 <button type="button" class="btn btn-icon btn-red btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -103,5 +103,7 @@
 </div>
 
 <?= $this->include('pengajuan_inventaris/modal_add') ?>
+<?= $this->include('pengajuan_inventaris/modal_edit') ?>
+<?= $this->include('pengajuan_inventaris/modal_delete') ?>
 
 <?= $this->endSection() ?>
