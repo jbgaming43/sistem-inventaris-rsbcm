@@ -53,7 +53,7 @@ class Filters extends BaseConfig
             'toolbar',
             'filterAdmin' => [
                 'except' => [
-                    'dashboard/*', 'dashboard', 'pengguna', 'pengguna/*'
+                    'dashboard/*', 'dashboard', 'pengguna', 'pengguna/*', 'pengajuan_nonmedis','pengajuan_nonmedis/*','pengajuan_inventaris','pengajuan_inventaris/*','','','',
                 ]
             ],
             'filterPetugas' => [
