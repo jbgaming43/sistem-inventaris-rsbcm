@@ -98,4 +98,32 @@ class PengajuanInventarisController extends BaseController
         session()->setFlashdata('success', 'dihapus');
         return redirect()->to('/pengajuan_inventaris');
     }
+
+    public function setuju($id)
+    {
+        $pbnm = new PengajuanInventarisModel();
+
+        $data = [
+            'status' => 'Disetujui'
+        ];
+
+        $pbnm->updateData($id, $data);
+
+        session()->setFlashdata('success', 'disetujui');
+        return redirect()->to('/pengajuan_inventaris');
+    }
+
+    public function tolak($id)
+    {
+        $pbnm = new PengajuanInventarisModel();
+
+        $data = [
+            'status' => 'Ditolak'
+        ];
+
+        $pbnm->updateData($id, $data);
+
+        session()->setFlashdata('success', 'ditolak');
+        return redirect()->to('/pengajuan_inventaris');
+    }
 }

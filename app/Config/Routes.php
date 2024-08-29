@@ -30,3 +30,5 @@ $routes->get('/pengajuan_inventaris', 'PengajuanInventarisController::index');
 $routes->post('/pengajuan_inventaris/add', 'PengajuanInventarisController::add');
 $routes->post('/pengajuan_inventaris/edit/(:num)', 'PengajuanInventarisController::edit/$1');
 $routes->post('/pengajuan_inventaris/delete/(:num)', 'PengajuanInventarisController::delete/$1');
+$routes->post('/pengajuan_inventaris/setuju/(:num)', 'PengajuanInventarisController::setuju/$1');
+$routes->post('/pengajuan_inventaris/tolak/(:num)', 'PengajuanInventarisController::tolak/$1');
