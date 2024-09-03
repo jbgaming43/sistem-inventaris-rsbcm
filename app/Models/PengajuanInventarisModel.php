@@ -43,4 +43,18 @@ class PengajuanInventarisModel extends Model
     {
         return $this->delete($id); // delete data by ID
     }
+
+    public function printData($tanggal_awal, $tanggal_akhir, $nik = null)
+    {
+        $builder = $this->select('pengajuan_inventaris.*, pegawai.*')
+        ->join('pegawai','pengajuan_inventaris.nik=pegawai.nik')
+        ->join('pegawai as pj','pengajuan_inventaris.nik_pj=pj.nik')
+        ->select('pj.nik as nik_pj,pj.nama as nama_pj')
+        ->where('tanggal >=' , $tanggal_awal)
+        ->where('tanggal <=' , $tanggal_akhir);
+        if ($nik != null){
+            $builder->where('pengajuan_inventaris.nik', $nik);
+        }
+        return $builder->findAll(); // retrieve all data
+    }
 }

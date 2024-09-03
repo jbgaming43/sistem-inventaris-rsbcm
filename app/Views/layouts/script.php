@@ -169,7 +169,7 @@
             })
         });
 
-        // VALIDASI UNTUK DATA PENGGUNA
+        // VALIDASI UNTUK Pengajuan Inventaris
         $('.validation_pengajuan_inventaris').each(function() {
             var form = $(this);
             form.validate({
@@ -247,6 +247,30 @@
                 ...element
             })
         });
+
+        // VALIDASI UNTUK Print Inventaris
+        $('.validation_print_inventaris').each(function() {
+            var form = $(this);
+            form.validate({
+                rules: {
+                    tanggal_awal: {
+                        required: true,
+                    },
+                    tanggal_akhir: {
+                        required: true,
+                    },
+                },
+                messages: {
+                    tanggal_awal: {
+                        required: req,
+                    },
+                    tanggal_akhir: {
+                        required: req,
+                    },
+                },
+                ...element
+            })
+        });
     });
 </script>
 
@@ -256,6 +280,12 @@
         // Inisialisasi Select2 untuk Modal Tambah Desa
         $('.select2-pegawai').select2({
             dropdownParent: $('#add_pengajuan_inventaris')
+        });
+    });
+    $(document).ready(function() {
+        // Inisialisasi Select2 untuk Modal Tambah Desa
+        $('.select2-pegawai').select2({
+            dropdownParent: $('#print_pengajuan_inventaris')
         });
     });
 
