@@ -130,13 +130,15 @@ class PengajuanInventarisController extends BaseController
     public function print()
     {
         $pbnm = new PengajuanInventarisModel();
-        
+
         $tanggal_awal = $this->request->getPost('tanggal_awal');
         $tanggal_akhir = $this->request->getPost('tanggal_akhir');
         $nik = $this->request->getPost('nik');
 
         $data = $pbnm->printData($tanggal_awal, $tanggal_akhir, $nik);
-        var_dump($data);
+        // var_dump($data);
+
+        return view('pengajuan_inventaris/page_print', ['data' => $data, 'tanggal_awal' => $tanggal_awal, 'tanggal_akhir' => $tanggal_akhir, 'nik' => $nik]);
 
     }
 }

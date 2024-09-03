@@ -284,7 +284,7 @@
     });
     $(document).ready(function() {
         // Inisialisasi Select2 untuk Modal Tambah Desa
-        $('.select2-pegawai').select2({
+        $('.select2-pegawai2').select2({
             dropdownParent: $('#print_pengajuan_inventaris')
         });
     });
