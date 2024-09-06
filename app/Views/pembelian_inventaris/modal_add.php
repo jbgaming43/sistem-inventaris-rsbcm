@@ -96,10 +96,16 @@
                                         <td><input type="number" id="harga_beli_0" name="harga_beli[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" required></td>
                                         <td><input type="number" id="diskon_0" name="diskon[]" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" required></td>
                                         <td><input type="text" id="total_0" class="form-control" readonly value="Rp0.00"></td>
-                                        <td>
-                                            <button type="button" class="btn btn-primary" onclick="addRow()">Tambah</button>
+                                        <td class="text-center">
+                                            <button type="button" class="btn btn-primary btn-icon" onclick="addRow()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <path d="M12 5l0 14"></path>
+                                                    <path d="M5 12l14 0"></path>
+                                                </svg>
+                                            </button>
                                         </td>
-                                        
+
                                     </tr>
                                 </tbody>
                             </table>
