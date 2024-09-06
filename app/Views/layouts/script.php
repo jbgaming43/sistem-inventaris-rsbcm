@@ -207,7 +207,7 @@
                     nik_pj: {
                         required: true,
                     },
-                    
+
                 },
                 messages: {
                     no_pengajuan: {
@@ -288,6 +288,12 @@
             dropdownParent: $('#print_pengajuan_inventaris')
         });
     });
+    $(document).ready(function() {
+        // Inisialisasi Select2 untuk Modal Tambah Desa
+        $('.select2-barang').select2({
+            dropdownParent: $('#add_pembelian_inventaris')
+        });
+    });
 
     function resetForm(formClass) {
         $('.' + formClass)[0].reset();
@@ -333,3 +339,94 @@
         checkbox.addEventListener('change', countChecked);
     });
 </script>
+
+<script>
+    function fetchBarangDetails(kode_barang) {
+        if (kode_barang) {
+            $.ajax({
+                url: '/pembelian_inventaris/pilih_barang',
+                type: 'GET',
+                data: {
+                    kode_barang: kode_barang
+                },
+                dataType: 'json',
+                success: function(data) {
+                    if (data) {
+                        $('#kode_barang').val(data.kode_barang);
+                        $('#nama_produsen').val(data.nama_produsen);
+                        $('#nama_merk').val(data.nama_merk);
+                        $('#nama_jenis').val(data.nama_jenis);
+                    } else {
+                        // Clear fields if no data found
+                        $('#kode_barang').val('');
+                        $('#nama_produsen').val('');
+                        $('#nama_merk').val('');
+                        $('#nama_jenis').val('');
+                    }
+                }
+            });
+        }
+    }
+</script>
+
+<script>
+// Fungsi untuk menghitung total harga dengan diskon
+function hitungTotal() {
+    var hargaBeli = parseFloat(document.getElementById("harga_beli").value) || 0;
+    var diskon = parseFloat(document.getElementById("diskon").value) || 0;
+    var jumlah = parseFloat(document.getElementById("jumlah").value) || 0;
+
+    // Hitung total sebelum diskon
+    var totalSebelumDiskon = hargaBeli * jumlah;
+
+    // Hitung total setelah diskon
+    var total = totalSebelumDiskon - (totalSebelumDiskon * (diskon / 100));
+
+    // Masukkan hasil perhitungan ke input total
+    document.getElementById('total').value = "Rp " + total.toFixed(2); // Tampilkan hasil di input total
+}
+
+// Fungsi untuk membatasi input harga agar tidak kurang dari 0
+function validateHarga() {
+    var hargaInput = document.getElementById("harga_beli");
+    var harga = parseFloat(hargaInput.value);
+
+    if (harga < 0) {
+        hargaInput.value = 0;
+    }
+
+    hitungTotal(); // Update total setelah validasi
+}
+
+// Fungsi untuk membatasi input diskon agar tidak lebih dari 100 dan tidak kurang dari 0
+function validateDiskon() {
+    var diskonInput = document.getElementById("diskon");
+    var diskon = parseFloat(diskonInput.value);
+
+    if (diskon > 100) {
+        diskonInput.value = 100;
+    } else if (diskon < 0) {
+        diskonInput.value = 0;
+    }
+
+    hitungTotal(); // Update total setelah validasi
+}
+
+// Fungsi untuk membatasi input jumlah agar tidak kurang dari 0
+function validateJumlah() {
+    var jumlahInput = document.getElementById("jumlah");
+    var jumlah = parseFloat(jumlahInput.value);
+
+    if (jumlah < 0) {
+        jumlahInput.value = 0;
+    }
+
+    hitungTotal(); // Update total setelah validasi
+}
+
+// Pasang event listener untuk input harga beli, diskon, dan jumlah
+document.getElementById("harga_beli").addEventListener("input", validateHarga);
+document.getElementById("diskon").addEventListener("input", validateDiskon);
+document.getElementById("jumlah").addEventListener("input", validateJumlah);
+</script>
+

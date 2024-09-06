@@ -102,7 +102,7 @@
                                 <a class="dropdown-item <?= ($active_submenu == 'pengajuan_inventaris') ? 'active' : ''; ?>" href="<?= base_url('/pengajuan_inventaris'); ?>">
                                     Data Pengajuan
                                 </a>
-                                <a class="dropdown-item <?= ($active_submenu == 'pembelian_inventaris') ? 'active' : ''; ?>" href="<?= base_url('/pengajuan_nonmedis'); ?>">
+                                <a class="dropdown-item <?= ($active_submenu == 'pembelian_inventaris') ? 'active' : ''; ?>" href="<?= base_url('/pembelian_inventaris'); ?>">
                                     Data Pembelian
                                 </a>
                                 <a class="dropdown-item <?= ($active_submenu == 'penerimaan_inventaris') ? 'active' : ''; ?>" href="<?= base_url('/lainnya'); ?>">
