@@ -378,12 +378,14 @@
 
         // Hitung total sebelum diskon
         var totalSebelumDiskon = hargaBeli * jumlah;
-
+        var potongan = (totalSebelumDiskon * (diskon / 100));
         // Hitung total setelah diskon
-        var total = totalSebelumDiskon - (totalSebelumDiskon * (diskon / 100));
+        var total = totalSebelumDiskon - potongan;
 
         // Masukkan hasil perhitungan ke input total
         document.getElementById('total_' + rowIndex).value = "Rp " + total.toFixed(2); // Tampilkan hasil di input total
+        document.getElementById('subtotal_' + rowIndex).value = "Rp " + totalSebelumDiskon.toFixed(2); // Tampilkan hasil di input total
+        document.getElementById('potongan_' + rowIndex).value = "Rp " + potongan.toFixed(2); // Tampilkan hasil di input total
     }
 
     function validateHarga(rowIndex) {
@@ -435,49 +437,7 @@
     }
 </script>
 
-<script>
-    let rowIndex = 0;
 
-    // Fungsi untuk menambah baris
-    function addRow() {
-        rowIndex++;
-        const tableBody = document.getElementById('table-body');
-        const newRow = document.createElement('tr');
-        newRow.innerHTML = `
-        <td><input type="text" id="kode_barang_${rowIndex}" name="kode_barang" class="form-control" readonly></td>
-        <td><select class="form-select select2-barang" name="kode_barang" style="width: 100%" onchange="fetchBarangDetails(this.value, ${rowIndex})">
-            <option value="">- Pilih Nama -</option>
-            <?php foreach ($brgc as $dt_inventarisbarang) : ?>
-                <option value="<?= $dt_inventarisbarang['kode_barang'] ?>"><?= $dt_inventarisbarang['nama_barang'] ?></option>
-            <?php endforeach ?>
-        </select></td>
-        <td><input type="text" id="nama_produsen_${rowIndex}" name="nama_produsen" class="form-control" readonly></td>
-        <td><input type="text" id="nama_merk_${rowIndex}" name="nama_merk" class="form-control" readonly></td>
-        <td><input type="text" id="nama_jenis_${rowIndex}" name="nama_jenis" class="form-control" readonly></td>
-        <td><input type="number" id="jumlah_${rowIndex}" name="jumlah" class="form-control" placeholder="Jumlah" min="0" step="1" required></td>
-        <td><input type="number" id="harga_beli_${rowIndex}" name="harga_beli" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" required></td>
-        <td><input type="number" id="diskon_${rowIndex}" name="diskon" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" required></td>
-        <td><input type="text" id="total_${rowIndex}" class="form-control" readonly value="Rp0.00"></td>
-        <td><button type="button" class="btn btn-danger  btn-icon" onclick="removeRow(this)">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M4 7l16 0" />
-            <path d="M10 11l0 6" />
-            <path d="M14 11l0 6" />
-            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-        </svg></button></td>
-    `;
-        tableBody.appendChild(newRow);
-        setupEventListeners(rowIndex); // Setup event listeners for new row
-    }
-
-    // Fungsi untuk menghapus baris
-    function removeRow(button) {
-        const row = button.parentNode.parentNode;
-        row.parentNode.removeChild(row);
-    }
-</script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
