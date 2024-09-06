@@ -1114,3 +1114,78 @@ INFO - 2024-09-06 01:00:09 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-09-06 01:00:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-06 01:01:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-06 01:01:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 03:05:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 03:05:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 03:21:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 03:25:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 03:25:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 03:25:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 03:26:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 03:27:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:45:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:45:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-06 06:45:48 --> ErrorException: Undefined variable $brgc
+in APPPATH\Views\layouts\script.php on line 452.
+ 1 APPPATH\Views\layouts\script.php(452): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $brgc', 'C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\layouts\\script.php', 452)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\layouts\\script.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('layouts/script', null, true)
+ 5 APPPATH\Views\layouts\footer.php(125): CodeIgniter\View\View->include('layouts/script')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\layouts\\footer.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('layouts/footer', null, true)
+ 9 APPPATH\Views\auth\login.php(55): CodeIgniter\View\View->include('layouts/footer')
+10 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\auth\\login.php')
+11 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('auth/login', [], true)
+13 APPPATH\Controllers\AuthController.php(67): view('auth/login')
+14 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\AuthController->login()
+15 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+16 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+18 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-06 06:47:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:47:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:47:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:47:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:48:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:48:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-06 06:48:09 --> ErrorException: Undefined variable $brgc
+in APPPATH\Views\layouts\script.php on line 452.
+ 1 APPPATH\Views\layouts\script.php(452): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $brgc', 'C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\layouts\\script.php', 452)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\layouts\\script.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('layouts/script', null, true)
+ 5 APPPATH\Views\layouts\footer.php(125): CodeIgniter\View\View->include('layouts/script')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\layouts\\footer.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('layouts/footer', null, true)
+ 9 APPPATH\Views\layouts\page.php(16): CodeIgniter\View\View->include('layouts/footer')
+10 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\layouts\\page.php')
+11 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\View\View.php(244): CodeIgniter\View\View->render('layouts/page', [], true)
+13 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pengajuan_inventaris/index', [], true)
+14 APPPATH\Controllers\PengajuanInventarisController.php(28): view('pengajuan_inventaris/index', [...])
+15 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengajuanInventarisController->index()
+16 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengajuanInventarisController))
+17 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+18 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+19 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-06 06:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:49:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:49:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:49:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:49:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:49:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:57:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:57:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:57:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:58:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:58:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:58:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 06:58:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 07:01:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 07:01:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 07:01:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 07:01:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-06 07:01:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
