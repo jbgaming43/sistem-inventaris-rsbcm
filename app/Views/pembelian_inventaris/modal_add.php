@@ -65,7 +65,7 @@
                     </div>
                     <div class="mb-2 row">
                         <div class="col">
-                            <table class="table table-sm table-bordered">
+                            <table class="table table-sm table-bordered" id="inventoryTable">
                                 <thead>
                                     <tr>
                                         <th>Kode Barang</th>
@@ -80,33 +80,26 @@
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="table-body">
                                     <tr>
-                                        <td><input type="text" id="kode_barang" name="kode_barang" class="form-control" readonly></td>
-                                        <td><select class="form-select select2-barang" name="kode_barang" style="width: 100%" onchange="fetchBarangDetails(this.value)">
+                                        <td><input type="text" id="kode_barang_0" name="kode_barang[]" class="form-control" readonly></td>
+                                        <td><select class="form-select select2-barang" name="kode_barang[]" style="width: 100%" onchange="fetchBarangDetails(this.value, 0)">
                                                 <option value="">- Pilih Nama -</option>
                                                 <?php foreach ($brgc as $dt_inventarisbarang) : ?>
                                                     <option value="<?= $dt_inventarisbarang['kode_barang'] ?>"><?= $dt_inventarisbarang['nama_barang'] ?></option>
                                                 <?php endforeach ?>
                                             </select></td>
-                                        <td><input type="text" id="nama_produsen" name="nama_produsen" class="form-control" readonly></td>
-                                        <td><input type="text" id="nama_merk" name="nama_merk" class="form-control" readonly></td>
-                                        <td><input type="text" id="nama_jenis" name="nama_jenis" class="form-control" readonly></td>
-                                        <td><input type="number" id="jumlah" name="jumlah" class="form-control" placeholder="Jumlah" min="0" step="1" required></td>
-                                        <td><input type="number" id="harga_beli" name="harga_beli" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" required></td>
-                                        <td><input type="number" id="diskon" name="diskon" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" required></td>
-                                        <td><input type="text" id="total" class="form-control" readonly value="Rp0.00"></td>
+                                        <td><input type="text" id="nama_produsen_0" name="nama_produsen[]" class="form-control" readonly></td>
+                                        <td><input type="text" id="nama_merk_0" name="nama_merk[]" class="form-control" readonly></td>
+                                        <td><input type="text" id="nama_jenis_0" name="nama_jenis[]" class="form-control" readonly></td>
+                                        <td><input type="number" id="jumlah_0" name="jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" required></td>
+                                        <td><input type="number" id="harga_beli_0" name="harga_beli[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" required></td>
+                                        <td><input type="number" id="diskon_0" name="diskon[]" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" required></td>
+                                        <td><input type="text" id="total_0" class="form-control" readonly value="Rp0.00"></td>
                                         <td>
-                                            <span data-bs-toggle="modal" data-bs-target="#edit_pembelian_inventaris">
-                                                <button type="button" class="btn btn-icon btn-green btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" >
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                        <path d="M12 5l0 14"></path>
-                                                        <path d="M5 12l14 0"></path>
-                                                    </svg>
-                                                </button>
-                                            </span>
+                                            <button type="button" class="btn btn-primary" onclick="addRow()">Tambah</button>
                                         </td>
+                                        
                                     </tr>
                                 </tbody>
                             </table>
