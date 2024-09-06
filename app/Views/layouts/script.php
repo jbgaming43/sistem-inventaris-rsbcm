@@ -341,7 +341,7 @@
 </script>
 
 <script>
-    function fetchBarangDetails(kode_barang) {
+    function fetchBarangDetails(kode_barang, rowIndex) {
         if (kode_barang) {
             $.ajax({
                 url: '/pembelian_inventaris/pilih_barang',
@@ -352,16 +352,17 @@
                 dataType: 'json',
                 success: function(data) {
                     if (data) {
-                        $('#kode_barang').val(data.kode_barang);
-                        $('#nama_produsen').val(data.nama_produsen);
-                        $('#nama_merk').val(data.nama_merk);
-                        $('#nama_jenis').val(data.nama_jenis);
+                        // Update fields with ID including rowIndex
+                        $(`#kode_barang_${rowIndex}`).val(data.kode_barang);
+                        $(`#nama_produsen_${rowIndex}`).val(data.nama_produsen);
+                        $(`#nama_merk_${rowIndex}`).val(data.nama_merk);
+                        $(`#nama_jenis_${rowIndex}`).val(data.nama_jenis);
                     } else {
                         // Clear fields if no data found
-                        $('#kode_barang').val('');
-                        $('#nama_produsen').val('');
-                        $('#nama_merk').val('');
-                        $('#nama_jenis').val('');
+                        $(`#kode_barang_${rowIndex}`).val('');
+                        $(`#nama_produsen_${rowIndex}`).val('');
+                        $(`#nama_merk_${rowIndex}`).val('');
+                        $(`#nama_jenis_${rowIndex}`).val('');
                     }
                 }
             });
@@ -370,63 +371,108 @@
 </script>
 
 <script>
-// Fungsi untuk menghitung total harga dengan diskon
-function hitungTotal() {
-    var hargaBeli = parseFloat(document.getElementById("harga_beli").value) || 0;
-    var diskon = parseFloat(document.getElementById("diskon").value) || 0;
-    var jumlah = parseFloat(document.getElementById("jumlah").value) || 0;
+    function hitungTotal(rowIndex) {
+        var hargaBeli = parseFloat(document.getElementById("harga_beli_" + rowIndex).value) || 0;
+        var diskon = parseFloat(document.getElementById("diskon_" + rowIndex).value) || 0;
+        var jumlah = parseFloat(document.getElementById("jumlah_" + rowIndex).value) || 0;
 
-    // Hitung total sebelum diskon
-    var totalSebelumDiskon = hargaBeli * jumlah;
+        // Hitung total sebelum diskon
+        var totalSebelumDiskon = hargaBeli * jumlah;
 
-    // Hitung total setelah diskon
-    var total = totalSebelumDiskon - (totalSebelumDiskon * (diskon / 100));
+        // Hitung total setelah diskon
+        var total = totalSebelumDiskon - (totalSebelumDiskon * (diskon / 100));
 
-    // Masukkan hasil perhitungan ke input total
-    document.getElementById('total').value = "Rp " + total.toFixed(2); // Tampilkan hasil di input total
-}
-
-// Fungsi untuk membatasi input harga agar tidak kurang dari 0
-function validateHarga() {
-    var hargaInput = document.getElementById("harga_beli");
-    var harga = parseFloat(hargaInput.value);
-
-    if (harga < 0) {
-        hargaInput.value = 0;
+        // Masukkan hasil perhitungan ke input total
+        document.getElementById('total_' + rowIndex).value = "Rp " + total.toFixed(2); // Tampilkan hasil di input total
     }
 
-    hitungTotal(); // Update total setelah validasi
-}
+    function validateHarga(rowIndex) {
+        var hargaInput = document.getElementById("harga_beli_" + rowIndex);
+        var harga = parseFloat(hargaInput.value);
 
-// Fungsi untuk membatasi input diskon agar tidak lebih dari 100 dan tidak kurang dari 0
-function validateDiskon() {
-    var diskonInput = document.getElementById("diskon");
-    var diskon = parseFloat(diskonInput.value);
+        if (harga < 0) {
+            hargaInput.value = 0;
+        }
 
-    if (diskon > 100) {
-        diskonInput.value = 100;
-    } else if (diskon < 0) {
-        diskonInput.value = 0;
+        hitungTotal(rowIndex); // Update total setelah validasi
     }
 
-    hitungTotal(); // Update total setelah validasi
-}
+    function validateDiskon(rowIndex) {
+        var diskonInput = document.getElementById("diskon_" + rowIndex);
+        var diskon = parseFloat(diskonInput.value);
 
-// Fungsi untuk membatasi input jumlah agar tidak kurang dari 0
-function validateJumlah() {
-    var jumlahInput = document.getElementById("jumlah");
-    var jumlah = parseFloat(jumlahInput.value);
+        if (diskon > 100) {
+            diskonInput.value = 100;
+        } else if (diskon < 0) {
+            diskonInput.value = 0;
+        }
 
-    if (jumlah < 0) {
-        jumlahInput.value = 0;
+        hitungTotal(rowIndex); // Update total setelah validasi
     }
 
-    hitungTotal(); // Update total setelah validasi
-}
+    function validateJumlah(rowIndex) {
+        var jumlahInput = document.getElementById("jumlah_" + rowIndex);
+        var jumlah = parseFloat(jumlahInput.value);
 
-// Pasang event listener untuk input harga beli, diskon, dan jumlah
-document.getElementById("harga_beli").addEventListener("input", validateHarga);
-document.getElementById("diskon").addEventListener("input", validateDiskon);
-document.getElementById("jumlah").addEventListener("input", validateJumlah);
+        if (jumlah < 0) {
+            jumlahInput.value = 0;
+        }
+
+        hitungTotal(rowIndex); // Update total setelah validasi
+    }
+
+    // Pasang event listener untuk input harga beli, diskon, dan jumlah untuk setiap baris
+    function setupEventListeners(rowIndex) {
+        document.getElementById("harga_beli_" + rowIndex).addEventListener("input", function() {
+            validateHarga(rowIndex);
+        });
+        document.getElementById("diskon_" + rowIndex).addEventListener("input", function() {
+            validateDiskon(rowIndex);
+        });
+        document.getElementById("jumlah_" + rowIndex).addEventListener("input", function() {
+            validateJumlah(rowIndex);
+        });
+    }
 </script>
 
+<script>
+    let rowIndex = 0;
+
+    // Fungsi untuk menambah baris
+    function addRow() {
+        rowIndex++;
+        const tableBody = document.getElementById('table-body');
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+        <td><input type="text" id="kode_barang_${rowIndex}" name="kode_barang" class="form-control" readonly></td>
+        <td><select class="form-select select2-barang" name="kode_barang" style="width: 100%" onchange="fetchBarangDetails(this.value, ${rowIndex})">
+            <option value="">- Pilih Nama -</option>
+            <?php foreach ($brgc as $dt_inventarisbarang) : ?>
+                <option value="<?= $dt_inventarisbarang['kode_barang'] ?>"><?= $dt_inventarisbarang['nama_barang'] ?></option>
+            <?php endforeach ?>
+        </select></td>
+        <td><input type="text" id="nama_produsen_${rowIndex}" name="nama_produsen" class="form-control" readonly></td>
+        <td><input type="text" id="nama_merk_${rowIndex}" name="nama_merk" class="form-control" readonly></td>
+        <td><input type="text" id="nama_jenis_${rowIndex}" name="nama_jenis" class="form-control" readonly></td>
+        <td><input type="number" id="jumlah_${rowIndex}" name="jumlah" class="form-control" placeholder="Jumlah" min="0" step="1" required></td>
+        <td><input type="number" id="harga_beli_${rowIndex}" name="harga_beli" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" required></td>
+        <td><input type="number" id="diskon_${rowIndex}" name="diskon" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" required></td>
+        <td><input type="text" id="total_${rowIndex}" class="form-control" readonly value="Rp0.00"></td>
+        <td><button type="button" class="btn btn-danger" onclick="removeRow(this)">Hapus</button></td>
+    `;
+        tableBody.appendChild(newRow);
+        setupEventListeners(rowIndex); // Setup event listeners for new row
+    }
+
+    // Fungsi untuk menghapus baris
+    function removeRow(button) {
+        const row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        setupEventListeners(0); // Pasang listener untuk baris pertama
+    });
+</script>
