@@ -2,36 +2,48 @@
 
 namespace App\Controllers;
 
+use App\Models\InventarisBarangModel;
+use App\Models\RekeningModel;
+use App\Models\SuplierModel;
 use CodeIgniter\Controller;
-use App\Models\PengajuanInventarisModel;
-use App\Models\PegawaiModel;
+use App\Models\PembelianInventarisModel;
+use App\Models\PetugasModel;
+use App\Models\AkunBayarModel;
 use App\Helpers\AuthHelper;
 
-class PengajuanInventarisController extends BaseController
+class PembelianInventarisController extends BaseController
 {
     public function index()
     {
         // objek PenggunaModel
-        $pbnm = new PengajuanInventarisModel();
-        $pgwm = new PegawaiModel();
+        $pbnm = new PembelianInventarisModel();
+        $ptgm = new PetugasModel();
+        $supm = new SuplierModel();
+        $akbm = new AkunBayarModel();
+        $rekm = new RekeningModel();
+        $brgm = new InventarisBarangModel();
 
         $data = [
-            'title' => 'Data Pengajuan Inventaris',
+            'title' => 'Data Pembelian Inventaris',
             'active_menu' => 'inventaris',
-            'active_submenu' => 'pengajuan_inventaris',
+            'active_submenu' => 'pembelian_inventaris',
 
             'pbnc' => $pbnm->getData(),
-            'pgwc' => $pgwm->getData(),
+            'ptgc' => $ptgm->getData(),
+            'supc' => $supm->getData(),
+            'akbc' => $akbm->getData(),
+            'rekc' => $rekm->getData(),
+            'brgc' => $brgm->getData(),
         ];
 
 
-        return view('pengajuan_inventaris/index', $data);
+        return view('pembelian_inventaris/index', $data);
     }
 
     public function add()
     {
         // objek PenggunaModel
-        $pbnm = new PengajuanInventarisModel();
+        $pbnm = new PembelianInventarisModel();
 
         $jumlah = $this->request->getPost('jumlah');
         $harga = $this->request->getPost('harga');
@@ -61,7 +73,7 @@ class PengajuanInventarisController extends BaseController
 
     public function edit($id)
     {
-        $pbnm = new PengajuanInventarisModel();
+        $pbnm = new PembelianInventarisModel();
 
         $jumlah = $this->request->getPost('jumlah');
         $harga = $this->request->getPost('harga');
@@ -91,7 +103,7 @@ class PengajuanInventarisController extends BaseController
 
     public function delete($id)
     {
-        $pbnm = new PengajuanInventarisModel();
+        $pbnm = new PembelianInventarisModel();
 
         $pbnm->deleteData($id);
 
@@ -101,7 +113,7 @@ class PengajuanInventarisController extends BaseController
 
     public function setuju($id)
     {
-        $pbnm = new PengajuanInventarisModel();
+        $pbnm = new PembelianInventarisModel();
 
         $data = [
             'status' => 'Disetujui'
@@ -115,7 +127,7 @@ class PengajuanInventarisController extends BaseController
 
     public function tolak($id)
     {
-        $pbnm = new PengajuanInventarisModel();
+        $pbnm = new PembelianInventarisModel();
 
         $data = [
             'status' => 'Ditolak'
@@ -129,7 +141,7 @@ class PengajuanInventarisController extends BaseController
 
     public function print()
     {
-        $pbnm = new PengajuanInventarisModel();
+        $pbnm = new PembelianInventarisModel();
 
         $tanggal_awal = $this->request->getPost('tanggal_awal');
         $tanggal_akhir = $this->request->getPost('tanggal_akhir');
@@ -139,6 +151,18 @@ class PengajuanInventarisController extends BaseController
         // var_dump($data);
 
         return view('pengajuan_inventaris/page_print', ['data' => $data, 'tanggal_awal' => $tanggal_awal, 'tanggal_akhir' => $tanggal_akhir, 'nik' => $nik]);
+    }
 
+    public function getBarangDetails()
+    {
+        $brgm = new InventarisBarangModel();
+        $kode_barang = $this->request->getGet('kode_barang');
+        if ($kode_barang) {
+            $barang = $brgm->getDataByKode($kode_barang);
+            if ($barang) {
+                return $this->response->setJSON($barang);
+            }
+        }
+        return $this->response->setJSON(null);
     }
 }

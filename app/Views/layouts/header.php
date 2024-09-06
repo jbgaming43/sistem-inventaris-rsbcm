@@ -21,7 +21,7 @@
     <link href="<?= base_url('assets/dist/libs/datatables/datatables.min.css') ?>" rel="stylesheet" />
     <!-- CSS Select2 -->
     <link rel="stylesheet" href="<?= base_url('assets/dist/libs/select2/css/select2.min.css') ?>" rel="stylesheet">
-    
+
     <style>
         @import url('https://rsms.me/inter/inter.css');
 
@@ -31,6 +31,18 @@
 
         body {
             font-feature-settings: "cv03", "cv04", "cv11";
+        }
+
+        /* Menghilangkan spinner di Chrome, Safari, Edge, Opera */
+        input[type=number]::-webkit-outer-spin-button,
+        input[type=number]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Menghilangkan spinner di Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
         }
     </style>
 </head>

@@ -5,7 +5,7 @@
                 <h5 class="modal-title">Print Data Pengajuan Inventaris</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/pengajuan_inventaris/print" method="POST" class="validation_print_inventaris" enctype="multipart/form-data">
+            <form action="/pengajuan_inventaris/print" method="POST" class="validation_print_inventaris" enctype="multipart/form-data" target="_blank">
                 <div class="modal-body">
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Awal</label>
@@ -22,7 +22,7 @@
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Diajukan Oleh</label>
                         <div class="col">
-                            <select class="form-select select2-pegawai" name="nik" style="width: 100%">
+                            <select class="form-select select2-pegawai2" name="nik" style="width: 100%">
                                 <option value="">- Pilih Nama -</option>
                                 <?php foreach ($pgwc as $dt_pegawai) : ?>
                                     <option value="<?= $dt_pegawai['nik'] ?>"> <?= $dt_pegawai['nik'] ?>-<?= $dt_pegawai['nama'] ?></option>
