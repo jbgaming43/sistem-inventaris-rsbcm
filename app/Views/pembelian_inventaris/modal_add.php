@@ -55,7 +55,7 @@
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Akun Jenis</label>
                         <div class="col">
-                            <select class="form-select" name="kd_rek" style="width: 100%">
+                            <select class="form-select" name="kd_rek_aset" style="width: 100%">
                                 <option value="">- Pilih Nama -</option>
                                 <?php foreach ($rekc as $dt_akunjenis) : ?>
                                     <option value="<?= $dt_akunjenis['kd_rek'] ?>"><?= $dt_akunjenis['nm_rek'] ?></option>

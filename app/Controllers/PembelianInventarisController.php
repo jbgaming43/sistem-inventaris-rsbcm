@@ -44,110 +44,66 @@ class PembelianInventarisController extends BaseController
     public function add()
     {
         // Inisialisasi model
-        $pembelianModel = new PembelianInventarisModel();
-        $detailModel = new PembelianInventarisDetailModel();
+        $pem_inv_mod = new PembelianInventarisModel();
+        $pem_inv_det_mod = new PembelianInventarisDetailModel();
 
-        // Mulai transaksi
-        $db = \Config\Database::connect();
-        $db->transBegin();
+        // Ambil data dari form
+        $no_faktur = $this->request->getPost('no_faktur');
+        $kode_suplier = $this->request->getPost('kode_suplier');
+        $nip = $this->request->getPost('nip');
+        $tgl_beli = $this->request->getPost('tgl_beli');
+        $kd_rek = $this->request->getPost('kd_rek');
+        $kd_rek_aset = $this->request->getPost('kd_rek_aset');
 
-        try {
-            // Ambil data dari form
-            $no_faktur = $this->request->getPost('no_faktur');
-            $kode_suplier = $this->request->getPost('kode_suplier');
-            $nip = $this->request->getPost('nip');
-            $tgl_beli = $this->request->getPost('tgl_beli');
-            $kd_rek = $this->request->getPost('kd_rek'); // Akun Bayar
-            $kd_rek_aset = $this->request->getPost('kd_rek_aset'); // Akun Jenis
+        // Ambil data tabel barang yang diinputkan dalam bentuk array
+        $kode_barang = $this->request->getPost('kode_barang'); // pastikan ini dikirim sebagai array
+        $jumlah = $this->request->getPost('jumlah'); // array
+        $harga_beli = $this->request->getPost('harga_beli'); // array
+        $diskon = $this->request->getPost('diskon'); // array
+        $total = $this->request->getPost('total'); // array
 
-            // Ambil data array untuk detail pembelian
-            $kode_barang = $this->request->getPost('kode_barang');
-            $jumlah = $this->request->getPost('jumlah');
-            $harga = $this->request->getPost('harga');
-            $subtotal_array = $this->request->getPost('subtotal');
-            $dis = $this->request->getPost('dis');
-            $besardis = $this->request->getPost('besardis');
-            $total_array = $this->request->getPost('total');
+        // Cek apakah $kode_barang adalah array
+        if (!is_array($kode_barang)) {
+            // Jika bukan array, tampilkan pesan error atau redirect dengan error
+            return redirect()->back()->with('error', 'Data input tidak valid.');
+        }
 
-            // Hitung subtotal, potongan, total untuk inventaris_pembelian
-            $subtotal_pembelian = 0;
-            $potongan_pembelian = 0;
-            $total_pembelian = 0;
+        // Persiapkan data untuk tabel inventaris_pembelian
+        $dataPembelian = [
+            'no_faktur' => $no_faktur,
+            'kode_suplier' => $kode_suplier,
+            'nip' => $nip,
+            'tgl_beli' => $tgl_beli,
+            'kd_rek' => $kd_rek,
+            'kd_rek_aset' => $kd_rek_aset,
+            // hitung subtotal, potongan, dll. jika diperlukan
+        ];
 
-            // Debug data sebelum foreach
-            var_dump($kode_barang);
-            var_dump($jumlah);
-            var_dump($harga);
+        // Simpan data pembelian ke tabel inventaris_pembelian
+        $pem_inv_mod->insertData($dataPembelian);
 
-            // Loop untuk menyimpan detail pembelian
-            foreach ($kode_barang as $index => $kb) {
-                $subtotal = str_replace(['Rp', ','], '', $subtotal_array[$index]);
-                $besardis_val = str_replace(['Rp', ','], '', $besardis[$index]);
-                $total = str_replace(['Rp', ','], '', $total_array[$index]);
-
-                // Dapatkan data per baris untuk detail pembelian
-                $data_detail = [
-                    'no_faktur' => $no_faktur,
-                    'kode_barang' => $kb,
-                    'jumlah' => $jumlah[$index],
-                    'harga' => $harga[$index],
-                    'subtotal' => $subtotal,
-                    'dis' => $dis[$index],
-                    'besardis' => $besardis_val,
-                    'total' => $total,
-                ];
-
-                // Simpan ke tabel `inventaris_detail_beli`
-                $detailModel->insertData($data_detail);
-
-                // Update total pembelian
-                $subtotal_pembelian += floatval($subtotal);
-                $potongan_pembelian += floatval($besardis_val);
-                $total_pembelian += floatval($total);
-            }
-
-            // Data untuk tabel `inventaris_pembelian`
-            $ppn = 0; // Bisa disesuaikan jika ada PPN
-            $materai = 0; // Bisa disesuaikan jika ada materai
-            $tagihan = $total_pembelian; // Sesuaikan jika ada biaya tambahan seperti PPN atau materai
-
-            $data_pembelian = [
+        // Loop melalui setiap barang yang diinputkan
+        for ($i = 0; $i < count($kode_barang); $i++) {
+            // Persiapkan data untuk tabel inventaris_detail_beli
+            $dataDetail = [
                 'no_faktur' => $no_faktur,
-                'kode_suplier' => $kode_suplier,
-                'nip' => $nip,
-                'tgl_beli' => $tgl_beli,
-                'subtotal' => $subtotal_pembelian,
-                'potongan' => $potongan_pembelian,
-                'total' => $total_pembelian,
-                'ppn' => $ppn,
-                'materai' => $materai,
-                'tagihan' => $tagihan,
-                'kd_rek' => $kd_rek,
-                'kd_rek_aset' => $kd_rek_aset,
+                'kode_barang' => $kode_barang[$i],
+                'jumlah' => $jumlah[$i],
+                'harga' => $harga_beli[$i],
+                'subtotal' => $harga_beli[$i] * $jumlah[$i],
+                'dis' => $diskon[$i],
+                'besardis' => ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100),
+                'total' => $total[$i]
             ];
 
-            // Simpan ke tabel `inventaris_pembelian`
-            $pembelianModel->insertData($data_pembelian);
-
-            // Commit transaksi
-            if ($db->transStatus() === false) {
-                // Jika ada error, rollback
-                $db->transRollback();
-                session()->setFlashdata('error', 'Gagal menambahkan data pembelian.');
-            } else {
-                // Jika sukses, commit
-                $db->transCommit();
-                session()->setFlashdata('success', 'Data pembelian berhasil ditambahkan.');
-            }
-
-            return redirect()->to('/pembelian_inventaris');
-        } catch (\Exception $e) {
-            // Jika ada exception, rollback dan tampilkan pesan error
-            $db->transRollback();
-            session()->setFlashdata('error', 'Terjadi kesalahan: ' . $e->getMessage());
-            return redirect()->to('/pembelian_inventaris');
+            // Simpan data detail pembelian ke tabel inventaris_detail_beli
+            $pem_inv_det_mod->insert($dataDetail);
         }
+
+        // Redirect atau tampilkan pesan sukses
+        return redirect()->to('/pembelian_inventaris')->with('success', 'Data pembelian berhasil disimpan.');
     }
+
 
 
     public function edit($id)
