@@ -83,7 +83,7 @@
                                 <tbody id="table-body">
                                     <tr>
                                         <td><input type="text" id="kode_barang_0" name="kode_barang[]" class="form-control" readonly></td>
-                                        <td><select class="form-select select2-barang" name="kode_barang[]" style="width: 100%" onchange="fetchBarangDetails(this.value, 0)">
+                                        <td><select class="form-select select2-barang" style="width: 100%" onchange="fetchBarangDetails(this.value, 0)">
                                                 <option value="">- Pilih Nama -</option>
                                                 <?php foreach ($brgc as $dt_inventarisbarang) : ?>
                                                     <option value="<?= $dt_inventarisbarang['kode_barang'] ?>"><?= $dt_inventarisbarang['nama_barang'] ?></option>
@@ -137,7 +137,7 @@
         newRow.innerHTML = `
         <td><input type="text" id="kode_barang_${rowIndex}" name="kode_barang[]" class="form-control" readonly></td>
         <td>
-            <select class="form-select select2-barang" name="kode_barang[]" style="width: 100%" onchange="fetchBarangDetails(this.value, ${rowIndex})">
+            <select class="form-select select2-barang" style="width: 100%" onchange="fetchBarangDetails(this.value, ${rowIndex})">
                 <option value="">- Pilih Nama -</option>
                 <?php foreach ($brgc as $dt_inventarisbarang) : ?>
                     <option value="<?= $dt_inventarisbarang['kode_barang'] ?>"><?= $dt_inventarisbarang['nama_barang'] ?></option>

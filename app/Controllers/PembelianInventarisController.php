@@ -93,6 +93,7 @@ class PembelianInventarisController extends BaseController
         // Simpan data pembelian ke tabel inventaris_pembelian
         $pem_inv_mod->insertData($dataPembelian);
 
+        var_dump($kode_barang);
         // Loop melalui setiap barang yang diinputkan
         for ($i = 0; $i < count($kode_barang); $i++) {
             // Persiapkan data untuk tabel inventaris_detail_beli
@@ -121,27 +122,6 @@ class PembelianInventarisController extends BaseController
     {
         $pbnm = new PembelianInventarisModel();
 
-        $jumlah = $this->request->getPost('jumlah');
-        $harga = $this->request->getPost('harga');
-        $total = $jumlah * $harga;
-
-        $data = [
-            'no_pengajuan' => $this->request->getPost('no_pengajuan_new'),
-            'tanggal' => $this->request->getPost('tanggal'),
-            'nik' => $this->request->getPost('nik'),
-            'urgensi' => $this->request->getPost('urgensi'),
-            'latar_belakang' => $this->request->getPost('latar_belakang'),
-            'nama_barang' => $this->request->getPost('nama_barang'),
-            'spesifikasi' => $this->request->getPost('spesifikasi'),
-            'jumlah' => $this->request->getPost('jumlah'),
-            'harga' => $this->request->getPost('harga'),
-            'total' => $total,
-            'keterangan' => $this->request->getPost('keterangan'),
-            'nik_pj' => $this->request->getPost('nik_pj'),
-            'status' => 'Proses Pengajuan'
-        ];
-
-        $pbnm->updateData($id, $data);
 
         session()->setFlashdata('success', 'diedit');
         return redirect()->to('/pengajuan_inventaris');
@@ -149,12 +129,12 @@ class PembelianInventarisController extends BaseController
 
     public function delete($id)
     {
-        $pbnm = new PembelianInventarisModel();
+        $pem_inv_mod = new PembelianInventarisModel();
 
-        $pbnm->deleteData($id);
+        $pem_inv_mod->deleteData($id);
 
         session()->setFlashdata('success', 'dihapus');
-        return redirect()->to('/pengajuan_inventaris');
+        return redirect()->to('/pembelian_inventaris');
     }
 
     public function setuju($id)
