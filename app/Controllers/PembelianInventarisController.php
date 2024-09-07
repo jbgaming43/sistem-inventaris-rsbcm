@@ -49,6 +49,12 @@ class PembelianInventarisController extends BaseController
 
         // Ambil data dari form
         $no_faktur = $this->request->getPost('no_faktur');
+
+        // Cek apakah nomor faktur sudah ada di database
+        if ($pem_inv_mod->where('no_faktur', $no_faktur)->first()) {
+            return redirect()->back()->with('error', 'Nomor faktur sudah ada, gunakan nomor faktur yang berbeda.');
+        }
+
         $kode_suplier = $this->request->getPost('kode_suplier');
         $nip = $this->request->getPost('nip');
         $tgl_beli = $this->request->getPost('tgl_beli');
@@ -62,10 +68,15 @@ class PembelianInventarisController extends BaseController
         $diskon = $this->request->getPost('diskon'); // array
         $total = $this->request->getPost('total'); // array
 
-        // Cek apakah $kode_barang adalah array
-        if (!is_array($kode_barang)) {
-            // Jika bukan array, tampilkan pesan error atau redirect dengan error
+        // Cek apakah semua input adalah array
+        if (!is_array($kode_barang) || !is_array($jumlah) || !is_array($harga_beli) || !is_array($diskon) || !is_array($total)) {
             return redirect()->back()->with('error', 'Data input tidak valid.');
+        }
+
+        // Cek apakah panjang semua array sama
+        $arrayCount = min(count($kode_barang), count($jumlah), count($harga_beli), count($diskon), count($total));
+        if ($arrayCount === 0) {
+            return redirect()->back()->with('error', 'Tidak ada data yang valid untuk disimpan.');
         }
 
         // Persiapkan data untuk tabel inventaris_pembelian
