@@ -41,7 +41,7 @@ class PembelianInventarisController extends BaseController
         return view('pembelian_inventaris/index', $data);
     }
 
-    public function detail($no_faktur) 
+    public function detail($no_faktur)
     {
         $pem_inv_det_mod = new PembelianInventarisDetailModel();
         $detail = $pem_inv_det_mod->where('no_faktur', $no_faktur)->findAll();
@@ -155,15 +155,22 @@ class PembelianInventarisController extends BaseController
         return redirect()->to('/pembelian_inventaris')->with('success', 'Data pembelian berhasil disimpan.');
     }
 
-
-
-    public function edit($id)
+    public function edit()
     {
-        $pbnm = new PembelianInventarisModel();
-
-
-        session()->setFlashdata('success', 'diedit');
-        return redirect()->to('/pengajuan_inventaris');
+        $pem_inv_mod = new PembelianInventarisModel();
+        $no_faktur = $this->request->getPost('no_faktur');
+        $data = [
+            'tgl_beli' => $this->request->getPost('tgl_beli'),
+            'kode_suplier' => $this->request->getPost('kode_suplier'),
+            // Ambil data lain sesuai kebutuhan
+        ];
+        
+        $result = $this->$pem_inv_mod->update($no_faktur, $data);
+        if ($result) {
+            return $this->response->setJSON(['success' => true]);
+        } else {
+            return $this->response->setJSON(['success' => false, 'error' => 'Update failed']);
+        }
     }
 
     public function delete($id)

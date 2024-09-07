@@ -103,4 +103,5 @@
 <?= $this->include('pembelian_inventaris/modal_add') ?>
 <?= $this->include('pembelian_inventaris/modal_delete') ?>
 <?= $this->include('pembelian_inventaris/modal_detail') ?>
+<?= $this->include('pembelian_inventaris/modal_edit') ?>
 <?= $this->endSection() ?>
