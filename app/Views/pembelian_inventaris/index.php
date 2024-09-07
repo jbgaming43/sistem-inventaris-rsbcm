@@ -39,7 +39,11 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nomor Permintaan Barang</th>
-                                    <th>Aksi</th>
+                                    <th>Tanggal Pembelian</th>
+                                    <th>Supplier</th>
+                                    <th>Petugas</th>
+                                    <th>Tagihan</th>
+                                    <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom text-nowrap">
@@ -48,7 +52,21 @@
                                     <tr>
                                         <td><?= $i++; ?></td>
                                         <td><?= $dt_pembelian_inventaris['no_faktur']; ?></td>
+                                        <td><?= $dt_pembelian_inventaris['tgl_beli']; ?></td>
+                                        <td><?= $dt_pembelian_inventaris['nama_suplier']; ?></td>
+                                        <td><?= $dt_pembelian_inventaris['nama']; ?></td>
+                                        <td><?= $dt_pembelian_inventaris['tagihan']; ?></td>
                                         <td class="text-center">
+                                            <span data-bs-toggle="modal" data-bs-target="#detail_pembelian_inventaris<?= $dt_pembelian_inventaris['no_faktur']; ?>">
+                                                <button type="button" class="btn btn-icon btn-blue btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                                                        <path d="M12 9h.01" />
+                                                        <path d="M11 12h1v4h1" />
+                                                    </svg>
+                                                </button>
+                                            </span>
                                             <span data-bs-toggle="modal" data-bs-target="#edit_pembelian_inventaris<?= $dt_pembelian_inventaris['no_faktur']; ?>">
                                                 <button type="button" class="btn btn-icon btn-yellow btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -84,4 +102,5 @@
 
 <?= $this->include('pembelian_inventaris/modal_add') ?>
 <?= $this->include('pembelian_inventaris/modal_delete') ?>
+<?= $this->include('pembelian_inventaris/modal_detail') ?>
 <?= $this->endSection() ?>

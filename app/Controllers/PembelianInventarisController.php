@@ -41,6 +41,14 @@ class PembelianInventarisController extends BaseController
         return view('pembelian_inventaris/index', $data);
     }
 
+    public function detail($no_faktur) 
+    {
+        $pem_inv_det_mod = new PembelianInventarisDetailModel();
+        $detail = $pem_inv_det_mod->where('no_faktur', $no_faktur)->findAll();
+
+        return $this->response->setJSON($detail);
+    }
+
     public function add()
     {
         // Inisialisasi model
@@ -94,7 +102,7 @@ class PembelianInventarisController extends BaseController
             $totalTotal += $total;
         }
 
-        $tagihan = ($totalTotal - $totalBesardis)+(($totalTotal - $totalBesardis)*($ppn/100))+$meterai;
+        $tagihan = ($totalTotal - $totalBesardis) + (($totalTotal - $totalBesardis) * ($ppn / 100)) + $meterai;
 
         // Persiapkan data untuk tabel inventaris_pembelian
         $dataPembelian = [
