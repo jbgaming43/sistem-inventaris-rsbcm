@@ -44,7 +44,7 @@
                             </thead>
                             <tbody class="table-border-bottom text-nowrap">
                                 <?php $i = 1;
-                                foreach ($pbnc as $dt_pembelian_inventaris) { ?>
+                                foreach ($pem_inv_con as $dt_pembelian_inventaris) { ?>
                                     <tr>
                                         <td><?= $i++; ?></td>
                                         <td><?= $dt_pembelian_inventaris['no_faktur']; ?></td>
@@ -83,4 +83,5 @@
 </div>
 
 <?= $this->include('pembelian_inventaris/modal_add') ?>
+<?= $this->include('pembelian_inventaris/modal_delete') ?>
 <?= $this->endSection() ?>
