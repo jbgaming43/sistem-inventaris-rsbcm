@@ -399,6 +399,20 @@
         hitungTotal(rowIndex); // Update total setelah validasi
     }
 
+    document.getElementById('ppn').addEventListener('input', function() {
+        var ppnInput = this;
+        if (ppnInput.value < 0) {
+            ppnInput.value = 0;
+        }
+    });
+
+    document.getElementById('meterai').addEventListener('input', function() {
+        var meteraiInput = this;
+        if (meteraiInput.value < 0) {
+            meteraiInput.value = 0;
+        }
+    });
+
     function validateDiskon(rowIndex) {
         var diskonInput = document.getElementById("diskon_" + rowIndex);
         var diskon = parseFloat(diskonInput.value);
@@ -416,8 +430,8 @@
         var jumlahInput = document.getElementById("jumlah_" + rowIndex);
         var jumlah = parseFloat(jumlahInput.value);
 
-        if (jumlah < 0) {
-            jumlahInput.value = 0;
+        if (jumlah < 1) {
+            jumlahInput.value = 1;
         }
 
         hitungTotal(rowIndex); // Update total setelah validasi

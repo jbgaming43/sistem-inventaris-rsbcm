@@ -64,6 +64,18 @@
                         </div>
                     </div>
                     <div class="mb-2 row">
+                        <label class="col-3 col-form-label required">PPN</label>
+                        <div class="col">
+                            <input type="number" class="form-control" id="ppn" name="ppn" placeholder="Masukkan PPN" min="0" required>
+                        </div>
+                    </div>
+                    <div class="mb-2 row">
+                        <label class="col-3 col-form-label required">Biaya Tambahan</label>
+                        <div class="col">
+                            <input type="number" class="form-control" id="meterai" name="meterai" placeholder="Masukkan Biaya Tambahan" min="0" required>
+                        </div>
+                    </div>
+                    <div class="mb-2 row">
                         <div class="col">
                             <table class="table table-sm table-bordered" id="inventoryTable">
                                 <thead>
