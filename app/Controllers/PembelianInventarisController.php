@@ -17,7 +17,7 @@ class PembelianInventarisController extends BaseController
     public function index()
     {
         // objek PenggunaModel
-        $pbnm = new PembelianInventarisModel();
+        $pem_inv_mod = new PembelianInventarisModel();
         $ptgm = new PetugasModel();
         $supm = new SuplierModel();
         $akbm = new AkunBayarModel();
@@ -29,7 +29,7 @@ class PembelianInventarisController extends BaseController
             'active_menu' => 'inventaris',
             'active_submenu' => 'pembelian_inventaris',
 
-            'pbnc' => $pbnm->getData(),
+            'pem_inv_con' => $pem_inv_mod->getData(),
             'ptgc' => $ptgm->getData(),
             'supc' => $supm->getData(),
             'akbc' => $akbm->getData(),
