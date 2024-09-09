@@ -6,13 +6,14 @@
                     <h5 class="modal-title">Edit Data Pembelian Inventaris</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="edit-form-<?= $dt_pembelian_inventaris['no_faktur']; ?>" method="POST" class="validation_pembelian_inventaris" enctype="multipart/form-data">
+                <form action="/pembelian_inventaris/edit/<?= $dt_pembelian_inventaris['no_faktur']; ?>" id="edit-form-<?= $dt_pembelian_inventaris['no_faktur']; ?>" method="POST" class="validation_pembelian_inventaris" enctype="multipart/form-data">
                     <div class="modal-body">
                         <!-- Form fields -->
                         <div class="mb-2 row">
                             <label class="col-3 col-form-label required">Nomor faktur</label>
                             <div class="col">
-                                <input type="text" class="form-control" name="no_faktur" id="no_faktur-<?= $dt_pembelian_inventaris['no_faktur']; ?>" value="<?= $dt_pembelian_inventaris['no_faktur']; ?>" readonly>
+                                <input type="hidden" class="form-control" name="no_faktur" id="no_faktur-<?= $dt_pembelian_inventaris['no_faktur']; ?>" value="<?= $dt_pembelian_inventaris['no_faktur']; ?>" readonly>
+                                <input type="text" class="form-control" name="no_faktur_new" id="no_faktur-<?= $dt_pembelian_inventaris['no_faktur']; ?>" value="<?= $dt_pembelian_inventaris['no_faktur']; ?>" >
                             </div>
                         </div>
                         <div class="mb-2 row">
@@ -133,7 +134,7 @@
                                 var content = '';
                                 data.forEach(item => {
                                     content += `<tr>
-                                <td><input type="text" id="2kode_barang_${rowIndex2}" name="kode_barang[]" class="form-control" value="${item.kode_barang}" readonly></td>
+                                <td><input type="text" id="2kode_barang_${rowIndex2}" name="2kode_barang[]" class="form-control" value="${item.kode_barang}" readonly></td>
                                 <td>
                                     <select class="form-select select2-barang" style="width: 100%" onchange="fetchBarangDetails2(this.value, ${rowIndex2})">
                                         <option value="">- Pilih Nama -</option>
@@ -145,13 +146,13 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </td>
-                                <td><input type="text" id="2nama_produsen_${rowIndex2}" name="nama_produsen[]" class="form-control" value="${item.nama_produsen}" readonly></td>
-                                <td><input type="text" id="2nama_merk_${rowIndex2}" name="nama_merk[]" class="form-control" value="${item.nama_merk}" readonly></td>
-                                <td><input type="text" id="2nama_jenis_${rowIndex2}" name="nama_jenis[]" class="form-control" value="${item.nama_jenis}" readonly></td>
-                                <td><input type="number" id="2jumlah_${rowIndex2}" name="jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" value="${item.jumlah}" required></td>
-                                <td><input type="number" id="2harga_beli_${rowIndex2}" name="harga_beli[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" value="${item.harga}" required></td>
-                                <td><input type="number" id="2diskon_${rowIndex2}" name="diskon[]" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" value="${item.dis}" required></td>
-                                <td><input type="text" id="2total_${rowIndex2}" name="total[]" class="form-control" readonly value="${item.total}"></td>
+                                <td><input type="text" id="2nama_produsen_${rowIndex2}" name="2nama_produsen[]" class="form-control" value="${item.nama_produsen}" readonly></td>
+                                <td><input type="text" id="2nama_merk_${rowIndex2}" name="2nama_merk[]" class="form-control" value="${item.nama_merk}" readonly></td>
+                                <td><input type="text" id="2nama_jenis_${rowIndex2}" name="2nama_jenis[]" class="form-control" value="${item.nama_jenis}" readonly></td>
+                                <td><input type="number" id="2jumlah_${rowIndex2}" name="2jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" value="${item.jumlah}" required></td>
+                                <td><input type="number" id="2harga_beli_${rowIndex2}" name="2harga_beli[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" value="${item.harga}" required></td>
+                                <td><input type="number" id="2diskon_${rowIndex2}" name="2diskon[]" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" value="${item.dis}" required></td>
+                                <td><input type="text" id="2total_${rowIndex2}" name="2total[]" class="form-control" readonly value="${item.total}"></td>
                                 <td><button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Hapus</button></td>
                             </tr>`;
                                     rowIndex2++;

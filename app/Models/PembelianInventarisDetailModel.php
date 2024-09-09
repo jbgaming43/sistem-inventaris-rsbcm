@@ -26,4 +26,9 @@ class PembelianInventarisDetailModel extends Model
         ->where('no_faktur', $id)
         ->findAll(); // retrieve all data
     }
+
+    public function deleteDataByNoFaktur($id)
+    {
+        return $this->where('no_faktur', $id)->delete();
+    }
 }
