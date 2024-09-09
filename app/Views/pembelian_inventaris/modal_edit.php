@@ -13,7 +13,7 @@
                             <label class="col-3 col-form-label required">Nomor faktur</label>
                             <div class="col">
                                 <input type="hidden" class="form-control" name="no_faktur" id="no_faktur-<?= $dt_pembelian_inventaris['no_faktur']; ?>" value="<?= $dt_pembelian_inventaris['no_faktur']; ?>" readonly>
-                                <input type="text" class="form-control" name="no_faktur_new" id="no_faktur-<?= $dt_pembelian_inventaris['no_faktur']; ?>" value="<?= $dt_pembelian_inventaris['no_faktur']; ?>" >
+                                <input type="text" class="form-control" name="no_faktur_new" id="no_faktur-<?= $dt_pembelian_inventaris['no_faktur']; ?>" value="<?= $dt_pembelian_inventaris['no_faktur']; ?>">
                             </div>
                         </div>
                         <div class="mb-2 row">
@@ -84,6 +84,7 @@
                             </div>
                         </div>
                         <!-- Add other fields similarly -->
+
                         <!-- Table for items -->
                         <div class="mb-2 row">
                             <div class="col">
@@ -105,6 +106,16 @@
                                     <tbody id="table-body-<?= $dt_pembelian_inventaris['no_faktur']; ?>">
                                         <!-- Rows will be populated by JavaScript -->
                                     </tbody>
+                                    <tr>
+                                        <td colspan="9"></td>
+                                        <td><button type="button" class="btn btn-primary btn-icon" onclick="addRow()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <path d="M12 5l0 14"></path>
+                                                    <path d="M5 12l14 0"></path>
+                                                </svg>
+                                            </button></td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>
@@ -153,7 +164,16 @@
                                 <td><input type="number" id="2harga_beli_${rowIndex2}" name="2harga_beli[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" value="${item.harga}" required></td>
                                 <td><input type="number" id="2diskon_${rowIndex2}" name="2diskon[]" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" value="${item.dis}" required></td>
                                 <td><input type="text" id="2total_${rowIndex2}" name="2total[]" class="form-control" readonly value="${item.total}"></td>
-                                <td><button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Hapus</button></td>
+                                <td><button type="button" class="btn btn-danger btn-icon" onclick="deleteRow(this)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24V0H0z" fill="none" />
+                                        <path d="M4 7l16 0" />
+                                        <path d="M10 11l0 6" />
+                                        <path d="M14 11l0 6" />
+                                        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                    </svg>
+                                </button></td>
                             </tr>`;
                                     rowIndex2++;
                                 });
@@ -173,4 +193,9 @@
                 );
         <?php endforeach; ?>
     });
+
+    // Fungsi untuk menghapus baris
+    function deleteRow(button) {
+            button.closest('tr').remove();
+        }
 </script>

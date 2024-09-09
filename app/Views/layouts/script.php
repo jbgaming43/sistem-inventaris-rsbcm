@@ -301,45 +301,6 @@
     }
 </script>
 
-<!-- SCRIPT UNTUK MENGHITUNG JUMLAH DATA YANG DICENTANG DALAM TAMBAH DATASET -->
-<script>
-    // Menangkap elemen checkbox dan teks jumlah data yang dicentang
-    const checkboxes = document.querySelectorAll('.form-check-input');
-    const checkedCountText = document.getElementById('checkedCount');
-    const layakCountText = document.getElementById('layakCount');
-    const tidakLayakCountText = document.getElementById('tidakLayakCount');
-
-    // Fungsi untuk menghitung jumlah checkbox yang dicentang
-    function countChecked() {
-        let totalChecked = 0;
-        let layakChecked = 0;
-        let tidakLayakChecked = 0;
-
-        checkboxes.forEach(checkbox => {
-            if (checkbox.checked) {
-                totalChecked++;
-                // Mendapatkan label dari baris yang sama dengan checkbox
-                const label = checkbox.closest('tr').querySelector('.badge').textContent;
-                if (label === 'Layak') {
-                    layakChecked++;
-                } else if (label === 'Tidak Layak') {
-                    tidakLayakChecked++;
-                }
-            }
-        });
-
-        // Memperbarui teks jumlah data yang dicentang
-        checkedCountText.textContent = totalChecked;
-        layakCountText.textContent = layakChecked;
-        tidakLayakCountText.textContent = tidakLayakChecked;
-    }
-
-    // Menambahkan event listener pada setiap checkbox
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', countChecked);
-    });
-</script>
-
 <script>
     function fetchBarangDetails(kode_barang, rowIndex) {
         if (kode_barang) {
