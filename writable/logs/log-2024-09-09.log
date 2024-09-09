@@ -615,6 +615,174 @@ INFO - 2024-09-09 05:38:10 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-09-09 05:38:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-09 05:38:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-09 05:38:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+<<<<<<< HEAD
+INFO - 2024-09-09 06:01:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:01:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:01:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:01:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:01:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:01:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:02:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:02:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:02:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:02:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:02:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:02:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:02:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:02:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:02:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:03:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:03:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:03:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:03:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:03:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:03:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:03:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:03:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:03:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:03:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:03:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:03:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:03:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:05:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:05:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:05:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:05:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:05:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:07:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:07:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:07:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:07:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:09:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:09:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:10:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:10:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:10:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:10:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:10:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:10:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-09 06:10:36 --> mysqli_sql_exception: Foreign key constraint for table 'inventaris_pembelian', record 'adi123' would lead to a duplicate entry in table 'inventaris_detail_beli', key 'PRIMARY' in C:\xampp\htdocs\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `inventa...', 0)
+#1 C:\xampp\htdocs\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `inventa...')
+#2 C:\xampp\htdocs\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `inventa...')
+#3 C:\xampp\htdocs\inventaris-barang\system\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `inventa...', Array, false)
+#4 C:\xampp\htdocs\inventaris-barang\system\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\xampp\htdocs\inventaris-barang\system\BaseModel.php(987): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\xampp\htdocs\inventaris-barang\system\Model.php(807): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\xampp\htdocs\inventaris-barang\app\Models\PembelianInventarisModel.php(38): CodeIgniter\Model->update('adi1112', Array)
+#8 C:\xampp\htdocs\inventaris-barang\app\Controllers\PembelianInventarisController.php(223): App\Models\PembelianInventarisModel->updateData('adi1112', Array)
+#9 C:\xampp\htdocs\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->edit('adi1112')
+#10 C:\xampp\htdocs\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+#11 C:\xampp\htdocs\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-09-09 06:10:37 --> CodeIgniter\Database\Exceptions\DatabaseException: Foreign key constraint for table 'inventaris_pembelian', record 'adi123' would lead to a duplicate entry in table 'inventaris_detail_beli', key 'PRIMARY'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `inventaris_pembelian` SET `no_faktur` = :no_faktur:, `kode_suplier` = :kode_suplier:, `nip` = :nip:, `tgl_beli` = :tgl_beli:, `subtotal` = :subtotal:, `potongan` = :potongan:, `total` = :total:, `ppn` = :ppn:, `meterai` = :meterai:, `tagihan` = :tagihan:, `kd_rek` = :kd_rek:, `kd_rek_aset` = :kd_rek_aset:
+WHERE `inventaris_pembelian`.`no_faktur` IN :inventaris_pembelian.no_faktur:', [...], false)
+ 2 SYSTEMPATH\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(987): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Models\PembelianInventarisModel.php(38): CodeIgniter\Model->update('adi1112', [...])
+ 6 APPPATH\Controllers\PembelianInventarisController.php(223): App\Models\PembelianInventarisModel->updateData('adi1112', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->edit('adi1112')
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-09-09 06:10:37 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Foreign key constraint for table 'inventaris_pembelian', record 'adi123' would lead to a duplicate entry in table 'inventaris_detail_beli', key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `inventaris_pembelian` SET `no_faktur` = \'adi123\', `kode_suplier` = \'S0001\', `nip` = \'123124\', `tgl_beli` = \'2024-09-09\', `subtotal` = 1, `potongan` = 0, `total` = 1, `ppn` = \'11\', `meterai` = \'0\', `tagihan` = 1.11, `kd_rek` = \'112090\', `kd_rek_aset` = \'123104\'
+WHERE `inventaris_pembelian`.`no_faktur` IN (\'adi1112\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `inventaris_pembelian` SET `no_faktur` = \'adi123\', `kode_suplier` = \'S0001\', `nip` = \'123124\', `tgl_beli` = \'2024-09-09\', `subtotal` = 1, `potongan` = 0, `total` = 1, `ppn` = \'11\', `meterai` = \'0\', `tagihan` = 1.11, `kd_rek` = \'112090\', `kd_rek_aset` = \'123104\'
+WHERE `inventaris_pembelian`.`no_faktur` IN (\'adi1112\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `inventaris_pembelian` SET `no_faktur` = :no_faktur:, `kode_suplier` = :kode_suplier:, `nip` = :nip:, `tgl_beli` = :tgl_beli:, `subtotal` = :subtotal:, `potongan` = :potongan:, `total` = :total:, `ppn` = :ppn:, `meterai` = :meterai:, `tagihan` = :tagihan:, `kd_rek` = :kd_rek:, `kd_rek_aset` = :kd_rek_aset:
+WHERE `inventaris_pembelian`.`no_faktur` IN :inventaris_pembelian.no_faktur:', [...], false)
+ 4 SYSTEMPATH\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(987): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Models\PembelianInventarisModel.php(38): CodeIgniter\Model->update('adi1112', [...])
+ 8 APPPATH\Controllers\PembelianInventarisController.php(223): App\Models\PembelianInventarisModel->updateData('adi1112', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->edit('adi1112')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-09-09 06:10:37 --> [Caused by] mysqli_sql_exception: Foreign key constraint for table 'inventaris_pembelian', record 'adi123' would lead to a duplicate entry in table 'inventaris_detail_beli', key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `inventaris_pembelian` SET `no_faktur` = \'adi123\', `kode_suplier` = \'S0001\', `nip` = \'123124\', `tgl_beli` = \'2024-09-09\', `subtotal` = 1, `potongan` = 0, `total` = 1, `ppn` = \'11\', `meterai` = \'0\', `tagihan` = 1.11, `kd_rek` = \'112090\', `kd_rek_aset` = \'123104\'
+WHERE `inventaris_pembelian`.`no_faktur` IN (\'adi1112\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `inventaris_pembelian` SET `no_faktur` = \'adi123\', `kode_suplier` = \'S0001\', `nip` = \'123124\', `tgl_beli` = \'2024-09-09\', `subtotal` = 1, `potongan` = 0, `total` = 1, `ppn` = \'11\', `meterai` = \'0\', `tagihan` = 1.11, `kd_rek` = \'112090\', `kd_rek_aset` = \'123104\'
+WHERE `inventaris_pembelian`.`no_faktur` IN (\'adi1112\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `inventaris_pembelian` SET `no_faktur` = \'adi123\', `kode_suplier` = \'S0001\', `nip` = \'123124\', `tgl_beli` = \'2024-09-09\', `subtotal` = 1, `potongan` = 0, `total` = 1, `ppn` = \'11\', `meterai` = \'0\', `tagihan` = 1.11, `kd_rek` = \'112090\', `kd_rek_aset` = \'123104\'
+WHERE `inventaris_pembelian`.`no_faktur` IN (\'adi1112\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `inventaris_pembelian` SET `no_faktur` = :no_faktur:, `kode_suplier` = :kode_suplier:, `nip` = :nip:, `tgl_beli` = :tgl_beli:, `subtotal` = :subtotal:, `potongan` = :potongan:, `total` = :total:, `ppn` = :ppn:, `meterai` = :meterai:, `tagihan` = :tagihan:, `kd_rek` = :kd_rek:, `kd_rek_aset` = :kd_rek_aset:
+WHERE `inventaris_pembelian`.`no_faktur` IN :inventaris_pembelian.no_faktur:', [...], false)
+ 5 SYSTEMPATH\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(987): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Models\PembelianInventarisModel.php(38): CodeIgniter\Model->update('adi1112', [...])
+ 9 APPPATH\Controllers\PembelianInventarisController.php(223): App\Models\PembelianInventarisModel->updateData('adi1112', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->edit('adi1112')
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-09 06:11:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:11:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:11:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:11:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:11:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:12:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:12:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:12:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:12:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:13:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:13:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:13:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:13:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:13:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:13:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:13:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:13:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:13:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:13:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:16:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:16:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:23:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:23:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:23:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-09 06:23:42 --> TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given
+in APPPATH\Controllers\PembelianInventarisController.php on line 192.
+ 1 APPPATH\Controllers\PembelianInventarisController.php(192): count(null)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->edit('adi1123')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-09 06:26:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:26:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:27:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:27:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:27:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:27:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:27:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:27:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:27:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:28:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:28:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:28:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:28:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:28:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:28:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-09 06:28:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
 >>>>>>> 9f6d78e755ddee439b6ee42bb533707223def046
+<<<<<<< HEAD
 INFO - 2024-09-09 03:44:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-09 03:36:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
+>>>>>>> 4dcdb02de8fd37a47c4d16860e3090cd60291a07
+>>>>>>> 42f62f448807384d212eaa0d66ef8eb95699fdc0
