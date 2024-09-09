@@ -233,6 +233,9 @@ class PembelianInventarisController extends BaseController
         // Simpan data pembelian ke tabel inventaris_pembelian
         $pem_inv_mod->updateData($id, $dataPembelian);
 
+        //hapus detail pembelian
+        $pem_inv_det_mod->deleteDataByNoFaktur($no_faktur);
+
         // Loop melalui setiap barang yang diinputkan
         for ($i = 0; $i < count($kode_barang); $i++) {
             //hitung utk data saat ini
