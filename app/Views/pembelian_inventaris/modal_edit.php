@@ -133,18 +133,21 @@
                                 var content = '';
                                 data.forEach(item => {
                                     content += `<tr>
-                                <td><input type="text" id="kode_barang_0" name="kode_barang[]" class="form-control" value="${item.kode_barang}" readonly></td>
-                                <td><select class="form-select select2-barang" style="width: 100%" onchange="2fetchBarangDetails(this.value, 0)">
-                                                <?=$kode_barang = '${item.kode_barang}'?>
-                                                <option value="" <?=$kode_barang == '' ? 'selected' : null;?>>- Pilih Nama -</option>
-                                                <?php foreach ($brgc as $dt_inventarisbarang) : ?>
-                                                    <option value="<?= $dt_inventarisbarang['kode_barang'] ?>" <?=$dt_inventarisbarang['kode_barang'] == $kode_barang  ? 'selected' : null;?>><?=$dt_inventarisbarang['kode_barang']?><?= $dt_inventarisbarang['nama_barang'] ?></option>
-                                                <?php endforeach ?>
-                                            </select>
-                                            </td>
-                                <td>${item.nama_produsen}</td>
-                                <td>${item.nama_merk}</td>
-                                <td>${item.nama_jenis}</td>
+                                <td><input type="text" id="2kode_barang_${rowIndex2}" name="kode_barang[]" class="form-control" value="${item.kode_barang}" readonly></td>
+                                <td>
+                                    <select class="form-select select2-barang" style="width: 100%" onchange="fetchBarangDetails2(this.value, ${rowIndex2})">
+                                        <option value="">- Pilih Nama -</option>
+                                        <?php foreach ($brgc as $dt_inventarisbarang) : ?>
+                                            <option value="<?= $dt_inventarisbarang['kode_barang'] ?>" 
+                                                ${'<?= $dt_inventarisbarang['kode_barang'] ?>' === item.kode_barang ? 'selected' : ''}>
+                                                <?= $dt_inventarisbarang['kode_barang'] ?> - <?= $dt_inventarisbarang['nama_barang'] ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </td>
+                                <td><input type="text" id="2nama_produsen_${rowIndex2}" name="nama_produsen[]" class="form-control" value="${item.nama_produsen}" readonly></td>
+                                <td><input type="text" id="2nama_merk_${rowIndex2}" name="nama_merk[]" class="form-control" value="${item.nama_merk}" readonly></td>
+                                <td><input type="text" id="2nama_jenis_${rowIndex2}" name="nama_jenis[]" class="form-control" value="${item.nama_jenis}" readonly></td>
                                 <td><input type="number" id="2jumlah_${rowIndex2}" name="jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" value="${item.jumlah}" required></td>
                                 <td><input type="number" id="2harga_beli_${rowIndex2}" name="harga_beli[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" value="${item.harga}" required></td>
                                 <td><input type="number" id="2diskon_${rowIndex2}" name="diskon[]" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" value="${item.dis}" required></td>
