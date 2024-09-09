@@ -44,7 +44,7 @@ class PembelianInventarisController extends BaseController
     public function detail($no_faktur)
     {
         $pem_inv_det_mod = new PembelianInventarisDetailModel();
-        $detail = $pem_inv_det_mod->where('no_faktur', $no_faktur)->findAll();
+        $detail = $pem_inv_det_mod->detailData($no_faktur);
 
         return $this->response->setJSON($detail);
     }

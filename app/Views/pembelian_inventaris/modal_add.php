@@ -117,8 +117,7 @@
                                                 </svg>
                                             </button>
                                         </td>
-                                        <input type="hidden" id="subtotal_0" name="subtotal[]" class="form-control" value="Rp0.00">
-                                        <input type="hidden" id="potongan_0" name="potongan[]" class="form-control" value="Rp0.00">
+                                        
                                     </tr>
                                 </tbody>
                             </table>
@@ -164,8 +163,7 @@
         <td><input type="number" id="diskon_${rowIndex}" name="diskon[]" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" required></td>
         <td><input type="text" id="total_${rowIndex}" name="total[]" class="form-control" readonly value="Rp0.00"></td>
         <!-- Tambahkan input hidden untuk subtotal dan potongan -->
-        <input type="hidden" id="subtotal_${rowIndex}" name="subtotal[]" class="form-control" value="Rp0.00">
-        <input type="hidden" id="potongan_${rowIndex}" name="potongan[]" class="form-control" value="Rp0.00">
+        
         <td>
             <button type="button" class="btn btn-danger btn-icon" onclick="removeRow(this)">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

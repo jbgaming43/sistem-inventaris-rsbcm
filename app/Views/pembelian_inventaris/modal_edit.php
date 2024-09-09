@@ -119,78 +119,40 @@
 <?php endforeach; ?>
 
 <script>
-    ddocument.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
         <?php foreach ($pem_inv_con as $dt_pembelian_inventaris) : ?>
-                // Mengisi modal dengan data
-                (function(modalId, formDataUrl) {
+                (function(modalId, tableBodyId, detailUrl) {
                     document.getElementById(modalId).addEventListener('show.bs.modal', function() {
-                        fetch(formDataUrl)
+                        console.log('Modal is about to be shown');
+                        fetch(detailUrl)
                             .then(response => response.json())
                             .then(data => {
-                                if (data.success) {
-                                    // Isi formulir dengan data
-                                    document.getElementById('no_faktur-' + modalId.split('-').pop()).value = data.data.no_faktur;
-                                    document.getElementById('tgl_beli-' + modalId.split('-').pop()).value = data.data.tgl_beli;
-                                    document.getElementById('kode_suplier-' + modalId.split('-').pop()).value = data.data.kode_suplier;
-
-                                    // Isi tabel dengan data item
-                                    const tableBody = document.getElementById('table-body-' + modalId.split('-').pop());
-                                    tableBody.innerHTML = ''; // Kosongkan tabel
-                                    data.data.items.forEach((item, index) => {
-                                        const newRow = document.createElement('tr');
-                                        newRow.innerHTML = `
-                                    <td><input type="text" id="kode_barang_${index}" name="kode_barang[]" class="form-control" readonly value="${item.kode_barang}"></td>
-                                    <td><input type="text" id="nama_barang_${index}" name="nama_barang[]" class="form-control" readonly value="${item.nama_barang}"></td>
-                                    <td><input type="text" id="nama_produsen_${index}" name="nama_produsen[]" class="form-control" readonly value="${item.nama_produsen}"></td>
-                                    <td><input type="text" id="nama_merk_${index}" name="nama_merk[]" class="form-control" readonly value="${item.nama_merk}"></td>
-                                    <td><input type="text" id="nama_jenis_${index}" name="nama_jenis[]" class="form-control" readonly value="${item.nama_jenis}"></td>
-                                    <td><input type="number" id="jumlah_${index}" name="jumlah[]" class="form-control" value="${item.jumlah}" min="0" step="1" required></td>
-                                    <td><input type="number" id="harga_beli_${index}" name="harga_beli[]" class="form-control" value="${item.harga_beli}" min="0" step="0.01" required></td>
-                                    <td><input type="number" id="diskon_${index}" name="diskon[]" class="form-control" value="${item.diskon}" min="0" max="100" step="0.01" required></td>
-                                    <td><input type="text" id="total_${index}" name="total[]" class="form-control" value="${item.total}" readonly></td>
-                                    <td><button type="button" class="btn btn-danger btn-icon" onclick="removeRow(this)">Hapus</button></td>
-                                    <input type="hidden" id="subtotal_${index}" name="subtotal[]" class="form-control" value="${item.subtotal}">
-                                    <input type="hidden" id="potongan_${index}" name="potongan[]" class="form-control" value="${item.potongan}">
-                                `;
-                                        tableBody.appendChild(newRow);
-                                    });
-                                } else {
-                                    console.error('Data tidak ditemukan.');
-                                }
+                                console.log(data)
+                                var tableBody = document.getElementById(tableBodyId);
+                                var content = '';
+                                data.forEach(item => {
+                                    content += `<tr>
+                                <td>${item.kode_barang}</td>
+                                <td>${item.nama_barang}</td>
+                                <td>${item.nama_produsen}</td>
+                                <td>${item.nama_merk}</td>
+                                <td>${item.nama_jenis}</td>
+                                <td><input type="number" id="jumlah_${rowIndex}" name="jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" value="${item.jumlah}" required></td>
+                                <td><input type="number" id="harga_beli_0" name="harga_beli[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" value="${item.harga}" required></td>
+                                <td><input type="number" id="diskon_0" name="diskon[]" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" value="${item.dis}" required></td>
+                                <td><input type="text" id="total_0" name="total[]" class="form-control" readonly value="${item.total}"></td>
+                                <td><button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Hapus</button></td>
+                            </tr>`;
+                                });
+                                tableBody.innerHTML = content;
                             })
-                            .catch(error => console.error('Error fetching data:', error));
+                            .catch(error => console.error('Error fetching details:', error));
                     });
                 })(
                     'edit_pembelian_inventaris<?= $dt_pembelian_inventaris['no_faktur']; ?>',
+                    'table-body-<?= $dt_pembelian_inventaris['no_faktur']; ?>',
                     '<?= base_url('pembelian_inventaris/detail/' . $dt_pembelian_inventaris['no_faktur']); ?>'
                 );
-
-            // Menambahkan event listener untuk tombol simpan
-            document.getElementById('edit-form-<?= $dt_pembelian_inventaris['no_faktur']; ?>').addEventListener('submit', function(event) {
-                event.preventDefault();
-                updateData('<?= $dt_pembelian_inventaris['no_faktur']; ?>');
-            });
-
-            function updateData(noFaktur) {
-                var formData = new FormData(document.getElementById('edit-form-' + noFaktur));
-
-                fetch('<?= base_url('pembelian_inventaris/edit'); ?>', {
-                        method: 'POST',
-                        body: formData
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            alert('Data berhasil diperbarui');
-                            var modal = bootstrap.Modal.getInstance(document.getElementById('edit_pembelian_inventaris' + noFaktur));
-                            modal.hide();
-                            location.reload();
-                        } else {
-                            alert('Terjadi kesalahan: ' + data.error);
-                        }
-                    })
-                    .catch(error => console.error('Error updating data:', error));
-            }
         <?php endforeach; ?>
     });
 </script>
