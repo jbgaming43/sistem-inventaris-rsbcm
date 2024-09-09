@@ -451,10 +451,128 @@
     }
 </script>
 
-
-
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         setupEventListeners(0); // Pasang listener untuk baris pertama
+    });
+</script>
+
+
+
+
+<script>
+    function fetchBarangDetails2(kode_barang, rowIndex) {
+        if (kode_barang) {
+            $.ajax({
+                url: '/pembelian_inventaris/pilih_barang',
+                type: 'GET',
+                data: {
+                    kode_barang: kode_barang
+                },
+                dataType: 'json',
+                success: function(data) {
+                    if (data) {
+                        // Update fields with ID including rowIndex
+                        $(`#2kode_barang_${rowIndex}`).val(data.kode_barang);
+                        $(`#2nama_produsen_${rowIndex}`).val(data.nama_produsen);
+                        $(`#2nama_merk_${rowIndex}`).val(data.nama_merk);
+                        $(`#2nama_jenis_${rowIndex}`).val(data.nama_jenis);
+                    } else {
+                        // Clear fields if no data found
+                        $(`#2kode_barang_${rowIndex}`).val('');
+                        $(`#2nama_produsen_${rowIndex}`).val('');
+                        $(`#2nama_merk_${rowIndex}`).val('');
+                        $(`#2nama_jenis_${rowIndex}`).val('');
+                    }
+                }
+            });
+        }
+    }
+</script>
+
+<script>
+    function hitungTotal2(rowIndex) {
+        var hargaBeli = parseFloat(document.getElementById("2harga_beli_" + rowIndex).value) || 0;
+        var diskon = parseFloat(document.getElementById("2diskon_" + rowIndex).value) || 0;
+        var jumlah = parseFloat(document.getElementById("2jumlah_" + rowIndex).value) || 0;
+
+        // Hitung total sebelum diskon
+        var totalSebelumDiskon = hargaBeli * jumlah;
+        var potongan = (totalSebelumDiskon * (diskon / 100));
+        // Hitung total setelah diskon
+        var total = totalSebelumDiskon - potongan;
+
+        // Masukkan hasil perhitungan ke input total
+        document.getElementById('2total_' + rowIndex).value = "Rp " + total.toFixed(2); // Tampilkan hasil di input total
+        document.getElementById('2subtotal_' + rowIndex).value = "Rp " + totalSebelumDiskon.toFixed(2); // Tampilkan hasil di input total
+        document.getElementById('2potongan_' + rowIndex).value = "Rp " + potongan.toFixed(2); // Tampilkan hasil di input total
+    }
+
+    function validateHarga2(rowIndex) {
+        var hargaInput = document.getElementById("2harga_beli_" + rowIndex);
+        var harga = parseFloat(hargaInput.value);
+
+        if (harga < 0) {
+            hargaInput.value = 0;
+        }
+
+        hitungTotal2(rowIndex); // Update total setelah validasi
+    }
+
+    document.getElementById('2ppn').addEventListener('input', function() {
+        var ppnInput = this;
+        if (ppnInput.value < 0) {
+            ppnInput.value = 0;
+        }
+    });
+
+    document.getElementById('2meterai').addEventListener('input', function() {
+        var meteraiInput = this;
+        if (meteraiInput.value < 0) {
+            meteraiInput.value = 0;
+        }
+    });
+
+    function validateDiskon2(rowIndex) {
+        var diskonInput = document.getElementById("2diskon_" + rowIndex);
+        var diskon = parseFloat(diskonInput.value);
+
+        if (diskon > 100) {
+            diskonInput.value = 100;
+        } else if (diskon < 0) {
+            diskonInput.value = 0;
+        }
+
+        hitungTotal2(rowIndex); // Update total setelah validasi
+    }
+
+    function validateJumlah2(rowIndex) {
+        var jumlahInput = document.getElementById("2jumlah_" + rowIndex);
+        var jumlah = parseFloat(jumlahInput.value);
+
+        if (jumlah < 1) {
+            jumlahInput.value = 1;
+        }
+
+        hitungTotal2(rowIndex); // Update total setelah validasi
+    }
+
+    // Pasang event listener untuk input harga beli, diskon, dan jumlah untuk setiap baris
+    function setupEventListeners2(rowIndex) {
+        document.getElementById("2harga_beli_" + rowIndex).addEventListener("input", function() {
+            validateHarga2(rowIndex);
+        });
+        document.getElementById("2diskon_" + rowIndex).addEventListener("input", function() {
+            validateDiskon2(rowIndex);
+        });
+        document.getElementById("2jumlah_" + rowIndex).addEventListener("input", function() {
+            validateJumlah2(rowIndex);
+        });
+    }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        setupEventListeners2(0); // Pasang listener untuk baris pertama
     });
 </script>

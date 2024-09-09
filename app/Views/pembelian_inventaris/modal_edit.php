@@ -119,6 +119,7 @@
 <?php endforeach; ?>
 
 <script>
+    let rowIndex2 = 0;
     document.addEventListener('DOMContentLoaded', function() {
         <?php foreach ($pem_inv_con as $dt_pembelian_inventaris) : ?>
                 (function(modalId, tableBodyId, detailUrl) {
@@ -132,19 +133,32 @@
                                 var content = '';
                                 data.forEach(item => {
                                     content += `<tr>
-                                <td>${item.kode_barang}</td>
-                                <td>${item.nama_barang}</td>
+                                <td><input type="text" id="kode_barang_0" name="kode_barang[]" class="form-control" value="${item.kode_barang}" readonly></td>
+                                <td><select class="form-select select2-barang" style="width: 100%" onchange="2fetchBarangDetails(this.value, 0)">
+                                                <?=$kode_barang = '${item.kode_barang}'?>
+                                                <option value="" <?=$kode_barang == '' ? 'selected' : null;?>>- Pilih Nama -</option>
+                                                <?php foreach ($brgc as $dt_inventarisbarang) : ?>
+                                                    <option value="<?= $dt_inventarisbarang['kode_barang'] ?>" <?=$dt_inventarisbarang['kode_barang'] == $kode_barang  ? 'selected' : null;?>><?=$dt_inventarisbarang['kode_barang']?><?= $dt_inventarisbarang['nama_barang'] ?></option>
+                                                <?php endforeach ?>
+                                            </select>
+                                            </td>
                                 <td>${item.nama_produsen}</td>
                                 <td>${item.nama_merk}</td>
                                 <td>${item.nama_jenis}</td>
-                                <td><input type="number" id="jumlah_${rowIndex}" name="jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" value="${item.jumlah}" required></td>
-                                <td><input type="number" id="harga_beli_0" name="harga_beli[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" value="${item.harga}" required></td>
-                                <td><input type="number" id="diskon_0" name="diskon[]" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" value="${item.dis}" required></td>
-                                <td><input type="text" id="total_0" name="total[]" class="form-control" readonly value="${item.total}"></td>
+                                <td><input type="number" id="2jumlah_${rowIndex2}" name="jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" value="${item.jumlah}" required></td>
+                                <td><input type="number" id="2harga_beli_${rowIndex2}" name="harga_beli[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" value="${item.harga}" required></td>
+                                <td><input type="number" id="2diskon_${rowIndex2}" name="diskon[]" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" value="${item.dis}" required></td>
+                                <td><input type="text" id="2total_${rowIndex2}" name="total[]" class="form-control" readonly value="${item.total}"></td>
                                 <td><button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Hapus</button></td>
                             </tr>`;
+                                    rowIndex2++;
                                 });
                                 tableBody.innerHTML = content;
+
+                                // Memanggil setupEventListeners setelah baris ditambahkan ke DOM
+                                for (let i = 0; i < rowIndex2; i++) {
+                                    setupEventListeners2(i);
+                                }
                             })
                             .catch(error => console.error('Error fetching details:', error));
                     });
