@@ -103,12 +103,12 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="table-body-<?= $dt_pembelian_inventaris['no_faktur']; ?>">
+                                    <tbody id="table-body-<?= $dt_pembelian_inventaris['no_faktur']; ?>" class="table-body">
                                         <!-- Rows will be populated by JavaScript -->
                                     </tbody>
                                     <tr>
                                         <td colspan="9"></td>
-                                        <td><button type="button" class="btn btn-primary btn-icon" onclick="addRow()">
+                                        <td><button type="button" class="btn btn-primary btn-icon" onclick="addRow(this, '<?= $dt_pembelian_inventaris['no_faktur']; ?>')">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                                     <path d="M12 5l0 14"></path>
@@ -140,7 +140,6 @@
                         fetch(detailUrl)
                             .then(response => response.json())
                             .then(data => {
-                                console.log(data)
                                 var tableBody = document.getElementById(tableBodyId);
                                 var content = '';
                                 data.forEach(item => {
@@ -196,6 +195,53 @@
 
     // Fungsi untuk menghapus baris
     function deleteRow(button) {
-            button.closest('tr').remove();
+        button.closest('tr').remove();
+    }
+
+    function addRow(button, noFaktur) {
+        rowIndex2++;
+        const tableBody = document.getElementById('table-body-' + noFaktur);
+
+        if (!tableBody) {
+            console.error("Tbody tidak ditemukan untuk no_faktur:", noFaktur);
+            return;
         }
+
+        const newRow = document.createElement('tr');
+
+        newRow.innerHTML = `
+        <td><input type="text" id="2kode_barang_${rowIndex2}" name="kode_barang[]" class="form-control" readonly></td>
+        <td>
+            <select class="form-select select2-barang" style="width: 100%" onchange="fetchBarangDetails2(this.value, ${rowIndex2})">
+                <option value="">- Pilih Nama -</option>
+                <?php foreach ($brgc as $dt_inventarisbarang) : ?>
+                    <option value="<?= $dt_inventarisbarang['kode_barang'] ?>"><?= $dt_inventarisbarang['nama_barang'] ?></option>
+                <?php endforeach ?>
+            </select>
+        </td>
+        <td><input type="text" id="2nama_produsen_${rowIndex2}" name="nama_produsen[]" class="form-control" readonly></td>
+        <td><input type="text" id="2nama_merk_${rowIndex2}" name="nama_merk[]" class="form-control" readonly></td>
+        <td><input type="text" id="2nama_jenis_${rowIndex2}" name="nama_jenis[]" class="form-control" readonly></td>
+        <td><input type="number" id="2jumlah_${rowIndex2}" name="jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" required></td>
+        <td><input type="number" id="2harga_beli_${rowIndex2}" name="harga_beli[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" required></td>
+        <td><input type="number" id="2diskon_${rowIndex2}" name="diskon[]" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" required></td>
+        <td><input type="text" id="2total_${rowIndex2}" name="total[]" class="form-control" readonly value="Rp0.00"></td>
+        <!-- Tambahkan input hidden untuk subtotal dan potongan -->
+        
+        <td>
+            <button type="button" class="btn btn-danger btn-icon" onclick="removeRow(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24V0H0z" fill="none" />
+                    <path d="M4 7l16 0" />
+                    <path d="M10 11l0 6" />
+                    <path d="M14 11l0 6" />
+                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                </svg>
+            </button>
+        </td>
+    `;
+        tableBody.appendChild(newRow);
+        setupEventListeners2(rowIndex2); // Setup event listeners for new row
+    }
 </script>
