@@ -275,9 +275,11 @@ class PembelianInventarisController extends BaseController
     public function print($id)
     {
         $pem_inv_mod = new PembelianInventarisModel();
+        $pem_inv_det_mod = new PembelianInventarisDetailModel();
 
         $data = [
-            'pem_inv_con' => $pem_inv_mod->getDataById($id)
+            'pem_inv_con' => $pem_inv_mod->getDataById($id),
+            'pem_inv_det_con' => $pem_inv_det_mod->detailData($id),
         ];
 
         return view('pembelian_inventaris/page_print',$data);

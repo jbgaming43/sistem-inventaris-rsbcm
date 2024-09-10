@@ -245,3 +245,451 @@ in APPPATH\Views\pembelian_inventaris\page_print.php on line 93.
 =======
 >>>>>>> a1f98ff6099514553608c43e51d9df7322b811bf
 >>>>>>> f7c2fa6f86609ae928e8389e3a5bf7dcd5c875e6
+INFO - 2024-09-10 01:57:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-10 01:59:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-10 02:07:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-10 02:07:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:07:40 --> ErrorException: Undefined variable $tanggal_awal
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 93.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(93): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tanggal_awal', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 93)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:08:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:08:35 --> ErrorException: Undefined array key "nama_supplier"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 104.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(104): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_supplier"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 104)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:09:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:09:33 --> ErrorException: Undefined array key "nama_petugas"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 109.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_petugas"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 109)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:09:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-10 02:18:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:18:34 --> ErrorException: Undefined array key "nama_rek"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_rek"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:19:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:19:35 --> ErrorException: Undefined array key "nama_rek"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_rek"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:19:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:19:36 --> ErrorException: Undefined array key "nama_rek"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_rek"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:21:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:21:29 --> ErrorException: Undefined array key "nama_rek"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_rek"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:21:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:21:31 --> ErrorException: Undefined array key "nama_rek"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_rek"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:22:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:22:49 --> ErrorException: Undefined array key "nama_rek"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_rek"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:22:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:22:52 --> ErrorException: Undefined array key "nama_rek"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_rek"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:23:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:23:44 --> ErrorException: Undefined array key "nama_rek"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_rek"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:23:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:23:53 --> ErrorException: Undefined array key "nm_rek"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nm_rek"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:26:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:26:03 --> ErrorException: Undefined array key "nm_rek"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nm_rek"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:28:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:28:27 --> ErrorException: Undefined array key "nm_rek"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nm_rek"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:28:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-10 02:28:44 --> mysqli_sql_exception: Unknown column 'aset_rekening.kd_rek_aset' in 'on clause' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventa...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventa...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventa...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventa...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PembelianInventarisModel.php(30): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PembelianInventarisController.php(32): App\Models\PembelianInventarisModel->getData()
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->index()
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-09-10 02:28:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'aset_rekening.kd_rek_aset' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.`nm_rek` as `nm_rek`, `aset_rekening`.`nm_rek` as `nm_rek_aset`
+FROM `inventaris_pembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`
+JOIN `rekening` ON `inventaris_pembelian`.`kd_rek` = `rekening`.`kd_rek`
+JOIN `rekening` as `aset_rekening` ON `inventaris_pembelian`.`kd_rek` = `aset_rekening`.`kd_rek_aset`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PembelianInventarisModel.php(30): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PembelianInventarisController.php(32): App\Models\PembelianInventarisModel->getData()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-09-10 02:28:44 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'aset_rekening.kd_rek_aset' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.`nm_rek` as `nm_rek`, `aset_rekening`.`nm_rek` as `nm_rek_aset`
+FROM `inventaris_pembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`
+JOIN `rekening` ON `inventaris_pembelian`.`kd_rek` = `rekening`.`kd_rek`
+JOIN `rekening` as `aset_rekening` ON `inventaris_pembelian`.`kd_rek` = `aset_rekening`.`kd_rek_aset`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.`nm_rek` as `nm_rek`, `aset_rekening`.`nm_rek` as `nm_rek_aset`
+FROM `inventaris_pembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`
+JOIN `rekening` ON `inventaris_pembelian`.`kd_rek` = `rekening`.`kd_rek`
+JOIN `rekening` as `aset_rekening` ON `inventaris_pembelian`.`kd_rek` = `aset_rekening`.`kd_rek_aset`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.`nm_rek` as `nm_rek`, `aset_rekening`.`nm_rek` as `nm_rek_aset`
+FROM `inventaris_pembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`
+JOIN `rekening` ON `inventaris_pembelian`.`kd_rek` = `rekening`.`kd_rek`
+JOIN `rekening` as `aset_rekening` ON `inventaris_pembelian`.`kd_rek` = `aset_rekening`.`kd_rek_aset`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PembelianInventarisModel.php(30): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PembelianInventarisController.php(32): App\Models\PembelianInventarisModel->getData()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-09-10 02:28:44 --> [Caused by] mysqli_sql_exception: Unknown column 'aset_rekening.kd_rek_aset' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.`nm_rek` as `nm_rek`, `aset_rekening`.`nm_rek` as `nm_rek_aset`
+FROM `inventaris_pembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`
+JOIN `rekening` ON `inventaris_pembelian`.`kd_rek` = `rekening`.`kd_rek`
+JOIN `rekening` as `aset_rekening` ON `inventaris_pembelian`.`kd_rek` = `aset_rekening`.`kd_rek_aset`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.`nm_rek` as `nm_rek`, `aset_rekening`.`nm_rek` as `nm_rek_aset`
+FROM `inventaris_pembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`
+JOIN `rekening` ON `inventaris_pembelian`.`kd_rek` = `rekening`.`kd_rek`
+JOIN `rekening` as `aset_rekening` ON `inventaris_pembelian`.`kd_rek` = `aset_rekening`.`kd_rek_aset`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.`nm_rek` as `nm_rek`, `aset_rekening`.`nm_rek` as `nm_rek_aset`
+FROM `inventaris_pembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`
+JOIN `rekening` ON `inventaris_pembelian`.`kd_rek` = `rekening`.`kd_rek`
+JOIN `rekening` as `aset_rekening` ON `inventaris_pembelian`.`kd_rek` = `aset_rekening`.`kd_rek_aset`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.`nm_rek` as `nm_rek`, `aset_rekening`.`nm_rek` as `nm_rek_aset`
+FROM `inventaris_pembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`
+JOIN `rekening` ON `inventaris_pembelian`.`kd_rek` = `rekening`.`kd_rek`
+JOIN `rekening` as `aset_rekening` ON `inventaris_pembelian`.`kd_rek` = `aset_rekening`.`kd_rek_aset`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PembelianInventarisModel.php(30): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PembelianInventarisController.php(32): App\Models\PembelianInventarisModel->getData()
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->index()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:34:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-10 02:34:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:34:35 --> ErrorException: Undefined array key "nm_rek"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nm_rek"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:36:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:36:04 --> ErrorException: Undefined array key "nm_rek_bayar"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nm_rek_bayar"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:39:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:39:17 --> ErrorException: Undefined array key "nm_rek_bayar"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nm_rek_bayar"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:39:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:39:19 --> ErrorException: Undefined array key "nm_rek_bayar"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nm_rek_bayar"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:41:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:41:08 --> ErrorException: Undefined array key "nm_rek_bayar"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nm_rek_bayar"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:41:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:41:15 --> ErrorException: Undefined array key "nm_rek_bayar"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nm_rek_bayar"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:41:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:41:20 --> ErrorException: Undefined array key "nm_rek"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nm_rek"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 114)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:41:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:41:45 --> ParseError: syntax error, unexpected token ";"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 114.
+ 1 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 3 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:41:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:41:52 --> ErrorException: Undefined array key "nm_rek_aset"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 118.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(118): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nm_rek_aset"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 118)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:41:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:41:56 --> ErrorException: Undefined array key "nm_rek_aset"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 118.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(118): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nm_rek_aset"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 118)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:41:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-10 02:45:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-10 02:49:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-10 02:54:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-10 02:55:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-10 02:59:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:59:08 --> ErrorException: Undefined array key "jumlah"
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 179.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "jumlah"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 179)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 02:59:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-10 02:59:18 --> ErrorException: Undefined variable $total_jumlah
+in APPPATH\Views\pembelian_inventaris\page_print.php on line 179.
+ 1 APPPATH\Views\pembelian_inventaris\page_print.php(179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_jumlah', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php', 179)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_inventaris\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(285): view('pembelian_inventaris/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->print('2024Mantap')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-10 03:00:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-10 03:00:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-10 03:06:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-10 03:07:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
