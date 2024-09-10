@@ -144,7 +144,7 @@
                                 var content = '';
                                 data.forEach(item => {
                                     content += `<tr>
-                                <td><input type="text" id="2kode_barang_${rowIndex2}" name="2kode_barang[]" class="form-control" value="${item.kode_barang}" readonly></td>
+                                <td><input type="text" id="2kode_barang_${rowIndex2}" name="2kode_barang[]" class="form-control" value="${item.kode_barang}" readonly required></td>
                                 <td>
                                     <select class="form-select select2-barang" style="width: 100%" onchange="fetchBarangDetails2(this.value, ${rowIndex2})">
                                         <option value="">- Pilih Nama -</option>
@@ -156,9 +156,9 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </td>
-                                <td><input type="text" id="2nama_produsen_${rowIndex2}" name="2nama_produsen[]" class="form-control" value="${item.nama_produsen}" readonly></td>
-                                <td><input type="text" id="2nama_merk_${rowIndex2}" name="2nama_merk[]" class="form-control" value="${item.nama_merk}" readonly></td>
-                                <td><input type="text" id="2nama_jenis_${rowIndex2}" name="2nama_jenis[]" class="form-control" value="${item.nama_jenis}" readonly></td>
+                                <td><input type="text" id="2nama_produsen_${rowIndex2}" name="2nama_produsen[]" class="form-control" value="${item.nama_produsen}" readonly required></td>
+                                <td><input type="text" id="2nama_merk_${rowIndex2}" name="2nama_merk[]" class="form-control" value="${item.nama_merk}" readonly required></td>
+                                <td><input type="text" id="2nama_jenis_${rowIndex2}" name="2nama_jenis[]" class="form-control" value="${item.nama_jenis}" readonly required></td>
                                 <td><input type="number" id="2jumlah_${rowIndex2}" name="2jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" value="${item.jumlah}" required></td>
                                 <td><input type="number" id="2harga_beli_${rowIndex2}" name="2harga_beli[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" value="${item.harga}" required></td>
                                 <td><input type="number" id="2diskon_${rowIndex2}" name="2diskon[]" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" value="${item.dis}" required></td>
@@ -210,9 +210,9 @@
         const newRow = document.createElement('tr');
 
         newRow.innerHTML = `
-        <td><input type="text" id="2kode_barang_${rowIndex2}" name="2kode_barang[]" class="form-control" readonly></td>
+        <td><input type="text" id="2kode_barang_${rowIndex2}" name="2kode_barang[]" class="form-control" style="pointer-events: none;" required data-readonly></td>
         <td>
-            <select class="form-select select2-barang" style="width: 100%" onchange="fetchBarangDetails2(this.value, ${rowIndex2})">
+            <select class="form-select select2-barang" id="select_barang_${rowIndex2}" style="width: 100%" onchange="fetchBarangDetails2(this.value, ${rowIndex2})">
                 <option value="">- Pilih Nama -</option>
                 <?php foreach ($brgc as $dt_inventarisbarang) : ?>
                     <option value="<?= $dt_inventarisbarang['kode_barang'] ?>"><?= $dt_inventarisbarang['nama_barang'] ?></option>
