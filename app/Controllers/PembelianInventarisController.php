@@ -272,46 +272,16 @@ class PembelianInventarisController extends BaseController
         return redirect()->to('/pembelian_inventaris');
     }
 
-    public function setuju($id)
+    public function print($id)
     {
-        $pbnm = new PembelianInventarisModel();
+        $pem_inv_mod = new PembelianInventarisModel();
 
         $data = [
-            'status' => 'Disetujui'
+            'pem_inv_con' => $pem_inv_mod->getDataById($id)
         ];
 
-        $pbnm->updateData($id, $data);
+        return view('pembelian_inventaris/page_print',$data);
 
-        session()->setFlashdata('success', 'disetujui');
-        return redirect()->to('/pengajuan_inventaris');
-    }
-
-    public function tolak($id)
-    {
-        $pbnm = new PembelianInventarisModel();
-
-        $data = [
-            'status' => 'Ditolak'
-        ];
-
-        $pbnm->updateData($id, $data);
-
-        session()->setFlashdata('success', 'ditolak');
-        return redirect()->to('/pengajuan_inventaris');
-    }
-
-    public function print()
-    {
-        $pbnm = new PembelianInventarisModel();
-
-        $tanggal_awal = $this->request->getPost('tanggal_awal');
-        $tanggal_akhir = $this->request->getPost('tanggal_akhir');
-        $nik = $this->request->getPost('nik');
-
-        $data = $pbnm->printData($tanggal_awal, $tanggal_akhir, $nik);
-        // var_dump($data);
-
-        return view('pengajuan_inventaris/page_print', ['data' => $data, 'tanggal_awal' => $tanggal_awal, 'tanggal_akhir' => $tanggal_akhir, 'nik' => $nik]);
     }
 
     public function getBarangDetails()

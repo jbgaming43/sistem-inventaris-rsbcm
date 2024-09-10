@@ -28,6 +28,15 @@ class PembelianInventarisModel extends Model
         ->findAll(); // retrieve all data
     }
 
+    public function getDataById($id)
+    {
+        return $this->select('inventaris_pembelian.*, petugas.*, inventaris_suplier.*')
+        ->join('petugas','inventaris_pembelian.nip=petugas.nip')
+        ->join('inventaris_suplier','inventaris_pembelian.kode_suplier=inventaris_suplier.kode_suplier')
+        ->where('no_faktur', $id)
+        ->findAll(); // retrieve all data
+    }
+
     public function insertData($data)
     {
         return $this->insert($data); // insert data

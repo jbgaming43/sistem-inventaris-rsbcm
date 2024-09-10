@@ -42,5 +42,5 @@ $routes->post('/pembelian_inventaris/delete/(:any)', 'PembelianInventarisControl
 $routes->get('/pembelian_inventaris/detail/(:any)', 'PembelianInventarisController::detail/$1');
 $routes->post('/pembelian_inventaris/setuju/(:num)', 'PembelianInventarisController::setuju/$1');
 $routes->post('/pembelian_inventaris/tolak/(:num)', 'PembelianInventarisController::tolak/$1');
-$routes->post('/pembelian_inventaris/print', 'PembelianInventarisController::print');
+$routes->get('/pembelian_inventaris/print/(:any)', 'PembelianInventarisController::print/$1');
 $routes->get('/pembelian_inventaris/pilih_barang', 'PembelianInventarisController::getBarangDetails');
