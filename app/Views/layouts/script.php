@@ -618,13 +618,59 @@
 
                         // Update fields with the retrieved data
                         $('#tgl_faktur').val(faktur.tgl_beli);
-                        
+                        $('#kode_suplier').val(faktur.kode_suplier);
+                        $('#nip').val(faktur.nip);
+                        $('#kd_rek_aset').val(faktur.kd_rek_aset);
+                        $('#ppn').val(faktur.ppn);
+                        $('#meterai').val(faktur.meterai);
+
+                        console.log(no_faktur);
+                        // Fetch inventory details for the faktur
+                        fetch(`/penerimaan_inventaris/detail/${no_faktur}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    console.log(data.detail);
+                                    fillInventoryTable(data.detail);
+                                } else {
+                                    alert('No faktur tidak ditemukan.');
+                                }
+                            })
+                            .catch(error => console.error('Error fetching data:', error));
+
+
                     } else {
                         // Kosongkan field jika data tidak ditemukan
                         $('#tgl_faktur').val('');
+                        $('#kode_suplier').val('');
+                        $('#nip').val('');
+                        $('#kd_rek_aset').val('');
+                        $('#ppn').val('');
+                        $('#meterai').val('');
                     }
                 }
             });
         }
+    }
+
+    function fillInventoryTable(items) {
+        const tableBody = document.getElementById('table-body');
+        tableBody.innerHTML = ''; // Kosongkan tabel sebelum mengisi ulang
+
+        items.forEach((item, index) => {
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+            <td><input type="text" id="kode_barang_${index}" name="kode_barang[]" class="form-control" value="${item.kode_barang}" readonly></td>
+            <td><input type="text" id="nama_barang_${index}" name="nama_barang[]" class="form-control" value="${item.nama_barang}" readonly></td>
+            <td><input type="text" id="nama_produsen_${index}" name="nama_produsen[]" class="form-control" value="${item.nama_produsen}" readonly></td>
+            <td><input type="text" id="nama_merk_${index}" name="nama_merk[]" class="form-control" value="${item.nama_merk}" readonly></td>
+            <td><input type="text" id="nama_jenis_${index}" name="nama_jenis[]" class="form-control" value="${item.nama_jenis}" readonly></td>
+            <td><input type="number" id="jumlah_${index}" name="jumlah[]" class="form-control" value="${item.jumlah}" readonly></td>
+            <td><input type="number" id="harga_beli_${index}" name="harga_beli[]" class="form-control" value="${item.harga}" readonly></td>
+            <td><input type="number" id="diskon_${index}" name="diskon[]" class="form-control" value="${item.dis}" readonly></td>
+            <td><input type="text" id="total_${index}" name="total[]" class="form-control" value="${item.total}" readonly></td>
+        `;
+            tableBody.appendChild(newRow);
+        });
     }
 </script>
