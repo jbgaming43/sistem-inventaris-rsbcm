@@ -50,7 +50,12 @@ class PenerimaanInventarisController extends BaseController
         $pem_inv_det_mod = new PembelianInventarisDetailModel();
         $detail = $pem_inv_det_mod->detailData($no_faktur);
 
-        return $this->response->setJSON($detail);
+        if ($detail) {
+            // Kirim data dalam format JSON
+            return $this->response->setJSON(['success' => true, 'detail' => $detail]);
+        } else {
+            return $this->response->setJSON(['success' => false]);
+        }
     }
 
     public function add()
