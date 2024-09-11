@@ -294,6 +294,12 @@
             dropdownParent: $('#add_pembelian_inventaris')
         });
     });
+    $(document).ready(function() {
+        // Inisialisasi Select2 untuk Modal Tambah Desa
+        $('.select2-barang').select2({
+            dropdownParent: $('#add_penerimaan_inventaris')
+        });
+    });
 
     function resetForm(formClass) {
         $('.' + formClass)[0].reset();
@@ -592,6 +598,33 @@
 
         return isDuplicate;
     }
+</script>
 
+<script>
+    function fetchFaktur(no_faktur) {
+        if (no_faktur) {
 
+            $.ajax({
+                url: '/penerimaan_inventaris/pilih_no_faktur',
+                type: 'GET',
+                data: {
+                    no_faktur: no_faktur
+                },
+                dataType: 'json',
+                success: function(data) {
+                    // Pastikan data adalah array dan memiliki elemen
+                    if (data && data.length > 0) {
+                        var faktur = data[0]; // Mengambil elemen pertama dari array
+
+                        // Update fields with the retrieved data
+                        $('#tgl_faktur').val(faktur.tgl_beli);
+                        
+                    } else {
+                        // Kosongkan field jika data tidak ditemukan
+                        $('#tgl_faktur').val('');
+                    }
+                }
+            });
+        }
+    }
 </script>

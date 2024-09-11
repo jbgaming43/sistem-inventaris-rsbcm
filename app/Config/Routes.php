@@ -44,3 +44,14 @@ $routes->post('/pembelian_inventaris/setuju/(:num)', 'PembelianInventarisControl
 $routes->post('/pembelian_inventaris/tolak/(:num)', 'PembelianInventarisController::tolak/$1');
 $routes->get('/pembelian_inventaris/print/(:any)', 'PembelianInventarisController::print/$1');
 $routes->get('/pembelian_inventaris/pilih_barang', 'PembelianInventarisController::getBarangDetails');
+
+// Routes untuk mengelola data penerimaan inventaris
+$routes->get('/penerimaan_inventaris', 'PenerimaanInventarisController::index');
+$routes->post('/penerimaan_inventaris/add', 'PenerimaanInventarisController::add');
+$routes->post('/penerimaan_inventaris/edit/(:any)', 'PenerimaanInventarisController::edit/$1');
+$routes->post('/penerimaan_inventaris/delete/(:any)', 'PenerimaanInventarisController::delete/$1');
+$routes->get('/penerimaan_inventaris/detail/(:any)', 'PenerimaanInventarisController::detail/$1');
+$routes->post('/penerimaan_inventaris/setuju/(:num)', 'PenerimaanInventarisController::setuju/$1');
+$routes->post('/penerimaan_inventaris/tolak/(:num)', 'PenerimaanInventarisController::tolak/$1');
+$routes->get('/penerimaan_inventaris/print/(:any)', 'PenerimaanInventarisController::print/$1');
+$routes->get('/penerimaan_inventaris/pilih_no_faktur', 'PenerimaanInventarisController::getFaktur');

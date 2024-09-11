@@ -105,7 +105,7 @@
                                 <a class="dropdown-item <?= ($active_submenu == 'pembelian_inventaris') ? 'active' : ''; ?>" href="<?= base_url('/pembelian_inventaris'); ?>">
                                     Data Pembelian
                                 </a>
-                                <a class="dropdown-item <?= ($active_submenu == 'penerimaan_inventaris') ? 'active' : ''; ?>" href="<?= base_url('/lainnya'); ?>">
+                                <a class="dropdown-item <?= ($active_submenu == 'penerimaan_inventaris') ? 'active' : ''; ?>" href="<?= base_url('/penerimaan_inventaris'); ?>">
                                     Data Penerimaan
                                 </a>
                                 <a class="dropdown-item <?= ($active_submenu == 'permintaan_inventaris') ? 'active' : ''; ?>" href="<?= base_url('/lainnya'); ?>">
