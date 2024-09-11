@@ -108,7 +108,7 @@
                                     </tbody>
                                     <tr>
                                         <td colspan="9"></td>
-                                        <td><button type="button" class="btn btn-primary btn-icon" onclick="addRow(this, '<?= $dt_pembelian_inventaris['no_faktur']; ?>')">
+                                        <td><button type="button" class="btn btn-primary btn-icon" onclick="addRow2(this, '<?= $dt_pembelian_inventaris['no_faktur']; ?>')">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                                     <path d="M12 5l0 14"></path>
@@ -146,7 +146,7 @@
                                     content += `<tr>
                                 <td><input type="text" id="2kode_barang_${rowIndex2}" name="2kode_barang[]" class="form-control" value="${item.kode_barang}" readonly required></td>
                                 <td>
-                                    <select class="form-select select2-barang" style="width: 100%" onchange="fetchBarangDetails2(this.value, ${rowIndex2})">
+                                    <select id="2select_barang_${rowIndex2}" class="form-select select2-barang" style="width: 100%" onchange="fetchBarangDetails2(this.value, ${rowIndex2})">
                                         <option value="">- Pilih Nama -</option>
                                         <?php foreach ($brgc as $dt_inventarisbarang) : ?>
                                             <option value="<?= $dt_inventarisbarang['kode_barang'] ?>" 
@@ -198,7 +198,7 @@
         button.closest('tr').remove();
     }
 
-    function addRow(button, noFaktur) {
+    function addRow2(button, noFaktur) {
         rowIndex2++;
         const tableBody = document.getElementById('table-body-' + noFaktur);
 
@@ -212,7 +212,7 @@
         newRow.innerHTML = `
         <td><input type="text" id="2kode_barang_${rowIndex2}" name="2kode_barang[]" class="form-control" style="pointer-events: none;" required data-readonly></td>
         <td>
-            <select class="form-select select2-barang" id="select_barang_${rowIndex2}" style="width: 100%" onchange="fetchBarangDetails2(this.value, ${rowIndex2})">
+            <select class="form-select select2-barang" id="2select_barang_${rowIndex2}" style="width: 100%" onchange="fetchBarangDetails2(this.value, ${rowIndex2})">
                 <option value="">- Pilih Nama -</option>
                 <?php foreach ($brgc as $dt_inventarisbarang) : ?>
                     <option value="<?= $dt_inventarisbarang['kode_barang'] ?>"><?= $dt_inventarisbarang['nama_barang'] ?></option>
