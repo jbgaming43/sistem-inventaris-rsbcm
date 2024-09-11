@@ -304,6 +304,18 @@
 <script>
     function fetchBarangDetails(kode_barang, rowIndex) {
         if (kode_barang) {
+
+            if (isDuplicate(kode_barang)) {
+                alert("Kode barang sudah ada di tabel. Silakan pilih barang yang lain.");
+                // Reset dropdown jika duplikat ditemukan
+                $(`#kode_barang_${rowIndex}`).val('');
+                $(`#select_barang_${rowIndex}`).val('');
+                $(`#nama_produsen_${rowIndex}`).val('');
+                $(`#nama_merk_${rowIndex}`).val('');
+                $(`#nama_jenis_${rowIndex}`).val('');
+                return;
+            }
+
             $.ajax({
                 url: '/pembelian_inventaris/pilih_barang',
                 type: 'GET',
@@ -424,6 +436,18 @@
 <script>
     function fetchBarangDetails2(kode_barang, rowIndex) {
         if (kode_barang) {
+
+            if (isDuplicate2(kode_barang)) {
+                alert("Kode barang sudah ada di tabel. Silakan pilih barang yang lain.");
+                // Reset dropdown jika duplikat ditemukan
+                $(`#2kode_barang_${rowIndex}`).val('');
+                $(`#2select_barang_${rowIndex}`).val('');
+                $(`#2nama_produsen_${rowIndex}`).val('');
+                $(`#2nama_merk_${rowIndex}`).val('');
+                $(`#2nama_jenis_${rowIndex}`).val('');
+                return;
+            }
+
             $.ajax({
                 url: '/pembelian_inventaris/pilih_barang',
                 type: 'GET',
@@ -534,6 +558,40 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        setupEventListeners(0); // Pasang listener untuk baris pertama
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
         setupEventListeners2(0); // Pasang listener untuk baris pertama
     });
+
+    function isDuplicate(kode_barang) {
+        let isDuplicate = false;
+
+        // Loop through each existing row to check for duplicate kode_barang
+        $('input[name="kode_barang[]"]').each(function() {
+            if ($(this).val() === kode_barang) {
+                isDuplicate = true;
+                return false; // Stop the loop if a duplicate is found
+            }
+        });
+
+        return isDuplicate;
+    }
+
+    function isDuplicate2(kode_barang) {
+        let isDuplicate = false;
+
+        // Loop through each existing row to check for duplicate kode_barang
+        $('input[name="2kode_barang[]"]').each(function() {
+            if ($(this).val() === kode_barang) {
+                isDuplicate = true;
+                return false; // Stop the loop if a duplicate is found
+            }
+        });
+
+        return isDuplicate;
+    }
+
+
 </script>
