@@ -315,3 +315,17 @@ INFO - 2024-09-11 07:30:42 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-09-11 07:30:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-11 07:30:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 >>>>>>> d0c6abe5c07794c4866d3dde3585d4a1f0f2bd7f
+INFO - 2024-09-11 07:33:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-11 07:33:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-11 07:34:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-11 07:34:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-11 07:34:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-11 07:34:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-11 07:34:28 --> ErrorException: Undefined variable $tgl_beli
+in APPPATH\Controllers\PenerimaanInventarisController.php on line 122.
+ 1 APPPATH\Controllers\PenerimaanInventarisController.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tgl_beli', 'D:\\RSBCM\\inventaris-barang\\app\\Controllers\\PenerimaanInventarisController.php', 122)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanInventarisController->add()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanInventarisController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
