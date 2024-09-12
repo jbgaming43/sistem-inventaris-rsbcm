@@ -48,7 +48,7 @@ class PenerimaanInventarisController extends BaseController
 
     public function detail($no_faktur)
     {
-        $pem_inv_det_mod = new PembelianInventarisDetailModel();
+        $pem_inv_det_mod = new PenerimaanInventarisDetailModel();
         $detail = $pem_inv_det_mod->detailData($no_faktur);
 
         if ($detail) {

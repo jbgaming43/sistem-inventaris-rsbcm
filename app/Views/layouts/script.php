@@ -290,7 +290,7 @@
     });
     $(document).ready(function() {
         // Inisialisasi Select2 untuk Modal Tambah Desa
-        $('.select2-barang').select2({
+        $('.select2-barang1').select2({
             dropdownParent: $('#add_pembelian_inventaris')
         });
     });
@@ -315,7 +315,7 @@
                 alert("Kode barang sudah ada di tabel. Silakan pilih barang yang lain.");
                 // Reset dropdown jika duplikat ditemukan
                 $(`#kode_barang_${rowIndex}`).val('');
-                $(`#select_barang_${rowIndex}`).val('');
+                $(`#select_barang_${rowIndex}`).val('').trigger('change');
                 $(`#nama_produsen_${rowIndex}`).val('');
                 $(`#nama_merk_${rowIndex}`).val('');
                 $(`#nama_jenis_${rowIndex}`).val('');
@@ -431,15 +431,6 @@
 </script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        setupEventListeners(0); // Pasang listener untuk baris pertama
-    });
-</script>
-
-
-
-
-<script>
     function fetchBarangDetails2(kode_barang, rowIndex) {
         if (kode_barang) {
 
@@ -447,7 +438,7 @@
                 alert("Kode barang sudah ada di tabel. Silakan pilih barang yang lain.");
                 // Reset dropdown jika duplikat ditemukan
                 $(`#2kode_barang_${rowIndex}`).val('');
-                $(`#2select_barang_${rowIndex}`).val('');
+                $(`#2select_barang_${rowIndex}`).val('').trigger('change');
                 $(`#2nama_produsen_${rowIndex}`).val('');
                 $(`#2nama_merk_${rowIndex}`).val('');
                 $(`#2nama_jenis_${rowIndex}`).val('');

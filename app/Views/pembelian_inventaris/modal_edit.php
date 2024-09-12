@@ -178,6 +178,11 @@
                                 });
                                 tableBody.innerHTML = content;
 
+                                // Initialize Select2 on dynamically added selects
+                                $('.select2-barang').select2({
+                                    dropdownParent: $(`#${modalId}`)
+                                });
+
                                 // Memanggil setupEventListeners setelah baris ditambahkan ke DOM
                                 for (let i = 0; i < rowIndex2; i++) {
                                     setupEventListeners2(i);
@@ -242,6 +247,12 @@
         </td>
     `;
         tableBody.appendChild(newRow);
+
+        // Inisialisasi Select2 pada elemen yang baru ditambahkan
+        $(`#2select_barang_${rowIndex2}`).select2({
+            dropdownParent: $(`#edit_pembelian_inventaris${noFaktur}`) // pastikan dropdownParent mengacu pada modal yang benar
+        });
+
         setupEventListeners2(rowIndex2); // Setup event listeners for new row
     }
 </script>

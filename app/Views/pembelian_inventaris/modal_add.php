@@ -95,7 +95,7 @@
                                 <tbody id="table-body">
                                     <tr>
                                         <td><input type="text" id="kode_barang_0" name="kode_barang[]" class="form-control" readonly></td>
-                                        <td><select id="select_barang_0" class="form-select select2-barang" style="width: 100%" onchange="fetchBarangDetails(this.value, 0)">
+                                        <td><select id="select_barang_0" class="form-select select2-barang1" style="width: 100%" onchange="fetchBarangDetails(this.value, 0)">
                                                 <option value="">- Pilih Nama -</option>
                                                 <?php foreach ($brgc as $dt_inventarisbarang) : ?>
                                                     <option value="<?= $dt_inventarisbarang['kode_barang'] ?>"><?= $dt_inventarisbarang['nama_barang'] ?></option>
@@ -117,7 +117,7 @@
                                                 </svg>
                                             </button>
                                         </td>
-                                        
+
                                     </tr>
                                 </tbody>
                             </table>
@@ -148,7 +148,7 @@
         newRow.innerHTML = `
         <td><input type="text" id="kode_barang_${rowIndex}" name="kode_barang[]" class="form-control" readonly></td>
         <td>
-            <select id="select_barang_${rowIndex}" class="form-select select2-barang" style="width: 100%" onchange="fetchBarangDetails(this.value, ${rowIndex})">
+            <select id="select_barang_${rowIndex}" class="form-select select2-barang1" style="width: 100%" onchange="fetchBarangDetails(this.value, ${rowIndex})">
                 <option value="">- Pilih Nama -</option>
                 <?php foreach ($brgc as $dt_inventarisbarang) : ?>
                     <option value="<?= $dt_inventarisbarang['kode_barang'] ?>"><?= $dt_inventarisbarang['nama_barang'] ?></option>
@@ -178,6 +178,11 @@
         </td>
     `;
         tableBody.appendChild(newRow);
+        // Inisialisasi Select2 pada elemen baru
+        $('#select_barang_' + rowIndex).select2({
+            dropdownParent: $('#add_pembelian_inventaris')
+        });
+
         setupEventListeners(rowIndex); // Setup event listeners for new row
     }
 
