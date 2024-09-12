@@ -283,7 +283,7 @@ class PenerimaanInventarisController extends BaseController
         $penerimaan_inv_mod->deleteData($id);
 
         session()->setFlashdata('success', 'dihapus');
-        return redirect()->to('/pembelian_inventaris');
+        return redirect()->to('/penerimaan_inventaris');
     }
 
     public function print($id)
