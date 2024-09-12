@@ -33,7 +33,7 @@
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Tanggal Faktur</label>
                         <div class="col">
-                            <input type="date" class="form-control" id="tgl_faktur" name="tgl_faktur" placeholder="Masukkan tanggal beli">
+                            <input type="date" class="form-control" id="tgl_faktur" name="tgl_faktur" placeholder="Masukkan tanggal beli" readonly>
                         </div>
                     </div>
                     <div class="mb-2 row">
@@ -45,7 +45,7 @@
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Supplier</label>
                         <div class="col">
-                            <select class="form-select select2-petugas" id="kode_suplier" name="kode_suplier" style="width: 100%">
+                            <select class="form-select select2-petugas" id="kode_suplier" name="kode_suplier" style="width: 100%" readonly>
                                 <option value="">- Pilih Nama -</option>
                                 <?php foreach ($supc as $dt_suplier) : ?>
                                     <option value="<?= $dt_suplier['kode_suplier'] ?>"> <?= $dt_suplier['kode_suplier'] ?>-<?= $dt_suplier['nama_suplier'] ?></option>

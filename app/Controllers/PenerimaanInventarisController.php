@@ -9,6 +9,7 @@ use CodeIgniter\Controller;
 use App\Models\PenerimaanInventarisModel;
 use App\Models\PembelianInventarisModel;
 use App\Models\PembelianInventarisDetailModel;
+use App\Models\PenerimaanInventarisDetailModel;
 use App\Models\PetugasModel;
 use App\Models\AkunBayarModel;
 use App\Helpers\AuthHelper;
@@ -62,7 +63,7 @@ class PenerimaanInventarisController extends BaseController
     {
         // Inisialisasi model
         $penerimaan_inv_mod = new PenerimaanInventarisModel();
-        $pem_inv_det_mod = new PembelianInventarisDetailModel();
+        $pem_inv_det_mod = new PenerimaanInventarisDetailModel();
 
         // Ambil data dari form
         $no_faktur = $this->request->getPost('no_faktur');
@@ -117,16 +118,19 @@ class PenerimaanInventarisController extends BaseController
         // Persiapkan data untuk tabel inventaris_pembelian
         $dataPembelian = [
             'no_faktur' => $no_faktur,
+            'no_order' => $no_order,
             'kode_suplier' => $kode_suplier,
             'nip' => $nip,
-            'tgl_beli' => $tgl_beli,
-            'subtotal' => $totalTotal,
+            'tgl_pesan' => $tgl_pesan,
+            'tgl_faktur' => $tgl_faktur,
+            'tgl_tempo' => $tgl_tempo,
+            'total1' => $totalTotal,
             'potongan' => $totalBesardis,
-            'total' => $totalTotal - $totalBesardis,
+            'total2' => $totalTotal - $totalBesardis,
             'ppn' => $ppn,
             'meterai' => $meterai,
             'tagihan' => $tagihan,
-            'kd_rek' => $kd_rek,
+            'status' => 'Belum Dibayar',
             'kd_rek_aset' => $kd_rek_aset,
 
             // hitung subtotal, potongan, dll. jika diperlukan
@@ -162,7 +166,7 @@ class PenerimaanInventarisController extends BaseController
 
 
         // Redirect atau tampilkan pesan sukses
-        return redirect()->to('/pembelian_inventaris')->with('success', 'Data pembelian berhasil disimpan.');
+        return redirect()->to('/penerimaan_inventaris')->with('success', 'Data penerimaan berhasil disimpan.');
     }
 
     public function edit($id)
