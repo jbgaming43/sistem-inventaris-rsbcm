@@ -21,13 +21,13 @@
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">SP/Order</label>
                         <div class="col">
-                            <input type="text" class="form-control" id="no_order" name="no_order" placeholder="Masukkan SP/Order" id="no_faktur">
+                            <input type="text" class="form-control" id="no_order" name="no_order" placeholder="Masukkan SP/Order" id="no_faktur" required>
                         </div>
                     </div>
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Tanggal Datang</label>
                         <div class="col">
-                            <input type="date" class="form-control" id="tgl_pesan" name="tgl_pesan" placeholder="Masukkan tanggal beli">
+                            <input type="date" class="form-control" id="tgl_pesan" name="tgl_pesan" placeholder="Masukkan tanggal beli" required>
                         </div>
                     </div>
                     <div class="mb-2 row">
@@ -39,7 +39,7 @@
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Jatuh Tempo</label>
                         <div class="col">
-                            <input type="date" class="form-control" id="tgl_tempo" name="tgl_tempo" placeholder="Masukkan tanggal beli">
+                            <input type="date" class="form-control" id="tgl_tempo" name="tgl_tempo" placeholder="Masukkan tanggal beli" required>
                         </div>
                     </div>
                     <div class="mb-2 row">
