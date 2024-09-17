@@ -121,9 +121,24 @@
                     <td><?= $dt_penerimaan_inv['no_faktur'] ?></td>
                 </tr>
                 <tr>
+                    <td>No. Order</td>
+                    <td>:</td>
+                    <td><?= $dt_penerimaan_inv['no_order'] ?></td>
+                </tr>
+                <tr>
+                    <td>Tgl. Datang</td>
+                    <td>:</td>
+                    <td><?= date('d-M-Y', strtotime($dt_penerimaan_inv['tgl_pesan'])) ?></td>
+                </tr>
+                <tr>
                     <td>Tgl. Beli</td>
                     <td>:</td>
                     <td><?= date('d-M-Y', strtotime($dt_penerimaan_inv['tgl_faktur'])) ?></td>
+                </tr>
+                <tr>
+                    <td>Jatuh Tempo</td>
+                    <td>:</td>
+                    <td><?= date('d-M-Y', strtotime($dt_penerimaan_inv['tgl_tempo'])) ?></td>
                 </tr>
                 <tr>
                     <td>Supplier</td>
@@ -134,16 +149,6 @@
                     <td>Petugas</td>
                     <td>:</td>
                     <td><?= $dt_penerimaan_inv['nama'] ?></td>
-                </tr>
-                <tr>
-                    <td>Akun Bayar</td>
-                    <td>:</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Akun Jenis</td>
-                    <td>:</td>
-                    <td></td>
                 </tr>
             </table>
         <?php endforeach ?>
