@@ -37,6 +37,7 @@
                                         </tr>`;
                                     });
                                     console.log(data.detail);
+                                    content += '<tr><td colspan="6"></td><th><?= $dt_pemesanan_inventaris['total1'] ?></th></tr><tbody>';
                                     content += '</tbody></table>';
                                     document.getElementById(detailContentId).innerHTML = content;
                                 } else {

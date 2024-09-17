@@ -5,6 +5,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div class="modal-body text-center py-2">
                     <div id="detail-content-<?= $dt_pembelian_inventaris['no_faktur']; ?>"></div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -35,6 +36,7 @@
                                     <td>${item.total}</td>
                                 </tr>`;
                                 });
+                                content += '<tr><td colspan="6"></td><th><?= $dt_pembelian_inventaris['subtotal'] ?></th></tr><tbody>';
                                 content += '</tbody></table>';
                                 document.getElementById(detailContentId).innerHTML = content;
                             })

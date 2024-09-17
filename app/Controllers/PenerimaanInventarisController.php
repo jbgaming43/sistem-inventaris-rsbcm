@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\InventarisBarangModel;
+use App\Models\InventarisModel;
 use App\Models\RekeningModel;
 use App\Models\SuplierModel;
 use CodeIgniter\Controller;
@@ -21,6 +22,7 @@ class PenerimaanInventarisController extends BaseController
         // objek PenggunaModel
         $penerimaan_inv_mod = new PenerimaanInventarisModel();
         $beli_inv_mod = new PembelianInventarisModel();
+        $inv_mod = new InventarisModel();
 
         $ptgm = new PetugasModel();
         $supm = new SuplierModel();
@@ -64,6 +66,7 @@ class PenerimaanInventarisController extends BaseController
         // Inisialisasi model
         $penerimaan_inv_mod = new PenerimaanInventarisModel();
         $pem_inv_det_mod = new PenerimaanInventarisDetailModel();
+        $inv_mod = new InventarisModel();
 
         // Ambil data dari form
         $no_faktur = $this->request->getPost('no_faktur');
@@ -139,25 +142,60 @@ class PenerimaanInventarisController extends BaseController
         // Simpan data pembelian ke tabel inventaris_pembelian
         $penerimaan_inv_mod->insertData($dataPembelian);
 
-        // Loop melalui setiap barang yang diinputkan
-        for ($i = 0; $i < count($kode_barang); $i++) {
-            //hitung utk data saat ini
-            $subtotal = $harga_beli[$i] * $jumlah[$i];
-            $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
-            $total = $subtotal - $besardis;
-            // Persiapkan data untuk tabel inventaris_detail_beli
+        // Tentukan format tanggal untuk keperluan nomor inventaris (format Ymd)
+        $tanggal = date('Y/m/d');
+
+        for ($index = 0; $index < count($kode_barang); $index++) {
+            // Ambil nilai jumlah dari setiap item
+            $jumlahBarang = $jumlah[$index];
+
+            // Loop untuk setiap jumlah barang
+            for ($j = 0; $j < $jumlahBarang; $j++) {
+                // Logika nomor inventaris tetap sama seperti sebelumnya
+                $subtotal = $harga_beli[$index] * $jumlahBarang;
+                $besardis = ($harga_beli[$index] * $jumlahBarang) * ($diskon[$index] / 100);
+                $total = $subtotal - $besardis;
+
+                // Cek inventaris terakhir
+                $result = $inv_mod->getNoInventarisLast($tanggal);
+
+                if ($result) {
+                    $lastNoInventaris = $result['no_inventaris'];
+                    $lastIncrement = (int)substr($lastNoInventaris, -3);
+                    $newIncrement = $lastIncrement + 1;
+                } else {
+                    $newIncrement = 1;
+                }
+
+                $incrementFormatted = str_pad($newIncrement, 3, '0', STR_PAD_LEFT);
+                $no_inventaris_baru = 'INV/' . $tanggal . '/' . $incrementFormatted;
+
+                // Data inventaris baru
+                $dataInventaris = [
+                    'no_inventaris' => $no_inventaris_baru,
+                    'kode_barang' => $kode_barang[$index],
+                    'asal_barang' => 'Beli',
+                    'tgl_pengadaan' => $tgl_pesan,
+                    'harga' => $harga_beli[$index],
+                    'status_barang' => 'Ada'
+                ];
+
+                // Simpan data inventaris ke database
+                $inv_mod->insert($dataInventaris);
+            }
+
+            // Simpan data detail pembelian ke tabel inventaris_detail_beli
             $dataDetail = [
                 'no_faktur' => $no_faktur,
-                'kode_barang' => $kode_barang[$i],
-                'jumlah' => $jumlah[$i],
-                'harga' => $harga_beli[$i],
+                'kode_barang' => $kode_barang[$index],
+                'jumlah' => $jumlah[$index],
+                'harga' => $harga_beli[$index],
                 'subtotal' => $subtotal,
-                'dis' => $diskon[$i],
+                'dis' => $diskon[$index],
                 'besardis' => $besardis,
                 'total' => $total
             ];
 
-            // Simpan data detail pembelian ke tabel inventaris_detail_beli
             $pem_inv_det_mod->insert($dataDetail);
         }
 
@@ -184,7 +222,7 @@ class PenerimaanInventarisController extends BaseController
                 return redirect()->back()->with('error', 'Nomor faktur sudah ada, gunakan nomor faktur yang berbeda.');
             }
         }
-        
+
         $kode_suplier = $this->request->getPost('kode_suplier');
         $nip = $this->request->getPost('nip');
         $tgl_beli = $this->request->getPost('tgl_beli');
@@ -296,8 +334,7 @@ class PenerimaanInventarisController extends BaseController
             'pem_inv_det_con' => $pem_inv_det_mod->detailData($id),
         ];
 
-        return view('pembelian_inventaris/page_print',$data);
-
+        return view('pembelian_inventaris/page_print', $data);
     }
 
     public function getFaktur()
