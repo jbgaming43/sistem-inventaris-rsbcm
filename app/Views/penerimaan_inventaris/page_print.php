@@ -71,7 +71,7 @@
             left: 0;
             width: 100%;
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             margin-top: 20mm;
             /* Extra margin to ensure it's pushed to the bottom */
         }
@@ -116,39 +116,41 @@
         <?php foreach ($penerimaan_inv_con as $dt_penerimaan_inv) : ?>
             <table class="details">
                 <tr>
+                    <!-- untuk yang kiri -->
                     <td>No. Faktur</td>
                     <td>:</td>
                     <td><?= $dt_penerimaan_inv['no_faktur'] ?></td>
-                </tr>
-                <tr>
-                    <td>No. Order</td>
-                    <td>:</td>
-                    <td><?= $dt_penerimaan_inv['no_order'] ?></td>
-                </tr>
-                <tr>
+                    <!-- untuk yang kanan -->
                     <td>Tgl. Datang</td>
                     <td>:</td>
                     <td><?= date('d-M-Y', strtotime($dt_penerimaan_inv['tgl_pesan'])) ?></td>
                 </tr>
                 <tr>
+                    <!-- untuk yang kiri -->
+                    <td>No. Order</td>
+                    <td>:</td>
+                    <td><?= $dt_penerimaan_inv['no_order'] ?></td>
+                    <!-- untuk yang kanan -->
                     <td>Tgl. Beli</td>
                     <td>:</td>
                     <td><?= date('d-M-Y', strtotime($dt_penerimaan_inv['tgl_faktur'])) ?></td>
                 </tr>
                 <tr>
+                    <!-- untuk yang kiri -->
+                    <td>Supplier</td>
+                    <td>:</td>
+                    <td><?= $dt_penerimaan_inv['nama_suplier'] ?></td>
+                    <!-- untuk yang kanan -->
                     <td>Jatuh Tempo</td>
                     <td>:</td>
                     <td><?= date('d-M-Y', strtotime($dt_penerimaan_inv['tgl_tempo'])) ?></td>
                 </tr>
                 <tr>
-                    <td>Supplier</td>
-                    <td>:</td>
-                    <td><?= $dt_penerimaan_inv['nama_suplier'] ?></td>
-                </tr>
-                <tr>
+                    <!-- untuk yang kiri -->
                     <td>Petugas</td>
                     <td>:</td>
-                    <td><?= $dt_penerimaan_inv['nama'] ?></td>
+                    <td style="padding-right: 30px"><?= $dt_penerimaan_inv['nama'] ?></td>
+                    <!-- untuk yang kanan -->
                 </tr>
             </table>
         <?php endforeach ?>
@@ -203,6 +205,11 @@
 
         <div class="signatures">
 
+            <div>
+                <p>Pengirim</p>
+                <br><br><br>
+                <p>__________________</p>
+            </div>
             <div>
                 <p>Penerima</p>
                 <br><br><br>
