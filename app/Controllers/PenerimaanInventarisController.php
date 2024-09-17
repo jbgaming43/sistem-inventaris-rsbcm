@@ -327,14 +327,14 @@ class PenerimaanInventarisController extends BaseController
     public function print($id)
     {
         $penerimaan_inv_mod = new PenerimaanInventarisModel();
-        $pem_inv_det_mod = new PembelianInventarisDetailModel();
+        $pem_inv_det_mod = new PenerimaanInventarisDetailModel();
 
         $data = [
-            'pem_inv_con' => $penerimaan_inv_mod->getDataById($id),
-            'pem_inv_det_con' => $pem_inv_det_mod->detailData($id),
+            'pesan_inv_con' => $penerimaan_inv_mod->getDataById($id),
+            'pesan_inv_det_con' => $pem_inv_det_mod->detailData($id),
         ];
 
-        return view('pembelian_inventaris/page_print', $data);
+        return view('penerimaan_inventaris/page_print', $data);
     }
 
     public function getFaktur()
