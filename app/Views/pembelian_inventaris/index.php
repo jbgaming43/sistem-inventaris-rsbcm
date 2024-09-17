@@ -45,7 +45,7 @@
                                         <td><?= $dt_pembelian_inventaris['tgl_beli']; ?></td>
                                         <td><?= $dt_pembelian_inventaris['nama_suplier']; ?></td>
                                         <td><?= $dt_pembelian_inventaris['nama']; ?></td>
-                                        <td><?= $dt_pembelian_inventaris['tagihan']; ?></td>
+                                        <td>Rp <?= number_format($dt_pembelian_inventaris['tagihan'], 0, ',', '.'); ?></td>
                                         <td class="text-center">
                                             <a href="<?= base_url('/pembelian_inventaris/print/'.$dt_pembelian_inventaris['no_faktur']); ?>" target="_blank">
                                                 <button type="button" class="btn btn-icon btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Print">

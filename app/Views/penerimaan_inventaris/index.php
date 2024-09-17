@@ -47,7 +47,7 @@
                                         <td><?= $dt_penerimaan_inventaris['tgl_faktur']; ?></td>
                                         <td><?= $dt_penerimaan_inventaris['nama_suplier']; ?></td>
                                         <td><?= $dt_penerimaan_inventaris['nama']; ?></td>
-                                        <td><?= $dt_penerimaan_inventaris['tagihan']; ?></td>
+                                        <td>Rp <?=number_format($dt_penerimaan_inventaris['tagihan'], 0, ',', '.') ?></td>
                                         <td class="text-center">
                                             <a href="<?= base_url('/penerimaan_inventaris/print/' . $dt_penerimaan_inventaris['no_faktur']); ?>" target="_blank">
                                                 <button type="button" class="btn btn-icon btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Print">

@@ -164,12 +164,14 @@
                     <th>Merk</th>
                     <th>Jenis</th>
                     <th>Harga Beli</th>
+                    <th>Diskon</th>
                     <th>Jumlah</th>
                     <th>Total</th>
                 </tr>
             </thead>
             <tbody>
                 <?php if (!empty($penerimaan_inv_det_con)) : ?>
+                    <?php $total_jumlah = 0;?>
                     <?php foreach ($penerimaan_inv_det_con as $index => $dt_penerimaan_inv_det) : ?>
                         <tr style=" white-space: nowrap;">
                             <td><?= $index + 1 ?></td>
@@ -178,12 +180,13 @@
                             <td><?= $dt_penerimaan_inv_det['nama_merk'] ?></td>
                             <td><?= $dt_penerimaan_inv_det['nama_jenis'] ?></td>
                             <td>Rp <?= number_format($dt_penerimaan_inv_det['harga'], 0, ',', '.'); ?></td>
+                            <td><?= $dt_penerimaan_inv_det['dis'] ?>%</td>
                             <td><?= $dt_penerimaan_inv_det['jumlah'] ?></td>
                             <td>Rp <?= number_format($dt_penerimaan_inv_det['total'], 0, ',', '.'); ?></td>
                         </tr>
 
                         <!-- menghitung sum jumlah -->
-                        <?php $total_jumlah = 0;
+                        <?php 
                         $total_jumlah += $dt_penerimaan_inv_det['jumlah'] ?>
                     <?php endforeach; ?>
                 <?php else : ?>
@@ -194,7 +197,7 @@
                 <?php foreach ($penerimaan_inv_con as $dt_penerimaan_inv) : ?>
                     <?php if ($dt_penerimaan_inv['total1']) : ?>
                         <tr>
-                            <td colspan="6"></td>
+                            <td colspan="7"></td>
                             <td><?= $total_jumlah; ?></td>
                             <td>Rp <?= number_format($dt_penerimaan_inv['total1'], 0, ',', '.'); ?></td>
                         </tr>

@@ -163,6 +163,7 @@
             </thead>
             <tbody>
                 <?php if (!empty($pem_inv_det_con)) : ?>
+                    <?php ?>
                     <?php foreach ($pem_inv_det_con as $index => $dt_pem_inv_det) : ?>
                         <tr style=" white-space: nowrap;">
                             <td><?= $index + 1 ?></td>
@@ -176,7 +177,7 @@
                         </tr>
 
                         <!-- menghitung sum jumlah -->
-                        <?php $total_jumlah = 0;
+                        <?php 
                         $total_jumlah += $dt_pem_inv_det['jumlah'] ?>
                     <?php endforeach; ?>
                 <?php else : ?>
