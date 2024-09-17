@@ -51,7 +51,5 @@ $routes->post('/penerimaan_inventaris/add', 'PenerimaanInventarisController::add
 $routes->post('/penerimaan_inventaris/edit/(:any)', 'PenerimaanInventarisController::edit/$1');
 $routes->post('/penerimaan_inventaris/delete/(:any)', 'PenerimaanInventarisController::delete/$1');
 $routes->get('/penerimaan_inventaris/detail/(:any)', 'PenerimaanInventarisController::detail/$1');
-$routes->post('/penerimaan_inventaris/setuju/(:num)', 'PenerimaanInventarisController::setuju/$1');
-$routes->post('/penerimaan_inventaris/tolak/(:num)', 'PenerimaanInventarisController::tolak/$1');
 $routes->get('/penerimaan_inventaris/print/(:any)', 'PenerimaanInventarisController::print/$1');
 $routes->get('/penerimaan_inventaris/pilih_no_faktur', 'PenerimaanInventarisController::getFaktur');

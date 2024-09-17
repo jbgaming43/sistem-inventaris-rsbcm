@@ -32,9 +32,9 @@ class PenerimaanInventarisModel extends Model
 
     public function getDataById($id)
     {
-        return $this->select('inventaris_pembelian.*, petugas.*, inventaris_suplier.*')
-            ->join('petugas', 'inventaris_pembelian.nip=petugas.nip')
-            ->join('inventaris_suplier', 'inventaris_pembelian.kode_suplier=inventaris_suplier.kode_suplier')
+        return $this->select('inventaris_pemesanan.*, petugas.*, inventaris_suplier.*')
+            ->join('petugas', 'inventaris_pemesanan.nip=petugas.nip')
+            ->join('inventaris_suplier', 'inventaris_pemesanan.kode_suplier=inventaris_suplier.kode_suplier')
             ->where('no_faktur', $id)
             ->findAll(); // retrieve all data
     }

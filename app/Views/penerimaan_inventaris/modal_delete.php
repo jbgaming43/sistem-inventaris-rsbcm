@@ -1,5 +1,5 @@
-<?php foreach ($pesan_inv_con as $dt_pemesanan_inventaris) { ?>
-    <div class="modal modal-blur fade" id="delete_penerimaan_inventaris<?= $dt_pemesanan_inventaris['no_faktur']; ?>" tabindex="-1" aria-hidden="true" style="display: none;">
+<?php foreach ($penerimaan_inv_con as $dt_penerimaan_inv) { ?>
+    <div class="modal modal-blur fade" id="delete_penerimaan_inventaris<?= $dt_penerimaan_inv['no_faktur']; ?>" tabindex="-1" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
             <div class="modal-content">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -12,10 +12,10 @@
                         <path d="M12 17h.01"></path>
                     </svg>
                     <h3>Hapus data</h3>
-                    <div class="text-muted">Apakah anda yakin ingin menghapus data <strong><?= $dt_pemesanan_inventaris['no_faktur']; ?></strong>?</div>
+                    <div class="text-muted">Apakah anda yakin ingin menghapus data <strong><?= $dt_penerimaan_inv['no_faktur']; ?></strong>?</div>
                 </div>
                 <div class="modal-footer">
-                    <form action="/penerimaan_inventaris/delete/<?= $dt_pemesanan_inventaris['no_faktur']; ?>" method="POST">
+                    <form action="/penerimaan_inventaris/delete/<?= $dt_penerimaan_inv['no_faktur']; ?>" method="POST">
                         <div class="w-100">
                             <div class="row">
                                 <div class="col"><button type="button" class="btn w-100" data-bs-dismiss="modal">

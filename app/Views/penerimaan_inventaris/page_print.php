@@ -113,27 +113,27 @@
         </div>
 
         <hr>
-        <?php foreach ($pesan_inv_con as $dt_pesan_inv) : ?>
+        <?php foreach ($penerimaan_inv_con as $dt_penerimaan_inv) : ?>
             <table class="details">
                 <tr>
                     <td>No. Faktur</td>
                     <td>:</td>
-                    <td><?= $dt_pesan_inv['no_faktur'] ?></td>
+                    <td><?= $dt_penerimaan_inv['no_faktur'] ?></td>
                 </tr>
                 <tr>
                     <td>Tgl. Beli</td>
                     <td>:</td>
-                    <td><?= date('d-M-Y', strtotime($dt_pesan_inv['tgl_beli'])) ?></td>
+                    <td><?= date('d-M-Y', strtotime($dt_penerimaan_inv['tgl_faktur'])) ?></td>
                 </tr>
                 <tr>
                     <td>Supplier</td>
                     <td>:</td>
-                    <td><?= $dt_pesan_inv['nama_suplier'] ?></td>
+                    <td><?= $dt_penerimaan_inv['nama_suplier'] ?></td>
                 </tr>
                 <tr>
                     <td>Petugas</td>
                     <td>:</td>
-                    <td><?= $dt_pesan_inv['nama'] ?></td>
+                    <td><?= $dt_penerimaan_inv['nama'] ?></td>
                 </tr>
                 <tr>
                     <td>Akun Bayar</td>
@@ -162,34 +162,34 @@
                 </tr>
             </thead>
             <tbody>
-                <?php if (!empty($pem_inv_det_con)) : ?>
-                    <?php foreach ($pem_inv_det_con as $index => $dt_pesan_inv_det) : ?>
+                <?php if (!empty($penerimaan_inv_det_con)) : ?>
+                    <?php foreach ($penerimaan_inv_det_con as $index => $dt_penerimaan_inv_det) : ?>
                         <tr style=" white-space: nowrap;">
                             <td><?= $index + 1 ?></td>
-                            <td><?= $dt_pesan_inv_det['kode_barang'] ?></td>
-                            <td><?= $dt_pesan_inv_det['nama_barang'] ?></td>
-                            <td><?= $dt_pesan_inv_det['nama_merk'] ?></td>
-                            <td><?= $dt_pesan_inv_det['nama_jenis'] ?></td>
-                            <td>Rp <?= number_format($dt_pesan_inv_det['harga'], 0, ',', '.'); ?></td>
-                            <td><?= $dt_pesan_inv_det['jumlah'] ?></td>
-                            <td>Rp <?= number_format($dt_pesan_inv_det['total'], 0, ',', '.'); ?></td>
+                            <td><?= $dt_penerimaan_inv_det['kode_barang'] ?></td>
+                            <td><?= $dt_penerimaan_inv_det['nama_barang'] ?></td>
+                            <td><?= $dt_penerimaan_inv_det['nama_merk'] ?></td>
+                            <td><?= $dt_penerimaan_inv_det['nama_jenis'] ?></td>
+                            <td>Rp <?= number_format($dt_penerimaan_inv_det['harga'], 0, ',', '.'); ?></td>
+                            <td><?= $dt_penerimaan_inv_det['jumlah'] ?></td>
+                            <td>Rp <?= number_format($dt_penerimaan_inv_det['total'], 0, ',', '.'); ?></td>
                         </tr>
 
                         <!-- menghitung sum jumlah -->
                         <?php $total_jumlah = 0;
-                        $total_jumlah += $dt_pesan_inv_det['jumlah'] ?>
+                        $total_jumlah += $dt_penerimaan_inv_det['jumlah'] ?>
                     <?php endforeach; ?>
                 <?php else : ?>
                     <tr>
                         <td colspan="7">Tidak ada data</td>
                     </tr>
                 <?php endif; ?>
-                <?php foreach ($pem_inv_con as $dt_pesan_inv) : ?>
-                    <?php if ($dt_pesan_inv['subtotal']) : ?>
+                <?php foreach ($penerimaan_inv_con as $dt_penerimaan_inv) : ?>
+                    <?php if ($dt_penerimaan_inv['total1']) : ?>
                         <tr>
                             <td colspan="6"></td>
                             <td><?= $total_jumlah; ?></td>
-                            <td>Rp <?= number_format($dt_pesan_inv['subtotal'], 0, ',', '.'); ?></td>
+                            <td>Rp <?= number_format($dt_penerimaan_inv['total1'], 0, ',', '.'); ?></td>
                         </tr>
                     <?php endif ?>
                 <?php endforeach ?>
@@ -199,7 +199,7 @@
         <div class="signatures">
 
             <div>
-                <p>Pemesan</p>
+                <p>Penerima</p>
                 <br><br><br>
                 <p>__________________</p>
             </div>

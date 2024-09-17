@@ -21,7 +21,7 @@ class PenerimaanInventarisController extends BaseController
     {
         // objek PenggunaModel
         $penerimaan_inv_mod = new PenerimaanInventarisModel();
-        $beli_inv_mod = new PembelianInventarisModel();
+        $pembelian_inv_mod = new PembelianInventarisModel();
         $inv_mod = new InventarisModel();
 
         $ptgm = new PetugasModel();
@@ -35,8 +35,8 @@ class PenerimaanInventarisController extends BaseController
             'active_menu' => 'inventaris',
             'active_submenu' => 'penerimaan_inventaris',
 
-            'pesan_inv_con' => $penerimaan_inv_mod->getData(),
-            'beli_inv_con' => $beli_inv_mod->getData(),
+            'penerimaan_inv_con' => $penerimaan_inv_mod->getData(),
+            'pembelian_inv_con' => $pembelian_inv_mod->getData(),
             'ptgc' => $ptgm->getData(),
             'supc' => $supm->getData(),
             'akbc' => $akbm->getData(),
@@ -327,11 +327,11 @@ class PenerimaanInventarisController extends BaseController
     public function print($id)
     {
         $penerimaan_inv_mod = new PenerimaanInventarisModel();
-        $pem_inv_det_mod = new PenerimaanInventarisDetailModel();
+        $penerimaan_inv_det_mod = new PenerimaanInventarisDetailModel();
 
         $data = [
-            'pesan_inv_con' => $penerimaan_inv_mod->getDataById($id),
-            'pesan_inv_det_con' => $pem_inv_det_mod->detailData($id),
+            'penerimaan_inv_con' => $penerimaan_inv_mod->getDataById($id),
+            'penerimaan_inv_det_con' => $penerimaan_inv_det_mod->detailData($id),
         ];
 
         return view('penerimaan_inventaris/page_print', $data);
@@ -339,10 +339,10 @@ class PenerimaanInventarisController extends BaseController
 
     public function getFaktur()
     {
-        $beli_inv_mod = new PembelianInventarisModel();
+        $pembelian_inv_mod = new PembelianInventarisModel();
         $no_faktur = $this->request->getGet('no_faktur');
         if ($no_faktur) {
-            $faktur = $beli_inv_mod->getDataById($no_faktur);
+            $faktur = $pembelian_inv_mod->getDataById($no_faktur);
             if ($faktur) {
                 return $this->response->setJSON($faktur);
             }

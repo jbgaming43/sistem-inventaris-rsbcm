@@ -12,8 +12,8 @@
                         <div class="col">
                             <input list="options" class="form-control" name="no_faktur" placeholder="Masukkan No faktur" id="no_faktur" oninput="fetchFaktur(this.value)">
                             <datalist id="options">
-                                <?php foreach($beli_inv_con as $dt_beli_inv) :?>
-                                <option value="<?= $dt_beli_inv['no_faktur']?>">
+                                <?php foreach($pembelian_inv_con as $dt_pembelian_inv) :?>
+                                <option value="<?= $dt_pembelian_inv['no_faktur']?>">
                                 <?php endforeach?>
                             </datalist>
                         </div>
