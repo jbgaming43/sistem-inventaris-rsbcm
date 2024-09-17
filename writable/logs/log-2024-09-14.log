@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INFO - 2024-09-14 00:15:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 ERROR - 2024-09-14 00:16:14 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:185
 Stack trace:
@@ -142,3 +143,192 @@ INFO - 2024-09-14 00:16:56 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-09-14 00:17:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-14 00:58:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-14 00:58:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
+INFO - 2024-09-14 00:03:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 00:03:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 00:03:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 00:03:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 00:03:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 00:04:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 00:04:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:14:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:14:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:14:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:14:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:14:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:15:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:15:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:15:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-14 02:15:17 --> mysqli_sql_exception: Unknown table 'sik.inventaris' in C:\xampp\htdocs\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventa...', 0)
+#1 C:\xampp\htdocs\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventa...')
+#2 C:\xampp\htdocs\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventa...')
+#3 C:\xampp\htdocs\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventa...', Array, false)
+#4 C:\xampp\htdocs\inventaris-barang\system\Model.php(872): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\inventaris-barang\app\Models\InventarisModel.php(41): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\inventaris-barang\app\Controllers\PenerimaanInventarisController.php(163): App\Models\InventarisModel->getNoInventarisLast()
+#7 C:\xampp\htdocs\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PenerimaanInventarisController->add()
+#8 C:\xampp\htdocs\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanInventarisController))
+#9 C:\xampp\htdocs\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2024-09-14 02:15:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'sik.inventaris'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris`.*
+FROM `inventaris_detail_beli`
+WHERE `no_inventaris` LIKE :no_inventaris: ESCAPE \'!\'
+ORDER BY `no_inventaris` DESC
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(872): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Models\InventarisModel.php(41): CodeIgniter\Model->__call('get', [])
+ 4 APPPATH\Controllers\PenerimaanInventarisController.php(163): App\Models\InventarisModel->getNoInventarisLast()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanInventarisController->add()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanInventarisController))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-09-14 02:15:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'sik.inventaris'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris`.*
+FROM `inventaris_detail_beli`
+WHERE `no_inventaris` LIKE \'INV/20240914%\' ESCAPE \'!\'
+ORDER BY `no_inventaris` DESC
+ LIMIT 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris`.*
+FROM `inventaris_detail_beli`
+WHERE `no_inventaris` LIKE \'INV/20240914%\' ESCAPE \'!\'
+ORDER BY `no_inventaris` DESC
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris`.*
+FROM `inventaris_detail_beli`
+WHERE `no_inventaris` LIKE :no_inventaris: ESCAPE \'!\'
+ORDER BY `no_inventaris` DESC
+ LIMIT 1', [...], false)
+ 4 SYSTEMPATH\Model.php(872): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Models\InventarisModel.php(41): CodeIgniter\Model->__call('get', [])
+ 6 APPPATH\Controllers\PenerimaanInventarisController.php(163): App\Models\InventarisModel->getNoInventarisLast()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanInventarisController->add()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanInventarisController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-09-14 02:15:17 --> [Caused by] mysqli_sql_exception: Unknown table 'sik.inventaris'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventaris`.*
+FROM `inventaris_detail_beli`
+WHERE `no_inventaris` LIKE \'INV/20240914%\' ESCAPE \'!\'
+ORDER BY `no_inventaris` DESC
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris`.*
+FROM `inventaris_detail_beli`
+WHERE `no_inventaris` LIKE \'INV/20240914%\' ESCAPE \'!\'
+ORDER BY `no_inventaris` DESC
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris`.*
+FROM `inventaris_detail_beli`
+WHERE `no_inventaris` LIKE \'INV/20240914%\' ESCAPE \'!\'
+ORDER BY `no_inventaris` DESC
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris`.*
+FROM `inventaris_detail_beli`
+WHERE `no_inventaris` LIKE :no_inventaris: ESCAPE \'!\'
+ORDER BY `no_inventaris` DESC
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Model.php(872): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Models\InventarisModel.php(41): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH\Controllers\PenerimaanInventarisController.php(163): App\Models\InventarisModel->getNoInventarisLast()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanInventarisController->add()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanInventarisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-14 02:17:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:17:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:17:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:17:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:17:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:17:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:17:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:18:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:18:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:18:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:18:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:18:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:18:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:18:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:19:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:19:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:19:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:19:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:19:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 02:19:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 04:18:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 04:18:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 04:18:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 04:19:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 04:19:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 04:19:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 04:19:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 04:19:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 04:19:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-14 04:19:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-14 04:19:29 --> mysqli_sql_exception: Duplicate entry 'INV/2024/09/14/001' for key 'PRIMARY' in C:\xampp\htdocs\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `in...', 0)
+#1 C:\xampp\htdocs\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `in...')
+#2 C:\xampp\htdocs\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `in...')
+#3 C:\xampp\htdocs\inventaris-barang\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `in...', Array, false)
+#4 C:\xampp\htdocs\inventaris-barang\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\inventaris-barang\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\inventaris-barang\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\inventaris-barang\app\Controllers\PenerimaanInventarisController.php(199): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PenerimaanInventarisController->add()
+#9 C:\xampp\htdocs\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanInventarisController))
+#10 C:\xampp\htdocs\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2024-09-14 04:19:29 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'INV/2024/09/14/001' for key 'PRIMARY'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `inventaris` (`no_inventaris`, `kode_barang`, `asal_barang`, `tgl_pengadaan`, `harga`, `status_barang`) VALUES (:no_inventaris:, :kode_barang:, :asal_barang:, :tgl_pengadaan:, :harga:, :status_barang:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\PenerimaanInventarisController.php(199): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanInventarisController->add()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-09-14 04:19:29 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'INV/2024/09/14/001' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `inventaris` (`no_inventaris`, `kode_barang`, `asal_barang`, `tgl_pengadaan`, `harga`, `status_barang`) VALUES (\'INV/2024/09/14/001\', \'BI00000003\', \'Beli\', \'2024-09-14\', \'1350000\', \'Ada\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `inventaris` (`no_inventaris`, `kode_barang`, `asal_barang`, `tgl_pengadaan`, `harga`, `status_barang`) VALUES (\'INV/2024/09/14/001\', \'BI00000003\', \'Beli\', \'2024-09-14\', \'1350000\', \'Ada\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `inventaris` (`no_inventaris`, `kode_barang`, `asal_barang`, `tgl_pengadaan`, `harga`, `status_barang`) VALUES (:no_inventaris:, :kode_barang:, :asal_barang:, :tgl_pengadaan:, :harga:, :status_barang:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\PenerimaanInventarisController.php(199): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanInventarisController->add()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanInventarisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-09-14 04:19:29 --> [Caused by] mysqli_sql_exception: Duplicate entry 'INV/2024/09/14/001' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `inventaris` (`no_inventaris`, `kode_barang`, `asal_barang`, `tgl_pengadaan`, `harga`, `status_barang`) VALUES (\'INV/2024/09/14/001\', \'BI00000003\', \'Beli\', \'2024-09-14\', \'1350000\', \'Ada\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `inventaris` (`no_inventaris`, `kode_barang`, `asal_barang`, `tgl_pengadaan`, `harga`, `status_barang`) VALUES (\'INV/2024/09/14/001\', \'BI00000003\', \'Beli\', \'2024-09-14\', \'1350000\', \'Ada\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `inventaris` (`no_inventaris`, `kode_barang`, `asal_barang`, `tgl_pengadaan`, `harga`, `status_barang`) VALUES (\'INV/2024/09/14/001\', \'BI00000003\', \'Beli\', \'2024-09-14\', \'1350000\', \'Ada\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `inventaris` (`no_inventaris`, `kode_barang`, `asal_barang`, `tgl_pengadaan`, `harga`, `status_barang`) VALUES (:no_inventaris:, :kode_barang:, :asal_barang:, :tgl_pengadaan:, :harga:, :status_barang:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\PenerimaanInventarisController.php(199): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanInventarisController->add()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanInventarisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+>>>>>>> 7f860407f6d2fd6b76ae0e9c011f43499fc74545
