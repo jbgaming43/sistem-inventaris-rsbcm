@@ -15,6 +15,8 @@ use App\Models\PetugasModel;
 use App\Models\AkunBayarModel;
 use App\Helpers\AuthHelper;
 
+use App\Libraries\phpqrcode\qrlib;
+
 class PenerimaanInventarisController extends BaseController
 {
     public function index()
@@ -238,5 +240,26 @@ class PenerimaanInventarisController extends BaseController
             }
         }
         return $this->response->setJSON(null);
+    }
+
+    public function generateQR()
+    {
+        // Load library PHP QR Code
+        require_once(APPPATH . 'Libraries/phpqrcode/qrlib.php');
+
+        // Set file tempat menyimpan QR Code, atau gunakan output langsung
+        $tempDir = WRITEPATH . 'uploads/'; // Folder penyimpanan QR code (pastikan folder ini ada)
+        $fileName = $tempDir . 'qrcode.png';
+
+        // Konten QR Code (bisa diganti dengan URL atau teks apapun)
+        $codeContents = 'test 123 test test adi';
+
+        // Generate QR Code dan simpan di file
+        \QRcode::png($codeContents, $fileName, QR_ECLEVEL_L, 10);
+
+        // Tampilkan QR Code di browser
+        header('Content-Type: image/png');
+        readfile($fileName);
+        exit;
     }
 }
