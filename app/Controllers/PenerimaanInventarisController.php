@@ -242,6 +242,18 @@ class PenerimaanInventarisController extends BaseController
         return $this->response->setJSON(null);
     }
 
+    public function info($id)
+    {
+        $inv_mod = new InventarisModel();
+
+        var_dump($id);
+        $data = [
+            'inv_con' => $inv_mod->getDataById($id),
+        ];
+
+        return view('penerimaan_inventaris/page_info', $data);
+    }
+
     public function generateQR()
     {
         // Load library PHP QR Code
