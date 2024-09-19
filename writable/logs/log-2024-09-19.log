@@ -738,6 +738,11 @@ INFO - 2024-09-19 02:54:12 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-09-19 02:54:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-19 02:55:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-19 02:56:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+<<<<<<< HEAD
+INFO - 2024-09-19 07:40:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-19 07:40:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-19 07:40:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
 INFO - 2024-09-19 03:03:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 CRITICAL - 2024-09-19 03:03:41 --> ErrorException: Undefined array key "kode_inventaris"
 in APPPATH\Controllers\PenerimaanInventarisController.php on line 322.
@@ -793,6 +798,7 @@ in APPPATH\Controllers\PenerimaanInventarisController.php on line 326.
  6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+<<<<<<< HEAD
 INFO - 2024-09-19 03:14:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-19 03:14:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-19 03:17:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
@@ -887,3 +893,66 @@ in APPPATH\Controllers\PenerimaanInventarisController.php on line 326.
  6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+=======
+>>>>>>> 541fe0571f889d87e9b406556afa8a69679c198d
+INFO - 2024-09-19 07:55:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-19 07:55:21 --> ErrorException: readfile(C:\xampp\htdocs\inventaris-barang\writable\uploads/INV/2024/09/19/001.png): Failed to open stream: No such file or directory
+in APPPATH\Controllers\PenerimaanInventarisController.php on line 326.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'readfile(C:\\xampp\\htdocs\\inventaris-barang\\writable\\uploads/INV/2024/09/19/001.png): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\inventaris-barang\\app\\Controllers\\PenerimaanInventarisController.php', 326)
+ 2 APPPATH\Controllers\PenerimaanInventarisController.php(326): readfile('C:\\xampp\\htdocs\\inventaris-barang\\writable\\uploads/INV/2024/09/19/001.png')
+ 3 APPPATH\Controllers\PenerimaanInventarisController.php(304): App\Controllers\PenerimaanInventarisController->generateQR('INV/2024/09/19/001')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanInventarisController->page_qr('adi123')
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanInventarisController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-19 07:58:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-19 07:59:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-19 07:59:01 --> ErrorException: readfile(C:\xampp\htdocs\inventaris-barang\writable\uploads/INV/2024/09/19/001.png): Failed to open stream: No such file or directory
+in APPPATH\Controllers\PenerimaanInventarisController.php on line 325.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'readfile(C:\\xampp\\htdocs\\inventaris-barang\\writable\\uploads/INV/2024/09/19/001.png): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\inventaris-barang\\app\\Controllers\\PenerimaanInventarisController.php', 325)
+ 2 APPPATH\Controllers\PenerimaanInventarisController.php(325): readfile('C:\\xampp\\htdocs\\inventaris-barang\\writable\\uploads/INV/2024/09/19/001.png')
+ 3 APPPATH\Controllers\PenerimaanInventarisController.php(304): App\Controllers\PenerimaanInventarisController->generateQR('INV/2024/09/19/001')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanInventarisController->page_qr('adi123')
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanInventarisController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-19 07:59:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-19 07:59:15 --> ErrorException: readfile(C:\xampp\htdocs\inventaris-barang\writable\uploads/INV/2024/09/19/001.png): Failed to open stream: No such file or directory
+in APPPATH\Controllers\PenerimaanInventarisController.php on line 325.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'readfile(C:\\xampp\\htdocs\\inventaris-barang\\writable\\uploads/INV/2024/09/19/001.png): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\inventaris-barang\\app\\Controllers\\PenerimaanInventarisController.php', 325)
+ 2 APPPATH\Controllers\PenerimaanInventarisController.php(325): readfile('C:\\xampp\\htdocs\\inventaris-barang\\writable\\uploads/INV/2024/09/19/001.png')
+ 3 APPPATH\Controllers\PenerimaanInventarisController.php(304): App\Controllers\PenerimaanInventarisController->generateQR('INV/2024/09/19/001')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanInventarisController->page_qr('adi123')
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanInventarisController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-19 08:00:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-19 08:00:11 --> Error: Call to undefined method App\Controllers\PenerimaanInventarisController::generateQR()
+in APPPATH\Controllers\PenerimaanInventarisController.php on line 304.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanInventarisController->page_qr('adi123')
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanInventarisController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-19 08:00:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-19 08:00:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-19 08:00:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-19 08:01:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-19 08:01:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-19 08:01:28 --> TypeError: imagepng(): Argument #2 ($file) must be a file name or a stream resource, int given
+in APPPATH\Libraries\phpqrcode\qrimage.php on line 43.
+ 1 APPPATH\Libraries\phpqrcode\qrimage.php(43): imagepng(Object(GdImage), 0)
+ 2 APPPATH\Libraries\phpqrcode\qrencode.php(494): QRimage::png([...], 0, 3, 4, false)
+ 3 APPPATH\Libraries\phpqrcode\qrencode.php(286): QRencode->encodePNG('INV/2024/09/19/001', 0, false)
+ 4 APPPATH\Controllers\PenerimaanInventarisController.php(268): QRcode::png('INV/2024/09/19/001', 0, 10)
+ 5 APPPATH\Controllers\PenerimaanInventarisController.php(300): App\Controllers\PenerimaanInventarisController->generateQR('INV/2024/09/19/001')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanInventarisController->page_qr('adi123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-19 08:01:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+>>>>>>> f0862e8b6d3cd008407a0caad5809d748e0042f1
