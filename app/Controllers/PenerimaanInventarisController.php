@@ -288,7 +288,7 @@ class PenerimaanInventarisController extends BaseController
         $data_detail_penerimaan = $penerimaan_inv_det_mod->detailData($id);
 
         foreach ($data_penerimaan as $dt_penerimaan) {
-            $tgl_faktur = $dt_penerimaan['tgl_faktur'];
+            $tgl_faktur = $dt_penerimaan['tgl_pesan'];
         }
 
         $kode_barang = [];
@@ -298,7 +298,7 @@ class PenerimaanInventarisController extends BaseController
         
         // Ambil data barang berdasarkan beberapa kode_barang dan tgl_faktur
         $barang = $inv_mod->getDataBytgl_kd($tgl_faktur, $kode_barang);
-        var_dump($barang);
+        dd($barang);
         // return view('penerimaan_inventaris/page_qr');
     }
 }
