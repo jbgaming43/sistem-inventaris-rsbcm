@@ -1,0 +1,1 @@
+2024-09-19 03:10:35: imagepng(D:\RSBCM\inventaris-barang\writable\uploads/INV/2024/09/19/001.png): Failed to open stream: No such file or directory
