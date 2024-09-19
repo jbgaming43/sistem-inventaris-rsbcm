@@ -54,5 +54,6 @@ $routes->get('/penerimaan_inventaris/detail/(:any)', 'PenerimaanInventarisContro
 $routes->get('/penerimaan_inventaris/print/(:any)', 'PenerimaanInventarisController::print/$1');
 $routes->get('/penerimaan_inventaris/pilih_no_faktur', 'PenerimaanInventarisController::getFaktur');
 $routes->get('/penerimaan_inventaris/info/(:any)', 'PenerimaanInventarisController::info/$1');
+$routes->get('/penerimaan_inventaris/page_qr/(:any)', 'PenerimaanInventarisController::page_qr/$1');
 
 $routes->get('/penerimaan_inventaris/generate-qr', 'PenerimaanInventarisController::generateQR');

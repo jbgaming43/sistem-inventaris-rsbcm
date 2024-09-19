@@ -245,7 +245,7 @@ class PenerimaanInventarisController extends BaseController
     public function info($id)
     {
         $inv_mod = new InventarisModel();
-        $id = 'INV/2023/12/14/001';
+        $id_s = 'INV/2023/12/14/001';
         $tes = base_url('penerimaan_inventaris/info/').$id;
 
         var_dump($tes);
@@ -275,5 +275,30 @@ class PenerimaanInventarisController extends BaseController
         header('Content-Type: image/png');
         readfile($fileName);
         exit;
+    }
+
+    public function page_qr($id)
+    {
+        $penerimaan_inv_mod = new PenerimaanInventarisModel();
+        $penerimaan_inv_det_mod = new PenerimaanInventarisDetailModel();
+        $inv_mod = new InventarisModel();
+
+        //ambil data inventaris_pemesanan
+        $data_penerimaan = $penerimaan_inv_mod->getDataById($id);
+        $data_detail_penerimaan = $penerimaan_inv_det_mod->detailData($id);
+
+        foreach ($data_penerimaan as $dt_penerimaan) {
+            $tgl_faktur = $dt_penerimaan['tgl_faktur'];
+        }
+
+        $kode_barang = [];
+        foreach ($data_detail_penerimaan as $dt_detail_penerimaan) {
+            $kode_barang[] = $dt_detail_penerimaan['kode_barang'];
+        }
+        
+        // Ambil data barang berdasarkan beberapa kode_barang dan tgl_faktur
+        $barang = $inv_mod->getDataBytgl_kd($tgl_faktur, $kode_barang);
+        var_dump($barang);
+        // return view('penerimaan_inventaris/page_qr');
     }
 }

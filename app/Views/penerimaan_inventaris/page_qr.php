@@ -59,7 +59,7 @@
                                                     </svg>
                                                 </button>
                                             </a>
-                                            <a href="<?= base_url('penerimaan_inventaris/page_qr/' . $dt_penerimaan_inventaris['no_faktur'])?>">
+                                            <span data-bs-toggle="modal" data-bs-target="#edit_pembelian_inventaris<?= $dt_penerimaan_inventaris['no_faktur']; ?>">
                                                 <button type="button" class="btn btn-icon btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="QR">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-qrcode">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -77,7 +77,7 @@
                                                         <path d="M20 17l0 3" />
                                                     </svg>
                                                 </button>
-                                            </a>
+                                            </span>
                                             <span data-bs-toggle="modal" data-bs-target="#detail_penerimaan_inventaris<?= $dt_penerimaan_inventaris['no_faktur']; ?>">
                                                 <button type="button" class="btn btn-icon btn-blue btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle">
@@ -112,9 +112,5 @@
         </div>
     </div>
 </div>
-
-<?= $this->include('penerimaan_inventaris/modal_add') ?>
-<?= $this->include('penerimaan_inventaris/modal_delete') ?>
-<?= $this->include('penerimaan_inventaris/modal_detail') ?>
 
 <?= $this->endSection() ?>
