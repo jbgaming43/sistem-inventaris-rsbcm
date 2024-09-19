@@ -955,7 +955,11 @@ in APPPATH\Libraries\phpqrcode\qrimage.php on line 43.
  9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
 INFO - 2024-09-19 08:01:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+<<<<<<< HEAD
+INFO - 2024-09-19 08:03:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
 >>>>>>> f0862e8b6d3cd008407a0caad5809d748e0042f1
+<<<<<<< HEAD
 INFO - 2024-09-19 19:10:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-19 19:10:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-19 19:10:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
@@ -963,3 +967,6 @@ INFO - 2024-09-19 19:10:41 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-09-19 19:10:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-19 19:10:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-19 19:10:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
+>>>>>>> 1fde1176259ffbb6c79dff5497ab5ca2d4abd308
+>>>>>>> 7876214f333e4367a1ea7362fa874c925249c633
