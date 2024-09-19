@@ -46,7 +46,7 @@ class InventarisModel extends Model
     {
         return $this->select('inventaris.*, inventaris_barang.*, inventaris_ruang.*')
             ->join('inventaris_barang', 'inventaris.kode_barang=inventaris_barang.kode_barang')
-            ->join('inventaris_ruang', 'inventaris.id_ruang=inventaris_ruang.id_ruang')
+            ->join('inventaris_ruang', 'inventaris.id_ruang=inventaris_ruang.id_ruang', 'left')
             ->where('no_inventaris', $id)
             ->findAll(); // retrieve all data
     }

@@ -24,11 +24,11 @@
                             <td>Tanggal pengadaan</td>
                             <td><?= $dt_inv['tgl_pengadaan']; ?></td>
                         </tr>
-                        <?php if (!is_null($dt_inv['nama_ruang'])): ?>
-                        <tr>
-                            <td>Nama Ruang</td>
-                            <td><?= $dt_inv['nama_ruang']; ?></td>
-                        </tr>
+                        <?php if (!empty($dt_inv['nama_ruang'])) : ?>
+                            <tr>
+                                <td>Nama Ruang</td>
+                                <td><?= $dt_inv['nama_ruang']; ?></td>
+                            </tr>
                         <?php endif; ?>
                     </table>
                 </div>
