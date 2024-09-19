@@ -246,7 +246,7 @@ class PenerimaanInventarisController extends BaseController
     {
         $inv_mod = new InventarisModel();
         $id_s = 'INV/2023/12/14/001';
-        $tes = base_url('penerimaan_inventaris/info/').$id;
+        $tes = base_url('penerimaan_inventaris/info/') . $id;
 
         var_dump($tes);
         $data = [
@@ -256,26 +256,26 @@ class PenerimaanInventarisController extends BaseController
         return view('penerimaan_inventaris/page_info', $data);
     }
 
-    public function generateQR()
-    {
-        // Load library PHP QR Code
-        require_once(APPPATH . 'Libraries/phpqrcode/qrlib.php');
+    // public function generateQR()
+    // {
+    //     // Load library PHP QR Code
+    //     require_once(APPPATH . 'Libraries/phpqrcode/qrlib.php');
 
-        // Set file tempat menyimpan QR Code, atau gunakan output langsung
-        $tempDir = WRITEPATH . 'uploads/'; // Folder penyimpanan QR code (pastikan folder ini ada)
-        $fileName = $tempDir . 'qrcode.png';
+    //     // Set file tempat menyimpan QR Code, atau gunakan output langsung
+    //     $tempDir = WRITEPATH . 'uploads/'; // Folder penyimpanan QR code (pastikan folder ini ada)
+    //     $fileName = $tempDir . 'qrcode.png';
 
-        // Konten QR Code (bisa diganti dengan URL atau teks apapun)
-        $codeContents = 'test 123 test test adi';
+    //     // Konten QR Code (bisa diganti dengan URL atau teks apapun)
+    //     $codeContents = 'test 123 test test adi';
 
-        // Generate QR Code dan simpan di file
-        \QRcode::png($codeContents, $fileName, QR_ECLEVEL_L, 10);
+    //     // Generate QR Code dan simpan di file
+    //     \QRcode::png($codeContents, $fileName, QR_ECLEVEL_L, 10);
 
-        // Tampilkan QR Code di browser
-        header('Content-Type: image/png');
-        readfile($fileName);
-        exit;
-    }
+    //     // Tampilkan QR Code di browser
+    //     header('Content-Type: image/png');
+    //     readfile($fileName);
+    //     exit;
+    // }
 
     public function page_qr($id)
     {
@@ -295,10 +295,35 @@ class PenerimaanInventarisController extends BaseController
         foreach ($data_detail_penerimaan as $dt_detail_penerimaan) {
             $kode_barang[] = $dt_detail_penerimaan['kode_barang'];
         }
-        
+
         // Ambil data barang berdasarkan beberapa kode_barang dan tgl_faktur
         $barang = $inv_mod->getDataBytgl_kd($tgl_faktur, $kode_barang);
-        dd($barang);
+        // Buat QR code untuk setiap no_inventaris dari barang yang didapat
+        foreach ($barang as $data_barang) {
+            $no_inventaris = $data_barang['no_inventaris']; // Ambil no_inventaris
+            $this->generateQR($no_inventaris); // Panggil fungsi generateQR untuk setiap no_inventaris
+        }
         // return view('penerimaan_inventaris/page_qr');
+    }
+    
+    public function generateQR($no_inventaris)
+    {
+        // Load library PHP QR Code
+        require_once(APPPATH . 'Libraries/phpqrcode/qrlib.php');
+
+        // Set file tempat menyimpan QR Code
+        $tempDir = WRITEPATH . 'uploads/'; // Folder penyimpanan QR code
+        $fileName = $tempDir . $no_inventaris . '.png'; // Simpan dengan nama file berdasarkan no_inventaris
+
+        // Konten QR Code (no_inventaris)
+        $codeContents = $no_inventaris;
+
+        // Generate QR Code dan simpan di file
+        \QRcode::png($codeContents, $fileName, QR_ECLEVEL_L, 10);
+
+        // Tampilkan QR Code di browser (opsional jika ingin langsung melihat)
+        header('Content-Type: image/png');
+        readfile($fileName);
+        exit;
     }
 }
