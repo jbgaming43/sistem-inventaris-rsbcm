@@ -245,8 +245,10 @@ class PenerimaanInventarisController extends BaseController
     public function info($id)
     {
         $inv_mod = new InventarisModel();
+        $id = 'INV/2023/12/14/001';
+        $tes = base_url('penerimaan_inventaris/info/').$id;
 
-        var_dump($id);
+        var_dump($tes);
         $data = [
             'inv_con' => $inv_mod->getDataById($id),
         ];
