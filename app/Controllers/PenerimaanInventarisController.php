@@ -266,11 +266,11 @@ class PenerimaanInventarisController extends BaseController
         $fileName = $tempDir . 'qrcode_' . $id . '.png'; // Buat nama file berdasarkan ID
 
         // Konten QR Code
-        $codeContents = $id;
+        $codeContents = base_url('penerimaan_inventaris/info/') . $id;
 
         // Generate QR Code dan simpan di file
         \QRcode::png($codeContents, $fileName, QR_ECLEVEL_L, 10);
-        
+
         return $fileName; // Kembalikan nama file untuk digunakan
     }
 
@@ -296,7 +296,7 @@ class PenerimaanInventarisController extends BaseController
 
         // Ambil data barang berdasarkan beberapa kode_barang dan tgl_faktur
         $barang = $inv_mod->getDataBytgl_kd($tgl_faktur, $kode_barang);
-        
+
         $qrImages = []; // Array untuk menyimpan nama file QR Code
 
         // Buat QR code untuk setiap no_inventaris dari barang yang didapat
