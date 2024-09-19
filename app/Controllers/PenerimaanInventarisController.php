@@ -311,11 +311,22 @@ class PenerimaanInventarisController extends BaseController
             $qrImages[] = $fileName; // Simpan nama file ke array
         }
 
+        $combinedData = []; // Array untuk menyimpan data barang beserta QR code
+
+        // Asumsikan jumlah $barang dan $qrImages sama
+        foreach ($barang as $key => $data_barang) {
+            $combinedData[] = [
+                'barang' => $data_barang,    // Data barang
+                'qrImage' => $qrImages[$key] // QR code yang terkait dengan barang
+            ];
+        }
+        
         $data = [
             'title' => 'Data Penerimaan Inventaris',
             'active_menu' => 'inventaris',
             'active_submenu' => 'penerimaan_inventaris',
-            'qrImages' => $qrImages
+            'qrImages' => $qrImages,
+            'barang_qrImage' => $combinedData
         ];
         // Tampilkan QR Code dalam view
         return view('penerimaan_inventaris/page_qr', $data);
@@ -333,7 +344,7 @@ class PenerimaanInventarisController extends BaseController
             'id_ruang' => $id_ruang,
         ];
 
-        $inv_mod->updateRuang($no_inventaris,$data);
+        $inv_mod->updateRuang($no_inventaris, $data);
         return redirect()->to('/penerimaan_inventaris')->with('success', 'Data penerimaan berhasil disimpan.');
     }
 
@@ -345,18 +356,17 @@ class PenerimaanInventarisController extends BaseController
         $no_inventaris = $this->request->getPost('no_inventaris');
         $data = $inv_mod->getDataById($no_inventaris);
         //$tgl_pengadaan = $data['tgl_pengadaan'];
-        foreach($data as $val)
-        {
+        foreach ($data as $val) {
             $tgl_pengadaan = $val['tgl_pengadaan'];
         }
         $date = new DateTime($tgl_pengadaan);
-        
+
         $hari = $this->request->getPost('hari');
         $bulan = $this->request->getPost('bulan');
         $tahun = $this->request->getPost('tahun');
-        $date->add(new \DateInterval('P'.$hari.'D'));
-        $date->add(new \DateInterval('P'.$bulan.'M'));
-        $date->add(new \DateInterval('P'.$tahun.'Y'));
+        $date->add(new \DateInterval('P' . $hari . 'D'));
+        $date->add(new \DateInterval('P' . $bulan . 'M'));
+        $date->add(new \DateInterval('P' . $tahun . 'Y'));
 
         $date = $date->format('Y-m-d');
 
@@ -366,12 +376,9 @@ class PenerimaanInventarisController extends BaseController
         ];
 
         $garansi = $garansi_mod->getDataById($no_inventaris);
-        if($garansi)
-        {
-            $garansi_mod->updateData($no_inventaris,$data);
-        }
-        else
-        {
+        if ($garansi) {
+            $garansi_mod->updateData($no_inventaris, $data);
+        } else {
             $garansi_mod->insertData($data);
         }
         return redirect()->to('/penerimaan_inventaris')->with('success', 'Data penerimaan berhasil disimpan.');
