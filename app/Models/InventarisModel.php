@@ -49,4 +49,19 @@ class InventarisModel extends Model
             ->where('no_inventaris', $id)
             ->findAll(); // retrieve all data
     }
+
+    public function getDataBytgl_kd($tgl, $kd)
+    {
+        // Mengonversi array $kode_barang_array menjadi string yang bisa digunakan di dalam IN()
+        $kode_barang_str = "'" . implode("','", $kd) . "'";
+        
+        // Query SQL biasa
+        $sql = "SELECT inventaris.*, inventaris_barang.*
+            FROM inventaris
+            JOIN inventaris_barang ON inventaris.kode_barang = inventaris_barang.kode_barang
+            WHERE inventaris.tgl_pengadaan = '2024-09-17'";
+             
+        // Eksekusi query dan kembalikan hasilnya
+        return $this->db->query($sql, [$tgl])->getResultArray();
+    }
 }
