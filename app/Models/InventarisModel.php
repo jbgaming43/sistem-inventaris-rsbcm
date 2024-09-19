@@ -19,10 +19,10 @@ class InventarisModel extends Model
     public function detailData($id)
     {
         return $this->select('inventaris.*, inventaris_barang.*, inventaris_ruang.*')
-        ->join('inventaris_barang','inventaris.kode_barang=inventaris_barang.kode_barang')
-        ->join('inventaris_ruang','inventaris.id_ruang=inventaris_ruang.id_ruang')
-        ->where('no_inventaris', $id)
-        ->findAll(); // retrieve all data
+            ->join('inventaris_barang', 'inventaris.kode_barang=inventaris_barang.kode_barang')
+            ->join('inventaris_ruang', 'inventaris.id_ruang=inventaris_ruang.id_ruang')
+            ->where('no_inventaris', $id)
+            ->findAll(); // retrieve all data
     }
 
     public function deleteDataByNoFaktur($id)
@@ -36,9 +36,17 @@ class InventarisModel extends Model
             $tanggal = date('Ymd'); // Format tanggal default
         }
         return $this->select('inventaris.*')
-        ->like('no_inventaris', 'INV/' . $tanggal, 'after')
-        ->orderBy('no_inventaris', 'DESC')
-        ->limit(1)
-        ->first()   ;
+            ->like('no_inventaris', 'INV/' . $tanggal, 'after')
+            ->orderBy('no_inventaris', 'DESC')
+            ->limit(1)
+            ->first();
+    }
+
+    public function getDataById($id)
+    {
+        return $this->select('inventaris.*, inventaris_barang.*')
+            ->join('inventaris_barang', 'inventaris.kode_barang=inventaris_barang.kode_barang')
+            ->where('no_inventaris', $id)
+            ->findAll(); // retrieve all data
     }
 }
