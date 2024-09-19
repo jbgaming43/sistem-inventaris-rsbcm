@@ -44,7 +44,7 @@ class InventarisModel extends Model
 
     public function getDataById($id)
     {
-        return $this->select('inventaris.*, inventaris_barang.*, inventaris_ruang.*, inventaris_garansi.*')
+        return $this->select('inventaris.*, inventaris.no_inventaris as no_inv, inventaris_barang.*, inventaris_ruang.*, inventaris_garansi.*')
             ->join('inventaris_barang', 'inventaris.kode_barang=inventaris_barang.kode_barang')
             ->join('inventaris_ruang', 'inventaris.id_ruang=inventaris_ruang.id_ruang', 'left')
             ->join('inventaris_garansi', 'inventaris.no_inventaris=inventaris_garansi.no_inventaris', 'left')

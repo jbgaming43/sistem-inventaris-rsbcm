@@ -10,7 +10,7 @@
                     <table class="table table-sm table-borderless fs-4">
                         <tr>
                             <td>No. Inventaris</td>
-                            <td><?= $dt_inv['no_inventaris']; ?></td>
+                            <td><?= $dt_inv['no_inv']; ?></td>
                         </tr>
                         <tr>
                             <td>Kode Barang</td>
