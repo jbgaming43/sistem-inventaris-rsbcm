@@ -64,6 +64,11 @@
                                             <td>:</td>
                                             <td><?= $dt_penerimaan_inv['nama']; ?></td>
                                         </tr>
+                                        <tr>
+                                            <td>Total Barang</td>
+                                            <td>:</td>
+                                            <td><?= $total_barang; ?></td>
+                                        </tr>
 
                                     </table>
                                 </div>

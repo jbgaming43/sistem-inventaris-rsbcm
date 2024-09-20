@@ -329,7 +329,8 @@ class PenerimaanInventarisController extends BaseController
             'penerimaan_inv_con' => $penerimaan_inv_mod->getDataById($id),
             'no_faktur' => $id,
             'qrImages' => $qrImages,
-            'barang_qrImage' => $combinedData
+            'barang_qrImage' => $combinedData,
+            'total_barang' => count($barang)
         ];
         // Tampilkan QR Code dalam view
         return view('penerimaan_inventaris/page_qr', $data);
