@@ -27,9 +27,49 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <h2>QR Codes</h2>
-                        <!-- OPSI PERTAMA -->
+                        <h3 class="mb-0">Keterangan </h3>
 
+                        <?php foreach ($penerimaan_inv_con as $dt_penerimaan_inv) : ?>
+                            <div class="row">
+                                <!-- KOLOM TABEL SEBELAH KIRI -->
+                                <div class="col-6">
+                                    <table class="mb-3">
+                                        <tr>
+                                            <td>No. Faktur</td>
+                                            <td>:</td>
+                                            <td><?= $dt_penerimaan_inv['no_faktur']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>No. Order</td>
+                                            <td>:</td>
+                                            <td><?= $dt_penerimaan_inv['no_order']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tanggal Pembelian&nbsp;&nbsp;</td>
+                                            <td>:</td>
+                                            <td><?= $dt_penerimaan_inv['tgl_faktur']; ?></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!-- KOLOM TABEL SEBELAH KANAN -->
+                                <div class="col-6">
+                                    <table>
+                                        <tr>
+                                            <td>Supplier</td>
+                                            <td>:</td>
+                                            <td><?= $dt_penerimaan_inv['nama_suplier']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Petugas</td>
+                                            <td>:</td>
+                                            <td><?= $dt_penerimaan_inv['nama']; ?></td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+                        <?php endforeach ?>
+                        <!-- OPSI PERTAMA -->
                         <?php if (!empty($qrImages)) : ?>
                             <div class="row">
                                 <?php

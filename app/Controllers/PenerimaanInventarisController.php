@@ -322,10 +322,11 @@ class PenerimaanInventarisController extends BaseController
         }
 
         $data = [
-            'title' => 'Data Penerimaan Inventaris',
+            'title' => 'Data QR Penerimaan Inventaris',
             'active_menu' => 'inventaris',
             'active_submenu' => 'penerimaan_inventaris',
 
+            'penerimaan_inv_con' => $penerimaan_inv_mod->getDataById($id),
             'no_faktur' => $id,
             'qrImages' => $qrImages,
             'barang_qrImage' => $combinedData
