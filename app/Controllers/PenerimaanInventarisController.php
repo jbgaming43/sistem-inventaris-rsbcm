@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\InventarisBarangModel;
 use App\Models\InventarisModel;
 use App\Models\RekeningModel;
+use App\Models\RuangModel;
 use App\Models\SuplierModel;
 use CodeIgniter\Controller;
 use App\Models\PenerimaanInventarisModel;
@@ -25,6 +26,7 @@ class PenerimaanInventarisController extends BaseController
         $penerimaan_inv_mod = new PenerimaanInventarisModel();
         $pembelian_inv_mod = new PembelianInventarisModel();
         $inv_mod = new InventarisModel();
+        $ruang_mod = new RuangModel();
 
         $ptgm = new PetugasModel();
         $supm = new SuplierModel();
@@ -44,6 +46,8 @@ class PenerimaanInventarisController extends BaseController
             'akbc' => $akbm->getData(),
             'rekc' => $rekm->getData(),
             'brgc' => $brgm->getData(),
+            'inv_con' => $inv_mod->getData(),
+            'ruang_con' => $ruang_mod->getData(),
         ];
 
 
@@ -248,7 +252,6 @@ class PenerimaanInventarisController extends BaseController
         $id_s = 'INV/2023/12/14/001';
         $tes = base_url('penerimaan_inventaris/info/') . $id;
 
-        var_dump($tes);
         $data = [
             'inv_con' => $inv_mod->getDataById($id),
         ];
@@ -314,5 +317,21 @@ class PenerimaanInventarisController extends BaseController
         ];
         // Tampilkan QR Code dalam view
         return view('penerimaan_inventaris/page_qr', $data);
+    }
+
+    public function add_ruang()
+    {
+        $inv_mod = new InventarisModel();
+
+        $no_inventaris = $this->request->getPost('no_inventaris');
+        $id_ruang = $this->request->getPost('id_ruang');
+
+        $data = [
+            'no_inventaris' => $no_inventaris,
+            'id_ruang' => $id_ruang,
+        ];
+
+        $inv_mod->updateRuang($no_inventaris,$data);
+        return redirect()->to('/penerimaan_inventaris')->with('success', 'Data penerimaan berhasil disimpan.');
     }
 }

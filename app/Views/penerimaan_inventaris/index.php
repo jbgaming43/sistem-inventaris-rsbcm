@@ -12,6 +12,15 @@
                     <div class="card-header">
                         <!-- <h3 class="card-title">Card with action</h3> -->
                         <div class="card-actions">
+                            <button type="button" class="btn btn-blue" data-bs-toggle="modal" data-bs-target="#add_ruang_penerimaan_inventaris">
+                                <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M12 5l0 14"></path>
+                                    <path d="M5 12l14 0"></path>
+                                </svg>
+                                Ruang
+                            </button>
                             <button type="button" class="btn btn-green" data-bs-toggle="modal" data-bs-target="#add_penerimaan_inventaris">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -47,7 +56,7 @@
                                         <td><?= $dt_penerimaan_inventaris['tgl_faktur']; ?></td>
                                         <td><?= $dt_penerimaan_inventaris['nama_suplier']; ?></td>
                                         <td><?= $dt_penerimaan_inventaris['nama']; ?></td>
-                                        <td>Rp <?=number_format($dt_penerimaan_inventaris['tagihan'], 0, ',', '.') ?></td>
+                                        <td>Rp <?= number_format($dt_penerimaan_inventaris['tagihan'], 0, ',', '.') ?></td>
                                         <td class="text-center">
                                             <a href="<?= base_url('/penerimaan_inventaris/print/' . $dt_penerimaan_inventaris['no_faktur']); ?>" target="_blank">
                                                 <button type="button" class="btn btn-icon btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Print">
@@ -59,7 +68,7 @@
                                                     </svg>
                                                 </button>
                                             </a>
-                                            <a href="<?= base_url('penerimaan_inventaris/page_qr/' . $dt_penerimaan_inventaris['no_faktur'])?>">
+                                            <a href="<?= base_url('penerimaan_inventaris/page_qr/' . $dt_penerimaan_inventaris['no_faktur']) ?>">
                                                 <button type="button" class="btn btn-icon btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="QR">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-qrcode">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -116,5 +125,6 @@
 <?= $this->include('penerimaan_inventaris/modal_add') ?>
 <?= $this->include('penerimaan_inventaris/modal_delete') ?>
 <?= $this->include('penerimaan_inventaris/modal_detail') ?>
+<?= $this->include('penerimaan_inventaris/modal_ruang') ?>
 
 <?= $this->endSection() ?>

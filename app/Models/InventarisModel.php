@@ -44,9 +44,17 @@ class InventarisModel extends Model
 
     public function getDataById($id)
     {
+        return $this->select('inventaris.*, inventaris_barang.*, inventaris_ruang.*')
+            ->join('inventaris_barang', 'inventaris.kode_barang=inventaris_barang.kode_barang')
+            ->join('inventaris_ruang', 'inventaris.id_ruang=inventaris_ruang.id_ruang')
+            ->where('no_inventaris', $id)
+            ->findAll(); // retrieve all data
+    }
+
+    public function getData()
+    {
         return $this->select('inventaris.*, inventaris_barang.*')
             ->join('inventaris_barang', 'inventaris.kode_barang=inventaris_barang.kode_barang')
-            ->where('no_inventaris', $id)
             ->findAll(); // retrieve all data
     }
 
@@ -57,5 +65,12 @@ class InventarisModel extends Model
             ->where('inventaris.tgl_pengadaan', $tgl)
             ->whereIn('inventaris.kode_barang', $kd)
             ->findAll(); // retrieve all data
+    }
+
+    public function updateRuang($id, $data)
+    {
+        return $this->where('no_inventaris',$id)
+        ->set($data)
+        ->update();
     }
 }
