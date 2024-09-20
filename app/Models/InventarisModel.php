@@ -36,7 +36,7 @@ class InventarisModel extends Model
             $tanggal = date('Ymd'); // Format tanggal default
         }
         return $this->select('inventaris.*')
-            ->like('no_inventaris', 'INV/' . $tanggal, 'after')
+            ->like('no_inventaris', 'INV-' . $tanggal, 'after')
             ->orderBy('no_inventaris', 'DESC')
             ->limit(1)
             ->first();

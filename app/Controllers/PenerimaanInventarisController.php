@@ -145,7 +145,7 @@ class PenerimaanInventarisController extends BaseController
         $penerimaan_inv_mod->insertData($dataPembelian);
 
         // Tentukan format tanggal untuk keperluan nomor inventaris (format Ymd)
-        $tanggal = date('Y/m/d');
+        $tanggal = date('Y-m-d');
 
         for ($index = 0; $index < count($kode_barang); $index++) {
             // Ambil nilai jumlah dari setiap item
@@ -170,7 +170,7 @@ class PenerimaanInventarisController extends BaseController
                 }
 
                 $incrementFormatted = str_pad($newIncrement, 3, '0', STR_PAD_LEFT);
-                $no_inventaris_baru = 'INV/' . $tanggal . '/' . $incrementFormatted;
+                $no_inventaris_baru = 'INV-' . $tanggal . '-' . $incrementFormatted;
 
                 // Data inventaris baru
                 $dataInventaris = [
