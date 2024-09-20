@@ -260,21 +260,18 @@ class PenerimaanInventarisController extends BaseController
     {
         // Load library PHP QR Code
         require_once(APPPATH . 'Libraries/phpqrcode/qrlib.php');
+        $id = str_replace('/', '-', $id);
+        // Set folder untuk menyimpan QR Code
+        $tempDir = FCPATH . 'uploads/'; // Pastikan folder ini ada
+        $fileName = $tempDir . 'qrcode_' . $id . '.png'; // Buat nama file berdasarkan ID
 
-        // Set file tempat menyimpan QR Code, atau gunakan output langsung
-        $tempDir = WRITEPATH . 'uploads/'; // Folder penyimpanan QR code (pastikan folder ini ada)
-        $fileName = $tempDir . 'qrcode.png';
-
-        // Konten QR Code (bisa diganti dengan URL atau teks apapun)
+        // Konten QR Code
         $codeContents = $id;
 
         // Generate QR Code dan simpan di file
         \QRcode::png($codeContents, $fileName, QR_ECLEVEL_L, 10);
-
-        // Tampilkan QR Code di browser
-        header('Content-Type: image/png');
-        readfile($fileName);
-        exit;
+        
+        return $fileName; // Kembalikan nama file untuk digunakan
     }
 
     public function page_qr($id)
@@ -283,10 +280,11 @@ class PenerimaanInventarisController extends BaseController
         $penerimaan_inv_det_mod = new PenerimaanInventarisDetailModel();
         $inv_mod = new InventarisModel();
 
-        //ambil data inventaris_pemesanan
+        // Ambil data inventaris_pemesanan
         $data_penerimaan = $penerimaan_inv_mod->getDataById($id);
         $data_detail_penerimaan = $penerimaan_inv_det_mod->detailData($id);
 
+        // Mendapatkan tanggal faktur
         foreach ($data_penerimaan as $dt_penerimaan) {
             $tgl_faktur = $dt_penerimaan['tgl_pesan'];
         }
@@ -298,11 +296,23 @@ class PenerimaanInventarisController extends BaseController
 
         // Ambil data barang berdasarkan beberapa kode_barang dan tgl_faktur
         $barang = $inv_mod->getDataBytgl_kd($tgl_faktur, $kode_barang);
+        
+        $qrImages = []; // Array untuk menyimpan nama file QR Code
+
         // Buat QR code untuk setiap no_inventaris dari barang yang didapat
         foreach ($barang as $data_barang) {
             $no_inventaris = $data_barang['no_inventaris']; // Ambil no_inventaris
-            $this->generateQR($no_inventaris); // Panggil fungsi generateQR untuk setiap no_inventaris
+            $fileName = $this->generateQR($no_inventaris); // Panggil fungsi generateQR untuk setiap no_inventaris
+            $qrImages[] = $fileName; // Simpan nama file ke array
         }
-        // return view('penerimaan_inventaris/page_qr');
+
+        $data = [
+            'title' => 'Data Penerimaan Inventaris',
+            'active_menu' => 'inventaris',
+            'active_submenu' => 'penerimaan_inventaris',
+            'qrImages' => $qrImages
+        ];
+        // Tampilkan QR Code dalam view
+        return view('penerimaan_inventaris/page_qr', $data);
     }
 }
