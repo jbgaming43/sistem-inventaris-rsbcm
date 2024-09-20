@@ -320,11 +320,13 @@ class PenerimaanInventarisController extends BaseController
                 'qrImage' => $qrImages[$key] // QR code yang terkait dengan barang
             ];
         }
-        
+
         $data = [
             'title' => 'Data Penerimaan Inventaris',
             'active_menu' => 'inventaris',
             'active_submenu' => 'penerimaan_inventaris',
+
+            'no_faktur' => $id,
             'qrImages' => $qrImages,
             'barang_qrImage' => $combinedData
         ];
@@ -382,5 +384,56 @@ class PenerimaanInventarisController extends BaseController
             $garansi_mod->insertData($data);
         }
         return redirect()->to('/penerimaan_inventaris')->with('success', 'Data penerimaan berhasil disimpan.');
+    }
+
+    public function print_qr($id)
+    {
+        $penerimaan_inv_mod = new PenerimaanInventarisModel();
+        $penerimaan_inv_det_mod = new PenerimaanInventarisDetailModel();
+        $inv_mod = new InventarisModel();
+
+        // Ambil data inventaris_pemesanan
+        $data_penerimaan = $penerimaan_inv_mod->getDataById($id);
+        $data_detail_penerimaan = $penerimaan_inv_det_mod->detailData($id);
+
+        // Mendapatkan tanggal faktur
+        foreach ($data_penerimaan as $dt_penerimaan) {
+            $tgl_faktur = $dt_penerimaan['tgl_pesan'];
+        }
+
+        $kode_barang = [];
+        foreach ($data_detail_penerimaan as $dt_detail_penerimaan) {
+            $kode_barang[] = $dt_detail_penerimaan['kode_barang'];
+        }
+
+        // Ambil data barang berdasarkan beberapa kode_barang dan tgl_faktur
+        $barang = $inv_mod->getDataBytgl_kd($tgl_faktur, $kode_barang);
+
+        $qrImages = []; // Array untuk menyimpan nama file QR Code
+
+        // Buat QR code untuk setiap no_inventaris dari barang yang didapat
+        foreach ($barang as $data_barang) {
+            $no_inventaris = $data_barang['no_inventaris']; // Ambil no_inventaris
+            $fileName = $this->generateQR($no_inventaris); // Panggil fungsi generateQR untuk setiap no_inventaris
+            $qrImages[] = $fileName; // Simpan nama file ke array
+        }
+
+        $combinedData = []; // Array untuk menyimpan data barang beserta QR code
+
+        // Asumsikan jumlah $barang dan $qrImages sama
+        foreach ($barang as $key => $data_barang) {
+            $combinedData[] = [
+                'barang' => $data_barang,    // Data barang
+                'qrImage' => $qrImages[$key] // QR code yang terkait dengan barang
+            ];
+        }
+
+        $data = [
+            'no_faktur' => $id,
+            'qrImages' => $qrImages,
+            'barang_qrImage' => $combinedData
+        ];
+        // Tampilkan QR Code dalam view
+        return view('penerimaan_inventaris/page_print_qr', $data);
     }
 }

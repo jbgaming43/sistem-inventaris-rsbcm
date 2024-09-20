@@ -57,5 +57,6 @@ $routes->get('/penerimaan_inventaris/info/(:any)', 'PenerimaanInventarisControll
 $routes->get('/penerimaan_inventaris/page_qr/(:any)', 'PenerimaanInventarisController::page_qr/$1');
 $routes->post('/penerimaan_inventaris/add_ruang', 'PenerimaanInventarisController::add_ruang');
 $routes->post('/penerimaan_inventaris/add_garansi', 'PenerimaanInventarisController::add_garansi');
+$routes->get('/penerimaan_inventaris/print_qr/(:any)', 'PenerimaanInventarisController::print_qr/$1');
 
 $routes->get('/penerimaan_inventaris/generate-qr', 'PenerimaanInventarisController::generateQR');
