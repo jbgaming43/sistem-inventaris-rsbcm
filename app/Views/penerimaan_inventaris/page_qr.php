@@ -31,7 +31,6 @@
                         <?php if (!empty($qrImages)) : ?>
                             <div class="row">
                                 <?php
-                                $counter = 0; // Inisialisasi penghitung
                                 foreach ($barang_qrImage as $item) : ?>
                                     <div class="col-6 col-sm-3 mb-2">
                                         <div class="card">
@@ -43,17 +42,7 @@
                                             <img width="300cm" src="<?= base_url('../uploads/' . basename($item['qrImage'])); ?>" alt="QR Code<?= $item['barang']['no_inventaris']; ?>">
                                         </div>
                                     </div>
-
-                                    <?php
-                                    $counter++; // Tambahkan penghitung
-
-                                    // Jika sudah 5 kolom, tutup baris dan buka baris baru
-                                    if ($counter % 5 == 0) : ?>
-                            </div>
-                            <div class="col-6 col-sm-3">
-                            <?php endif; ?>
-
-                        <?php endforeach; ?>
+                                <?php endforeach; ?>
                             </div>
                         <?php else : ?>
                             <p>Tidak ada QR Code yang dihasilkan.</p>

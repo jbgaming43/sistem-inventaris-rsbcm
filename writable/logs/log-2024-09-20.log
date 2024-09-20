@@ -589,3 +589,22 @@ INFO - 2024-09-20 12:40:21 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-09-20 12:40:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-20 12:41:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-20 12:41:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-20 12:41:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-20 12:42:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-20 12:42:58 --> ErrorException: Undefined array key "nama_suplier"
+in APPPATH\Views\penerimaan_inventaris\page_info.php on line 25.
+ 1 APPPATH\Views\penerimaan_inventaris\page_info.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_suplier"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\penerimaan_inventaris\\page_info.php', 25)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\penerimaan_inventaris\\page_info.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('penerimaan_inventaris/page_info', [], true)
+ 5 APPPATH\Controllers\PenerimaanInventarisController.php(261): view('penerimaan_inventaris/page_info', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanInventarisController->info('INV-2024-09-19-033')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-20 12:47:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-20 12:47:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-20 12:47:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-20 12:48:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-20 12:49:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
