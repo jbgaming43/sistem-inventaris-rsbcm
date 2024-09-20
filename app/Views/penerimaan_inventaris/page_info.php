@@ -13,12 +13,20 @@
                             <td><?= $dt_inv['no_inv']; ?></td>
                         </tr>
                         <tr>
+                            <td>No Faktur</td>
+                            <td><?= $dt_inv['no_faktur']; ?></td>
+                        </tr>
+                        <tr>
                             <td>Kode Barang</td>
                             <td><?= $dt_inv['kode_barang']; ?></td>
                         </tr>
                         <tr>
                             <td>Nama Barang</td>
                             <td><?= $dt_inv['nama_barang']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Nama Supplier</td>
+                            <td><?= $dt_inv['nama_suplier']; ?></td>
                         </tr>
                         <tr>
                             <td>Tanggal pengadaan</td>

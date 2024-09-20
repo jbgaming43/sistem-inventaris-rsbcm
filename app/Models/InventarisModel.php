@@ -44,10 +44,15 @@ class InventarisModel extends Model
 
     public function getDataById($id)
     {
-        return $this->select('inventaris.*, inventaris.no_inventaris as no_inv, inventaris_barang.*, inventaris_ruang.*, inventaris_garansi.*')
+        return $this->select('inventaris.*, inventaris.no_inventaris as no_inv, inventaris_barang.*, inventaris_ruang.*, inventaris_garansi.*, inventaris_detail_pesan.*, inventaris_pemesanan.*, inventaris_suplier.* ')
             ->join('inventaris_barang', 'inventaris.kode_barang=inventaris_barang.kode_barang')
             ->join('inventaris_ruang', 'inventaris.id_ruang=inventaris_ruang.id_ruang', 'left')
             ->join('inventaris_garansi', 'inventaris.no_inventaris=inventaris_garansi.no_inventaris', 'left')
+            // join tambahan untuk mendapatkan suplier
+            ->join('inventaris_detail_pesan', 'inventaris.kode_barang=inventaris_detail_pesan.kode_barang', 'left')
+            ->join('inventaris_pemesanan', 'inventaris_detail_pesan.no_faktur=inventaris_pemesanan.no_faktur', 'left')
+            ->join('inventaris_suplier', 'inventaris_pemesanan.kode_suplier=inventaris_suplier.kode_suplier', 'left')
+            /// 
             ->where('inventaris.no_inventaris', $id)
             ->findAll(); // retrieve all data
     }
