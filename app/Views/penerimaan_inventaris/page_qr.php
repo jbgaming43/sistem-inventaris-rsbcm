@@ -36,7 +36,7 @@
                                     <div class="col-6 col-sm-3 mb-2">
                                         <div class="card">
                                             <div class="card-body pb-0">
-                                                <h3 class="card-title m-0 fs-5"><?= $item['barang']['no_inventaris']; ?></h3>
+                                                <h3 class="card-title m-0 fs-4"><?= $item['barang']['no_inventaris']; ?></h3>
                                                 <p class="text-mute"><?= $item['barang']['nama_barang']; ?></p>
                                             </div>
                                             <!-- Photo -->
