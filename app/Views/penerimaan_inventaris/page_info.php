@@ -30,6 +30,12 @@
                                 <td><?= $dt_inv['nama_ruang']; ?></td>
                             </tr>
                         <?php endif; ?>
+                        <?php if (!empty($dt_inv['garansi'])) : ?>
+                            <tr>
+                                <td>Tgl Garansi</td>
+                                <td><?= $dt_inv['garansi']; ?></td>
+                            </tr>
+                        <?php endif; ?>
                     </table>
                 </div>
             </div>

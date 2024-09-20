@@ -12,11 +12,13 @@ use App\Models\PenerimaanInventarisModel;
 use App\Models\PembelianInventarisModel;
 use App\Models\PembelianInventarisDetailModel;
 use App\Models\PenerimaanInventarisDetailModel;
+use App\Models\GaransiModel;
 use App\Models\PetugasModel;
 use App\Models\AkunBayarModel;
 use App\Helpers\AuthHelper;
 
 use App\Libraries\phpqrcode\qrlib;
+use DateTime;
 
 class PenerimaanInventarisController extends BaseController
 {
@@ -332,6 +334,46 @@ class PenerimaanInventarisController extends BaseController
         ];
 
         $inv_mod->updateRuang($no_inventaris,$data);
+        return redirect()->to('/penerimaan_inventaris')->with('success', 'Data penerimaan berhasil disimpan.');
+    }
+
+    public function add_garansi()
+    {
+        $inv_mod = new InventarisModel();
+        $garansi_mod = new GaransiModel();
+
+        $no_inventaris = $this->request->getPost('no_inventaris');
+        $data = $inv_mod->getDataById($no_inventaris);
+        //$tgl_pengadaan = $data['tgl_pengadaan'];
+        foreach($data as $val)
+        {
+            $tgl_pengadaan = $val['tgl_pengadaan'];
+        }
+        $date = new DateTime($tgl_pengadaan);
+        
+        $hari = $this->request->getPost('hari');
+        $bulan = $this->request->getPost('bulan');
+        $tahun = $this->request->getPost('tahun');
+        $date->add(new \DateInterval('P'.$hari.'D'));
+        $date->add(new \DateInterval('P'.$bulan.'M'));
+        $date->add(new \DateInterval('P'.$tahun.'Y'));
+
+        $date = $date->format('Y-m-d');
+
+        $data = [
+            'no_inventaris' => $no_inventaris,
+            'garansi' => $date,
+        ];
+
+        $garansi = $garansi_mod->getDataById($no_inventaris);
+        if($garansi)
+        {
+            $garansi_mod->updateData($no_inventaris,$data);
+        }
+        else
+        {
+            $garansi_mod->insertData($data);
+        }
         return redirect()->to('/penerimaan_inventaris')->with('success', 'Data penerimaan berhasil disimpan.');
     }
 }
