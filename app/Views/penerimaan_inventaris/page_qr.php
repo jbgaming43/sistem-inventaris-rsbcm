@@ -27,38 +27,38 @@
                     <div class="card-body">
                         <h2>QR Codes</h2>
                         <!-- OPSI PERTAMA -->
-                        <table>
-                            <?php if (!empty($qrImages)) : ?>
-                                <tr>
-                                    <?php
-                                    $counter = 0; // Inisialisasi penghitung
-                                    foreach ($barang_qrImage as $item) : ?>
-                                        <td>
-                                            <div class="card">
-                                                <div class="card-body pb-0">
-                                                    <h3 class="card-title m-0 fs-5"><?= $item['barang']['no_inventaris']; ?></h3>
-                                                    <p class="text-mute"><?= $item['barang']['nama_barang']; ?></p>
-                                                </div>
-                                                <!-- Photo -->
-                                                <img width="300cm" src="<?= base_url('../uploads/' . basename($item['qrImage'])); ?>" alt="QR Code<?= $item['barang']['no_inventaris']; ?>">
+
+                        <?php if (!empty($qrImages)) : ?>
+                            <div class="row">
+                                <?php
+                                $counter = 0; // Inisialisasi penghitung
+                                foreach ($barang_qrImage as $item) : ?>
+                                    <div class="col-6 col-sm-3 mb-2">
+                                        <div class="card">
+                                            <div class="card-body pb-0">
+                                                <h3 class="card-title m-0 fs-4"><?= $item['barang']['no_inventaris']; ?></h3>
+                                                <p class="text-mute"><?= $item['barang']['nama_barang']; ?></p>
                                             </div>
-                                        </td>
+                                            <!-- Photo -->
+                                            <img width="300cm" src="<?= base_url('../uploads/' . basename($item['qrImage'])); ?>" alt="QR Code<?= $item['barang']['no_inventaris']; ?>">
+                                        </div>
+                                    </div>
 
-                                        <?php
-                                        $counter++; // Tambahkan penghitung
+                                    <?php
+                                    $counter++; // Tambahkan penghitung
 
-                                        // Jika sudah 5 kolom, tutup baris dan buka baris baru
-                                        if ($counter % 5 == 0) : ?>
-                                </tr>
-                                <tr>
-                                <?php endif; ?>
-
-                            <?php endforeach; ?>
-                                </tr>
-                            <?php else : ?>
-                                <p>Tidak ada QR Code yang dihasilkan.</p>
+                                    // Jika sudah 5 kolom, tutup baris dan buka baris baru
+                                    if ($counter % 5 == 0) : ?>
+                            </div>
+                            <div class="col-6 col-sm-3">
                             <?php endif; ?>
-                        </table>
+
+                        <?php endforeach; ?>
+                            </div>
+                        <?php else : ?>
+                            <p>Tidak ada QR Code yang dihasilkan.</p>
+                        <?php endif; ?>
+
                         <!-- OPSI KEDUA -->
                         <!-- <table class="table table-bordered">
                             <?php foreach ($barang_qrImage as $item) : ?>
