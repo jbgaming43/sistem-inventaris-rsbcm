@@ -23,6 +23,7 @@ class PembayaranInventarisModel extends Model
     public function getData()
     {
         return $this->select('bayar_pemesanan_inventaris.*, petugas.*, akun_bayar_hutang.*')
+            ->join('inventaris_pemesanan', 'bayar_pemesanan_inventaris.no_faktur = inventaris_pemesanan.no_faktur')
             ->join('petugas', 'bayar_pemesanan_inventaris.nip = petugas.nip')
             ->join('akun_bayar_hutang', 'bayar_pemesanan_inventaris.nama_bayar = akun_bayar_hutang.nama_bayar')
             ->findAll(); // Retrieve all data

@@ -46,28 +46,30 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nomor Permintaan Barang</th>
-                                    <th>No order</th>
-                                    <th>Tanggal Pembelian</th>
-                                    <th>Supplier</th>
+                                    <th>Tanggal Bayar</th>
+                                    <th>Nomor Faktur</th>
                                     <th>Petugas</th>
+                                    <th>Keterangan</th>
+                                    <th>Nama Bayar</th>
+                                    <th>Nomor Bukti</th>
                                     <th>Tagihan</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom text-nowrap">
                                 <?php $i = 1;
-                                foreach ($pembayaran_inv_con as $dt_penerimaan_inventaris) { ?>
+                                foreach ($pembayaran_inv_con as $dt_pembayaran_inventaris) { ?>
                                     <tr>
                                         <td><?= $i++; ?></td>
-                                        <td><?= $dt_penerimaan_inventaris['no_faktur']; ?></td>
-                                        <td><?= $dt_penerimaan_inventaris['no_order']; ?></td>
-                                        <td><?= $dt_penerimaan_inventaris['tgl_faktur']; ?></td>
-                                        <td><?= $dt_penerimaan_inventaris['nama_suplier']; ?></td>
-                                        <td><?= $dt_penerimaan_inventaris['nama']; ?></td>
-                                        <td>Rp <?= number_format($dt_penerimaan_inventaris['tagihan'], 0, ',', '.') ?></td>
+                                        <td><?= $dt_pembayaran_inventaris['tgl_bayar']; ?></td>
+                                        <td><?= $dt_pembayaran_inventaris['no_faktur']; ?></td>
+                                        <td><?= $dt_pembayaran_inventaris['nama']; ?></td>
+                                        <td><?= $dt_pembayaran_inventaris['keterangan']; ?></td>
+                                        <td><?= $dt_pembayaran_inventaris['nama_bayar']; ?></td>
+                                        <td><?= $dt_pembayaran_inventaris['no_bukti']; ?></td>
+                                        <td>Rp <?= number_format($dt_pembayaran_inventaris['besar_bayar'], 0, ',', '.') ?></td>
                                         <td class="text-center">
-                                            <a href="<?= base_url('/penerimaan_inventaris/print/' . $dt_penerimaan_inventaris['no_faktur']); ?>" target="_blank">
+                                            <a href="<?= base_url('/penerimaan_inventaris/print/' . $dt_pembayaran_inventaris['no_faktur']); ?>" target="_blank">
                                                 <button type="button" class="btn btn-icon btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Print">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-printer">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -77,7 +79,7 @@
                                                     </svg>
                                                 </button>
                                             </a>
-                                            <span data-bs-toggle="modal" data-bs-target="#detail_penerimaan_inventaris<?= $dt_penerimaan_inventaris['no_faktur']; ?>">
+                                            <span data-bs-toggle="modal" data-bs-target="#detail_penerimaan_inventaris<?= $dt_pembayaran_inventaris['no_faktur']; ?>">
                                                 <button type="button" class="btn btn-icon btn-blue btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -88,7 +90,7 @@
                                                 </button>
                                             </span>
 
-                                            <span data-bs-toggle="modal" data-bs-target="#delete_penerimaan_inventaris<?= $dt_penerimaan_inventaris['no_faktur']; ?>">
+                                            <span data-bs-toggle="modal" data-bs-target="#delete_penerimaan_inventaris<?= $dt_pembayaran_inventaris['no_faktur']; ?>">
                                                 <button type="button" class="btn btn-icon btn-red btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />

@@ -5,3 +5,23 @@ INFO - 2024-09-26 00:41:51 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-09-26 00:41:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-26 00:41:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-09-26 00:41:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-26 01:07:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-26 01:20:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-26 01:32:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-26 01:32:40 --> ErrorException: Undefined array key "nama_petugas"
+in APPPATH\Views\pembayaran_inventaris\index.php on line 65.
+ 1 APPPATH\Views\pembayaran_inventaris\index.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_petugas"', 'C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\pembayaran_inventaris\\index.php', 65)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\pembayaran_inventaris\\index.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembayaran_inventaris/index', [], true)
+ 5 APPPATH\Controllers\PembayaranInventarisController.php(42): view('pembayaran_inventaris/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembayaranInventarisController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembayaranInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-09-26 01:41:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-26 01:43:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-26 01:43:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-26 01:44:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-26 01:45:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

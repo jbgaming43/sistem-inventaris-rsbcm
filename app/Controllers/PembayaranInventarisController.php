@@ -26,37 +26,20 @@ class PembayaranInventarisController extends BaseController
     public function index()
     {
         // objek PenggunaModel
-        $penerimaan_inv_mod = new PenerimaanInventarisModel();
-        $pembelian_inv_mod = new PembelianInventarisModel();
-        $pembayaran_inv_mod = new PembayaranInventarisModel();
-        $inv_mod = new InventarisModel();
-        $ruang_mod = new RuangModel();
 
-        $ptgm = new PetugasModel();
-        $supm = new SuplierModel();
-        $akbm = new AkunBayarModel();
-        $rekm = new RekeningModel();
-        $brgm = new InventarisBarangModel();
+        $pembayaran_inv_mod = new PembayaranInventarisModel();
+
 
         $data = [
             'title' => 'Data Pembayaran Inventaris',
             'active_menu' => 'inventaris',
             'active_submenu' => 'pembayaran_inventaris',
 
-            'penerimaan_inv_con' => $penerimaan_inv_mod->getData(),
-            'pembelian_inv_con' => $pembelian_inv_mod->getData(),
             'pembayaran_inv_con' => $pembayaran_inv_mod->getData(),
-            'ptgc' => $ptgm->getData(),
-            'supc' => $supm->getData(),
-            'akbc' => $akbm->getData(),
-            'rekc' => $rekm->getData(),
-            'brgc' => $brgm->getData(),
-            'inv_con' => $inv_mod->getData(),
-            'ruang_con' => $ruang_mod->getData(),
         ];
 
 
-        return view('penerimaan_inventaris/index', $data);
+        return view('pembayaran_inventaris/index', $data);
     }
 
     public function detail($no_faktur)
