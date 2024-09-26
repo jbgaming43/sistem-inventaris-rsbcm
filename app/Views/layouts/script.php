@@ -290,6 +290,12 @@
     });
     $(document).ready(function() {
         // Inisialisasi Select2 untuk Modal Tambah Desa
+        $('.select2-pegawai').select2({
+            dropdownParent: $('#add_pengajuan_nonmedis')
+        });
+    });
+    $(document).ready(function() {
+        // Inisialisasi Select2 untuk Modal Tambah Desa
         $('.select2-barang1').select2({
             dropdownParent: $('#add_pembelian_inventaris')
         });

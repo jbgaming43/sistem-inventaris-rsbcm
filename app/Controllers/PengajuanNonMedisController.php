@@ -13,14 +13,15 @@ class PengajuanNonMedisController extends BaseController
     {
         // objek PenggunaModel
         $pbnm = new PengajuanBarangNonMedisModel();
-        $pgw = new PegawaiModel();
+        $pgwm = new PegawaiModel();
 
         $data = [
             'title' => 'Data Pengajuan Non Medis',
-            'active_menu' => 'master',
+            'active_menu' => 'non_medis',
             'active_submenu' => 'pengajuan_nonmedis',
 
-            'pbnc' => $pbnm->getData()
+            'pbnc' => $pbnm->getData(),
+            'pgwc' => $pgwm->getData()
         ];
         
 

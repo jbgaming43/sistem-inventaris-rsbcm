@@ -20,7 +20,7 @@ $routes->post('/pengguna/edit/(:num)', 'PenggunaController::edit/$1');
 $routes->post('/pengguna/delete/(:num)', 'PenggunaController::delete/$1');
 
 // Routes untuk mengelola data pengajuan non-medis
-$routes->get('/pengajuan_nonmedis', 'PengajuanNonMedisController::index');
+$routes->get('/pengajuan_non_medis', 'PengajuanNonMedisController::index');
 $routes->post('/pengguna/add', 'PengajuanNonMedisController::add');
 $routes->post('/pengguna/edit/(:num)', 'PengajuanNonMedisController::edit/$1');
 $routes->post('/pengguna/delete/(:num)', 'PengajuanNonMedisController::delete/$1');
@@ -58,5 +58,9 @@ $routes->get('/penerimaan_inventaris/page_qr/(:any)', 'PenerimaanInventarisContr
 $routes->post('/penerimaan_inventaris/add_ruang', 'PenerimaanInventarisController::add_ruang');
 $routes->post('/penerimaan_inventaris/add_garansi', 'PenerimaanInventarisController::add_garansi');
 $routes->get('/penerimaan_inventaris/print_qr/(:any)', 'PenerimaanInventarisController::print_qr/$1');
-
 $routes->get('/penerimaan_inventaris/generate-qr', 'PenerimaanInventarisController::generateQR');
+
+// Routes untuk pembayaran inventaris
+$routes->get('/pembayaran_inventaris', 'PembayaranInventarisController::index');
+
+
