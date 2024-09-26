@@ -13,6 +13,7 @@ use App\Models\PembelianInventarisModel;
 use App\Models\PembelianInventarisDetailModel;
 use App\Models\PenerimaanInventarisDetailModel;
 use App\Models\PembayaranInventarisModel;
+use App\Models\AkunBayarHutangModel;
 use App\Models\GaransiModel;
 use App\Models\PetugasModel;
 use App\Models\AkunBayarModel;
@@ -28,7 +29,9 @@ class PembayaranInventarisController extends BaseController
         // objek PenggunaModel
 
         $pembayaran_inv_mod = new PembayaranInventarisModel();
-
+        $penerimaan_inv_mod = new PenerimaanInventarisModel();
+        $petugas_mod = new PetugasModel();
+        $akun_bayar_hutang_mod = new AkunBayarHutangModel();
 
         $data = [
             'title' => 'Data Pembayaran Inventaris',
@@ -36,6 +39,9 @@ class PembayaranInventarisController extends BaseController
             'active_submenu' => 'pembayaran_inventaris',
 
             'pembayaran_inv_con' => $pembayaran_inv_mod->getData(),
+            'penerimaan_inv_con' => $penerimaan_inv_mod->getData(),
+            'akun_bayar_hutang_con' => $akun_bayar_hutang_mod->getData(),
+            'ptgc' => $petugas_mod->getData(),
         ];
 
 

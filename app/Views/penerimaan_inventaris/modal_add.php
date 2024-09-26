@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-full-width modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Data Pemesanan Inventaris</h5>
+                <h5 class="modal-title">Tambah Data Pembayaran Inventaris</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="/penerimaan_inventaris/add" method="POST" class="validation_penerimaan_inventaris" enctype="multipart/form-data">
