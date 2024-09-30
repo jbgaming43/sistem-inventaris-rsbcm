@@ -62,5 +62,8 @@ $routes->get('/penerimaan_inventaris/generate-qr', 'PenerimaanInventarisControll
 
 // Routes untuk pembayaran inventaris
 $routes->get('/pembayaran_inventaris', 'PembayaranInventarisController::index');
+$routes->post('/pembayaran_inventaris/add', 'PembayaranInventarisController::add');
+$routes->post('/pembayaran_inventaris/delete/(:any)', 'PembayaranInventarisController::delete/$1');
+
 
 

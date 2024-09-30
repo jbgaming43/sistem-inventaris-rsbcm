@@ -162,7 +162,8 @@
                 </tr>
             </thead>
             <tbody>
-                <?php if (!empty($pem_inv_det_con)) : ?>
+                <?php if (!empty($pem_inv_det_con)) : 
+                    $total_jumlah = 0;?>
                     <?php ?>
                     <?php foreach ($pem_inv_det_con as $index => $dt_pem_inv_det) : ?>
                         <tr style=" white-space: nowrap;">

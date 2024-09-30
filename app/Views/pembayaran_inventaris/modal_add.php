@@ -10,7 +10,7 @@
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Nomor faktur</label>
                         <div class="col">
-                        <select class="form-select" id="nip" name="nip" style="width: 100%">
+                        <select class="form-select" id="no_faktur" name="no_faktur" style="width: 100%">
                                 <option value="">- Pilih Nama -</option>
                                 <?php foreach ($penerimaan_inv_con as $dt_penerimaan_inv) : ?>
                                     <option value="<?= $dt_penerimaan_inv['no_faktur'] ?>"><?= $dt_penerimaan_inv['no_faktur'] ?></option>
@@ -38,19 +38,19 @@
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Biaya</label>
                         <div class="col">
-                            <input type="number" class="form-control" id="ppn" name="ppn" placeholder="Masukkan PPN" min="0" required>
+                            <input type="number" class="form-control" id="besar_bayar" name="besar_bayar" placeholder="Masukkan Biaya" min="0" required>
                         </div>
                     </div>
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">keterangan</label>
                         <div class="col">
-                            <textarea class="form-control" id="meterai" name="meterai" placeholder="Masukkan Keterangan" required></textarea>
+                            <textarea class="form-control" id="keterangan" name="keterangan" placeholder="Masukkan Keterangan" required></textarea>
                         </div>
                     </div>
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Akun Bayar Hutang</label>
                         <div class="col">
-                            <select class="form-select select2-petugas" id="nip" name="nip" style="width: 100%">
+                            <select class="form-select select2-petugas" id="nama_bayar" name="nama_bayar" style="width: 100%">
                                 <option value="">- Pilih Nama -</option>
                                 <?php foreach ($akun_bayar_hutang_con as $dt_akun_bayar_hutang) : ?>
                                     <option value="<?= $dt_akun_bayar_hutang['nama_bayar'] ?>"> <?= $dt_akun_bayar_hutang['nama_bayar'] ?></option>
@@ -61,11 +61,11 @@
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">nomor bukti</label>
                         <div class="col">
-                            <textarea class="form-control" id="meterai" name="meterai" placeholder="Masukkan Nomor Bukti" required></textarea>
+                            <textarea class="form-control" id="no_bukti" name="no_bukti" placeholder="Masukkan Nomor Bukti" required></textarea>
                         </div>
                     </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-seccondary" data-bs-dismiss="modal" onclick="resetForm('validation_pengguna')">
+                    <button type="button" class="btn btn-outline-seccondary" data-bs-dismiss="modal" onclick="resetForm('validation_pembayaran_inventaris')">
                         Batal
                     </button>
                     <button type="submit" class="btn btn-success">
