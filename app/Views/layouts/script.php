@@ -364,7 +364,7 @@
 <script>
     function fetchBarangNonMedisDetails(kode_brng, rowIndex) {
         if (kode_brng) {
-            if (isDuplicate(kode_brng)) {
+            if (isDuplicateNonMedis(kode_brng)) {
                 alert("Kode barang sudah ada di tabel. Silakan pilih barang yang lain.");
                 // Reset dropdown jika duplikat ditemukan
                 $(`#kode_brng_${rowIndex}`).val('');
@@ -388,6 +388,7 @@
                         $(`#kode_brng_${rowIndex}`).val(data.kode_brng);
                         $(`#kode_sat_${rowIndex}`).val(data.kode_sat);
                         $(`#jenis_${rowIndex}`).val(data.nm_jenis);
+                        $(`#jumlah_${rowIndex}`).val('');
                         $(`#harga_${rowIndex}`).val(data.harga);
                     } else {
                         // Clear fields if no data found
@@ -670,6 +671,20 @@
         // Loop through each existing row to check for duplicate kode_barang
         $('input[name="2kode_barang[]"]').each(function() {
             if ($(this).val() === kode_barang) {
+                isDuplicate = true;
+                return false; // Stop the loop if a duplicate is found
+            }
+        });
+
+        return isDuplicate;
+    }
+
+    function isDuplicateNonMedis(kd_brng) {
+        let isDuplicate = false;
+
+        // Loop through each existing row to check for duplicate kode_barang
+        $('input[name="kode_brng[]"]').each(function() {
+            if ($(this).val() === kd_brng) {
                 isDuplicate = true;
                 return false; // Stop the loop if a duplicate is found
             }
