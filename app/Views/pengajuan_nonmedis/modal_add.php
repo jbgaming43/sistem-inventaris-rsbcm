@@ -138,9 +138,9 @@
             dropdownParent: $('#add_pengajuan_nonmedis')
         });
 
-        setupEventListeners(rowIndex); // Setup event listeners for new row
+        setupEventListenersNonMedis(rowIndex); // Setup event listeners for new row
     }
-
+    
     // Fungsi untuk menghapus baris
     function removeRow(button) {
         const row = button.parentNode.parentNode;

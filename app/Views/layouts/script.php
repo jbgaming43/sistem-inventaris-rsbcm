@@ -406,6 +406,34 @@
 </script>
 
 <script>
+    function hitungTotalNonMedis(rowIndex) {
+        var hargaBeli = parseFloat(document.getElementById("harga_" + rowIndex).value) || 0;
+        var jumlah = parseFloat(document.getElementById("jumlah_" + rowIndex).value) || 0;
+
+        var total =hargaBeli * jumlah;
+
+        document.getElementById('total_' + rowIndex).value = "Rp " + total.toFixed(2);
+    }
+
+    function validateJumlahNonMedis(rowIndex) {
+        var jumlahInput = document.getElementById("jumlah_" + rowIndex);
+        var jumlah = parseFloat(jumlahInput.value)
+
+        if (jumlah < 1) {
+            jumlahInput.value = 1;
+        }
+
+        hitungTotalNonMedis(rowIndex);
+    }
+
+    function setupEventListenersNonMedis(rowIndex) {
+        document.getElementById("jumlah_" + rowIndex).addEventListener("input", function() {
+            validateJumlahNonMedis(rowIndex);
+        });
+    }
+</script>
+
+<script>
     function hitungTotal(rowIndex) {
         var hargaBeli = parseFloat(document.getElementById("harga_beli_" + rowIndex).value) || 0;
         var diskon = parseFloat(document.getElementById("diskon_" + rowIndex).value) || 0;
@@ -610,6 +638,10 @@
 </script>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        setupEventListenersNonMedis(0); // Pasang listener untuk baris pertama
+    });
+
     document.addEventListener("DOMContentLoaded", function() {
         setupEventListeners(0); // Pasang listener untuk baris pertama
     });
