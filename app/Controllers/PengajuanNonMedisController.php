@@ -5,6 +5,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\PengajuanBarangNonMedisModel;
 use App\Models\PegawaiModel;
+use App\Models\IpsrsBarangModel;
 use App\Helpers\AuthHelper;
 
 class PengajuanNonMedisController extends BaseController
@@ -14,6 +15,7 @@ class PengajuanNonMedisController extends BaseController
         // objek PenggunaModel
         $pbnm = new PengajuanBarangNonMedisModel();
         $pgwm = new PegawaiModel();
+        $ipsrsbarang_mod = new IpsrsBarangModel();
 
         $data = [
             'title' => 'Data Pengajuan Non Medis',
@@ -21,9 +23,10 @@ class PengajuanNonMedisController extends BaseController
             'active_submenu' => 'pengajuan_nonmedis',
 
             'pbnc' => $pbnm->getData(),
-            'pgwc' => $pgwm->getData()
+            'pgwc' => $pgwm->getData(),
+            'ipsrsbarang_con' => $ipsrsbarang_mod->getData()
         ];
-        
+
 
         return view('pengajuan_nonmedis/index', $data);
     }
@@ -31,35 +34,26 @@ class PengajuanNonMedisController extends BaseController
     public function add()
     {
         // objek PenggunaModel
-        $pm = new PengajuanBarangNonMedisModel();
+        $pbnm = new PengajuanBarangNonMedisModel();
 
-        // Upload file
-        $profile_image = $this->request->getFile('profile_image');
+        $no_pengajuan = $this->request->getPost('no_pengajuan');
+        $tanggal = $this->request->getPost('tanggal');
+        $nik = $this->request->getPost('nik');
+        $keterangan = $this->request->getPost('keterangan');
 
-        if ($profile_image && $profile_image->isValid() && !$profile_image->hasMoved()) {
-            // Mendapatkan ekstensi file
-            $ext = $profile_image->getClientExtension();
-
-            $newName = $this->request->getPost('username') . '.' . $ext;
-            $profile_image->move(ROOTPATH . 'public/assets/avatars', $newName);
-        } else {
-            $newName = 'default.jpg';
-        }
 
         $data = [
-            'username' => $this->request->getPost('username'),
-            'nama_pengguna' => $this->request->getPost('nama_pengguna'),
-            'level' => $this->request->getPost('level'),
-            'no_telp' => $this->request->getPost('no_telp'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-            'profile_image' => $newName,
-            'created_at' => date('Y-m-d H:i:s'),
+            'no_pengajuan' => $no_pengajuan,
+            'nip' => $nik,
+            'tanggal' => $tanggal,
+            'status' => 'Proses Pengajuan',
+            'keterangan' => $keterangan,
         ];
 
-        $pm->insertData($data);
+        $pbnm->insertData($data);
 
         session()->setFlashdata('success', 'ditambahkan');
-        return redirect()->to('/pengguna');
+        return redirect()->to('/pengajuan_non_medis');
     }
 
     public function checkUsername()
@@ -141,5 +135,20 @@ class PengajuanNonMedisController extends BaseController
             session()->setFlashdata('success', 'dihapus');
             return redirect()->to('/pengguna');
         }
+    }
+
+    public function getBarangDetails()
+    {
+        $ipsrsbarang_mod = new IpsrsBarangModel();
+        $kode_barang = $this->request->getGet('kode_brng'); // Mengambil kode barang dari parameter GET
+
+        if ($kode_barang) {
+            $barang = $ipsrsbarang_mod->getDataByKode($kode_barang);
+            if ($barang) {
+                return $this->response->setJSON($barang);
+            }
+        }
+
+        return $this->response->setJSON(null); // Kembalikan JSON null jika barang tidak ditemukan
     }
 }

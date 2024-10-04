@@ -18,7 +18,7 @@ class PengajuanBarangNonMedisModel extends Model
     /** primaryKey autoincrement */
     //protected $useAutoIncrement = true;
     /** allowed Field */
-    protected $allowedFields = ['nip', 'tanggal', 'status', 'keterangan'];
+    protected $allowedFields = ['no_pengajuan','nip', 'tanggal', 'status', 'keterangan'];
 
     public function getData()
     {

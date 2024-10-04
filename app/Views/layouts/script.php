@@ -302,6 +302,12 @@
     });
     $(document).ready(function() {
         // Inisialisasi Select2 untuk Modal Tambah Desa
+        $('.select2-barangnonmedis').select2({
+            dropdownParent: $('#add_pengajuan_nonmedis')
+        });
+    });
+    $(document).ready(function() {
+        // Inisialisasi Select2 untuk Modal Tambah Desa
         $('.select2-barang').select2({
             dropdownParent: $('#add_penerimaan_inventaris')
         });
@@ -349,6 +355,50 @@
                         $(`#nama_merk_${rowIndex}`).val('');
                         $(`#nama_jenis_${rowIndex}`).val('');
                     }
+                }
+            });
+        }
+    }
+</script>
+
+<script>
+    function fetchBarangNonMedisDetails(kode_brng, rowIndex) {
+        if (kode_brng) {
+            if (isDuplicate(kode_brng)) {
+                alert("Kode barang sudah ada di tabel. Silakan pilih barang yang lain.");
+                // Reset dropdown jika duplikat ditemukan
+                $(`#kode_brng_${rowIndex}`).val('');
+                $(`#select_barangnonmedis_${rowIndex}`).val('').trigger('change');
+                $(`#kode_sat_${rowIndex}`).val('');
+                $(`#jenis_${rowIndex}`).val('');
+                $(`#harga_${rowIndex}`).val('');
+                return;
+            }
+
+            $.ajax({
+                url: '/pengajuan_non_medis/pilih_barang',
+                type: 'GET',
+                data: {
+                    kode_brng: kode_brng
+                },
+                dataType: 'json',
+                success: function(data) {
+                    if (data) {
+                        // Update fields with data returned from the controller
+                        $(`#kode_brng_${rowIndex}`).val(data.kode_brng);
+                        $(`#kode_sat_${rowIndex}`).val(data.kode_sat);
+                        $(`#jenis_${rowIndex}`).val(data.nm_jenis);
+                        $(`#harga_${rowIndex}`).val(data.harga);
+                    } else {
+                        // Clear fields if no data found
+                        $(`#kode_brng_${rowIndex}`).val('');
+                        $(`#kode_sat_${rowIndex}`).val('');
+                        $(`#jenis_${rowIndex}`).val('');
+                        $(`#harga_${rowIndex}`).val('');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching barang details:", error);
                 }
             });
         }

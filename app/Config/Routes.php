@@ -21,7 +21,8 @@ $routes->post('/pengguna/delete/(:num)', 'PenggunaController::delete/$1');
 
 // Routes untuk mengelola data pengajuan non-medis
 $routes->get('/pengajuan_non_medis', 'PengajuanNonMedisController::index');
-$routes->post('/pengguna/add', 'PengajuanNonMedisController::add');
+$routes->post('/pengajuan_non_medis/add', 'PengajuanNonMedisController::add');
+$routes->get('/pengajuan_non_medis/pilih_barang', 'PengajuanNonMedisController::getBarangDetails');
 $routes->post('/pengguna/edit/(:num)', 'PengajuanNonMedisController::edit/$1');
 $routes->post('/pengguna/delete/(:num)', 'PengajuanNonMedisController::delete/$1');
 
