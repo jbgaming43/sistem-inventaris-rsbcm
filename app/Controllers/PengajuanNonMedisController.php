@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\PengajuanBarangNonMedisModel;
+use App\Models\PengajuanBarangNonMedisDetailModel;
 use App\Models\PegawaiModel;
 use App\Models\IpsrsBarangModel;
 use App\Helpers\AuthHelper;
@@ -34,13 +35,31 @@ class PengajuanNonMedisController extends BaseController
     public function add()
     {
         // objek PenggunaModel
-        $pbnm = new PengajuanBarangNonMedisModel();
+        $pen_nonmedis_mod = new PengajuanBarangNonMedisModel();
+        $pen_nonmedis_det_mod = new PengajuanBarangNonMedisDetailModel();
 
         $no_pengajuan = $this->request->getPost('no_pengajuan');
         $tanggal = $this->request->getPost('tanggal');
         $nik = $this->request->getPost('nik');
         $keterangan = $this->request->getPost('keterangan');
 
+        // Ambil data tabel barang yang diinputkan dalam bentuk array
+        $kode_brng = $this->request->getPost('kode_brng');
+        $kode_sat = $this->request->getPost('kode_sat');
+        $jumlah = $this->request->getPost('jumlah');
+        $h_pengajuan = $this->request->getPost('harga');
+        $total = $this->request->getPost('total');
+
+        // Cek apakah semua input adalah array
+        if (!is_array($kode_brng) || !is_array($kode_sat) || !is_array($jumlah) || !is_array($h_pengajuan) || !is_array($total)) {
+            return redirect()->back()->with('error', 'Data input tidak valid.');
+        }
+
+        // Cek apakah panjang semua array sama
+        $arrayCount = min(count($kode_brng), count($kode_sat), count($jumlah), count($h_pengajuan),  count($total));
+        if ($arrayCount === 0) {
+            return redirect()->back()->with('error', 'Tidak ada data yang valid untuk disimpan.');
+        }
 
         $data = [
             'no_pengajuan' => $no_pengajuan,
@@ -50,7 +69,25 @@ class PengajuanNonMedisController extends BaseController
             'keterangan' => $keterangan,
         ];
 
-        $pbnm->insertData($data);
+        $pen_nonmedis_mod->insertData($data);
+        $dataDetails = [];
+
+        for ($i = 0; $i < count($kode_brng); $i++) {
+            $dataDetails[] = [
+                'no_pengajuan' => $no_pengajuan,
+                'kode_brng' => $kode_brng[$i],
+                'kode_sat' => $kode_sat[$i],
+                'jumlah' => $jumlah[$i],
+                'h_pengajuan' => $h_pengajuan[$i],
+                'total' => $total[$i],
+            ];
+        }
+
+        // Insert semua data secara batch
+        $pen_nonmedis_det_mod->insertBatch($dataDetails);
+
+
+
 
         session()->setFlashdata('success', 'ditambahkan');
         return redirect()->to('/pengajuan_non_medis');
