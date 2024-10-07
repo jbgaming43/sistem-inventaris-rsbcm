@@ -48,15 +48,14 @@ class PengajuanNonMedisController extends BaseController
         $kode_sat = $this->request->getPost('kode_sat');
         $jumlah = $this->request->getPost('jumlah');
         $h_pengajuan = $this->request->getPost('harga');
-        $total = $this->request->getPost('total');
 
         // Cek apakah semua input adalah array
-        if (!is_array($kode_brng) || !is_array($kode_sat) || !is_array($jumlah) || !is_array($h_pengajuan) || !is_array($total)) {
+        if (!is_array($kode_brng) || !is_array($kode_sat) || !is_array($jumlah) || !is_array($h_pengajuan)) {
             return redirect()->back()->with('error', 'Data input tidak valid.');
         }
 
         // Cek apakah panjang semua array sama
-        $arrayCount = min(count($kode_brng), count($kode_sat), count($jumlah), count($h_pengajuan),  count($total));
+        $arrayCount = min(count($kode_brng), count($kode_sat), count($jumlah), count($h_pengajuan));
         if ($arrayCount === 0) {
             return redirect()->back()->with('error', 'Tidak ada data yang valid untuk disimpan.');
         }
@@ -79,7 +78,7 @@ class PengajuanNonMedisController extends BaseController
                 'kode_sat' => $kode_sat[$i],
                 'jumlah' => $jumlah[$i],
                 'h_pengajuan' => $h_pengajuan[$i],
-                'total' => $total[$i],
+                'total' => $jumlah[$i]*$h_pengajuan[$i],
             ];
         }
 
@@ -93,85 +92,29 @@ class PengajuanNonMedisController extends BaseController
         return redirect()->to('/pengajuan_non_medis');
     }
 
-    public function checkUsername()
+    public function detail($id)
     {
-        $username = $this->request->getPost('username');
-        $pm = new PengajuanBarangNonMedisModel();
+        $pen_nonmedis_det_mod = new PengajuanBarangNonMedisDetailModel();
+        $detail = $pen_nonmedis_det_mod->detailData($id);
+        
+         // Debug output
+        log_message('debug', 'Detail fetched: ' . json_encode($detail)); // Log detail untuk debug
 
-        // mendapatkan username dalam database
-        $result = $pm->where('username', $username)->first();
-
-        if ($result) {
-            // Username sudah digunakan
-            echo json_encode(false);
-        } else {
-            // Username tersedia
-            echo json_encode(true);
+        if (empty($detail)) {
+            return $this->response->setJSON(['error' => 'Data tidak ditemukan']);
         }
-    }
-
-    public function edit($id)
-    {
-        $pm = new PengajuanBarangNonMedisModel();
-
-        $data = [
-            'nama_pengguna' => $this->request->getPost('nama_pengguna'),
-            'level' => $this->request->getPost('level'),
-            'no_telp' => $this->request->getPost('no_telp'),
-        ];
-
-        // Cek apakah file gambar baru diunggah
-        $profile_image = $this->request->getFile('profile_image');
-        $username = $this->request->getPost('old_username');
-        if ($profile_image && $profile_image->isValid() && !$profile_image->hasMoved()) {
-            // Mendapatkan ekstensi file
-            $ext = $profile_image->getClientExtension();
-
-            // Ubah nama file
-            $newName = $username . '.' . $ext;
-            $profile_image->move(ROOTPATH . 'public/assets/avatars', $newName);
-
-            // Hapus gambar lama jika ada
-            $pengguna = $pm->find($id);
-            $oldImage = $pengguna['profile_image'];
-            if ($oldImage !== 'default.jpg' && file_exists(ROOTPATH . 'public/assets/avatars/' . $oldImage)) {
-                unlink(ROOTPATH . 'public/assets/avatars/' . $oldImage);
-            }
-
-            // Gunakan nama baru
-            $data['profile_image'] = $newName;
-        }
-
-        $pm->updateData($id, $data);
-
-        session()->setFlashdata('success', 'diedit');
-        return redirect()->to('/pengguna');
+    
+        return $this->response->setJSON($detail);
     }
 
     public function delete($id)
     {
-        $pm = new PengajuanBarangNonMedisModel();
+        $pen_nonmedis_mod = new PengajuanBarangNonMedisModel();
 
-        // Dapatkan data pengguna yang akan dihapus
-        $pengguna = $pm->find($id);
+        $pen_nonmedis_mod->deleteData($id);
 
-        if ($pengguna['id'] == session()->get('id')) {
-            session()->setFlashdata('error', 'tidak bisa menghapus akun sendiri');
-            return redirect()->to('/pengguna');
-        } else {
-            // Hapus file gambar terkait jika bukan default.jpg
-            if ($pengguna['profile_image'] !== 'default.jpg') {
-                $imagePath = ROOTPATH . 'public/assets/avatars/' . $pengguna['profile_image'];
-                if (file_exists($imagePath)) {
-                    unlink($imagePath);
-                }
-            }
-
-            $pm->deleteData($id);
-
-            session()->setFlashdata('success', 'dihapus');
-            return redirect()->to('/pengguna');
-        }
+        session()->setFlashdata('success', 'dihapus');
+        return redirect()->to('/pengajuan_non_medis');
     }
 
     public function getBarangDetails()
@@ -187,5 +130,33 @@ class PengajuanNonMedisController extends BaseController
         }
 
         return $this->response->setJSON(null); // Kembalikan JSON null jika barang tidak ditemukan
+    }
+
+    public function setuju($id)
+    {
+        $pen_nonmedis_mod = new PengajuanBarangNonMedisModel();
+
+        $data = [
+            'status' => 'Disetujui'
+        ];
+
+        $pen_nonmedis_mod->updateData($id, $data);
+
+        session()->setFlashdata('success', 'disetujui');
+        return redirect()->to('/pengajuan_non_medis');
+    }
+
+    public function tolak($id)
+    {
+        $pen_nonmedis_mod = new PengajuanBarangNonMedisModel();
+
+        $data = [
+            'status' => 'Ditolak'
+        ];
+
+        $pen_nonmedis_mod->updateData($id, $data);
+
+        session()->setFlashdata('success', 'ditolak');
+        return redirect()->to('/pengajuan_non_medis');
     }
 }

@@ -23,8 +23,11 @@ $routes->post('/pengguna/delete/(:num)', 'PenggunaController::delete/$1');
 $routes->get('/pengajuan_non_medis', 'PengajuanNonMedisController::index');
 $routes->post('/pengajuan_non_medis/add', 'PengajuanNonMedisController::add');
 $routes->get('/pengajuan_non_medis/pilih_barang', 'PengajuanNonMedisController::getBarangDetails');
-$routes->post('/pengguna/edit/(:num)', 'PengajuanNonMedisController::edit/$1');
-$routes->post('/pengguna/delete/(:num)', 'PengajuanNonMedisController::delete/$1');
+$routes->post('/pengajuan_non_medis/setuju/(:any)', 'PengajuanNonMedisController::setuju/$1');
+$routes->post('/pengajuan_non_medis/tolak/(:any)', 'PengajuanNonMedisController::tolak/$1');
+$routes->post('/pengajuan_non_medis/delete/(:any)', 'PengajuanNonMedisController::delete/$1');
+$routes->get('/pengajuan_non_medis/detail/(:any)', 'PengajuanNonMedisController::detail/$1');
+
 
 // Routes untuk mengelola data pengajuan inventaris
 $routes->get('/pengajuan_inventaris', 'PengajuanInventarisController::index');

@@ -41,4 +41,11 @@ class PengajuanBarangNonMedisDetailModel extends Model
     {
         return $this->delete($id); // delete data by ID
     }
+
+    public function detailData($id)
+    {
+        return$this->select('detail_pengajuan_barang_nonmedis.*')
+        ->where('no_pengajuan', $id)
+        ->findAll(); // retrieve all data
+    }
 }
