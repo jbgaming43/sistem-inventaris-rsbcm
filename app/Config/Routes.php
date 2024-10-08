@@ -27,6 +27,7 @@ $routes->post('/pengajuan_non_medis/setuju/(:any)', 'PengajuanNonMedisController
 $routes->post('/pengajuan_non_medis/tolak/(:any)', 'PengajuanNonMedisController::tolak/$1');
 $routes->post('/pengajuan_non_medis/delete/(:any)', 'PengajuanNonMedisController::delete/$1');
 $routes->get('/pengajuan_non_medis/detail/(:any)', 'PengajuanNonMedisController::detail/$1');
+$routes->get('/pengajuan_non_medis/print/(:any)', 'PengajuanNonMedisController::print/$1');
 
 
 // Routes untuk mengelola data pengajuan inventaris

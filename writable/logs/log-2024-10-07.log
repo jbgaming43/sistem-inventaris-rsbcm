@@ -541,3 +541,10 @@ in APPPATH\Controllers\PengajuanNonMedisController.php on line 53.
  6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
 INFO - 2024-10-07 07:40:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-07 07:40:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-07 07:54:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-07 07:55:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-07 07:55:01 --> Detail fetched: [{"no_pengajuan":"PBNM123","kode_brng":"B00003","kode_sat":"BKS","jumlah":"1","h_pengajuan":"13553.1","total":"0"}]
+INFO - 2024-10-07 07:55:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-07 07:55:03 --> Detail fetched: [{"no_pengajuan":"PBNM321","kode_brng":"B00003","kode_sat":"BKS","jumlah":"2","h_pengajuan":"13553.1","total":"27106.2"}]
+INFO - 2024-10-07 07:55:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-07 07:55:05 --> Detail fetched: [{"no_pengajuan":"PBNM123","kode_brng":"B00003","kode_sat":"BKS","jumlah":"1","h_pengajuan":"13553.1","total":"0"}]

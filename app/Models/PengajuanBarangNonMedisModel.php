@@ -18,13 +18,13 @@ class PengajuanBarangNonMedisModel extends Model
     /** primaryKey autoincrement */
     //protected $useAutoIncrement = true;
     /** allowed Field */
-    protected $allowedFields = ['no_pengajuan','nip', 'tanggal', 'status', 'keterangan'];
+    protected $allowedFields = ['no_pengajuan', 'nip', 'tanggal', 'status', 'keterangan'];
 
     public function getData()
     {
         return $this->select('pengajuan_barang_nonmedis.*, pegawai.*')
-        ->join('pegawai','pengajuan_barang_nonmedis.nip=pegawai.nik')
-        ->findAll(); // retrieve all data
+            ->join('pegawai', 'pengajuan_barang_nonmedis.nip=pegawai.nik')
+            ->findAll(); // retrieve all data
     }
 
     public function insertData($data)
@@ -40,5 +40,13 @@ class PengajuanBarangNonMedisModel extends Model
     public function deleteData($id)
     {
         return $this->delete($id); // delete data by ID
+    }
+
+    public function getDataById($id)
+    {
+        return  $this->select('pengajuan_barang_nonmedis.*, pegawai.*')
+            ->join('pegawai', 'pengajuan_barang_nonmedis.nip=pegawai.nik')
+            ->where('no_pengajuan', $id)
+            ->findAll(); // retrieve all data
     }
 }

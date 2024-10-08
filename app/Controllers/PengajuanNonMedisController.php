@@ -159,4 +159,18 @@ class PengajuanNonMedisController extends BaseController
         session()->setFlashdata('success', 'ditolak');
         return redirect()->to('/pengajuan_non_medis');
     }
+
+    public function print($id)
+    {
+        $pen_nonmedis_mod = new PengajuanBarangNonMedisModel();
+        $pen_nonmedis_det_mod = new PengajuanBarangNonMedisDetailModel();
+
+        $data = [
+            'pen_nonmedis_con' => $pen_nonmedis_mod->getDataById($id),
+            'pen_nonmedis_det_con' => $pen_nonmedis_det_mod->detailData($id),
+        ];
+
+        return view('pengajuan_nonmedis/page_print',$data);
+
+    }
 }
