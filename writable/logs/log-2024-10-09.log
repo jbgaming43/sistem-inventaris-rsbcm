@@ -1,0 +1,19 @@
+INFO - 2024-10-09 00:39:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 00:39:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 00:39:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 00:39:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 00:39:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 00:39:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 00:39:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 00:39:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 00:39:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 00:39:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 00:39:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 00:39:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 00:49:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 00:49:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-09 00:49:18 --> Detail fetched: [{"no_pengajuan":"PBNM123","kode_brng":"B00003","kode_sat":"BKS","jumlah":"1","h_pengajuan":"13553.1","total":"0"}]
+INFO - 2024-10-09 00:49:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-09 00:49:22 --> Detail fetched: [{"no_pengajuan":"PBNM124","kode_brng":"B00001","kode_sat":"AMP","jumlah":"5","h_pengajuan":"12210","total":"61050"},{"no_pengajuan":"PBNM124","kode_brng":"B00003","kode_sat":"BKS","jumlah":"1","h_pengajuan":"13553.1","total":"13553.1"},{"no_pengajuan":"PBNM124","kode_brng":"B00007","kode_sat":"PCS","jumlah":"2","h_pengajuan":"184815","total":"369630"}]
+INFO - 2024-10-09 00:49:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-09 00:49:24 --> Detail fetched: [{"no_pengajuan":"PBNM321","kode_brng":"B00003","kode_sat":"BKS","jumlah":"2","h_pengajuan":"13553.1","total":"27106.2"}]
