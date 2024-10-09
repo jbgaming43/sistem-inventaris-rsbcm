@@ -182,6 +182,9 @@ INFO - 2024-10-08 01:52:12 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-10-08 01:52:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-08 01:54:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-08 01:54:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+<<<<<<< HEAD
+INFO - 2024-10-08 05:24:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
 INFO - 2024-10-08 06:43:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 ERROR - 2024-10-08 06:43:37 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:184
 Stack trace:
@@ -238,3 +241,4 @@ INFO - 2024-10-08 07:14:46 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-10-08 07:14:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-08 07:14:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-08 07:14:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+>>>>>>> ad288a0e2404fba98f16cc64936d383b1623f053

@@ -29,6 +29,16 @@ $routes->post('/pengajuan_non_medis/delete/(:any)', 'PengajuanNonMedisController
 $routes->get('/pengajuan_non_medis/detail/(:any)', 'PengajuanNonMedisController::detail/$1');
 $routes->get('/pengajuan_non_medis/print/(:any)', 'PengajuanNonMedisController::print/$1');
 
+// Routes untuk mengelola data pengajuan non-medis
+$routes->get('/pembelian_non_medis', 'PembelianNonMedisController::index');
+$routes->post('/pembelian_non_medis/add', 'PembelianNonMedisController::add');
+$routes->get('/pembelian_non_medis/pilih_barang', 'PembelianNonMedisController::getBarangDetails');
+$routes->post('/pembelian_non_medis/setuju/(:any)', 'PembelianNonMedisController::setuju/$1');
+$routes->post('/pembelian_non_medis/tolak/(:any)', 'PembelianNonMedisController::tolak/$1');
+$routes->post('/pembelian_non_medis/delete/(:any)', 'PembelianNonMedisController::delete/$1');
+$routes->get('/pembelian_non_medis/detail/(:any)', 'PembelianNonMedisController::detail/$1');
+$routes->get('/pembelian_non_medis/print/(:any)', 'PembelianNonMedisController::print/$1');
+
 
 // Routes untuk mengelola data pengajuan inventaris
 $routes->get('/pengajuan_inventaris', 'PengajuanInventarisController::index');
