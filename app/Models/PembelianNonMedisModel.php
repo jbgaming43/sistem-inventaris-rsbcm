@@ -22,11 +22,10 @@ class PembelianNonMedisModel extends Model
 
     public function getData()
     {
-        return $this->select('ipsrspembelian.*, petugas.*, ipsrs_suplier.*, rekening.*')
+        return $this->select('ipsrspembelian.*, petugas.*, ipsrssuplier.*, rekening.*')
             ->join('petugas', 'ipsrspembelian.nip = petugas.nip')
-            ->join('ipsrs_suplier', 'ipsrspembelian.kode_suplier = ipsrs_suplier.kode_suplier')
+            ->join('ipsrssuplier', 'ipsrspembelian.kode_suplier = ipsrssuplier.kode_suplier')
             ->join('rekening', 'ipsrspembelian.kd_rek = rekening.kd_rek')
-            ->select('rekening_aset.nm_rek as nm_rek_aset')
             ->findAll(); // Retrieve all data
     }
 
