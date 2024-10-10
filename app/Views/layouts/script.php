@@ -302,6 +302,12 @@
     });
     $(document).ready(function() {
         // Inisialisasi Select2 untuk Modal Tambah Desa
+        $('.select2-barang1').select2({
+            dropdownParent: $('#add_pembelian_nonmedis')
+        });
+    });
+    $(document).ready(function() {
+        // Inisialisasi Select2 untuk Modal Tambah Desa
         $('.select2-barangnonmedis').select2({
             dropdownParent: $('#add_pengajuan_nonmedis')
         });
@@ -411,7 +417,7 @@
         var hargaBeli = parseFloat(document.getElementById("harga_" + rowIndex).value) || 0;
         var jumlah = parseFloat(document.getElementById("jumlah_" + rowIndex).value) || 0;
 
-        var total =hargaBeli * jumlah;
+        var total = hargaBeli * jumlah;
 
         document.getElementById('total_' + rowIndex).value = "Rp " + total.toFixed(2);
     }
