@@ -71,8 +71,7 @@
                                     <tr>
                                         <th>Kode Barang</th>
                                         <th>Nama Barang</th>
-                                        <th>Produsen</th>
-                                        <th>Merk</th>
+                                        <th>Satuan</th>
                                         <th>Jenis</th>
                                         <th>Jumlah</th>
                                         <th>Harga Beli</th>
@@ -84,17 +83,16 @@
                                 <tbody id="table-body">
                                     <tr>
                                         <td><input type="text" id="kode_brng_0" name="kode_brng[]" class="form-control" readonly></td>
-                                        <td><select id="select_barang_0" class="form-select select2-barang1" style="width: 100%" onchange="fetchBarangDetails(this.value, 0)">
+                                        <td><select id="select_barang_0" class="form-select select2-barang1" style="width: 100%" onchange="fetchBarangNonMedisDetails(this.value, 0)">
                                                 <option value="">- Pilih Nama -</option>
                                                 <?php foreach ($ipsrs_barang_con as $dt_ipsrs_barang) : ?>
                                                     <option value="<?= $dt_ipsrs_barang['kode_brng'] ?>"><?= $dt_ipsrs_barang['nama_brng'] ?></option>
                                                 <?php endforeach ?>
                                             </select></td>
-                                        <td><input type="text" id="nama_produsen_0" name="nama_produsen[]" class="form-control" readonly></td>
-                                        <td><input type="text" id="nama_merk_0" name="nama_merk[]" class="form-control" readonly></td>
-                                        <td><input type="text" id="nama_jenis_0" name="nama_jenis[]" class="form-control" readonly></td>
+                                        <td><input type="text" id="kode_sat_0" name="kode_sat[]" class="form-control" readonly></td>
+                                        <td><input type="text" id="jenis_0" name="jenis[]" class="form-control" readonly></td>
                                         <td><input type="number" id="jumlah_0" name="jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" required></td>
-                                        <td><input type="number" id="harga_beli_0" name="harga_beli[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" required></td>
+                                        <td><input type="number" id="harga_0" name="harga[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" required></td>
                                         <td><input type="number" id="diskon_0" name="diskon[]" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" required></td>
                                         <td><input type="text" id="total_0" name="total[]" class="form-control" readonly value="Rp0.00"></td>
                                         <td class="text-center">
@@ -148,6 +146,7 @@
         <td><input type="text" id="jenis_${rowIndex}" name="jenis[]" class="form-control" readonly></td>
         <td><input type="number" id="jumlah_${rowIndex}" name="jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" required></td>
         <td><input type="number" id="harga_${rowIndex}" name="harga[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" required></td>
+        <td><input type="number" id="diskon_${rowIndex}" name="diskon[]" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" required></td>
         <td><input type="text" id="total_${rowIndex}" name="total[]" class="form-control" readonly value="Rp0.00"></td>
         <!-- Tambahkan input hidden untuk subtotal dan potongan -->
         
@@ -170,7 +169,7 @@
             dropdownParent: $('#add_pembelian_nonmedis')
         });
 
-        setupEventListeners(rowIndex); // Setup event listeners for new row
+        setupEventListenerNonMedis(rowIndex); // Setup event listeners for new row
     }
 
     // Fungsi untuk menghapus baris
