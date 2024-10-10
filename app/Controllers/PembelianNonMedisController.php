@@ -11,6 +11,7 @@ use App\Models\PembelianInventarisDetailModel;
 use App\Models\PetugasModel;
 use App\Models\AkunBayarModel;
 use App\Helpers\AuthHelper;
+use App\Models\IpsrsBarangModel;
 
 class PembelianNonmedisController extends BaseController
 {
@@ -18,11 +19,10 @@ class PembelianNonmedisController extends BaseController
     {
         // objek PenggunaModel
         $pem_nonmedis_mod = new PembelianNonMedisModel();
+        $ipsrs_barang_mod = new IpsrsBarangModel();
         $ptgm = new PetugasModel();
         $supm = new SuplierModel();
-        $akbm = new AkunBayarModel();
         $rekm = new RekeningModel();
-        $brgm = new InventarisBarangModel();
 
         $data = [
             'title' => 'Data Pembelian NonMedis',
@@ -30,13 +30,11 @@ class PembelianNonmedisController extends BaseController
             'active_submenu' => 'pembelian_nonmedis',
 
             'pem_nonmedis_con' => $pem_nonmedis_mod->getData(),
+            'ipsrs_barang_con' => $ipsrs_barang_mod->getData(),
             'ptgc' => $ptgm->getData(),
             'supc' => $supm->getData(),
-            'akbc' => $akbm->getData(),
             'rekc' => $rekm->getData(),
-            'brgc' => $brgm->getData(),
         ];
-
 
         return view('pembelian_nonmedis/index', $data);
     }

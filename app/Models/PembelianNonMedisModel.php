@@ -29,7 +29,6 @@ class PembelianNonMedisModel extends Model
             ->findAll(); // Retrieve all data
     }
 
-
     public function getDataById($id)
     {
         return $this->select('inventaris_pembelian.*, petugas.*, inventaris_suplier.*')
