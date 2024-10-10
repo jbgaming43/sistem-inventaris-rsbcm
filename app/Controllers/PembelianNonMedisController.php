@@ -6,7 +6,7 @@ use App\Models\InventarisBarangModel;
 use App\Models\RekeningModel;
 use App\Models\SuplierModel;
 use CodeIgniter\Controller;
-use App\Models\PembelianInventarisModel;
+use App\Models\PembelianNonMedisModel;
 use App\Models\PembelianInventarisDetailModel;
 use App\Models\PetugasModel;
 use App\Models\AkunBayarModel;
@@ -17,7 +17,7 @@ class PembelianNonmedisController extends BaseController
     public function index()
     {
         // objek PenggunaModel
-        $pem_inv_mod = new PembelianInventarisModel();
+        $pem_nonmedis_mod = new PembelianNonMedisModel();
         $ptgm = new PetugasModel();
         $supm = new SuplierModel();
         $akbm = new AkunBayarModel();
@@ -29,7 +29,7 @@ class PembelianNonmedisController extends BaseController
             'active_menu' => 'non_medis',
             'active_submenu' => 'pembelian_nonmedis',
 
-            'pem_inv_con' => $pem_inv_mod->getData(),
+            'pem_nonmedis_con' => $pem_nonmedis_mod->getData(),
             'ptgc' => $ptgm->getData(),
             'supc' => $supm->getData(),
             'akbc' => $akbm->getData(),

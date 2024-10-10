@@ -1,0 +1,136 @@
+INFO - 2024-10-10 01:46:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 01:46:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 01:46:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 01:46:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 01:46:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 01:46:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 01:46:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 01:46:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 01:46:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 01:46:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 01:46:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 01:46:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 01:46:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-10 01:46:31 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Views\pembelian_inventaris\index.php on line 48.
+ 1 APPPATH\Views\pembelian_inventaris\index.php(48): number_format(null, 0, ',', '.')
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\pembelian_inventaris\\index.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/index', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(41): view('pembelian_inventaris/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-10 01:48:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-10 01:48:49 --> mysqli_sql_exception: Table 'sik.ipsrs_suplier' doesn't exist in C:\xampp\htdocs\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrspe...', 0)
+#1 C:\xampp\htdocs\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrspe...')
+#2 C:\xampp\htdocs\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrspe...')
+#3 C:\xampp\htdocs\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspe...', Array, false)
+#4 C:\xampp\htdocs\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\inventaris-barang\app\Models\PembelianNonMedisModel.php(30): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\inventaris-barang\app\Controllers\PembelianNonMedisController.php(32): App\Models\PembelianNonMedisModel->getData()
+#8 C:\xampp\htdocs\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->index()
+#9 C:\xampp\htdocs\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+#10 C:\xampp\htdocs\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2024-10-10 01:48:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'sik.ipsrs_suplier' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspembelian`.*, `petugas`.*, `ipsrs_suplier`.*, `rekening`.*, `rekening_aset`.`nm_rek` as `nm_rek_aset`
+FROM `ipsrspembelian`
+JOIN `petugas` ON `ipsrspembelian`.`nip` = `petugas`.`nip`
+JOIN `ipsrs_suplier` ON `ipsrspembelian`.`kode_suplier` = `ipsrs_suplier`.`kode_suplier`
+JOIN `rekening` ON `ipsrspembelian`.`kd_rek` = `rekening`.`kd_rek`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PembelianNonMedisModel.php(30): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(32): App\Models\PembelianNonMedisModel->getData()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-10 01:48:49 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'sik.ipsrs_suplier' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrspembelian`.*, `petugas`.*, `ipsrs_suplier`.*, `rekening`.*, `rekening_aset`.`nm_rek` as `nm_rek_aset`
+FROM `ipsrspembelian`
+JOIN `petugas` ON `ipsrspembelian`.`nip` = `petugas`.`nip`
+JOIN `ipsrs_suplier` ON `ipsrspembelian`.`kode_suplier` = `ipsrs_suplier`.`kode_suplier`
+JOIN `rekening` ON `ipsrspembelian`.`kd_rek` = `rekening`.`kd_rek`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrspembelian`.*, `petugas`.*, `ipsrs_suplier`.*, `rekening`.*, `rekening_aset`.`nm_rek` as `nm_rek_aset`
+FROM `ipsrspembelian`
+JOIN `petugas` ON `ipsrspembelian`.`nip` = `petugas`.`nip`
+JOIN `ipsrs_suplier` ON `ipsrspembelian`.`kode_suplier` = `ipsrs_suplier`.`kode_suplier`
+JOIN `rekening` ON `ipsrspembelian`.`kd_rek` = `rekening`.`kd_rek`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspembelian`.*, `petugas`.*, `ipsrs_suplier`.*, `rekening`.*, `rekening_aset`.`nm_rek` as `nm_rek_aset`
+FROM `ipsrspembelian`
+JOIN `petugas` ON `ipsrspembelian`.`nip` = `petugas`.`nip`
+JOIN `ipsrs_suplier` ON `ipsrspembelian`.`kode_suplier` = `ipsrs_suplier`.`kode_suplier`
+JOIN `rekening` ON `ipsrspembelian`.`kd_rek` = `rekening`.`kd_rek`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PembelianNonMedisModel.php(30): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PembelianNonMedisController.php(32): App\Models\PembelianNonMedisModel->getData()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-10 01:48:49 --> [Caused by] mysqli_sql_exception: Table 'sik.ipsrs_suplier' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrspembelian`.*, `petugas`.*, `ipsrs_suplier`.*, `rekening`.*, `rekening_aset`.`nm_rek` as `nm_rek_aset`
+FROM `ipsrspembelian`
+JOIN `petugas` ON `ipsrspembelian`.`nip` = `petugas`.`nip`
+JOIN `ipsrs_suplier` ON `ipsrspembelian`.`kode_suplier` = `ipsrs_suplier`.`kode_suplier`
+JOIN `rekening` ON `ipsrspembelian`.`kd_rek` = `rekening`.`kd_rek`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrspembelian`.*, `petugas`.*, `ipsrs_suplier`.*, `rekening`.*, `rekening_aset`.`nm_rek` as `nm_rek_aset`
+FROM `ipsrspembelian`
+JOIN `petugas` ON `ipsrspembelian`.`nip` = `petugas`.`nip`
+JOIN `ipsrs_suplier` ON `ipsrspembelian`.`kode_suplier` = `ipsrs_suplier`.`kode_suplier`
+JOIN `rekening` ON `ipsrspembelian`.`kd_rek` = `rekening`.`kd_rek`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrspembelian`.*, `petugas`.*, `ipsrs_suplier`.*, `rekening`.*, `rekening_aset`.`nm_rek` as `nm_rek_aset`
+FROM `ipsrspembelian`
+JOIN `petugas` ON `ipsrspembelian`.`nip` = `petugas`.`nip`
+JOIN `ipsrs_suplier` ON `ipsrspembelian`.`kode_suplier` = `ipsrs_suplier`.`kode_suplier`
+JOIN `rekening` ON `ipsrspembelian`.`kd_rek` = `rekening`.`kd_rek`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspembelian`.*, `petugas`.*, `ipsrs_suplier`.*, `rekening`.*, `rekening_aset`.`nm_rek` as `nm_rek_aset`
+FROM `ipsrspembelian`
+JOIN `petugas` ON `ipsrspembelian`.`nip` = `petugas`.`nip`
+JOIN `ipsrs_suplier` ON `ipsrspembelian`.`kode_suplier` = `ipsrs_suplier`.`kode_suplier`
+JOIN `rekening` ON `ipsrspembelian`.`kd_rek` = `rekening`.`kd_rek`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PembelianNonMedisModel.php(30): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PembelianNonMedisController.php(32): App\Models\PembelianNonMedisModel->getData()
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->index()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-10 03:20:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 05:23:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 05:23:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 05:23:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 05:23:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 05:23:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 05:23:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 05:23:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 05:34:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 05:36:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-10-10 05:36:40 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Views\pembelian_inventaris\index.php on line 48.
+ 1 APPPATH\Views\pembelian_inventaris\index.php(48): number_format(null, 0, ',', '.')
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\pembelian_inventaris\\index.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_inventaris/index', [], true)
+ 5 APPPATH\Controllers\PembelianInventarisController.php(41): view('pembelian_inventaris/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianInventarisController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianInventarisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-10 05:36:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
