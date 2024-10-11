@@ -54,7 +54,7 @@ class PembelianNonmedisController extends BaseController
         $pem_nonmedis_det_mod = new PembelianNonMedisDetailModel();
 
         // Ambil data dari form
-        $no_faktur = $this->request->getPost('no_faktur');
+        $no_faktur =  str_replace(' ', '', $this->request->getPost('no_faktur'));
 
         // Cek apakah nomor faktur sudah ada di database
         if ($pem_nonmedis_mod->where('no_faktur', $no_faktur)->first()) {
@@ -145,9 +145,6 @@ class PembelianNonmedisController extends BaseController
 
         }
         $pem_nonmedis_det_mod->insertData($dataDetail);
-
-
-
 
         // Redirect atau tampilkan pesan sukses
         return redirect()->to('/pembelian_non_medis')->with('success', 'Data pembelian berhasil disimpan.');
@@ -273,15 +270,15 @@ class PembelianNonmedisController extends BaseController
 
     public function print($id)
     {
-        $pem_inv_mod = new PembelianInventarisModel();
-        $pem_inv_det_mod = new PembelianInventarisDetailModel();
+        $pem_nonmedis_mod = new PembelianNonMedisModel();
+        $pem_nonmedis_det_mod = new PembelianNonMedisDetailModel();
 
         $data = [
-            'pem_inv_con' => $pem_inv_mod->getDataById($id),
-            'pem_inv_det_con' => $pem_inv_det_mod->detailData($id),
+            'pem_nonmedis_con' => $pem_nonmedis_mod->getDataById($id),
+            'pem_nonmedis_det_con' => $pem_nonmedis_det_mod->detailData($id),
         ];
 
-        return view('pembelian_inventaris/page_print', $data);
+        return view('pembelian_non_medis/page_print', $data);
     }
 
     public function getBarangDetails()
