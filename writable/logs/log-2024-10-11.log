@@ -154,3 +154,4 @@ INFO - 2024-10-11 03:53:21 --> Session: Class initialized using 'CodeIgniter\Ses
 =======
 >>>>>>> 8dd97d729697e657eaf04c2ea9dd1f077cbb507f
 >>>>>>> a11a36ff387210583d1cabbbcc9f41556aac02a5
+INFO - 2024-10-11 03:54:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

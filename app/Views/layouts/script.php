@@ -277,43 +277,36 @@
 <!-- SCRIPT SELECT2 -->
 <script>
     $(document).ready(function() {
-        // Inisialisasi Select2 untuk Modal Tambah Desa
         $('.select2-pegawai').select2({
             dropdownParent: $('#add_pengajuan_inventaris')
         });
     });
     $(document).ready(function() {
-        // Inisialisasi Select2 untuk Modal Tambah Desa
         $('.select2-pegawai2').select2({
             dropdownParent: $('#print_pengajuan_inventaris')
         });
     });
     $(document).ready(function() {
-        // Inisialisasi Select2 untuk Modal Tambah Desa
         $('.select2-pegawai').select2({
             dropdownParent: $('#add_pengajuan_nonmedis')
         });
     });
     $(document).ready(function() {
-        // Inisialisasi Select2 untuk Modal Tambah Desa
         $('.select2-barang1').select2({
             dropdownParent: $('#add_pembelian_inventaris')
         });
     });
     $(document).ready(function() {
-        // Inisialisasi Select2 untuk Modal Tambah Desa
         $('.select2-barangnonmedis1').select2({
             dropdownParent: $('#add_pembelian_nonmedis')
         });
     });
     $(document).ready(function() {
-        // Inisialisasi Select2 untuk Modal Tambah Desa
         $('.select2-barangnonmedis').select2({
             dropdownParent: $('#add_pengajuan_nonmedis')
         });
     });
     $(document).ready(function() {
-        // Inisialisasi Select2 untuk Modal Tambah Desa
         $('.select2-barang').select2({
             dropdownParent: $('#add_penerimaan_inventaris')
         });
