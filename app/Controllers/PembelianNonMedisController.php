@@ -273,15 +273,15 @@ class PembelianNonmedisController extends BaseController
 
     public function print($id)
     {
-        $pem_inv_mod = new PembelianInventarisModel();
-        $pem_inv_det_mod = new PembelianInventarisDetailModel();
+        $pem_nonmedis_mod = new PembelianNonMedisModel();
+        $pem_nonmedis_det_mod = new PembelianNonMedisDetailModel();
 
         $data = [
-            'pem_inv_con' => $pem_inv_mod->getDataById($id),
-            'pem_inv_det_con' => $pem_inv_det_mod->detailData($id),
+            'pem_nonmedis_con' => $pem_nonmedis_mod->getDataById($id),
+            'pem_nonmedis_det_con' => $pem_nonmedis_det_mod->detailData($id),
         ];
 
-        return view('pembelian_inventaris/page_print', $data);
+        return view('pembelian_non_medis/page_print', $data);
     }
 
     public function getBarangDetails()
