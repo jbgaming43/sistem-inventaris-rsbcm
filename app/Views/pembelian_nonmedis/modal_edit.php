@@ -1,12 +1,12 @@
 <?php foreach ($pem_nonmedis_con as $dt_pembelian_nonmedis) : ?>
-    <div class="modal modal-blur fade" id="edit_pembelian_inventaris<?= $dt_pembelian_nonmedis['no_faktur']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal modal-blur fade" id="edit_pembelian_nonmedis<?= $dt_pembelian_nonmedis['no_faktur']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-full-width modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Edit Data Pembelian Inventaris</h5>
+                    <h5 class="modal-title">Edit Data Pembelian NonMedis</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="/pembelian_inventaris/edit/<?= $dt_pembelian_nonmedis['no_faktur']; ?>" id="edit-form-<?= $dt_pembelian_nonmedis['no_faktur']; ?>" method="POST" class="validation_pembelian_inventaris" enctype="multipart/form-data">
+                <form action="/pembelian_nonmedis/edit/<?= $dt_pembelian_nonmedis['no_faktur']; ?>" id="edit-form-<?= $dt_pembelian_nonmedis['no_faktur']; ?>" method="POST" class="validation_pembelian_inventaris" enctype="multipart/form-data">
                     <div class="modal-body">
                         <!-- Form fields -->
                         <div class="mb-2 row">
@@ -28,7 +28,7 @@
                                 <select class="form-select select2-petugas" name="kode_suplier" id="kode_suplier-<?= $dt_pembelian_nonmedis['no_faktur']; ?>" style="width: 100%">
                                     <?= $kode_suplier = $dt_pembelian_nonmedis['kode_suplier']; ?>
                                     <option value="" <?= $kode_suplier == '' ? 'selected' : null; ?>>- Pilih Nama -</option>
-                                    <?php foreach ($supc as $dt_suplier) : ?>
+                                    <?php foreach ($ipsrs_sup_con as $dt_suplier) : ?>
                                         <option value="<?= $dt_suplier['kode_suplier'] ?>" <?= $dt_suplier['kode_suplier'] == $kode_suplier ? 'selected' : null; ?>> <?= $dt_suplier['kode_suplier'] ?>-<?= $dt_suplier['nama_suplier'] ?></option>
                                     <?php endforeach ?>
                                 </select>
@@ -60,18 +60,6 @@
                             </div>
                         </div>
                         <div class="mb-2 row">
-                            <label class="col-3 col-form-label required">Akun Jenis</label>
-                            <div class="col">
-                                <select class="form-select" name="kd_rek_aset" style="width: 100%">
-                                    <?= $kd_rek_aset = $dt_pembelian_nonmedis['kd_rek_aset']; ?>
-                                    <option value="" <?= $kd_rek_aset == '' ? 'selected' : null; ?>>- Pilih Nama -</option>
-                                    <?php foreach ($rekc as $dt_akunjenis) : ?>
-                                        <option value="<?= $dt_akunjenis['kd_rek'] ?>" <?= $dt_akunjenis['kd_rek'] == $kd_rek_aset ? 'selected' : null; ?>><?= $dt_akunjenis['nm_rek'] ?></option>
-                                    <?php endforeach ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-2 row">
                             <label class="col-3 col-form-label required">PPN</label>
                             <div class="col">
                                 <input type="number" class="form-control" id="ppn" name="ppn" placeholder="Masukkan PPN" min="0" value="<?= $dt_pembelian_nonmedis['ppn']; ?>" required>
@@ -93,8 +81,7 @@
                                         <tr>
                                             <th>Kode Barang</th>
                                             <th>Nama Barang</th>
-                                            <th>Produsen</th>
-                                            <th>Merk</th>
+                                            <th>Satuan</th>
                                             <th>Jenis</th>
                                             <th>Jumlah</th>
                                             <th>Harga Beli</th>
@@ -133,7 +120,7 @@
 <script>
     let rowIndex2 = 0;
     document.addEventListener('DOMContentLoaded', function() {
-        <?php foreach ($pem_inv_con as $dt_pembelian_nonmedis) : ?>
+        <?php foreach ($pem_nonmedis_con as $dt_pembelian_nonmedis) : ?>
                 (function(modalId, tableBodyId, detailUrl) {
                     document.getElementById(modalId).addEventListener('show.bs.modal', function() {
                         console.log('Modal is about to be shown');
@@ -148,10 +135,10 @@
                                 <td>
                                     <select id="2select_barang_${rowIndex2}" class="form-select select2-barang" style="width: 100%" onchange="fetchBarangDetails2(this.value, ${rowIndex2})">
                                         <option value="">- Pilih Nama -</option>
-                                        <?php foreach ($brgc as $dt_inventarisbarang) : ?>
-                                            <option value="<?= $dt_inventarisbarang['kode_barang'] ?>" 
-                                                ${'<?= $dt_inventarisbarang['kode_barang'] ?>' === item.kode_barang ? 'selected' : ''}>
-                                                <?= $dt_inventarisbarang['kode_barang'] ?> - <?= $dt_inventarisbarang['nama_barang'] ?>
+                                        <?php foreach ($ipsrs_barang_con as $dt_inventarisbarang) : ?>
+                                            <option value="<?= $dt_inventarisbarang['kode_brng'] ?>" 
+                                                ${'<?= $dt_inventarisbarang['kode_brng'] ?>' === item.kode_barang ? 'selected' : ''}>
+                                                <?= $dt_inventarisbarang['kode_brng'] ?> - <?= $dt_inventarisbarang['nama_brng'] ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
@@ -191,9 +178,9 @@
                             .catch(error => console.error('Error fetching details:', error));
                     });
                 })(
-                    'edit_pembelian_inventaris<?= $dt_pembelian_nonmedis['no_faktur']; ?>',
+                    'edit_pembelian_nonmedis<?= $dt_pembelian_nonmedis['no_faktur']; ?>',
                     'table-body-<?= $dt_pembelian_nonmedis['no_faktur']; ?>',
-                    '<?= base_url('pembelian_inventaris/detail/' . $dt_pembelian_nonmedis['no_faktur']); ?>'
+                    '<?= base_url('pembelian_non_medis/detail/' . $dt_pembelian_nonmedis['no_faktur']); ?>'
                 );
         <?php endforeach; ?>
     });
@@ -219,8 +206,8 @@
         <td>
             <select class="form-select select2-barang" id="2select_barang_${rowIndex2}" style="width: 100%" onchange="fetchBarangDetails2(this.value, ${rowIndex2})">
                 <option value="">- Pilih Nama -</option>
-                <?php foreach ($brgc as $dt_inventarisbarang) : ?>
-                    <option value="<?= $dt_inventarisbarang['kode_barang'] ?>"><?= $dt_inventarisbarang['nama_barang'] ?></option>
+                <?php foreach ($ipsrs_barang_con as $dt_inventarisbarang) : ?>
+                    <option value="<?= $dt_inventarisbarang['kode_brng'] ?>"><?= $dt_inventarisbarang['nama_brng'] ?></option>
                 <?php endforeach ?>
             </select>
         </td>
