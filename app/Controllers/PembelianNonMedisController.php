@@ -54,7 +54,7 @@ class PembelianNonmedisController extends BaseController
         $pem_nonmedis_det_mod = new PembelianNonMedisDetailModel();
 
         // Ambil data dari form
-        $no_faktur = $this->request->getPost('no_faktur');
+        $no_faktur =  str_replace(' ', '', $this->request->getPost('no_faktur'));
 
         // Cek apakah nomor faktur sudah ada di database
         if ($pem_nonmedis_mod->where('no_faktur', $no_faktur)->first()) {
@@ -145,9 +145,6 @@ class PembelianNonmedisController extends BaseController
 
         }
         $pem_nonmedis_det_mod->insertData($dataDetail);
-
-
-
 
         // Redirect atau tampilkan pesan sukses
         return redirect()->to('/pembelian_non_medis')->with('success', 'Data pembelian berhasil disimpan.');
