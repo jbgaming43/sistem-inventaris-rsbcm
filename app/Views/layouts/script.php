@@ -415,14 +415,19 @@
 <script>
     function hitungTotalNonMedis(rowIndex) {
         var hargaBeli = parseFloat(document.getElementById("harga_" + rowIndex).value) || 0;
-        var diskon = parseFloat(document.getElementById("diskon_" + rowIndex).value) || 0;
+
+        var diskonElement = document.getElementById("diskon_" + rowIndex);
+        var diskon = 0; // Default nilai diskon
+
+        if (diskonElement) {
+            diskon = parseFloat(diskonElement.value) || 0;
+        }
+
         var jumlah = parseFloat(document.getElementById("jumlah_" + rowIndex).value) || 0;
         // Hitung total sebelum diskon
         var totalSebelumDiskon = hargaBeli * jumlah;
         var potongan = (totalSebelumDiskon * (diskon / 100));
         var total = totalSebelumDiskon - potongan;
-
-        var total = hargaBeli * jumlah;
 
         document.getElementById('total_' + rowIndex).value = "Rp " + total.toFixed(2);
     }
@@ -439,14 +444,16 @@
     }
 
     function validateDiskonNonMedis(rowIndex) {
-        var jumlahInput = document.getElementById("diskon_" + rowIndex);
-        var jumlah = parseFloat(jumlahInput.value)
+        var diskonInput = document.getElementById("diskon_" + rowIndex);
+        var diskon = parseFloat(diskonInput.value);
 
-        if (jumlah < 1) {
-            jumlahInput.value = 1;
+        if (diskon > 100) {
+            diskonInput.value = 100;
+        } else if (diskon < 0) {
+            diskonInput.value = 0;
         }
 
-        hitungTotalNonMedis(rowIndex);
+        hitungTotalNonMedis(rowIndex); // Update total setelah validasi
     }
 
     function setupEventListenersNonMedis(rowIndex) {
