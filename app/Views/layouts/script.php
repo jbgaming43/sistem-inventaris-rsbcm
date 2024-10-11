@@ -302,7 +302,7 @@
     });
     $(document).ready(function() {
         // Inisialisasi Select2 untuk Modal Tambah Desa
-        $('.select2-barang1').select2({
+        $('.select2-barangnonmedis').select2({
             dropdownParent: $('#add_pembelian_nonmedis')
         });
     });
@@ -415,7 +415,12 @@
 <script>
     function hitungTotalNonMedis(rowIndex) {
         var hargaBeli = parseFloat(document.getElementById("harga_" + rowIndex).value) || 0;
+        var diskon = parseFloat(document.getElementById("diskon_" + rowIndex).value) || 0;
         var jumlah = parseFloat(document.getElementById("jumlah_" + rowIndex).value) || 0;
+        // Hitung total sebelum diskon
+        var totalSebelumDiskon = hargaBeli * jumlah;
+        var potongan = (totalSebelumDiskon * (diskon / 100));
+        var total = totalSebelumDiskon - potongan;
 
         var total = hargaBeli * jumlah;
 
@@ -433,9 +438,23 @@
         hitungTotalNonMedis(rowIndex);
     }
 
+    function validateDiskonNonMedis(rowIndex) {
+        var jumlahInput = document.getElementById("diskon_" + rowIndex);
+        var jumlah = parseFloat(jumlahInput.value)
+
+        if (jumlah < 1) {
+            jumlahInput.value = 1;
+        }
+
+        hitungTotalNonMedis(rowIndex);
+    }
+
     function setupEventListenersNonMedis(rowIndex) {
         document.getElementById("jumlah_" + rowIndex).addEventListener("input", function() {
             validateJumlahNonMedis(rowIndex);
+        });
+        document.getElementById("diskon_" + rowIndex).addEventListener("input", function() {
+            validateDiskonNonMedis(rowIndex);
         });
     }
 </script>

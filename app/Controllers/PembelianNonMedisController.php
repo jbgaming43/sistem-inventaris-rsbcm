@@ -4,10 +4,10 @@ namespace App\Controllers;
 
 use App\Models\InventarisBarangModel;
 use App\Models\RekeningModel;
-use App\Models\SuplierModel;
+use App\Models\IpsrsSuplierModel;
 use CodeIgniter\Controller;
 use App\Models\PembelianNonMedisModel;
-use App\Models\PembelianInventarisDetailModel;
+use App\Models\PembelianNonMedisDetailModel;
 use App\Models\PetugasModel;
 use App\Models\AkunBayarModel;
 use App\Helpers\AuthHelper;
@@ -21,8 +21,8 @@ class PembelianNonmedisController extends BaseController
         $pem_nonmedis_mod = new PembelianNonMedisModel();
         $ipsrs_barang_mod = new IpsrsBarangModel();
         $ptgm = new PetugasModel();
-        $supm = new SuplierModel();
-        $rekm = new RekeningModel();
+        $ipsrs_sup_mod = new IpsrsSuplierModel();
+        $akbm = new AkunBayarModel();
 
         $data = [
             'title' => 'Data Pembelian NonMedis',
@@ -32,8 +32,8 @@ class PembelianNonmedisController extends BaseController
             'pem_nonmedis_con' => $pem_nonmedis_mod->getData(),
             'ipsrs_barang_con' => $ipsrs_barang_mod->getData(),
             'ptgc' => $ptgm->getData(),
-            'supc' => $supm->getData(),
-            'rekc' => $rekm->getData(),
+            'ipsrs_sup_con' => $ipsrs_sup_mod->getData(),
+            'akbc' => $akbm->getData(),
         ];
 
         return view('pembelian_nonmedis/index', $data);
@@ -41,7 +41,7 @@ class PembelianNonmedisController extends BaseController
 
     public function detail($no_faktur)
     {
-        $pem_inv_det_mod = new PembelianInventarisDetailModel();
+        $pem_inv_det_mod = new PembelianNonMedisDetailModel();
         $detail = $pem_inv_det_mod->detailData($no_faktur);
 
         return $this->response->setJSON($detail);
@@ -50,14 +50,14 @@ class PembelianNonmedisController extends BaseController
     public function add()
     {
         // Inisialisasi model
-        $pem_inv_mod = new PembelianInventarisModel();
-        $pem_inv_det_mod = new PembelianInventarisDetailModel();
+        $pem_nonmedis_mod = new PembelianNonMedisModel();
+        $pem_nonmedis_det_mod = new PembelianNonMedisDetailModel();
 
         // Ambil data dari form
         $no_faktur = $this->request->getPost('no_faktur');
 
         // Cek apakah nomor faktur sudah ada di database
-        if ($pem_inv_mod->where('no_faktur', $no_faktur)->first()) {
+        if ($pem_nonmedis_mod->where('no_faktur', $no_faktur)->first()) {
             return redirect()->back()->with('error', 'Nomor faktur sudah ada, gunakan nomor faktur yang berbeda.');
         }
 
@@ -65,7 +65,6 @@ class PembelianNonmedisController extends BaseController
         $nip = $this->request->getPost('nip');
         $tgl_beli = $this->request->getPost('tgl_beli');
         $kd_rek = $this->request->getPost('kd_rek');
-        $kd_rek_aset = $this->request->getPost('kd_rek_aset');
         $ppn = $this->request->getPost('ppn');
         $meterai = $this->request->getPost('meterai');
 
@@ -115,13 +114,12 @@ class PembelianNonmedisController extends BaseController
             'meterai' => $meterai,
             'tagihan' => $tagihan,
             'kd_rek' => $kd_rek,
-            'kd_rek_aset' => $kd_rek_aset,
 
             // hitung subtotal, potongan, dll. jika diperlukan
         ];
 
-        // Simpan data pembelian ke tabel inventaris_pembelian
-        $pem_inv_mod->insertData($dataPembelian);
+        // Simpan data pembelian ke tabel nonmedis_pembelian
+        $pem_nonmedis_mod->insertData($dataPembelian);
 
         // Loop melalui setiap barang yang diinputkan
         for ($i = 0; $i < count($kode_barang); $i++) {
@@ -129,7 +127,7 @@ class PembelianNonmedisController extends BaseController
             $subtotal = $harga_beli[$i] * $jumlah[$i];
             $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
             $total = $subtotal - $besardis;
-            // Persiapkan data untuk tabel inventaris_detail_beli
+            // Persiapkan data untuk tabel  nonmedis_detail_beli
             $dataDetail = [
                 'no_faktur' => $no_faktur,
                 'kode_barang' => $kode_barang[$i],
@@ -141,8 +139,8 @@ class PembelianNonmedisController extends BaseController
                 'total' => $total
             ];
 
-            // Simpan data detail pembelian ke tabel inventaris_detail_beli
-            $pem_inv_det_mod->insert($dataDetail);
+            // Simpan data detail pembelian ke tabel nonmedis_detail_beli
+            $pem_nonmedis_det_mod->insert($dataDetail);
         }
 
 
