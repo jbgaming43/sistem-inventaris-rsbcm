@@ -121,7 +121,7 @@ class PembelianNonmedisController extends BaseController
 
         // Simpan data pembelian ke tabel nonmedis_pembelian
         $pem_nonmedis_mod->insertData($dataPembelian);
-        $dataDetail= [];
+        $dataDetail = [];
         // Loop melalui setiap barang yang diinputkan
         for ($i = 0; $i < count($kode_barang); $i++) {
             //hitung utk data saat ini
@@ -142,7 +142,7 @@ class PembelianNonmedisController extends BaseController
             ];
 
             // Simpan data detail pembelian ke tabel nonmedis_detail_beli
-            
+
         }
         $pem_nonmedis_det_mod->insertData($dataDetail);
 
@@ -179,7 +179,7 @@ class PembelianNonmedisController extends BaseController
 
         // Ambil data tabel barang yang diinputkan dalam bentuk array
         $kode_barang = $this->request->getPost('kode_brng'); // pastikan ini dikirim sebagai array
-        $kode_barang = $this->request->getPost('kode_sat'); 
+        $kode_barang = $this->request->getPost('kode_sat');
         $jumlah = $this->request->getPost('jumlah'); // array
         $harga_beli = $this->request->getPost('harga'); // array
         $diskon = $this->request->getPost('diskon'); // array
@@ -263,12 +263,12 @@ class PembelianNonmedisController extends BaseController
 
     public function delete($id)
     {
-        $pem_inv_mod = new PembelianInventarisModel();
+        $pem_nonmedis_mod = new PembelianNonMedisModel();
 
-        $pem_inv_mod->deleteData($id);
+        $pem_nonmedis_mod->deleteData($id);
 
         session()->setFlashdata('success', 'dihapus');
-        return redirect()->to('/pembelian_inventaris');
+        return redirect()->to('/pembelian_non_medis');
     }
 
     public function print($id)

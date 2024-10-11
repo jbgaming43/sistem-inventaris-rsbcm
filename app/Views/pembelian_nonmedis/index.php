@@ -101,5 +101,6 @@
 </div>
 
 <?= $this->include('pembelian_nonmedis/modal_add') ?>
+<?= $this->include('pembelian_nonmedis/modal_delete') ?>
 
 <?= $this->endSection() ?>
