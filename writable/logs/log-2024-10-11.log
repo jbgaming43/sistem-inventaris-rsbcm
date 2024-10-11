@@ -1857,3 +1857,19 @@ INFO - 2024-10-11 07:38:50 --> Session: Class initialized using 'CodeIgniter\Ses
 =======
 >>>>>>> fe0811fcb868026d7068fc47df17f13d94e0bcf4
 >>>>>>> 9b3ccbc31fe0be0dd8f0ea332ed4a413c82c82b0
+INFO - 2024-10-11 07:39:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:40:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:40:44 --> ErrorException: Undefined array key "nama_rek"
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 141.
+ 1 APPPATH\Views\pembelian_nonmedis\page_print.php(141): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_rek"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php', 141)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('Adi456')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:40:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:41:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

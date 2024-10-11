@@ -138,7 +138,7 @@
                 <tr>
                     <td>Akun Bayar</td>
                     <td>:</td>
-                    <td></td>
+                    <td><?= $dt_pembelian_nonmedis['kd_rek'] ?> - <?= $dt_pembelian_nonmedis['nm_rek'] ?></td>
                 </tr>
             </table>
         <?php endforeach ?>
