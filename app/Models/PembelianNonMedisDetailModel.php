@@ -18,8 +18,9 @@ class PembelianNonMedisDetailModel extends Model
 
     public function detailData($id)
     {
-        return $this->select('ipsrsdetailbeli.*, ipsrsbarang.*')
+        return $this->select('ipsrsdetailbeli.*, ipsrsbarang.*, ipsrsjenisbarang.*')
             ->join('ipsrsbarang', 'ipsrsdetailbeli.kode_brng=ipsrsbarang.kode_brng')
+            ->join('ipsrsjenisbarang', 'ipsrsbarang.jenis=ipsrsjenisbarang.kd_jenis')
             ->where('no_faktur', $id)
             ->findAll(); // retrieve all data
     }
