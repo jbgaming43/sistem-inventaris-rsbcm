@@ -1833,6 +1833,27 @@ INFO - 2024-10-11 07:27:13 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-10-11 07:27:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-11 07:27:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-11 07:27:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+<<<<<<< HEAD
+INFO - 2024-10-11 07:28:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:28:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:28:31 --> ErrorException: Undefined variable $total_jumlah
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 193.
+ 1 APPPATH\Views\pembelian_nonmedis\page_print.php(193): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_jumlah', 'C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php', 193)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('adi234')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:28:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
 >>>>>>> be5362e8d6ed2348ca86148149b24859cfc3ab22
+<<<<<<< HEAD
 INFO - 2024-10-11 07:38:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-11 07:38:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
+>>>>>>> fe0811fcb868026d7068fc47df17f13d94e0bcf4
+>>>>>>> 9b3ccbc31fe0be0dd8f0ea332ed4a413c82c82b0
