@@ -283,14 +283,15 @@ class PembelianNonmedisController extends BaseController
 
     public function getBarangDetails()
     {
-        $brgm = new InventarisBarangModel();
+        $ipsrs_barang_mod = new IpsrsBarangModel();
         $kode_barang = $this->request->getGet('kode_barang');
         if ($kode_barang) {
-            $barang = $brgm->getDataByKode($kode_barang);
+            $barang = $ipsrs_barang_mod->getDataByKode($kode_barang);
             if ($barang) {
                 return $this->response->setJSON($barang);
             }
         }
+        
         return $this->response->setJSON(null);
     }
 }
