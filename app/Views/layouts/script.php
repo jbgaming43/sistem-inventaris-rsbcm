@@ -302,7 +302,7 @@
     });
     $(document).ready(function() {
         // Inisialisasi Select2 untuk Modal Tambah Desa
-        $('.select2-barangnonmedis').select2({
+        $('.select2-barangnonmedis1').select2({
             dropdownParent: $('#add_pembelian_nonmedis')
         });
     });
