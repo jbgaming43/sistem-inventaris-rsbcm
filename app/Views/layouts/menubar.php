@@ -84,12 +84,11 @@
                 <li class="nav-item dropdown <?= ($active_menu == 'inventaris') ? 'active' : ''; ?>">
                     <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-building-warehouse">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-                                <path d="M12 8.5v7" />
-                                <path d="M9 10l6 4" />
-                                <path d="M9 14l6 -4" />
+                                <path d="M3 21v-13l9 -4l9 4v13" />
+                                <path d="M13 13h4v8h-10v-6h6" />
+                                <path d="M13 21v-9a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v3" />
                             </svg>
                         </span>
                         <span class="nav-link-title">
@@ -118,16 +117,14 @@
                 <li class="nav-item dropdown <?= ($active_menu == 'non_medis') ? 'active' : ''; ?>">
                     <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-medical-cross-off">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-                                <path d="M12 8.5v7" />
-                                <path d="M9 10l6 4" />
-                                <path d="M9 14l6 -4" />
+                                <path d="M17.928 17.733l-.574 -.331l-3.354 -1.938v4.536a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-4.536l-3.928 2.268a1 1 0 0 1 -1.366 -.366l-1 -1.732a1 1 0 0 1 .366 -1.366l3.927 -2.268l-3.927 -2.268a1 1 0 0 1 -.366 -1.366l1 -1.732a1 1 0 0 1 1.366 -.366l.333 .192m3.595 -.46v-2a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v4.535l3.928 -2.267a1 1 0 0 1 1.366 .366l1 1.732a1 1 0 0 1 -.366 1.366l-3.927 2.268l3.927 2.269a1 1 0 0 1 .366 1.366l-.24 .416" />
+                                <path d="M3 3l18 18" />
                             </svg>
                         </span>
                         <span class="nav-link-title">
-                            non-Medis
+                            Non Medis
                         </span>
                     </a>
                     <div class="dropdown-menu <?= ($active_menu == 'non_medis') ? 'show' : ''; ?>">
