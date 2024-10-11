@@ -24,7 +24,7 @@
                         <div class="col">
                             <select class="form-select select2-petugas" name="kode_suplier" style="width: 100%">
                                 <option value="">- Pilih Nama -</option>
-                                <?php foreach ($supc as $dt_suplier) : ?>
+                                <?php foreach ($ipsrs_sup_con as $dt_suplier) : ?>
                                     <option value="<?= $dt_suplier['kode_suplier'] ?>"> <?= $dt_suplier['kode_suplier'] ?>-<?= $dt_suplier['nama_suplier'] ?></option>
                                 <?php endforeach ?>
                             </select>
@@ -42,12 +42,12 @@
                         </div>
                     </div>
                     <div class="mb-2 row">
-                        <label class="col-3 col-form-label required">Akun Jenis</label>
+                        <label class="col-3 col-form-label required">Akun Bayar</label>
                         <div class="col">
-                            <select class="form-select" name="kd_rek_aset" style="width: 100%">
+                            <select class="form-select" name="kd_rek" style="width: 100%">
                                 <option value="">- Pilih Nama -</option>
-                                <?php foreach ($rekc as $dt_akunjenis) : ?>
-                                    <option value="<?= $dt_akunjenis['kd_rek'] ?>"><?= $dt_akunjenis['nm_rek'] ?></option>
+                                <?php foreach ($akbc as $bayarjenis) : ?>
+                                    <option value="<?= $bayarjenis['kd_rek'] ?>"><?= $bayarjenis['nama_bayar'] ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
@@ -83,7 +83,7 @@
                                 <tbody id="table-body">
                                     <tr>
                                         <td><input type="text" id="kode_brng_0" name="kode_brng[]" class="form-control" readonly></td>
-                                        <td><select id="select_barang_0" class="form-select select2-barang1" style="width: 100%" onchange="fetchBarangNonMedisDetails(this.value, 0)">
+                                        <td><select id="select_barang_0" class="form-select select2-barangnonmedis" style="width: 100%" onchange="fetchBarangNonMedisDetails(this.value, 0)">
                                                 <option value="">- Pilih Nama -</option>
                                                 <?php foreach ($ipsrs_barang_con as $dt_ipsrs_barang) : ?>
                                                     <option value="<?= $dt_ipsrs_barang['kode_brng'] ?>"><?= $dt_ipsrs_barang['nama_brng'] ?></option>
