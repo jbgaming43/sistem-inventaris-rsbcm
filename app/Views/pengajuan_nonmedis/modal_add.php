@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-full-width modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Data Pengajuan non_medis</h5>
+                <h5 class="modal-title">Tambah Data Pengajuan Non Medis</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="/pengajuan_non_medis/add" method="POST" class="validation_pengajuan_non_medis" enctype="multipart/form-data">
@@ -140,7 +140,7 @@
 
         setupEventListenersNonMedis(rowIndex); // Setup event listeners for new row
     }
-    
+
     // Fungsi untuk menghapus baris
     function removeRow(button) {
         const row = button.parentNode.parentNode;
