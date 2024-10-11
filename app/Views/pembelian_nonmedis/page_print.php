@@ -151,6 +151,7 @@
                     <th>Nama Barang</th>
                     <th>Jenis</th>
                     <th>Harga Beli</th>
+                    <th>Satuan</th>
                     <th>Jumlah</th>
                     <th>Total</th>
                 </tr>
@@ -165,6 +166,7 @@
                             <td><?= $dt_pembelian_nonmedis_det['nama_brng'] ?></td>
                             <td><?= $dt_pembelian_nonmedis_det['nm_jenis'] ?></td>
                             <td>Rp <?= number_format($dt_pembelian_nonmedis_det['harga'], 0, ',', '.'); ?></td>
+                            <td><?= $dt_pembelian_nonmedis_det['kode_sat'] ?></td>
                             <td><?= $dt_pembelian_nonmedis_det['jumlah'] ?></td>
                             <td>Rp <?= number_format($dt_pembelian_nonmedis_det['total'], 0, ',', '.'); ?></td>
                         </tr>
@@ -175,13 +177,13 @@
                     <?php endforeach; ?>
                 <?php else : ?>
                     <tr>
-                        <td colspan="6">Tidak ada data</td>
+                        <td colspan="7">Tidak ada data</td>
                     </tr>
                 <?php endif; ?>
                 <?php foreach ($pem_nonmedis_con as $dt_pembelian_nonmedis) : ?>
                     <?php if ($dt_pembelian_nonmedis['subtotal']) : ?>
                         <tr>
-                            <td colspan="5"></td>
+                            <td colspan="6"></td>
                             <td><?= $total_jumlah; ?></td>
                             <td>Rp <?= number_format($dt_pembelian_nonmedis['subtotal'], 0, ',', '.'); ?></td>
                         </tr>
