@@ -83,7 +83,7 @@
                                 <tbody id="table-body">
                                     <tr>
                                         <td><input type="text" id="kode_brng_0" name="kode_brng[]" class="form-control" readonly></td>
-                                        <td><select id="select_barang_0" class="form-select select2-barangnonmedis" style="width: 100%" onchange="fetchBarangNonMedisDetails(this.value, 0)">
+                                        <td><select id="select_barang_0" class="form-select select2-barangnonmedis1" style="width: 100%" onchange="fetchBarangNonMedisDetails(this.value, 0)">
                                                 <option value="">- Pilih Nama -</option>
                                                 <?php foreach ($ipsrs_barang_con as $dt_ipsrs_barang) : ?>
                                                     <option value="<?= $dt_ipsrs_barang['kode_brng'] ?>"><?= $dt_ipsrs_barang['nama_brng'] ?></option>
