@@ -47,7 +47,7 @@
                                         <td><?= $dt_pembelian_nonmedis['nama']; ?></td>
                                         <td>Rp <?= number_format($dt_pembelian_nonmedis['tagihan'], 0, ',', '.'); ?></td>
                                         <td class="text-center">
-                                            <a href="<?= base_url('/pembelian_nonmedis/print/' . $dt_pembelian_nonmedis['no_faktur']); ?>" target="_blank">
+                                            <a href="<?= base_url('/pembelian_non_medis/print/' . $dt_pembelian_nonmedis['no_faktur']); ?>" target="_blank">
                                                 <button type="button" class="btn btn-icon btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Print">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-printer">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />

@@ -278,7 +278,7 @@ class PembelianNonmedisController extends BaseController
             'pem_nonmedis_det_con' => $pem_nonmedis_det_mod->detailData($id),
         ];
 
-        return view('pembelian_non_medis/page_print', $data);
+        return view('pembelian_nonmedis/page_print', $data);
     }
 
     public function getBarangDetails()

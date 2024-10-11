@@ -31,9 +31,10 @@ class PembelianNonMedisModel extends Model
 
     public function getDataById($id)
     {
-        return $this->select('inventaris_pembelian.*, petugas.*, inventaris_suplier.*')
-            ->join('petugas', 'inventaris_pembelian.nip=petugas.nip')
-            ->join('inventaris_suplier', 'inventaris_pembelian.kode_suplier=inventaris_suplier.kode_suplier')
+        return $this->select('ipsrspembelian.*, petugas.*, ipsrssuplier.*, rekening.*')
+            ->join('petugas', 'ipsrspembelian.nip = petugas.nip')
+            ->join('ipsrssuplier', 'ipsrspembelian.kode_suplier = ipsrssuplier.kode_suplier')
+            ->join('rekening', 'ipsrspembelian.kd_rek = rekening.kd_rek')
             ->where('no_faktur', $id)
             ->findAll(); // retrieve all data
     }

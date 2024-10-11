@@ -18,11 +18,8 @@ class PembelianNonMedisDetailModel extends Model
 
     public function detailData($id)
     {
-        return $this->select('inventaris_detail_beli.*, inventaris_barang.*, inventaris_produsen.*, inventaris_merk.*, inventaris_jenis.*')
-            ->join('inventaris_barang', 'inventaris_detail_beli.kode_barang=inventaris_barang.kode_barang')
-            ->join('inventaris_produsen', 'inventaris_barang.kode_produsen=inventaris_produsen.kode_produsen')
-            ->join('inventaris_merk', 'inventaris_barang.id_merk=inventaris_merk.id_merk')
-            ->join('inventaris_jenis', 'inventaris_barang.id_jenis=inventaris_jenis.id_jenis')
+        return $this->select('ipsrsdetailbeli.*, ipsrsbarang.*')
+            ->join('ipsrsbarang', 'ipsrsdetailbeli.kode_brng=ipsrsbarang.kode_brng')
             ->where('no_faktur', $id)
             ->findAll(); // retrieve all data
     }

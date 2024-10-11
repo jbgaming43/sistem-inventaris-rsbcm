@@ -458,3 +458,884 @@ INFO - 2024-10-11 07:01:59 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-10-11 07:02:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-11 07:02:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-11 07:02:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:06:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:06:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:06:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-11 07:06:50 --> mysqli_sql_exception: Unknown table 'inventaris_pembelian' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventa...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventa...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventa...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventa...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-11 07:06:50 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:06:50 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:06:50 --> [Caused by] mysqli_sql_exception: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:08:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-11 07:08:07 --> mysqli_sql_exception: Unknown table 'inventaris_pembelian' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventa...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventa...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventa...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventa...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-11 07:08:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:08:07 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:08:07 --> [Caused by] mysqli_sql_exception: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:08:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-11 07:08:08 --> mysqli_sql_exception: Unknown table 'inventaris_pembelian' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventa...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventa...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventa...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventa...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-11 07:08:08 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:08:08 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:08:08 --> [Caused by] mysqli_sql_exception: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:08:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-11 07:08:09 --> mysqli_sql_exception: Unknown table 'inventaris_pembelian' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventa...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventa...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventa...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventa...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-11 07:08:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:08:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:08:09 --> [Caused by] mysqli_sql_exception: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:08:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-11 07:08:09 --> mysqli_sql_exception: Unknown table 'inventaris_pembelian' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventa...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventa...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventa...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventa...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-11 07:08:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:08:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:08:09 --> [Caused by] mysqli_sql_exception: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:08:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-11 07:08:09 --> mysqli_sql_exception: Unknown table 'inventaris_pembelian' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventa...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventa...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventa...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventa...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-11 07:08:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:08:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:08:09 --> [Caused by] mysqli_sql_exception: Unknown table 'inventaris_pembelian'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_pembelian`.*, `petugas`.*, `inventaris_suplier`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `inventaris_pembelian`.`nip`=`petugas`.`nip`
+JOIN `inventaris_suplier` ON `inventaris_pembelian`.`kode_suplier`=`inventaris_suplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:09:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-11 07:09:20 --> mysqli_sql_exception: Unknown table 'rekening' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrspe...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrspe...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrspe...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspe...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-11 07:09:20 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'rekening'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspembelian`.*, `petugas`.*, `ipsrssuplier`.*, `rekening`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `ipsrspembelian`.`nip` = `petugas`.`nip`
+JOIN `ipsrssuplier` ON `ipsrspembelian`.`kode_suplier` = `ipsrssuplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:09:20 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'rekening'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrspembelian`.*, `petugas`.*, `ipsrssuplier`.*, `rekening`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `ipsrspembelian`.`nip` = `petugas`.`nip`
+JOIN `ipsrssuplier` ON `ipsrspembelian`.`kode_suplier` = `ipsrssuplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrspembelian`.*, `petugas`.*, `ipsrssuplier`.*, `rekening`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `ipsrspembelian`.`nip` = `petugas`.`nip`
+JOIN `ipsrssuplier` ON `ipsrspembelian`.`kode_suplier` = `ipsrssuplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspembelian`.*, `petugas`.*, `ipsrssuplier`.*, `rekening`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `ipsrspembelian`.`nip` = `petugas`.`nip`
+JOIN `ipsrssuplier` ON `ipsrspembelian`.`kode_suplier` = `ipsrssuplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:09:20 --> [Caused by] mysqli_sql_exception: Unknown table 'rekening'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrspembelian`.*, `petugas`.*, `ipsrssuplier`.*, `rekening`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `ipsrspembelian`.`nip` = `petugas`.`nip`
+JOIN `ipsrssuplier` ON `ipsrspembelian`.`kode_suplier` = `ipsrssuplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrspembelian`.*, `petugas`.*, `ipsrssuplier`.*, `rekening`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `ipsrspembelian`.`nip` = `petugas`.`nip`
+JOIN `ipsrssuplier` ON `ipsrspembelian`.`kode_suplier` = `ipsrssuplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrspembelian`.*, `petugas`.*, `ipsrssuplier`.*, `rekening`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `ipsrspembelian`.`nip` = `petugas`.`nip`
+JOIN `ipsrssuplier` ON `ipsrspembelian`.`kode_suplier` = `ipsrssuplier`.`kode_suplier`
+WHERE `no_faktur` = \'ADI123\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspembelian`.*, `petugas`.*, `ipsrssuplier`.*, `rekening`.*
+FROM `ipsrspembelian`
+JOIN `petugas` ON `ipsrspembelian`.`nip` = `petugas`.`nip`
+JOIN `ipsrssuplier` ON `ipsrspembelian`.`kode_suplier` = `ipsrssuplier`.`kode_suplier`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PembelianNonMedisModel.php(38): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PembelianNonMedisController.php(277): App\Models\PembelianNonMedisModel->getDataById('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:09:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-11 07:09:29 --> mysqli_sql_exception: Unknown table 'inventaris_detail_beli' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventa...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventa...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventa...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventa...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PembelianNonMedisDetailModel.php(27): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PembelianNonMedisController.php(278): App\Models\PembelianNonMedisDetailModel->detailData('ADI123')
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-11 07:09:29 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'inventaris_detail_beli'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_detail_beli`.*, `inventaris_barang`.*, `inventaris_produsen`.*, `inventaris_merk`.*, `inventaris_jenis`.*
+FROM `ipsrsdetailbeli`
+JOIN `inventaris_barang` ON `inventaris_detail_beli`.`kode_barang`=`inventaris_barang`.`kode_barang`
+JOIN `inventaris_produsen` ON `inventaris_barang`.`kode_produsen`=`inventaris_produsen`.`kode_produsen`
+JOIN `inventaris_merk` ON `inventaris_barang`.`id_merk`=`inventaris_merk`.`id_merk`
+JOIN `inventaris_jenis` ON `inventaris_barang`.`id_jenis`=`inventaris_jenis`.`id_jenis`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PembelianNonMedisDetailModel.php(27): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(278): App\Models\PembelianNonMedisDetailModel->detailData('ADI123')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:09:29 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'inventaris_detail_beli'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris_detail_beli`.*, `inventaris_barang`.*, `inventaris_produsen`.*, `inventaris_merk`.*, `inventaris_jenis`.*
+FROM `ipsrsdetailbeli`
+JOIN `inventaris_barang` ON `inventaris_detail_beli`.`kode_barang`=`inventaris_barang`.`kode_barang`
+JOIN `inventaris_produsen` ON `inventaris_barang`.`kode_produsen`=`inventaris_produsen`.`kode_produsen`
+JOIN `inventaris_merk` ON `inventaris_barang`.`id_merk`=`inventaris_merk`.`id_merk`
+JOIN `inventaris_jenis` ON `inventaris_barang`.`id_jenis`=`inventaris_jenis`.`id_jenis`
+WHERE `no_faktur` = \'ADI123\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris_detail_beli`.*, `inventaris_barang`.*, `inventaris_produsen`.*, `inventaris_merk`.*, `inventaris_jenis`.*
+FROM `ipsrsdetailbeli`
+JOIN `inventaris_barang` ON `inventaris_detail_beli`.`kode_barang`=`inventaris_barang`.`kode_barang`
+JOIN `inventaris_produsen` ON `inventaris_barang`.`kode_produsen`=`inventaris_produsen`.`kode_produsen`
+JOIN `inventaris_merk` ON `inventaris_barang`.`id_merk`=`inventaris_merk`.`id_merk`
+JOIN `inventaris_jenis` ON `inventaris_barang`.`id_jenis`=`inventaris_jenis`.`id_jenis`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_detail_beli`.*, `inventaris_barang`.*, `inventaris_produsen`.*, `inventaris_merk`.*, `inventaris_jenis`.*
+FROM `ipsrsdetailbeli`
+JOIN `inventaris_barang` ON `inventaris_detail_beli`.`kode_barang`=`inventaris_barang`.`kode_barang`
+JOIN `inventaris_produsen` ON `inventaris_barang`.`kode_produsen`=`inventaris_produsen`.`kode_produsen`
+JOIN `inventaris_merk` ON `inventaris_barang`.`id_merk`=`inventaris_merk`.`id_merk`
+JOIN `inventaris_jenis` ON `inventaris_barang`.`id_jenis`=`inventaris_jenis`.`id_jenis`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PembelianNonMedisDetailModel.php(27): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PembelianNonMedisController.php(278): App\Models\PembelianNonMedisDetailModel->detailData('ADI123')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:09:29 --> [Caused by] mysqli_sql_exception: Unknown table 'inventaris_detail_beli'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `inventaris_detail_beli`.*, `inventaris_barang`.*, `inventaris_produsen`.*, `inventaris_merk`.*, `inventaris_jenis`.*
+FROM `ipsrsdetailbeli`
+JOIN `inventaris_barang` ON `inventaris_detail_beli`.`kode_barang`=`inventaris_barang`.`kode_barang`
+JOIN `inventaris_produsen` ON `inventaris_barang`.`kode_produsen`=`inventaris_produsen`.`kode_produsen`
+JOIN `inventaris_merk` ON `inventaris_barang`.`id_merk`=`inventaris_merk`.`id_merk`
+JOIN `inventaris_jenis` ON `inventaris_barang`.`id_jenis`=`inventaris_jenis`.`id_jenis`
+WHERE `no_faktur` = \'ADI123\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `inventaris_detail_beli`.*, `inventaris_barang`.*, `inventaris_produsen`.*, `inventaris_merk`.*, `inventaris_jenis`.*
+FROM `ipsrsdetailbeli`
+JOIN `inventaris_barang` ON `inventaris_detail_beli`.`kode_barang`=`inventaris_barang`.`kode_barang`
+JOIN `inventaris_produsen` ON `inventaris_barang`.`kode_produsen`=`inventaris_produsen`.`kode_produsen`
+JOIN `inventaris_merk` ON `inventaris_barang`.`id_merk`=`inventaris_merk`.`id_merk`
+JOIN `inventaris_jenis` ON `inventaris_barang`.`id_jenis`=`inventaris_jenis`.`id_jenis`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `inventaris_detail_beli`.*, `inventaris_barang`.*, `inventaris_produsen`.*, `inventaris_merk`.*, `inventaris_jenis`.*
+FROM `ipsrsdetailbeli`
+JOIN `inventaris_barang` ON `inventaris_detail_beli`.`kode_barang`=`inventaris_barang`.`kode_barang`
+JOIN `inventaris_produsen` ON `inventaris_barang`.`kode_produsen`=`inventaris_produsen`.`kode_produsen`
+JOIN `inventaris_merk` ON `inventaris_barang`.`id_merk`=`inventaris_merk`.`id_merk`
+JOIN `inventaris_jenis` ON `inventaris_barang`.`id_jenis`=`inventaris_jenis`.`id_jenis`
+WHERE `no_faktur` = \'ADI123\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `inventaris_detail_beli`.*, `inventaris_barang`.*, `inventaris_produsen`.*, `inventaris_merk`.*, `inventaris_jenis`.*
+FROM `ipsrsdetailbeli`
+JOIN `inventaris_barang` ON `inventaris_detail_beli`.`kode_barang`=`inventaris_barang`.`kode_barang`
+JOIN `inventaris_produsen` ON `inventaris_barang`.`kode_produsen`=`inventaris_produsen`.`kode_produsen`
+JOIN `inventaris_merk` ON `inventaris_barang`.`id_merk`=`inventaris_merk`.`id_merk`
+JOIN `inventaris_jenis` ON `inventaris_barang`.`id_jenis`=`inventaris_jenis`.`id_jenis`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PembelianNonMedisDetailModel.php(27): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PembelianNonMedisController.php(278): App\Models\PembelianNonMedisDetailModel->detailData('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:10:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-11 07:10:29 --> mysqli_sql_exception: Unknown column 'ipsrsdetailbeli.kode_barang' in 'on clause' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrsde...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrsde...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrsde...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsde...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PembelianNonMedisDetailModel.php(27): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PembelianNonMedisController.php(278): App\Models\PembelianNonMedisDetailModel->detailData('ADI123')
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-11 07:10:29 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ipsrsdetailbeli.kode_barang' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsdetailbeli`.*, `inventaris_barang`.*, `inventaris_produsen`.*, `inventaris_merk`.*, `inventaris_jenis`.*
+FROM `ipsrsdetailbeli`
+JOIN `inventaris_barang` ON `ipsrsdetailbeli`.`kode_barang`=`inventaris_barang`.`kode_barang`
+JOIN `inventaris_produsen` ON `inventaris_barang`.`kode_produsen`=`inventaris_produsen`.`kode_produsen`
+JOIN `inventaris_merk` ON `inventaris_barang`.`id_merk`=`inventaris_merk`.`id_merk`
+JOIN `inventaris_jenis` ON `inventaris_barang`.`id_jenis`=`inventaris_jenis`.`id_jenis`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PembelianNonMedisDetailModel.php(27): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(278): App\Models\PembelianNonMedisDetailModel->detailData('ADI123')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:10:29 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ipsrsdetailbeli.kode_barang' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrsdetailbeli`.*, `inventaris_barang`.*, `inventaris_produsen`.*, `inventaris_merk`.*, `inventaris_jenis`.*
+FROM `ipsrsdetailbeli`
+JOIN `inventaris_barang` ON `ipsrsdetailbeli`.`kode_barang`=`inventaris_barang`.`kode_barang`
+JOIN `inventaris_produsen` ON `inventaris_barang`.`kode_produsen`=`inventaris_produsen`.`kode_produsen`
+JOIN `inventaris_merk` ON `inventaris_barang`.`id_merk`=`inventaris_merk`.`id_merk`
+JOIN `inventaris_jenis` ON `inventaris_barang`.`id_jenis`=`inventaris_jenis`.`id_jenis`
+WHERE `no_faktur` = \'ADI123\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrsdetailbeli`.*, `inventaris_barang`.*, `inventaris_produsen`.*, `inventaris_merk`.*, `inventaris_jenis`.*
+FROM `ipsrsdetailbeli`
+JOIN `inventaris_barang` ON `ipsrsdetailbeli`.`kode_barang`=`inventaris_barang`.`kode_barang`
+JOIN `inventaris_produsen` ON `inventaris_barang`.`kode_produsen`=`inventaris_produsen`.`kode_produsen`
+JOIN `inventaris_merk` ON `inventaris_barang`.`id_merk`=`inventaris_merk`.`id_merk`
+JOIN `inventaris_jenis` ON `inventaris_barang`.`id_jenis`=`inventaris_jenis`.`id_jenis`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsdetailbeli`.*, `inventaris_barang`.*, `inventaris_produsen`.*, `inventaris_merk`.*, `inventaris_jenis`.*
+FROM `ipsrsdetailbeli`
+JOIN `inventaris_barang` ON `ipsrsdetailbeli`.`kode_barang`=`inventaris_barang`.`kode_barang`
+JOIN `inventaris_produsen` ON `inventaris_barang`.`kode_produsen`=`inventaris_produsen`.`kode_produsen`
+JOIN `inventaris_merk` ON `inventaris_barang`.`id_merk`=`inventaris_merk`.`id_merk`
+JOIN `inventaris_jenis` ON `inventaris_barang`.`id_jenis`=`inventaris_jenis`.`id_jenis`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PembelianNonMedisDetailModel.php(27): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PembelianNonMedisController.php(278): App\Models\PembelianNonMedisDetailModel->detailData('ADI123')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:10:29 --> [Caused by] mysqli_sql_exception: Unknown column 'ipsrsdetailbeli.kode_barang' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrsdetailbeli`.*, `inventaris_barang`.*, `inventaris_produsen`.*, `inventaris_merk`.*, `inventaris_jenis`.*
+FROM `ipsrsdetailbeli`
+JOIN `inventaris_barang` ON `ipsrsdetailbeli`.`kode_barang`=`inventaris_barang`.`kode_barang`
+JOIN `inventaris_produsen` ON `inventaris_barang`.`kode_produsen`=`inventaris_produsen`.`kode_produsen`
+JOIN `inventaris_merk` ON `inventaris_barang`.`id_merk`=`inventaris_merk`.`id_merk`
+JOIN `inventaris_jenis` ON `inventaris_barang`.`id_jenis`=`inventaris_jenis`.`id_jenis`
+WHERE `no_faktur` = \'ADI123\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrsdetailbeli`.*, `inventaris_barang`.*, `inventaris_produsen`.*, `inventaris_merk`.*, `inventaris_jenis`.*
+FROM `ipsrsdetailbeli`
+JOIN `inventaris_barang` ON `ipsrsdetailbeli`.`kode_barang`=`inventaris_barang`.`kode_barang`
+JOIN `inventaris_produsen` ON `inventaris_barang`.`kode_produsen`=`inventaris_produsen`.`kode_produsen`
+JOIN `inventaris_merk` ON `inventaris_barang`.`id_merk`=`inventaris_merk`.`id_merk`
+JOIN `inventaris_jenis` ON `inventaris_barang`.`id_jenis`=`inventaris_jenis`.`id_jenis`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrsdetailbeli`.*, `inventaris_barang`.*, `inventaris_produsen`.*, `inventaris_merk`.*, `inventaris_jenis`.*
+FROM `ipsrsdetailbeli`
+JOIN `inventaris_barang` ON `ipsrsdetailbeli`.`kode_barang`=`inventaris_barang`.`kode_barang`
+JOIN `inventaris_produsen` ON `inventaris_barang`.`kode_produsen`=`inventaris_produsen`.`kode_produsen`
+JOIN `inventaris_merk` ON `inventaris_barang`.`id_merk`=`inventaris_merk`.`id_merk`
+JOIN `inventaris_jenis` ON `inventaris_barang`.`id_jenis`=`inventaris_jenis`.`id_jenis`
+WHERE `no_faktur` = \'ADI123\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsdetailbeli`.*, `inventaris_barang`.*, `inventaris_produsen`.*, `inventaris_merk`.*, `inventaris_jenis`.*
+FROM `ipsrsdetailbeli`
+JOIN `inventaris_barang` ON `ipsrsdetailbeli`.`kode_barang`=`inventaris_barang`.`kode_barang`
+JOIN `inventaris_produsen` ON `inventaris_barang`.`kode_produsen`=`inventaris_produsen`.`kode_produsen`
+JOIN `inventaris_merk` ON `inventaris_barang`.`id_merk`=`inventaris_merk`.`id_merk`
+JOIN `inventaris_jenis` ON `inventaris_barang`.`id_jenis`=`inventaris_jenis`.`id_jenis`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PembelianNonMedisDetailModel.php(27): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PembelianNonMedisController.php(278): App\Models\PembelianNonMedisDetailModel->detailData('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:12:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:12:47 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "pembelian_non_medis/page_print.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('pembelian_non_medis/page_print.php')
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_non_medis/page_print', [], true)
+ 3 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_non_medis/page_print', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:13:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:13:06 --> ErrorException: Undefined variable $pem_inv_con
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 189.
+ 1 APPPATH\Views\pembelian_nonmedis\page_print.php(189): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pem_inv_con', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php', 189)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:13:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:13:30 --> ErrorException: Undefined variable $total_jumlah
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 193.
+ 1 APPPATH\Views\pembelian_nonmedis\page_print.php(193): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_jumlah', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php', 193)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
