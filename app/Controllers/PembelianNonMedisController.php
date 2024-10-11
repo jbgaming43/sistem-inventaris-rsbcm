@@ -69,9 +69,10 @@ class PembelianNonmedisController extends BaseController
         $meterai = $this->request->getPost('meterai');
 
         // Ambil data tabel barang yang diinputkan dalam bentuk array
-        $kode_barang = $this->request->getPost('kode_barang'); // pastikan ini dikirim sebagai array
+        $kode_barang = $this->request->getPost('kode_brng'); // pastikan ini dikirim sebagai array
+        $kode_sat = $this->request->getPost('kode_sat');
         $jumlah = $this->request->getPost('jumlah'); // array
-        $harga_beli = $this->request->getPost('harga_beli'); // array
+        $harga_beli = $this->request->getPost('harga'); // array
         $diskon = $this->request->getPost('diskon'); // array
         $total = $this->request->getPost('total'); // array
 
@@ -120,7 +121,7 @@ class PembelianNonmedisController extends BaseController
 
         // Simpan data pembelian ke tabel nonmedis_pembelian
         $pem_nonmedis_mod->insertData($dataPembelian);
-
+        $dataDetail= [];
         // Loop melalui setiap barang yang diinputkan
         for ($i = 0; $i < count($kode_barang); $i++) {
             //hitung utk data saat ini
@@ -128,9 +129,10 @@ class PembelianNonmedisController extends BaseController
             $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
             $total = $subtotal - $besardis;
             // Persiapkan data untuk tabel  nonmedis_detail_beli
-            $dataDetail = [
+            $dataDetail[] = [
                 'no_faktur' => $no_faktur,
-                'kode_barang' => $kode_barang[$i],
+                'kode_brng' => $kode_barang[$i],
+                'kode_sat' => $kode_sat[$i],
                 'jumlah' => $jumlah[$i],
                 'harga' => $harga_beli[$i],
                 'subtotal' => $subtotal,
@@ -140,15 +142,15 @@ class PembelianNonmedisController extends BaseController
             ];
 
             // Simpan data detail pembelian ke tabel nonmedis_detail_beli
-            $pem_nonmedis_det_mod->insert($dataDetail);
+            
         }
-
+        $pem_nonmedis_det_mod->insertData($dataDetail);
 
 
 
 
         // Redirect atau tampilkan pesan sukses
-        return redirect()->to('/pembelian_inventaris')->with('success', 'Data pembelian berhasil disimpan.');
+        return redirect()->to('/pembelian_non_medis')->with('success', 'Data pembelian berhasil disimpan.');
     }
 
     public function edit($id)
@@ -176,11 +178,12 @@ class PembelianNonmedisController extends BaseController
         $meterai = $this->request->getPost('meterai');
 
         // Ambil data tabel barang yang diinputkan dalam bentuk array
-        $kode_barang = $this->request->getPost('2kode_barang'); // pastikan ini dikirim sebagai array
-        $jumlah = $this->request->getPost('2jumlah'); // array
-        $harga_beli = $this->request->getPost('2harga_beli'); // array
-        $diskon = $this->request->getPost('2diskon'); // array
-        $total = $this->request->getPost('2total'); // array
+        $kode_barang = $this->request->getPost('kode_brng'); // pastikan ini dikirim sebagai array
+        $kode_barang = $this->request->getPost('kode_sat'); 
+        $jumlah = $this->request->getPost('jumlah'); // array
+        $harga_beli = $this->request->getPost('harga'); // array
+        $diskon = $this->request->getPost('diskon'); // array
+        $total = $this->request->getPost('total'); // array
 
         // Cek apakah semua input adalah array
         if (!is_array($kode_barang) || !is_array($jumlah) || !is_array($harga_beli) || !is_array($diskon) || !is_array($total)) {

@@ -5,7 +5,7 @@
                 <h5 class="modal-title">Tambah Data Pembelian nonmedis</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/pembelian_nonmedis/add" method="POST" class="validation_pembelian_nonmedis" enctype="multipart/form-data">
+            <form action="/pembelian_non_medis/add" method="POST" class="validation_pembelian_nonmedis" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Nomor faktur</label>
@@ -169,7 +169,7 @@
             dropdownParent: $('#add_pembelian_nonmedis')
         });
 
-        setupEventListenerNonMedis(rowIndex); // Setup event listeners for new row
+        setupEventListenersNonMedis(rowIndex); // Setup event listeners for new row
     }
 
     // Fungsi untuk menghapus baris
