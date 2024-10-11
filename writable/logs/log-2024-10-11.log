@@ -1390,6 +1390,277 @@ in APPPATH\Views\pembelian_nonmedis\page_print.php on line 193.
 INFO - 2024-10-11 07:03:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 =======
 >>>>>>> bf3d8cec279711cc6c4dbfcc8b7449a390428c84
+<<<<<<< HEAD
+INFO - 2024-10-11 07:14:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:14:35 --> ErrorException: Undefined variable $total_jumlah
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 193.
+ 1 APPPATH\Views\pembelian_nonmedis\page_print.php(193): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_jumlah', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php', 193)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:15:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:15:41 --> ErrorException: Undefined variable $total_jumlah
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 193.
+ 1 APPPATH\Views\pembelian_nonmedis\page_print.php(193): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_jumlah', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php', 193)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:18:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:18:24 --> ErrorException: Undefined variable $total_jumlah
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 186.
+ 1 APPPATH\Views\pembelian_nonmedis\page_print.php(186): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_jumlah', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php', 186)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:18:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:18:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:18:56 --> ErrorException: Undefined variable $total_jumlah
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 186.
+ 1 APPPATH\Views\pembelian_nonmedis\page_print.php(186): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_jumlah', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php', 186)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:19:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:19:25 --> ParseError: syntax error, unexpected token ";"
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 186.
+ 1 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 3 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_nonmedis/page_print', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:19:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:19:36 --> ErrorException: Undefined variable $total_jumlah
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 186.
+ 1 APPPATH\Views\pembelian_nonmedis\page_print.php(186): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_jumlah', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php', 186)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:19:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:19:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:21:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:21:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:21:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:21:31 --> ErrorException: Undefined variable $total_jumlah
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 186.
+ 1 APPPATH\Views\pembelian_nonmedis\page_print.php(186): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_jumlah', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php', 186)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(283): view('pembelian_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('Adi456')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:21:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:22:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:22:25 --> ErrorException: Undefined variable $total_jumlah
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 186.
+ 1 APPPATH\Views\pembelian_nonmedis\page_print.php(186): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_jumlah', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php', 186)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('Adi456')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:22:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:22:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:22:35 --> ErrorException: Undefined variable $total_jumlah
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 186.
+ 1 APPPATH\Views\pembelian_nonmedis\page_print.php(186): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_jumlah', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php', 186)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:22:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:23:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:24:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:24:43 --> ErrorException: Undefined variable $pem_inv_det_con
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 161.
+ 1 APPPATH\Views\pembelian_nonmedis\page_print.php(161): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pem_inv_det_con', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php', 161)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:24:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:25:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:25:11 --> ErrorException: Undefined array key "nm_jenis"
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 166.
+ 1 APPPATH\Views\pembelian_nonmedis\page_print.php(166): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nm_jenis"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php', 166)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:25:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:25:20 --> ErrorException: Undefined array key "nm_jenis"
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 166.
+ 1 APPPATH\Views\pembelian_nonmedis\page_print.php(166): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nm_jenis"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php', 166)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:31:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-11 07:31:42 --> mysqli_sql_exception: Unknown column 'ipsrsbarang.kd_jenis' in 'on clause' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrsde...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrsde...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrsde...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsde...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PembelianNonMedisDetailModel.php(25): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PembelianNonMedisController.php(278): App\Models\PembelianNonMedisDetailModel->detailData('ADI123')
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-11 07:31:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ipsrsbarang.kd_jenis' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsdetailbeli`.*, `ipsrsbarang`.*
+FROM `ipsrsdetailbeli`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`kd_jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PembelianNonMedisDetailModel.php(25): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(278): App\Models\PembelianNonMedisDetailModel->detailData('ADI123')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:31:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ipsrsbarang.kd_jenis' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrsdetailbeli`.*, `ipsrsbarang`.*
+FROM `ipsrsdetailbeli`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`kd_jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = \'ADI123\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrsdetailbeli`.*, `ipsrsbarang`.*
+FROM `ipsrsdetailbeli`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`kd_jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsdetailbeli`.*, `ipsrsbarang`.*
+FROM `ipsrsdetailbeli`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`kd_jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PembelianNonMedisDetailModel.php(25): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PembelianNonMedisController.php(278): App\Models\PembelianNonMedisDetailModel->detailData('ADI123')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-11 07:31:42 --> [Caused by] mysqli_sql_exception: Unknown column 'ipsrsbarang.kd_jenis' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrsdetailbeli`.*, `ipsrsbarang`.*
+FROM `ipsrsdetailbeli`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`kd_jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = \'ADI123\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrsdetailbeli`.*, `ipsrsbarang`.*
+FROM `ipsrsdetailbeli`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`kd_jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = \'ADI123\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrsdetailbeli`.*, `ipsrsbarang`.*
+FROM `ipsrsdetailbeli`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`kd_jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = \'ADI123\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsdetailbeli`.*, `ipsrsbarang`.*
+FROM `ipsrsdetailbeli`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`kd_jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PembelianNonMedisDetailModel.php(25): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PembelianNonMedisController.php(278): App\Models\PembelianNonMedisDetailModel->detailData('ADI123')
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:32:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-11 07:32:19 --> ErrorException: Undefined array key "nm_jenis"
+in APPPATH\Views\pembelian_nonmedis\page_print.php on line 166.
+ 1 APPPATH\Views\pembelian_nonmedis\page_print.php(166): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nm_jenis"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php', 166)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pembelian_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pembelian_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PembelianNonMedisController.php(281): view('pembelian_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PembelianNonmedisController->print('ADI123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianNonmedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-11 07:33:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-11 07:34:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
 >>>>>>> b7e995affc9e51d03b1469542357e733a3c5fc88
 INFO - 2024-10-11 07:22:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-11 07:22:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
@@ -1562,6 +1833,7 @@ INFO - 2024-10-11 07:27:13 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-10-11 07:27:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-11 07:27:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-11 07:27:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+<<<<<<< HEAD
 INFO - 2024-10-11 07:28:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-11 07:28:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 CRITICAL - 2024-10-11 07:28:31 --> ErrorException: Undefined variable $total_jumlah
@@ -1577,3 +1849,6 @@ in APPPATH\Views\pembelian_nonmedis\page_print.php on line 193.
  9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
 INFO - 2024-10-11 07:28:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
+>>>>>>> be5362e8d6ed2348ca86148149b24859cfc3ab22
+>>>>>>> fe0811fcb868026d7068fc47df17f13d94e0bcf4

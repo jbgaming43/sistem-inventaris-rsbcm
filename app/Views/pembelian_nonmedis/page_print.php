@@ -140,11 +140,6 @@
                     <td>:</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>Akun Jenis</td>
-                    <td>:</td>
-                    <td></td>
-                </tr>
             </table>
         <?php endforeach ?>
 
@@ -154,7 +149,6 @@
                     <th>No.</th>
                     <th>Kode Barang</th>
                     <th>Nama Barang</th>
-                    <th>Merk</th>
                     <th>Jenis</th>
                     <th>Harga Beli</th>
                     <th>Jumlah</th>
@@ -162,16 +156,14 @@
                 </tr>
             </thead>
             <tbody>
-                <?php if (!empty($pem_inv_det_con)) :
+                <?php if (!empty($pem_nonmedis_det_con)) :
                     $total_jumlah = 0; ?>
-                    <?php ?>
-                    <?php foreach ($pem_nonmedis_det_mod as $index => $dt_pembelian_nonmedis_det) : ?>
+                    <?php foreach ($pem_nonmedis_det_con as $index => $dt_pembelian_nonmedis_det) : ?>
                         <tr style=" white-space: nowrap;">
                             <td><?= $index + 1 ?></td>
-                            <td><?= $dt_pembelian_nonmedis_det['kode_barang'] ?></td>
-                            <td><?= $dt_pembelian_nonmedis_det['nama_barang'] ?></td>
-                            <td><?= $dt_pembelian_nonmedis_det['nama_merk'] ?></td>
-                            <td><?= $dt_pembelian_nonmedis_det['nama_jenis'] ?></td>
+                            <td><?= $dt_pembelian_nonmedis_det['kode_brng'] ?></td>
+                            <td><?= $dt_pembelian_nonmedis_det['nama_brng'] ?></td>
+                            <td><?= $dt_pembelian_nonmedis_det['nm_jenis'] ?></td>
                             <td>Rp <?= number_format($dt_pembelian_nonmedis_det['harga'], 0, ',', '.'); ?></td>
                             <td><?= $dt_pembelian_nonmedis_det['jumlah'] ?></td>
                             <td>Rp <?= number_format($dt_pembelian_nonmedis_det['total'], 0, ',', '.'); ?></td>
@@ -183,13 +175,13 @@
                     <?php endforeach; ?>
                 <?php else : ?>
                     <tr>
-                        <td colspan="7">Tidak ada data</td>
+                        <td colspan="6">Tidak ada data</td>
                     </tr>
                 <?php endif; ?>
                 <?php foreach ($pem_nonmedis_con as $dt_pembelian_nonmedis) : ?>
                     <?php if ($dt_pembelian_nonmedis['subtotal']) : ?>
                         <tr>
-                            <td colspan="6"></td>
+                            <td colspan="5"></td>
                             <td><?= $total_jumlah; ?></td>
                             <td>Rp <?= number_format($dt_pembelian_nonmedis['subtotal'], 0, ',', '.'); ?></td>
                         </tr>
