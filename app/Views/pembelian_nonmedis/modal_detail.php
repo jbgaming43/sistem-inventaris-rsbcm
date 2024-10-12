@@ -24,7 +24,7 @@
                             .then(response => response.json())
                             .then(data => {
                                 var content = '<table class="table table-striped">';
-                                content += '<thead><tr><th>Kode Barang</th><th>Jumlah</th><th>Harga</th><th>Subtotal</th><th>Diskon</th><th>Besar Diskon</th><th>Total</th></tr></thead><tbody>';
+                                content += '<thead><tr><th>Kode Barang</th><th>Satuan</th><th>Jumlah</th><th>Harga</th><th>Subtotal</th><th>Diskon</th><th>Besar Diskon</th><th>Total</th></tr></thead><tbody>';
                                 data.forEach(item => {
                                     content += `<tr>
                                     <td>${item.kode_brng}</td>
@@ -37,15 +37,14 @@
                                     <td>${item.total}</td>
                                 </tr>`;
                                 });
-                                console.log($dt_pembelian_nonmedis['no_faktur']);
-                                content += '<tr><td colspan="6"></td><th><?= $dt_pembelian_nonmedis['subtotal'] ?></th></tr><tbody>';
+                                content += '<tr><td colspan="7"></td><th><?= $dt_pembelian_nonmedis['subtotal'] ?></th></tr><tbody>';
                                 content += '</tbody></table>';
                                 document.getElementById(detailContentId).innerHTML = content;
                             })
                             .catch(error => console.error('Error fetching details:', error));
                     });
                 })(
-                    'detail_pembelian_inventaris<?= $dt_pembelian_nonmedis['no_faktur']; ?>',
+                    'detail_pembelian_nonmedis<?= $dt_pembelian_nonmedis['no_faktur']; ?>',
                     'detail-content-<?= $dt_pembelian_nonmedis['no_faktur']; ?>',
                     '<?= base_url('pembelian_non_medis/detail/' . $dt_pembelian_nonmedis['no_faktur']); ?>'
                 );
