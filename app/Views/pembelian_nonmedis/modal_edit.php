@@ -131,11 +131,7 @@
                                 var content = '';
                                 data.forEach(item => {
                                     content += `<tr>
-<<<<<<< HEAD
-                                <td><input type="text" id="2kode_barang_${rowIndex2}" name="2kode_brng[]" class="form-control" value="${item.kode_brng}" readonly required></td>
-=======
-                                <td><input type="text" id="kode_brng_${rowIndex2}" name="kode_brng[]" class="form-control" value="${item.kode_brng}" readonly required></td>
->>>>>>> 622d06360ae34839ceeba7ef1868f99bcefa8593
+                                <td><input type="text" id="kode_barang_${rowIndex2}" name="2kode_brng[]" class="form-control" value="${item.kode_brng}" readonly required></td>
                                 <td>
                                     <select id="2select_barang_${rowIndex2}" class="form-select select2-barang" style="width: 100%" onchange="fetchBarangNonMedisDetails(this.value, ${rowIndex2})">
                                         <option value="">- Pilih Nama -</option>
