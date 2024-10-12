@@ -131,9 +131,9 @@
                                 var content = '';
                                 data.forEach(item => {
                                     content += `<tr>
-                                <td><input type="text" id="2kode_barang_${rowIndex2}" name="2kode_barang[]" class="form-control" value="${item.kode_brng}" readonly required></td>
+                                <td><input type="text" id="kode_brng_${rowIndex2}" name="kode_brng[]" class="form-control" value="${item.kode_brng}" readonly required></td>
                                 <td>
-                                    <select id="2select_barang_${rowIndex2}" class="form-select select2-barang" style="width: 100%" onchange="fetchBarangDetails2(this.value, ${rowIndex2})">
+                                    <select id="2select_barang_${rowIndex2}" class="form-select select2-barang" style="width: 100%" onchange="fetchBarangNonMedisDetails(this.value, ${rowIndex2})">
                                         <option value="">- Pilih Nama -</option>
                                         <?php foreach ($ipsrs_barang_con as $dt_inventarisbarang) : ?>
                                             <option value="<?= $dt_inventarisbarang['kode_brng'] ?>" 
@@ -143,12 +143,12 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </td>
-                                <td><input type="text" id="2kode_sat_${rowIndex2}" name="2kode_sat[]" class="form-control" value="${item.kode_sat}" readonly required></td>
-                                <td><input type="text" id="2nama_jenis_${rowIndex2}" name="2nama_jenis[]" class="form-control" value="${item.nm_jenis}" readonly required></td>
-                                <td><input type="number" id="2jumlah_${rowIndex2}" name="2jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" value="${item.jumlah}" required></td>
-                                <td><input type="number" id="2harga_beli_${rowIndex2}" name="2harga_beli[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" value="${item.harga}" required></td>
-                                <td><input type="number" id="2diskon_${rowIndex2}" name="2diskon[]" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" value="${item.dis}" required></td>
-                                <td><input type="text" id="2total_${rowIndex2}" name="2total[]" class="form-control" readonly value="${item.total}"></td>
+                                <td><input type="text" id="kode_sat_${rowIndex2}" name="kode_sat[]" class="form-control" value="${item.kode_sat}" readonly required></td>
+                                <td><input type="text" id="jenis_${rowIndex2}" name="jenis[]" class="form-control" value="${item.nm_jenis}" readonly required></td>
+                                <td><input type="number" id="jumlah_${rowIndex2}" name="jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" value="${item.jumlah}" required></td>
+                                <td><input type="number" id="harga_${rowIndex2}" name="harga[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" value="${item.harga}" required></td>
+                                <td><input type="number" id="diskon_${rowIndex2}" name="diskon[]" class="form-control" placeholder="Diskon (%)" min="0" max="100" step="0.01" value="${item.dis}" required></td>
+                                <td><input type="text" id="total_${rowIndex2}" name="total[]" class="form-control" readonly value="${item.total}"></td>
                                 <td><button type="button" class="btn btn-danger btn-icon" onclick="deleteRow(this)">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24V0H0z" fill="none" />
@@ -210,7 +210,6 @@
                 <?php endforeach ?>
             </select>
         </td>
-        <td><input type="text" id="2nama_produsen_${rowIndex2}" name="2nama_produsen[]" class="form-control" readonly></td>
         <td><input type="text" id="2nama_merk_${rowIndex2}" name="2nama_merk[]" class="form-control" readonly></td>
         <td><input type="text" id="2nama_jenis_${rowIndex2}" name="2nama_jenis[]" class="form-control" readonly></td>
         <td><input type="number" id="2jumlah_${rowIndex2}" name="2jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" required></td>
