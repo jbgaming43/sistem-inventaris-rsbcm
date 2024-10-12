@@ -171,7 +171,7 @@
 
                                 // Memanggil setupEventListeners setelah baris ditambahkan ke DOM
                                 for (let i = 0; i < rowIndex2; i++) {
-                                    setupEventListeners2(i);
+                                    setupEventListenersNonMedis(i);
                                 }
                             })
                             .catch(error => console.error('Error fetching details:', error));
@@ -238,6 +238,13 @@
             dropdownParent: $(`#edit_pembelian_nonmedis${noFaktur}`) // pastikan dropdownParent mengacu pada modal yang benar
         });
 
-        setupEventListeners2(rowIndex2); // Setup event listeners for new row
+        setupEventListenersNonMedis(rowIndex2); // Setup event listeners for new row
     }
+</script>
+
+<script>
+    // Menambahkan event listener saat modal ditampilkan
+    $('#edit_pembelian_nonmedis<?= $dt_pembelian_nonmedis['no_faktur']; ?>').on('shown.bs.modal', function () {
+        setupEventListenersNonMedis(0); // Menambahkan event listener untuk baris pertama
+    });
 </script>
