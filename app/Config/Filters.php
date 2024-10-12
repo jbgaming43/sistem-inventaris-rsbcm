@@ -40,12 +40,12 @@ class Filters extends BaseConfig
         'before' => [
             'filterAdmin' => [
                 'except' => [
-                    'login','/'
+                    'login', '/'
                 ]
             ],
             'filterPetugas' => [
                 'except' => [
-                    'login','/'
+                    'login', '/'
                 ]
             ]
         ],
@@ -53,10 +53,11 @@ class Filters extends BaseConfig
             'toolbar',
             'filterAdmin' => [
                 'except' => [
-                    'dashboard/*', 'dashboard', 'pengguna', 'pengguna/*', 
-                    'pengajuan_non_medis','pengajuan_non_medis/*','pembelian_non_medis','pembelian_non_medis/*','pengajuan_inventaris','pengajuan_inventaris/*',
-                    'pembelian_inventaris','pembelian_inventaris/*','penerimaan_inventaris','penerimaan_inventaris/*', 'pembayaran_inventaris',
-                    'pembayaran_inventaris/*'
+                    'dashboard/*', 'dashboard', 'pengguna', 'pengguna/*',
+                    'pengajuan_non_medis', 'pengajuan_non_medis/*', 'pembelian_non_medis', 'pembelian_non_medis/*',
+                    'penerimaan_non_medis', 'penerimaan_non_medis/*', 'pembayaran_non_medis', 'pembayaran_non_medis/*',
+                    'pengajuan_inventaris', 'pengajuan_inventaris/*', 'pembelian_inventaris', 'pembelian_inventaris/*',
+                    'penerimaan_inventaris', 'penerimaan_inventaris/*', 'pembayaran_inventaris', 'pembayaran_inventaris/*'
                 ]
             ],
             'filterPetugas' => [
@@ -95,7 +96,7 @@ class Filters extends BaseConfig
         //         'dashboard', // Semua akses ke /dashboard dibatasi oleh filter
         //         'pengguna', // Semua akses ke /pengguna dibatasi oleh filter
         //         'pengguna/*', // Semua akses ke /pengguna/xxx dibatasi oleh filter
-                
+
         //     ],
         // ],
         /* 'isLoggedIn' => [
@@ -103,6 +104,5 @@ class Filters extends BaseConfig
                 'pengguna/*' => ['Admin'], // Membatasi akses ke /admin/* hanya untuk admin
                 'report/*' => ['Admin'], // Membatasi akses ke /report/* hanya untuk admin
             ],
-        ], */
-    ];
+        ], */];
 }

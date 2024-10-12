@@ -79,3 +79,18 @@ $routes->post('/pembelian_non_medis/tolak/(:any)', 'PembelianNonMedisController:
 $routes->post('/pembelian_non_medis/delete/(:any)', 'PembelianNonMedisController::delete/$1');
 $routes->get('/pembelian_non_medis/detail/(:any)', 'PembelianNonMedisController::detail/$1');
 $routes->get('/pembelian_non_medis/print/(:any)', 'PembelianNonMedisController::print/$1');
+
+// Routes untuk mengelola data PENERIMAAN NON MEDIS
+$routes->get('/penerimaan_non_medis', 'PenerimaanNonMedisController::index');
+$routes->post('/penerimaan_non_medis/add', 'PenerimaanNonMedisController::add');
+$routes->post('/penerimaan_non_medis/edit/(:any)', 'PenerimaanNonMedisController::edit/$1');
+$routes->post('/penerimaan_non_medis/delete/(:any)', 'PenerimaanNonMedisController::delete/$1');
+$routes->get('/penerimaan_non_medis/detail/(:any)', 'PenerimaanNonMedisController::detail/$1');
+$routes->get('/penerimaan_non_medis/print/(:any)', 'PenerimaanNonMedisController::print/$1');
+$routes->get('/penerimaan_non_medis/pilih_no_faktur', 'PenerimaanNonMedisController::getFaktur');
+$routes->get('/penerimaan_non_medis/info/(:any)', 'PenerimaanNonMedisController::info/$1');
+$routes->get('/penerimaan_non_medis/page_qr/(:any)', 'PenerimaanNonMedisController::page_qr/$1');
+$routes->post('/penerimaan_non_medis/add_ruang', 'PenerimaanNonMedisController::add_ruang');
+$routes->post('/penerimaan_non_medis/add_garansi', 'PenerimaanNonMedisController::add_garansi');
+$routes->get('/penerimaan_non_medis/print_qr/(:any)', 'PenerimaanNonMedisController::print_qr/$1');
+$routes->get('/penerimaan_non_medis/generate-qr', 'PenerimaanNonMedisController::generateQR');
