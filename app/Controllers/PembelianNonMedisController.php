@@ -44,6 +44,13 @@ class PembelianNonmedisController extends BaseController
         $pem_nonmedis_det_mod = new PembelianNonMedisDetailModel();
         $detail = $pem_nonmedis_det_mod->detailData($no_faktur);
 
+        // Debug output
+        log_message('debug', 'Detail fetched: ' . json_encode($detail)); // Log detail untuk debug
+
+        if (empty($detail)) {
+            return $this->response->setJSON(['error' => 'Data tidak ditemukan']);
+        }
+        
         return $this->response->setJSON($detail);
     }
 

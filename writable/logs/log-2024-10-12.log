@@ -9,3 +9,30 @@ INFO - 2024-10-12 01:14:49 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-10-12 01:15:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-12 01:15:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-12 01:15:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:21:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:21:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:21:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:21:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:22:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:23:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:25:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:25:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:28:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:29:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:29:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:31:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-12 01:31:41 --> Detail fetched: [{"no_faktur":"Adi456","kode_brng":"B00003","kode_sat":"BKS","jumlah":"2","harga":"13553.1","subtotal":"27106.2","dis":"0","besardis":"0","total":"27106.2","nama_brng":"TEPUNG TERIGU","jenis":"J03","stok":"283","status":"1","kd_jenis":"J03","nm_jenis":"GIZI KERING"},{"no_faktur":"Adi456","kode_brng":"B00006","kode_sat":"PCS","jumlah":"5","harga":"23409.9","subtotal":"117049.5","dis":"20","besardis":"23409.9","total":"93639.6","nama_brng":"LAMPU OSRAM 5 WATT","jenis":"J01","stok":"153","status":"1","kd_jenis":"J01","nm_jenis":"IPSRS"}]
+INFO - 2024-10-12 01:31:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:31:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:31:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:31:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:31:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:31:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:31:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:32:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:33:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-12 01:33:14 --> Detail fetched: [{"no_faktur":"Adi456","kode_brng":"B00003","kode_sat":"BKS","jumlah":"2","harga":"13553.1","subtotal":"27106.2","dis":"0","besardis":"0","total":"27106.2","nama_brng":"TEPUNG TERIGU","jenis":"J03","stok":"283","status":"1","kd_jenis":"J03","nm_jenis":"GIZI KERING"},{"no_faktur":"Adi456","kode_brng":"B00006","kode_sat":"PCS","jumlah":"5","harga":"23409.9","subtotal":"117049.5","dis":"20","besardis":"23409.9","total":"93639.6","nama_brng":"LAMPU OSRAM 5 WATT","jenis":"J01","stok":"153","status":"1","kd_jenis":"J01","nm_jenis":"IPSRS"}]
+INFO - 2024-10-12 01:34:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-12 01:34:50 --> Detail fetched: [{"no_faktur":"Adi456","kode_brng":"B00003","kode_sat":"BKS","jumlah":"2","harga":"13553.1","subtotal":"27106.2","dis":"0","besardis":"0","total":"27106.2","nama_brng":"TEPUNG TERIGU","jenis":"J03","stok":"283","status":"1","kd_jenis":"J03","nm_jenis":"GIZI KERING"},{"no_faktur":"Adi456","kode_brng":"B00006","kode_sat":"PCS","jumlah":"5","harga":"23409.9","subtotal":"117049.5","dis":"20","besardis":"23409.9","total":"93639.6","nama_brng":"LAMPU OSRAM 5 WATT","jenis":"J01","stok":"153","status":"1","kd_jenis":"J01","nm_jenis":"IPSRS"}]
+INFO - 2024-10-12 01:34:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:34:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
