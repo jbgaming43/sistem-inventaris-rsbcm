@@ -41,8 +41,8 @@ class PembelianNonmedisController extends BaseController
 
     public function detail($no_faktur)
     {
-        $pem_inv_det_mod = new PembelianNonMedisDetailModel();
-        $detail = $pem_inv_det_mod->detailData($no_faktur);
+        $pem_nonmedis_det_mod = new PembelianNonMedisDetailModel();
+        $detail = $pem_nonmedis_det_mod->detailData($no_faktur);
 
         return $this->response->setJSON($detail);
     }
@@ -153,15 +153,15 @@ class PembelianNonmedisController extends BaseController
     public function edit($id)
     {
         // Inisialisasi model
-        $pem_inv_mod = new PembelianInventarisModel();
-        $pem_inv_det_mod = new PembelianInventarisDetailModel();
+        $pem_nonmedis_mod = new PembelianNonMedisModel();
+        $pem_nonmedis_det_mod = new PembelianNonMedisDetailModel();
 
         // Ambil data dari form
         $no_faktur = $this->request->getPost('no_faktur_new');
 
         if ($id != $no_faktur) {
             // Cek apakah nomor faktur sudah ada di database
-            if ($pem_inv_mod->where('no_faktur', $no_faktur)->first()) {
+            if ($pem_nonmedis_mod->where('no_faktur', $no_faktur)->first()) {
                 return redirect()->back()->with('error', 'Nomor faktur sudah ada, gunakan nomor faktur yang berbeda.');
             }
         }
@@ -227,10 +227,10 @@ class PembelianNonmedisController extends BaseController
         ];
 
         // Simpan data pembelian ke tabel inventaris_pembelian
-        $pem_inv_mod->updateData($id, $dataPembelian);
+        $pem_nonmedis_mod->updateData($id, $dataPembelian);
 
         //hapus detail pembelian
-        $pem_inv_det_mod->deleteDataByNoFaktur($no_faktur);
+        $pem_nonmedis_det_mod->deleteDataByNoFaktur($no_faktur);
 
         // Loop melalui setiap barang yang diinputkan
         for ($i = 0; $i < count($kode_barang); $i++) {
@@ -251,7 +251,7 @@ class PembelianNonmedisController extends BaseController
             ];
 
             // Simpan data detail pembelian ke tabel inventaris_detail_beli
-            $pem_inv_det_mod->insert($dataDetail);
+            $pem_nonmedis_det_mod->insert($dataDetail);
         }
 
         // Redirect atau tampilkan pesan sukses
@@ -291,7 +291,7 @@ class PembelianNonmedisController extends BaseController
                 return $this->response->setJSON($barang);
             }
         }
-        
+
         return $this->response->setJSON(null);
     }
 }
