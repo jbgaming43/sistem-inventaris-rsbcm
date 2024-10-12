@@ -6,7 +6,7 @@
                     <h5 class="modal-title">Edit Data Pembelian NonMedis</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="/pembelian_nonmedis/edit/<?= $dt_pembelian_nonmedis['no_faktur']; ?>" id="edit-form-<?= $dt_pembelian_nonmedis['no_faktur']; ?>" method="POST" class="validation_pembelian_inventaris" enctype="multipart/form-data">
+                <form action="/pembelian_non_medis/edit/<?= $dt_pembelian_nonmedis['no_faktur']; ?>" id="edit-form-<?= $dt_pembelian_nonmedis['no_faktur']; ?>" method="POST" class="validation_pembelian_inventaris" enctype="multipart/form-data">
                     <div class="modal-body">
                         <!-- Form fields -->
                         <div class="mb-2 row">
@@ -131,7 +131,7 @@
                                 var content = '';
                                 data.forEach(item => {
                                     content += `<tr>
-                                <td><input type="text" id="2kode_barang_${rowIndex2}" name="2kode_barang[]" class="form-control" value="${item.kode_brng}" readonly required></td>
+                                <td><input type="text" id="2kode_barang_${rowIndex2}" name="2kode_brng[]" class="form-control" value="${item.kode_brng}" readonly required></td>
                                 <td>
                                     <select id="2select_barang_${rowIndex2}" class="form-select select2-barang" style="width: 100%" onchange="fetchBarangDetails2(this.value, ${rowIndex2})">
                                         <option value="">- Pilih Nama -</option>

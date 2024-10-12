@@ -147,10 +147,6 @@ class PembelianInventarisController extends BaseController
             $pem_inv_det_mod->insert($dataDetail);
         }
 
-
-
-
-
         // Redirect atau tampilkan pesan sukses
         return redirect()->to('/pembelian_inventaris')->with('success', 'Data pembelian berhasil disimpan.');
     }

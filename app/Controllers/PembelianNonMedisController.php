@@ -50,7 +50,7 @@ class PembelianNonmedisController extends BaseController
         if (empty($detail)) {
             return $this->response->setJSON(['error' => 'Data tidak ditemukan']);
         }
-        
+
         return $this->response->setJSON($detail);
     }
 
@@ -177,20 +177,19 @@ class PembelianNonmedisController extends BaseController
         $nip = $this->request->getPost('nip');
         $tgl_beli = $this->request->getPost('tgl_beli');
         $kd_rek = $this->request->getPost('kd_rek');
-        $kd_rek_aset = $this->request->getPost('kd_rek_aset');
         $ppn = $this->request->getPost('ppn');
         $meterai = $this->request->getPost('meterai');
 
         // Ambil data tabel barang yang diinputkan dalam bentuk array
-        $kode_barang = $this->request->getPost('kode_brng'); // pastikan ini dikirim sebagai array
-        $kode_barang = $this->request->getPost('kode_sat');
-        $jumlah = $this->request->getPost('jumlah'); // array
-        $harga_beli = $this->request->getPost('harga'); // array
-        $diskon = $this->request->getPost('diskon'); // array
-        $total = $this->request->getPost('total'); // array
+        $kode_barang = $this->request->getPost('2kode_brng'); // pastikan ini dikirim sebagai array
+        $kode_sat = $this->request->getPost('2kode_sat');
+        $jumlah = $this->request->getPost('2jumlah'); // array
+        $harga_beli = $this->request->getPost('2harga_beli'); // array
+        $diskon = $this->request->getPost('2diskon'); // array
+        $total = $this->request->getPost('2total'); // array
 
         // Cek apakah semua input adalah array
-        if (!is_array($kode_barang) || !is_array($jumlah) || !is_array($harga_beli) || !is_array($diskon) || !is_array($total)) {
+        if (!is_array($kode_barang) || !is_array($kode_sat) || !is_array($jumlah) || !is_array($harga_beli) || !is_array($diskon) || !is_array($total)) {
             return redirect()->back()->with('error', 'Data input tidak valid.');
         }
 
@@ -228,7 +227,6 @@ class PembelianNonmedisController extends BaseController
             'meterai' => $meterai,
             'tagihan' => $tagihan,
             'kd_rek' => $kd_rek,
-            'kd_rek_aset' => $kd_rek_aset,
 
             // hitung subtotal, potongan, dll. jika diperlukan
         ];
@@ -248,7 +246,8 @@ class PembelianNonmedisController extends BaseController
             // Persiapkan data untuk tabel inventaris_detail_beli
             $dataDetail = [
                 'no_faktur' => $no_faktur,
-                'kode_barang' => $kode_barang[$i],
+                'kode_brng' => $kode_barang[$i],
+                'kode_sat' => $kode_sat[$i],
                 'jumlah' => $jumlah[$i],
                 'harga' => $harga_beli[$i],
                 'subtotal' => $subtotal,
@@ -262,7 +261,7 @@ class PembelianNonmedisController extends BaseController
         }
 
         // Redirect atau tampilkan pesan sukses
-        return redirect()->to('/pembelian_inventaris')->with('success', 'Data pembelian berhasil diedit.');
+        return redirect()->to('/pembelian_non_medis')->with('success', 'Data pembelian berhasil diedit.');
     }
 
     public function delete($id)

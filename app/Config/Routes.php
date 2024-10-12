@@ -72,6 +72,7 @@ $routes->get('/pengajuan_non_medis/print/(:any)', 'PengajuanNonMedisController::
 // Routes untuk mengelola data PEMBELIAN  NON MEDIS
 $routes->get('/pembelian_non_medis', 'PembelianNonMedisController::index');
 $routes->post('/pembelian_non_medis/add', 'PembelianNonMedisController::add');
+$routes->post('/pembelian_non_medis/edit/(:any)', 'PembelianNonMedisController::edit/$1');
 $routes->get('/pembelian_non_medis/pilih_barang', 'PembelianNonMedisController::getBarangDetails');
 $routes->post('/pembelian_non_medis/setuju/(:any)', 'PembelianNonMedisController::setuju/$1');
 $routes->post('/pembelian_non_medis/tolak/(:any)', 'PembelianNonMedisController::tolak/$1');
