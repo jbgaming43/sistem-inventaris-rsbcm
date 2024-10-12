@@ -48,6 +48,11 @@ INFO - 2024-10-12 01:34:50 --> Session: Class initialized using 'CodeIgniter\Ses
 DEBUG - 2024-10-12 01:34:50 --> Detail fetched: [{"no_faktur":"Adi456","kode_brng":"B00003","kode_sat":"BKS","jumlah":"2","harga":"13553.1","subtotal":"27106.2","dis":"0","besardis":"0","total":"27106.2","nama_brng":"TEPUNG TERIGU","jenis":"J03","stok":"283","status":"1","kd_jenis":"J03","nm_jenis":"GIZI KERING"},{"no_faktur":"Adi456","kode_brng":"B00006","kode_sat":"PCS","jumlah":"5","harga":"23409.9","subtotal":"117049.5","dis":"20","besardis":"23409.9","total":"93639.6","nama_brng":"LAMPU OSRAM 5 WATT","jenis":"J01","stok":"153","status":"1","kd_jenis":"J01","nm_jenis":"IPSRS"}]
 INFO - 2024-10-12 01:34:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-12 01:34:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+<<<<<<< HEAD
+INFO - 2024-10-12 01:36:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:42:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-12 01:42:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
 >>>>>>> 75ccd925a62210ef76fd726fa0d554ee3604d2d4
 INFO - 2024-10-12 01:37:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-12 01:38:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
@@ -132,6 +137,7 @@ INFO - 2024-10-12 01:46:23 --> Session: Class initialized using 'CodeIgniter\Ses
 DEBUG - 2024-10-12 01:46:23 --> Detail fetched: [{"no_faktur":"adi234","kode_brng":"B00001","kode_sat":"AMP","jumlah":"1","harga":"12210","subtotal":"12210","dis":"0","besardis":"0","total":"12210","nama_brng":"TES1","jenis":"J01","stok":"85","status":"1","kd_jenis":"J01","nm_jenis":"IPSRS"}]
 INFO - 2024-10-12 01:46:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2024-10-12 01:46:24 --> Detail fetched: [{"no_faktur":"adi123","kode_brng":"B00001","kode_sat":"AMP","jumlah":"1","harga":"12210","subtotal":"12210","dis":"5","besardis":"610.5","total":"11599.5","nama_brng":"TES1","jenis":"J01","stok":"85","status":"1","kd_jenis":"J01","nm_jenis":"IPSRS"},{"no_faktur":"adi123","kode_brng":"B00002","kode_sat":"AMP","jumlah":"2","harga":"11100","subtotal":"22200","dis":"5","besardis":"1110","total":"21090","nama_brng":"TES2","jenis":"J01","stok":"48","status":"1","kd_jenis":"J01","nm_jenis":"IPSRS"},{"no_faktur":"adi123","kode_brng":"B00003","kode_sat":"BKS","jumlah":"1","harga":"13553.1","subtotal":"13553.1","dis":"5","besardis":"677.655","total":"12875.445","nama_brng":"TEPUNG TERIGU","jenis":"J03","stok":"283","status":"1","kd_jenis":"J03","nm_jenis":"GIZI KERING"},{"no_faktur":"adi123","kode_brng":"B00004","kode_sat":"BTL","jumlah":"5","harga":"20329.65","subtotal":"101648.25","dis":"1","besardis":"1016.4825","total":"100631.7675","nama_brng":"VIXAL","jenis":"J04","stok":"516","status":"1","kd_jenis":"J04","nm_jenis":"LOUNDRY"}]
+<<<<<<< HEAD
 INFO - 2024-10-12 01:47:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2024-10-12 01:47:03 --> Detail fetched: [{"no_faktur":"adi123","kode_brng":"B00001","kode_sat":"AMP","jumlah":"1","harga":"12210","subtotal":"12210","dis":"5","besardis":"610.5","total":"11599.5","nama_brng":"TES1","jenis":"J01","stok":"85","status":"1","kd_jenis":"J01","nm_jenis":"IPSRS"},{"no_faktur":"adi123","kode_brng":"B00002","kode_sat":"AMP","jumlah":"2","harga":"11100","subtotal":"22200","dis":"5","besardis":"1110","total":"21090","nama_brng":"TES2","jenis":"J01","stok":"48","status":"1","kd_jenis":"J01","nm_jenis":"IPSRS"},{"no_faktur":"adi123","kode_brng":"B00003","kode_sat":"BKS","jumlah":"1","harga":"13553.1","subtotal":"13553.1","dis":"5","besardis":"677.655","total":"12875.445","nama_brng":"TEPUNG TERIGU","jenis":"J03","stok":"283","status":"1","kd_jenis":"J03","nm_jenis":"GIZI KERING"},{"no_faktur":"adi123","kode_brng":"B00004","kode_sat":"BTL","jumlah":"5","harga":"20329.65","subtotal":"101648.25","dis":"1","besardis":"1016.4825","total":"100631.7675","nama_brng":"VIXAL","jenis":"J04","stok":"516","status":"1","kd_jenis":"J04","nm_jenis":"LOUNDRY"}]
 INFO - 2024-10-12 01:47:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
@@ -144,3 +150,6 @@ INFO - 2024-10-12 01:51:51 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-10-12 01:51:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-12 01:52:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-12 01:52:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
+>>>>>>> 5679fd575f527372c040ccd364c11f1827f51173
+>>>>>>> 82c154e0d10423f046049a23b8212a7a37ca694c
