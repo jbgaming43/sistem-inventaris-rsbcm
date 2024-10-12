@@ -170,7 +170,7 @@ class PembelianInventarisController extends BaseController
                 return redirect()->back()->with('error', 'Nomor faktur sudah ada, gunakan nomor faktur yang berbeda.');
             }
         }
-        
+
         $kode_suplier = $this->request->getPost('kode_suplier');
         $nip = $this->request->getPost('nip');
         $tgl_beli = $this->request->getPost('tgl_beli');
@@ -282,8 +282,7 @@ class PembelianInventarisController extends BaseController
             'pem_inv_det_con' => $pem_inv_det_mod->detailData($id),
         ];
 
-        return view('pembelian_inventaris/page_print',$data);
-
+        return view('pembelian_inventaris/page_print', $data);
     }
 
     public function getBarangDetails()

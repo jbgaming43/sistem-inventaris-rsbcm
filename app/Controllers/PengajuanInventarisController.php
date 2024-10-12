@@ -12,16 +12,16 @@ class PengajuanInventarisController extends BaseController
     public function index()
     {
         // objek PenggunaModel
-        $pbnm = new PengajuanInventarisModel();
-        $pgwm = new PegawaiModel();
+        $pengajuan_nonmedis_mod = new PengajuanInventarisModel();
+        $pegawai_mod = new PegawaiModel();
 
         $data = [
             'title' => 'Data Pengajuan Inventaris',
             'active_menu' => 'inventaris',
             'active_submenu' => 'pengajuan_inventaris',
 
-            'pbnc' => $pbnm->getData(),
-            'pgwc' => $pgwm->getData(),
+            'pbnc' => $pengajuan_nonmedis_mod->getData(),
+            'pgwc' => $pegawai_mod->getData(),
         ];
 
 
@@ -31,7 +31,7 @@ class PengajuanInventarisController extends BaseController
     public function add()
     {
         // objek PenggunaModel
-        $pbnm = new PengajuanInventarisModel();
+        $pengajuan_nonmedis_mod = new PengajuanInventarisModel();
 
         $jumlah = $this->request->getPost('jumlah');
         $harga = $this->request->getPost('harga');
@@ -53,7 +53,7 @@ class PengajuanInventarisController extends BaseController
             'status' => 'Proses Pengajuan'
         ];
 
-        $pbnm->insertData($data);
+        $pengajuan_nonmedis_mod->insertData($data);
 
         session()->setFlashdata('success', 'ditambahkan');
         return redirect()->to('/pengajuan_inventaris');
@@ -61,7 +61,7 @@ class PengajuanInventarisController extends BaseController
 
     public function edit($id)
     {
-        $pbnm = new PengajuanInventarisModel();
+        $pengajuan_nonmedis_mod = new PengajuanInventarisModel();
 
         $jumlah = $this->request->getPost('jumlah');
         $harga = $this->request->getPost('harga');
@@ -83,7 +83,7 @@ class PengajuanInventarisController extends BaseController
             'status' => 'Proses Pengajuan'
         ];
 
-        $pbnm->updateData($id, $data);
+        $pengajuan_nonmedis_mod->updateData($id, $data);
 
         session()->setFlashdata('success', 'diedit');
         return redirect()->to('/pengajuan_inventaris');
@@ -91,9 +91,9 @@ class PengajuanInventarisController extends BaseController
 
     public function delete($id)
     {
-        $pbnm = new PengajuanInventarisModel();
+        $pengajuan_nonmedis_mod = new PengajuanInventarisModel();
 
-        $pbnm->deleteData($id);
+        $pengajuan_nonmedis_mod->deleteData($id);
 
         session()->setFlashdata('success', 'dihapus');
         return redirect()->to('/pengajuan_inventaris');
@@ -101,13 +101,13 @@ class PengajuanInventarisController extends BaseController
 
     public function setuju($id)
     {
-        $pbnm = new PengajuanInventarisModel();
+        $pengajuan_nonmedis_mod = new PengajuanInventarisModel();
 
         $data = [
             'status' => 'Disetujui'
         ];
 
-        $pbnm->updateData($id, $data);
+        $pengajuan_nonmedis_mod->updateData($id, $data);
 
         session()->setFlashdata('success', 'disetujui');
         return redirect()->to('/pengajuan_inventaris');
@@ -115,13 +115,13 @@ class PengajuanInventarisController extends BaseController
 
     public function tolak($id)
     {
-        $pbnm = new PengajuanInventarisModel();
+        $pengajuan_nonmedis_mod = new PengajuanInventarisModel();
 
         $data = [
             'status' => 'Ditolak'
         ];
 
-        $pbnm->updateData($id, $data);
+        $pengajuan_nonmedis_mod->updateData($id, $data);
 
         session()->setFlashdata('success', 'ditolak');
         return redirect()->to('/pengajuan_inventaris');
@@ -129,16 +129,15 @@ class PengajuanInventarisController extends BaseController
 
     public function print()
     {
-        $pbnm = new PengajuanInventarisModel();
+        $pengajuan_nonmedis_mod = new PengajuanInventarisModel();
 
         $tanggal_awal = $this->request->getPost('tanggal_awal');
         $tanggal_akhir = $this->request->getPost('tanggal_akhir');
         $nik = $this->request->getPost('nik');
 
-        $data = $pbnm->printData($tanggal_awal, $tanggal_akhir, $nik);
+        $data = $pengajuan_nonmedis_mod->printData($tanggal_awal, $tanggal_akhir, $nik);
         // var_dump($data);
 
         return view('pengajuan_inventaris/page_print', ['data' => $data, 'tanggal_awal' => $tanggal_awal, 'tanggal_akhir' => $tanggal_akhir, 'nik' => $nik]);
-
     }
 }

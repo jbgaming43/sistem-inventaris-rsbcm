@@ -103,5 +103,6 @@
 <?= $this->include('pembelian_nonmedis/modal_add') ?>
 <?= $this->include('pembelian_nonmedis/modal_delete') ?>
 <?= $this->include('pembelian_nonmedis/modal_edit') ?>
+<?= $this->include('pembelian_nonmedis/modal_detail') ?>
 
 <?= $this->endSection() ?>
