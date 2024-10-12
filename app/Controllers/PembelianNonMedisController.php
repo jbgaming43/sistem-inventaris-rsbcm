@@ -181,12 +181,12 @@ class PembelianNonmedisController extends BaseController
         $meterai = $this->request->getPost('meterai');
 
         // Ambil data tabel barang yang diinputkan dalam bentuk array
-        $kode_barang = $this->request->getPost('2kode_brng'); // pastikan ini dikirim sebagai array
-        $kode_sat = $this->request->getPost('2kode_sat');
-        $jumlah = $this->request->getPost('2jumlah'); // array
-        $harga_beli = $this->request->getPost('2harga_beli'); // array
-        $diskon = $this->request->getPost('2diskon'); // array
-        $total = $this->request->getPost('2total'); // array
+        $kode_barang = $this->request->getPost('kode_brng'); // pastikan ini dikirim sebagai array
+        $kode_sat = $this->request->getPost('kode_sat');
+        $jumlah = $this->request->getPost('jumlah'); // array
+        $harga_beli = $this->request->getPost('harga'); // array
+        $diskon = $this->request->getPost('diskon'); // array
+        $total = $this->request->getPost('total'); // array
 
         // Cek apakah semua input adalah array
         if (!is_array($kode_barang) || !is_array($kode_sat) || !is_array($jumlah) || !is_array($harga_beli) || !is_array($diskon) || !is_array($total)) {
