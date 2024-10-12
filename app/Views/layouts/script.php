@@ -417,18 +417,6 @@
         }
 
         var jumlah = parseFloat(document.getElementById("jumlah_" + rowIndex).value) || 0;
-
-        // Debugging: Cek elemen dan nilainya
-        console.log("hargaBeli", hargaBeli);
-        console.log("jumlah", jumlah);
-        console.log("diskon", diskon);
-
-        // Pastikan variabel ini tidak null
-        if (!diskonElement || !document.getElementById("jumlah_" + rowIndex)) {
-            console.error("Element tidak ditemukan untuk rowIndex: ", rowIndex);
-            return;
-        }
-
         // Hitung total sebelum diskon
         var totalSebelumDiskon = hargaBeli * jumlah;
         var potongan = (totalSebelumDiskon * (diskon / 100));
@@ -462,8 +450,6 @@
     }
 
     function setupEventListenersNonMedis(rowIndex) {
-        console.log('Setting up event listeners for row: ' + rowIndex);
-        // Tambahkan event listener di sini
         document.getElementById("jumlah_" + rowIndex).addEventListener("input", function() {
             validateJumlahNonMedis(rowIndex);
         });
