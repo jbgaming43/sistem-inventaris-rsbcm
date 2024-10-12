@@ -139,10 +139,10 @@
                                 <a class="dropdown-item <?= ($active_submenu == 'penerimaan_non_medis') ? 'active' : ''; ?>" href="<?= base_url('/penerimaan_non_medis'); ?>">
                                     Data Penerimaan
                                 </a>
-                                <a class="dropdown-item <?= ($active_submenu == 'penerimaan_non_medis') ? 'active' : ''; ?>" href="<?= base_url('/penerimaan_non_medis'); ?>">
+                                <a class="dropdown-item <?= ($active_submenu == 'permintaan_non_medis') ? 'active' : ''; ?>" href="<?= base_url('/penerimaan_non_medis'); ?>">
                                     Data Permintaan
                                 </a>
-                                <a class="dropdown-item <?= ($active_submenu == 'penerimaan_non_medis') ? 'active' : ''; ?>" href="<?= base_url('/penerimaan_non_medis'); ?>">
+                                <a class="dropdown-item <?= ($active_submenu == 'pengeluaran_non_medis') ? 'active' : ''; ?>" href="<?= base_url('/penerimaan_non_medis'); ?>">
                                     Data Pengeluaran
                                 </a>
                             </div>
