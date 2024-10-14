@@ -384,3 +384,83 @@ DEBUG - 2024-10-14 05:20:25 --> Detail fetched: [{"no_faktur":"ADI123","kode_brn
 INFO - 2024-10-14 05:20:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-14 05:20:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-14 05:20:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 06:49:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 06:49:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 06:49:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:46:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:46:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:46:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:46:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:46:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:46:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:46:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:46:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-14 07:46:49 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`sik`.`inventaris_detail_pesan`, CONSTRAINT `inventaris_detail_pesan_ibfk_1` FOREIGN KEY (`no_faktur`) REFERENCES `inventaris_pemesanan` (`no_faktur`) ON DELETE CASCADE ON UPDATE CASCADE) in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `in...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `in...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `in...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `in...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 D:\RSBCM\inventaris-barang\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PenerimaanNonMedisController.php(208): CodeIgniter\Model->insert(Array)
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->add()
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-14 07:46:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`sik`.`inventaris_detail_pesan`, CONSTRAINT `inventaris_detail_pesan_ibfk_1` FOREIGN KEY (`no_faktur`) REFERENCES `inventaris_pemesanan` (`no_faktur`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `inventaris_detail_pesan` (`no_faktur`, `jumlah`, `harga`, `subtotal`, `dis`, `besardis`, `total`) VALUES (:no_faktur:, :jumlah:, :harga:, :subtotal:, :dis:, :besardis:, :total:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\PenerimaanNonMedisController.php(208): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->add()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-14 07:46:49 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`sik`.`inventaris_detail_pesan`, CONSTRAINT `inventaris_detail_pesan_ibfk_1` FOREIGN KEY (`no_faktur`) REFERENCES `inventaris_pemesanan` (`no_faktur`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `inventaris_detail_pesan` (`no_faktur`, `jumlah`, `harga`, `subtotal`, `dis`, `besardis`, `total`) VALUES (\'ADI123\', \'4\', \'11100\', 44400, \'0\', 0, 44400)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `inventaris_detail_pesan` (`no_faktur`, `jumlah`, `harga`, `subtotal`, `dis`, `besardis`, `total`) VALUES (\'ADI123\', \'4\', \'11100\', 44400, \'0\', 0, 44400)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `inventaris_detail_pesan` (`no_faktur`, `jumlah`, `harga`, `subtotal`, `dis`, `besardis`, `total`) VALUES (:no_faktur:, :jumlah:, :harga:, :subtotal:, :dis:, :besardis:, :total:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\PenerimaanNonMedisController.php(208): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->add()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-14 07:46:49 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`sik`.`inventaris_detail_pesan`, CONSTRAINT `inventaris_detail_pesan_ibfk_1` FOREIGN KEY (`no_faktur`) REFERENCES `inventaris_pemesanan` (`no_faktur`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `inventaris_detail_pesan` (`no_faktur`, `jumlah`, `harga`, `subtotal`, `dis`, `besardis`, `total`) VALUES (\'ADI123\', \'4\', \'11100\', 44400, \'0\', 0, 44400)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `inventaris_detail_pesan` (`no_faktur`, `jumlah`, `harga`, `subtotal`, `dis`, `besardis`, `total`) VALUES (\'ADI123\', \'4\', \'11100\', 44400, \'0\', 0, 44400)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `inventaris_detail_pesan` (`no_faktur`, `jumlah`, `harga`, `subtotal`, `dis`, `besardis`, `total`) VALUES (\'ADI123\', \'4\', \'11100\', 44400, \'0\', 0, 44400)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `inventaris_detail_pesan` (`no_faktur`, `jumlah`, `harga`, `subtotal`, `dis`, `besardis`, `total`) VALUES (:no_faktur:, :jumlah:, :harga:, :subtotal:, :dis:, :besardis:, :total:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\PenerimaanNonMedisController.php(208): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->add()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-14 07:48:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:48:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:48:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:48:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:48:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:49:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:49:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:49:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:49:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:49:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:49:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 07:49:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

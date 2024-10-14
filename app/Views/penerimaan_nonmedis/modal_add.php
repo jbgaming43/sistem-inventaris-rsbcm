@@ -5,7 +5,7 @@
                 <h5 class="modal-title">Tambah Data Pembayaran Non Medis</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/penerimaan_nonmedis/add" method="POST" class="validation_penerimaan_nonmedis" enctype="multipart/form-data">
+            <form action="/penerimaan_non_medis/add" method="POST" class="validation_penerimaan_nonmedis" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Nomor faktur</label>

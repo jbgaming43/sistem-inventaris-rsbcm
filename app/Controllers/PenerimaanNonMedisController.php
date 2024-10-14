@@ -11,7 +11,7 @@ use CodeIgniter\Controller;
 use App\Models\PenerimaanNonMedisModel;
 use App\Models\PembelianNonMedisModel;
 use App\Models\PembelianNonMedisDetailModel;
-use App\Models\PenerimaanInventarisDetailModel;
+use App\Models\PenerimaanNonMedisDetailModel;
 use App\Models\GaransiModel;
 use App\Models\PetugasModel;
 use App\Models\AkunBayarModel;
@@ -73,8 +73,8 @@ class PenerimaanNonMedisController extends BaseController
     {
         // Inisialisasi model
         $penerimaan_nonmedis_mod = new PenerimaanNonMedisModel();
-        $penerimaan_nonmedis_det_mod = new PenerimaanInventarisDetailModel();
-        $inv_mod = new InventarisModel();
+        $penerimaan_nonmedis_det_mod = new PenerimaanNonMedisDetailModel();
+        // $inv_mod = new InventarisModel();
 
         // Ambil data dari form
         $no_faktur = $this->request->getPost('no_faktur');
@@ -95,6 +95,7 @@ class PenerimaanNonMedisController extends BaseController
 
         // Ambil data tabel barang yang diinputkan dalam bentuk array
         $kode_barang = $this->request->getPost('kode_barang'); // pastikan ini dikirim sebagai array
+        $kode_sat = $this->request->getPost('kode_sat'); // pastikan ini dikirim sebagai array
         $jumlah = $this->request->getPost('jumlah'); // array
         $harga_beli = $this->request->getPost('harga_beli'); // array
         $diskon = $this->request->getPost('diskon'); // array
@@ -142,7 +143,6 @@ class PenerimaanNonMedisController extends BaseController
             'meterai' => $meterai,
             'tagihan' => $tagihan,
             'status' => 'Belum Dibayar',
-            'kd_rek_aset' => $kd_rek_aset,
 
             // hitung subtotal, potongan, dll. jika diperlukan
         ];
@@ -164,38 +164,39 @@ class PenerimaanNonMedisController extends BaseController
                 $besardis = ($harga_beli[$index] * $jumlahBarang) * ($diskon[$index] / 100);
                 $total = $subtotal - $besardis;
 
-                // Cek inventaris terakhir
-                $result = $inv_mod->getNoInventarisLast($tanggal);
+                // // Cek inventaris terakhir
+                // $result = $inv_mod->getNoInventarisLast($tanggal);
 
-                if ($result) {
-                    $lastNoInventaris = $result['no_inventaris'];
-                    $lastIncrement = (int)substr($lastNoInventaris, -3);
-                    $newIncrement = $lastIncrement + 1;
-                } else {
-                    $newIncrement = 1;
-                }
+                // if ($result) {
+                //     $lastNoInventaris = $result['no_inventaris'];
+                //     $lastIncrement = (int)substr($lastNoInventaris, -3);
+                //     $newIncrement = $lastIncrement + 1;
+                // } else {
+                //     $newIncrement = 1;
+                // }
 
-                $incrementFormatted = str_pad($newIncrement, 3, '0', STR_PAD_LEFT);
-                $no_inventaris_baru = 'INV-' . $tanggal . '-' . $incrementFormatted;
+                // $incrementFormatted = str_pad($newIncrement, 3, '0', STR_PAD_LEFT);
+                // $no_inventaris_baru = 'INV-' . $tanggal . '-' . $incrementFormatted;
 
-                // Data inventaris baru
-                $dataInventaris = [
-                    'no_inventaris' => $no_inventaris_baru,
-                    'kode_barang' => $kode_barang[$index],
-                    'asal_barang' => 'Beli',
-                    'tgl_pengadaan' => $tgl_pesan,
-                    'harga' => $harga_beli[$index],
-                    'status_barang' => 'Ada'
-                ];
+                // // Data inventaris baru
+                // $dataInventaris = [
+                //     'no_inventaris' => $no_inventaris_baru,
+                //     'kode_barang' => $kode_barang[$index],
+                //     'asal_barang' => 'Beli',
+                //     'tgl_pengadaan' => $tgl_pesan,
+                //     'harga' => $harga_beli[$index],
+                //     'status_barang' => 'Ada'
+                // ];
 
-                // Simpan data inventaris ke database
-                $inv_mod->insert($dataInventaris);
+                // // Simpan data inventaris ke database
+                // $inv_mod->insert($dataInventaris);
             }
 
             // Simpan data detail pembelian ke tabel inventaris_detail_beli
             $dataDetail = [
                 'no_faktur' => $no_faktur,
-                'kode_barang' => $kode_barang[$index],
+                'kode_brng' => $kode_barang[$index],
+                'kode_sat' => $kode_sat[$index],
                 'jumlah' => $jumlah[$index],
                 'harga' => $harga_beli[$index],
                 'subtotal' => $subtotal,
@@ -209,7 +210,7 @@ class PenerimaanNonMedisController extends BaseController
 
 
         // Redirect atau tampilkan pesan sukses
-        return redirect()->to('/penerimaan_nonmedis')->with('success', 'Data penerimaan berhasil disimpan.');
+        return redirect()->to('/penerimaan_non_medis')->with('success', 'Data penerimaan berhasil disimpan.');
     }
 
     public function delete($id)
@@ -225,11 +226,11 @@ class PenerimaanNonMedisController extends BaseController
     public function print($id)
     {
         $penerimaan_nonmedis_mod = new PenerimaanNonMedisModel();
-        $penerimaan_inv_det_mod = new PenerimaanInventarisDetailModel();
+        $penerimaan_nonmedis_det_mod = new PenerimaanNonMedisDetailModel();
 
         $data = [
             'penerimaan_inv_con' => $penerimaan_nonmedis_mod->getDataById($id),
-            'penerimaan_inv_det_con' => $penerimaan_inv_det_mod->detailData($id),
+            'penerimaan_inv_det_con' => $penerimaan_nonmedis_det_mod->detailData($id),
         ];
 
         return view('penerimaan_nonmedis/page_print', $data);
@@ -282,12 +283,12 @@ class PenerimaanNonMedisController extends BaseController
     public function page_qr($id)
     {
         $penerimaan_nonmedis_mod = new PenerimaanNonMedisModel();
-        $penerimaan_inv_det_mod = new PenerimaanInventarisDetailModel();
+        $penerimaan_nonmedis_det_mod = new PenerimaanNonMedisDetailModel();
         $inv_mod = new InventarisModel();
 
         // Ambil data inventaris_pemesanan
         $data_penerimaan = $penerimaan_nonmedis_mod->getDataById($id);
-        $data_detail_penerimaan = $penerimaan_inv_det_mod->detailData($id);
+        $data_detail_penerimaan = $penerimaan_nonmedis_det_mod->detailData($id);
 
         // Mendapatkan tanggal faktur
         foreach ($data_penerimaan as $dt_penerimaan) {
@@ -391,12 +392,12 @@ class PenerimaanNonMedisController extends BaseController
     public function print_qr($id)
     {
         $penerimaan_nonmedis_mod = new PenerimaanNonMedisModel();
-        $penerimaan_inv_det_mod = new PenerimaanInventarisDetailModel();
+        $penerimaan_nonmedis_det_mod = new PenerimaanNonMedisDetailModel();
         $inv_mod = new InventarisModel();
 
         // Ambil data inventaris_pemesanan
         $data_penerimaan = $penerimaan_nonmedis_mod->getDataById($id);
-        $data_detail_penerimaan = $penerimaan_inv_det_mod->detailData($id);
+        $data_detail_penerimaan = $penerimaan_nonmedis_det_mod->detailData($id);
 
         // Mendapatkan tanggal faktur
         foreach ($data_penerimaan as $dt_penerimaan) {
