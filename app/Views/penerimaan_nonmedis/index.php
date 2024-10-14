@@ -57,17 +57,17 @@
                             </thead>
                             <tbody class="table-border-bottom text-nowrap">
                                 <?php $i = 1;
-                                foreach ($penerimaan_inv_con as $dt_penerimaan_inventaris) { ?>
+                                foreach ($penerimaan_nonmedis_con as $dt_penerimaan_nonmedis) { ?>
                                     <tr>
                                         <td><?= $i++; ?></td>
-                                        <td><?= $dt_penerimaan_inventaris['no_faktur']; ?></td>
-                                        <td><?= $dt_penerimaan_inventaris['no_order']; ?></td>
-                                        <td><?= $dt_penerimaan_inventaris['tgl_faktur']; ?></td>
-                                        <td><?= $dt_penerimaan_inventaris['nama_suplier']; ?></td>
-                                        <td><?= $dt_penerimaan_inventaris['nama']; ?></td>
-                                        <td>Rp <?= number_format($dt_penerimaan_inventaris['tagihan'], 0, ',', '.') ?></td>
+                                        <td><?= $dt_penerimaan_nonmedis['no_faktur']; ?></td>
+                                        <td><?= $dt_penerimaan_nonmedis['no_order']; ?></td>
+                                        <td><?= $dt_penerimaan_nonmedis['tgl_faktur']; ?></td>
+                                        <td><?= $dt_penerimaan_nonmedis['nama_suplier']; ?></td>
+                                        <td><?= $dt_penerimaan_nonmedis['nama']; ?></td>
+                                        <td>Rp <?= number_format($dt_penerimaan_nonmedis['tagihan'], 0, ',', '.') ?></td>
                                         <td class="text-center">
-                                            <a href="<?= base_url('/penerimaan_inventaris/print/' . $dt_penerimaan_inventaris['no_faktur']); ?>" target="_blank">
+                                            <a href="<?= base_url('/penerimaan_inventaris/print/' . $dt_penerimaan_nonmedis['no_faktur']); ?>" target="_blank">
                                                 <button type="button" class="btn btn-icon btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Print">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-printer">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -77,7 +77,7 @@
                                                     </svg>
                                                 </button>
                                             </a>
-                                            <a href="<?= base_url('penerimaan_inventaris/page_qr/' . $dt_penerimaan_inventaris['no_faktur']) ?>">
+                                            <a href="<?= base_url('penerimaan_inventaris/page_qr/' . $dt_penerimaan_nonmedis['no_faktur']) ?>">
                                                 <button type="button" class="btn btn-icon btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="QR">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-qrcode">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -96,7 +96,7 @@
                                                     </svg>
                                                 </button>
                                             </a>
-                                            <span data-bs-toggle="modal" data-bs-target="#detail_penerimaan_inventaris<?= $dt_penerimaan_inventaris['no_faktur']; ?>">
+                                            <span data-bs-toggle="modal" data-bs-target="#detail_penerimaan_inventaris<?= $dt_penerimaan_nonmedis['no_faktur']; ?>">
                                                 <button type="button" class="btn btn-icon btn-blue btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -107,7 +107,7 @@
                                                 </button>
                                             </span>
 
-                                            <span data-bs-toggle="modal" data-bs-target="#delete_penerimaan_inventaris<?= $dt_penerimaan_inventaris['no_faktur']; ?>">
+                                            <span data-bs-toggle="modal" data-bs-target="#delete_penerimaan_inventaris<?= $dt_penerimaan_nonmedis['no_faktur']; ?>">
                                                 <button type="button" class="btn btn-icon btn-red btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />

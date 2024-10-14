@@ -1,0 +1,232 @@
+INFO - 2024-10-14 01:11:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:12:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:12:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:12:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:12:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:12:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-14 01:12:29 --> Detail fetched: [{"no_faktur":"ADI123","kode_brng":"B00002","kode_sat":"AMP","jumlah":"4","harga":"11100","subtotal":"44400","dis":"0","besardis":"0","total":"44400","nama_brng":"TES2","jenis":"J01","stok":"48","status":"1","kd_jenis":"J01","nm_jenis":"IPSRS"}]
+INFO - 2024-10-14 01:18:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:18:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:18:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:19:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:19:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:19:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:19:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:19:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:19:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:19:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:20:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:20:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:20:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:20:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:20:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-14 01:20:26 --> Detail fetched: [{"no_pengajuan":"PNM234","kode_brng":"B00001","kode_sat":"AMP","jumlah":"4","h_pengajuan":"12210","total":"48840"},{"no_pengajuan":"PNM234","kode_brng":"B00004","kode_sat":"BTL","jumlah":"1","h_pengajuan":"20329.65","total":"20329.65"}]
+INFO - 2024-10-14 01:20:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:20:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:20:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:20:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:20:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:20:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:20:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:20:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:24:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:24:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:24:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:24:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:24:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:24:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:24:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:24:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:24:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:25:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:25:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:25:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:25:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:25:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-14 01:25:38 --> Detail fetched: [{"no_pengajuan":"pbnm123`","kode_brng":"B00006","kode_sat":"PCS","jumlah":"10","h_pengajuan":"23409.9","total":"234099"},{"no_pengajuan":"pbnm123`","kode_brng":"B00004","kode_sat":"BTL","jumlah":"1","h_pengajuan":"20329.65","total":"20329.65"}]
+INFO - 2024-10-14 01:25:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:25:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 01:25:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 03:05:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 03:08:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 03:09:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 03:18:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 03:21:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-14 03:23:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-14 03:23:51 --> mysqli_sql_exception: Table 'sik.iprspemesanan' doesn't exist in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `iprspem...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `iprspem...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `iprspem...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `iprspem...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PenerimaanNonMedisModel.php(28): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PenerimaanNonMedisController.php(44): App\Models\PenerimaanNonMedisModel->getData()
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->index()
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-14 03:23:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'sik.iprspemesanan' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `iprspemesanan`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.*
+FROM `iprspemesanan`
+JOIN `petugas` ON `iprspemesanan`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `iprspemesanan`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PenerimaanNonMedisModel.php(28): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PenerimaanNonMedisController.php(44): App\Models\PenerimaanNonMedisModel->getData()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-14 03:23:51 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'sik.iprspemesanan' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `iprspemesanan`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.*
+FROM `iprspemesanan`
+JOIN `petugas` ON `iprspemesanan`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `iprspemesanan`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `iprspemesanan`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.*
+FROM `iprspemesanan`
+JOIN `petugas` ON `iprspemesanan`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `iprspemesanan`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `iprspemesanan`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.*
+FROM `iprspemesanan`
+JOIN `petugas` ON `iprspemesanan`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `iprspemesanan`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PenerimaanNonMedisModel.php(28): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PenerimaanNonMedisController.php(44): App\Models\PenerimaanNonMedisModel->getData()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-14 03:23:51 --> [Caused by] mysqli_sql_exception: Table 'sik.iprspemesanan' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `iprspemesanan`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.*
+FROM `iprspemesanan`
+JOIN `petugas` ON `iprspemesanan`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `iprspemesanan`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `iprspemesanan`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.*
+FROM `iprspemesanan`
+JOIN `petugas` ON `iprspemesanan`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `iprspemesanan`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `iprspemesanan`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.*
+FROM `iprspemesanan`
+JOIN `petugas` ON `iprspemesanan`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `iprspemesanan`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `iprspemesanan`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.*
+FROM `iprspemesanan`
+JOIN `petugas` ON `iprspemesanan`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `iprspemesanan`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PenerimaanNonMedisModel.php(28): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PenerimaanNonMedisController.php(44): App\Models\PenerimaanNonMedisModel->getData()
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->index()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-14 03:24:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-14 03:24:21 --> mysqli_sql_exception: Unknown table 'rekening' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrspe...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrspe...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrspe...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspe...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PenerimaanNonMedisModel.php(28): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PenerimaanNonMedisController.php(44): App\Models\PenerimaanNonMedisModel->getData()
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->index()
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-14 03:24:21 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'rekening'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspemesanan`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.*
+FROM `ipsrspemesanan`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `ipsrspemesanan`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PenerimaanNonMedisModel.php(28): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PenerimaanNonMedisController.php(44): App\Models\PenerimaanNonMedisModel->getData()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-14 03:24:21 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'rekening'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrspemesanan`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.*
+FROM `ipsrspemesanan`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `ipsrspemesanan`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrspemesanan`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.*
+FROM `ipsrspemesanan`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `ipsrspemesanan`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspemesanan`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.*
+FROM `ipsrspemesanan`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `ipsrspemesanan`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PenerimaanNonMedisModel.php(28): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PenerimaanNonMedisController.php(44): App\Models\PenerimaanNonMedisModel->getData()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-14 03:24:21 --> [Caused by] mysqli_sql_exception: Unknown table 'rekening'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrspemesanan`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.*
+FROM `ipsrspemesanan`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `ipsrspemesanan`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrspemesanan`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.*
+FROM `ipsrspemesanan`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `ipsrspemesanan`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrspemesanan`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.*
+FROM `ipsrspemesanan`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `ipsrspemesanan`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspemesanan`.*, `petugas`.*, `inventaris_suplier`.*, `rekening`.*
+FROM `ipsrspemesanan`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`
+JOIN `inventaris_suplier` ON `ipsrspemesanan`.`kode_suplier` = `inventaris_suplier`.`kode_suplier`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PenerimaanNonMedisModel.php(28): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PenerimaanNonMedisController.php(44): App\Models\PenerimaanNonMedisModel->getData()
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->index()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-14 03:24:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-14 03:24:38 --> ErrorException: Undefined variable $penerimaan_inv_con
+in APPPATH\Views\penerimaan_nonmedis\index.php on line 60.
+ 1 APPPATH\Views\penerimaan_nonmedis\index.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $penerimaan_inv_con', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\penerimaan_nonmedis\\index.php', 60)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\penerimaan_nonmedis\\index.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('penerimaan_nonmedis/index', [], true)
+ 5 APPPATH\Controllers\PenerimaanNonMedisController.php(56): view('penerimaan_nonmedis/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-14 03:25:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

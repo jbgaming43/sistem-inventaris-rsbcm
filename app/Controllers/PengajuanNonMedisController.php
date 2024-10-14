@@ -85,9 +85,6 @@ class PengajuanNonMedisController extends BaseController
         // Insert semua data secara batch
         $pen_nonmedis_det_mod->insertBatch($dataDetails);
 
-
-
-
         session()->setFlashdata('success', 'ditambahkan');
         return redirect()->to('/pengajuan_non_medis');
     }

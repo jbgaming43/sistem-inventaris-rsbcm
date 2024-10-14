@@ -8,8 +8,8 @@ use App\Models\RekeningModel;
 use App\Models\RuangModel;
 use App\Models\SuplierModel;
 use CodeIgniter\Controller;
-use App\Models\PenerimaanInventarisModel;
-use App\Models\PembelianInventarisModel;
+use App\Models\PenerimaanNonMedisModel;
+use App\Models\PembelianNonMedisModel;
 use App\Models\PembelianInventarisDetailModel;
 use App\Models\PenerimaanInventarisDetailModel;
 use App\Models\GaransiModel;
@@ -25,8 +25,8 @@ class PenerimaanNonMedisController extends BaseController
     public function index()
     {
         // objek PenggunaModel
-        $penerimaan_nonmedis_mod = new PenerimaanInventarisModel();
-        $pembelian_nonmedis_mod = new PembelianInventarisModel();
+        $penerimaan_nonmedis_mod = new PenerimaanNonMedisModel();
+        $pembelian_nonmedis_mod = new PembelianNonMedisModel();
         $inv_mod = new InventarisModel();
         $ruang_mod = new RuangModel();
 
@@ -41,8 +41,8 @@ class PenerimaanNonMedisController extends BaseController
             'active_menu' => 'non_medis',
             'active_submenu' => 'penerimaan_non_medis',
 
-            'penerimaan_inv_con' => $penerimaan_nonmedis_mod->getData(),
-            'pembelian_inv_con' => $pembelian_nonmedis_mod->getData(),
+            'penerimaan_nonmedis_con' => $penerimaan_nonmedis_mod->getData(),
+            'pembelian_nonmedis_con' => $pembelian_nonmedis_mod->getData(),
             'ptgc' => $ptgm->getData(),
             'supc' => $supm->getData(),
             'akbc' => $akbm->getData(),
@@ -72,7 +72,7 @@ class PenerimaanNonMedisController extends BaseController
     public function add()
     {
         // Inisialisasi model
-        $penerimaan_nonmedis_mod = new PenerimaanInventarisModel();
+        $penerimaan_nonmedis_mod = new PenerimaanNonMedisModel();
         $pem_inv_det_mod = new PenerimaanInventarisDetailModel();
         $inv_mod = new InventarisModel();
 
@@ -214,7 +214,7 @@ class PenerimaanNonMedisController extends BaseController
 
     public function delete($id)
     {
-        $penerimaan_nonmedis_mod = new PenerimaanInventarisModel();
+        $penerimaan_nonmedis_mod = new PenerimaanNonMedisModel();
 
         $penerimaan_nonmedis_mod->deleteData($id);
 
@@ -224,7 +224,7 @@ class PenerimaanNonMedisController extends BaseController
 
     public function print($id)
     {
-        $penerimaan_nonmedis_mod = new PenerimaanInventarisModel();
+        $penerimaan_nonmedis_mod = new PenerimaanNonMedisModel();
         $penerimaan_inv_det_mod = new PenerimaanInventarisDetailModel();
 
         $data = [
@@ -237,7 +237,7 @@ class PenerimaanNonMedisController extends BaseController
 
     public function getFaktur()
     {
-        $pembelian_nonmedis_mod = new PembelianInventarisModel();
+        $pembelian_nonmedis_mod = new PembelianNonMedisModel();
         $no_faktur = $this->request->getGet('no_faktur');
         if ($no_faktur) {
             $faktur = $pembelian_nonmedis_mod->getDataById($no_faktur);
@@ -281,7 +281,7 @@ class PenerimaanNonMedisController extends BaseController
 
     public function page_qr($id)
     {
-        $penerimaan_nonmedis_mod = new PenerimaanInventarisModel();
+        $penerimaan_nonmedis_mod = new PenerimaanNonMedisModel();
         $penerimaan_inv_det_mod = new PenerimaanInventarisDetailModel();
         $inv_mod = new InventarisModel();
 
@@ -390,7 +390,7 @@ class PenerimaanNonMedisController extends BaseController
 
     public function print_qr($id)
     {
-        $penerimaan_nonmedis_mod = new PenerimaanInventarisModel();
+        $penerimaan_nonmedis_mod = new PenerimaanNonMedisModel();
         $penerimaan_inv_det_mod = new PenerimaanInventarisDetailModel();
         $inv_mod = new InventarisModel();
 
