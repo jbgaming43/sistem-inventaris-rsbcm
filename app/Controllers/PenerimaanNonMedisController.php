@@ -10,7 +10,7 @@ use App\Models\SuplierModel;
 use CodeIgniter\Controller;
 use App\Models\PenerimaanNonMedisModel;
 use App\Models\PembelianNonMedisModel;
-use App\Models\PembelianInventarisDetailModel;
+use App\Models\PembelianNonMedisDetailModel;
 use App\Models\PenerimaanInventarisDetailModel;
 use App\Models\GaransiModel;
 use App\Models\PetugasModel;
@@ -58,8 +58,8 @@ class PenerimaanNonMedisController extends BaseController
 
     public function detail($no_faktur)
     {
-        $pem_inv_det_mod = new PembelianInventarisDetailModel();
-        $detail = $pem_inv_det_mod->detailData($no_faktur);
+        $pembelian_nonmedis_det_mod = new PembelianNonMedisDetailModel();
+        $detail = $pembelian_nonmedis_det_mod->detailData($no_faktur);
 
         if ($detail) {
             // Kirim data dalam format JSON
@@ -73,7 +73,7 @@ class PenerimaanNonMedisController extends BaseController
     {
         // Inisialisasi model
         $penerimaan_nonmedis_mod = new PenerimaanNonMedisModel();
-        $pem_inv_det_mod = new PenerimaanInventarisDetailModel();
+        $penerimaan_nonmedis_det_mod = new PenerimaanInventarisDetailModel();
         $inv_mod = new InventarisModel();
 
         // Ambil data dari form
@@ -204,7 +204,7 @@ class PenerimaanNonMedisController extends BaseController
                 'total' => $total
             ];
 
-            $pem_inv_det_mod->insert($dataDetail);
+            $penerimaan_nonmedis_det_mod->insert($dataDetail);
         }
 
 

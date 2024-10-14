@@ -30,7 +30,7 @@
                                 </svg>
                                 Ruang
                             </button>
-                            <button type="button" class="btn btn-green" data-bs-toggle="modal" data-bs-target="#add_penerimaan_inventaris">
+                            <button type="button" class="btn btn-green" data-bs-toggle="modal" data-bs-target="#add_penerimaan_nonmedis">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -130,5 +130,7 @@
         </div>
     </div>
 </div>
+
+<?= $this->include('penerimaan_nonmedis/modal_add') ?>
 
 <?= $this->endSection() ?>
