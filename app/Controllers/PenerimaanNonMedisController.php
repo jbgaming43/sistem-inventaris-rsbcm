@@ -220,7 +220,7 @@ class PenerimaanNonMedisController extends BaseController
         $penerimaan_nonmedis_mod->deleteData($id);
 
         session()->setFlashdata('success', 'dihapus');
-        return redirect()->to('/penerimaan_nonmedis');
+        return redirect()->to('/penerimaan_non_medis');
     }
 
     public function print($id)

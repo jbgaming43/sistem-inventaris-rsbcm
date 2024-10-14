@@ -12,7 +12,7 @@
                     <div class="card-header">
                         <!-- <h3 class="card-title">Card with action</h3> -->
                         <div class="card-actions">
-                            <button type="button" class="btn btn-red" data-bs-toggle="modal" data-bs-target="#add_garansi_penerimaan_inventaris">
+                            <button type="button" class="btn btn-red" data-bs-toggle="modal" data-bs-target="#add_garansi_penerimaan_nonmedis">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -21,7 +21,7 @@
                                 </svg>
                                 Garansi
                             </button>
-                            <button type="button" class="btn btn-blue" data-bs-toggle="modal" data-bs-target="#add_ruang_penerimaan_inventaris">
+                            <button type="button" class="btn btn-blue" data-bs-toggle="modal" data-bs-target="#add_ruang_penerimaan_nonmedis">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -67,7 +67,7 @@
                                         <td><?= $dt_penerimaan_nonmedis['nama']; ?></td>
                                         <td>Rp <?= number_format($dt_penerimaan_nonmedis['tagihan'], 0, ',', '.') ?></td>
                                         <td class="text-center">
-                                            <a href="<?= base_url('/penerimaan_inventaris/print/' . $dt_penerimaan_nonmedis['no_faktur']); ?>" target="_blank">
+                                            <a href="<?= base_url('/penerimaan_nonmedis/print/' . $dt_penerimaan_nonmedis['no_faktur']); ?>" target="_blank">
                                                 <button type="button" class="btn btn-icon btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Print">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-printer">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -77,7 +77,7 @@
                                                     </svg>
                                                 </button>
                                             </a>
-                                            <a href="<?= base_url('penerimaan_inventaris/page_qr/' . $dt_penerimaan_nonmedis['no_faktur']) ?>">
+                                            <a href="<?= base_url('penerimaan_nonmedis/page_qr/' . $dt_penerimaan_nonmedis['no_faktur']) ?>">
                                                 <button type="button" class="btn btn-icon btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="QR">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-qrcode">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -96,7 +96,7 @@
                                                     </svg>
                                                 </button>
                                             </a>
-                                            <span data-bs-toggle="modal" data-bs-target="#detail_penerimaan_inventaris<?= $dt_penerimaan_nonmedis['no_faktur']; ?>">
+                                            <span data-bs-toggle="modal" data-bs-target="#detail_penerimaan_nonmedis<?= $dt_penerimaan_nonmedis['no_faktur']; ?>">
                                                 <button type="button" class="btn btn-icon btn-blue btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -107,7 +107,7 @@
                                                 </button>
                                             </span>
 
-                                            <span data-bs-toggle="modal" data-bs-target="#delete_penerimaan_inventaris<?= $dt_penerimaan_nonmedis['no_faktur']; ?>">
+                                            <span data-bs-toggle="modal" data-bs-target="#delete_penerimaan_nonmedis<?= $dt_penerimaan_nonmedis['no_faktur']; ?>">
                                                 <button type="button" class="btn btn-icon btn-red btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -132,5 +132,6 @@
 </div>
 
 <?= $this->include('penerimaan_nonmedis/modal_add') ?>
+<?= $this->include('penerimaan_nonmedis/modal_delete') ?>
 
 <?= $this->endSection() ?>
