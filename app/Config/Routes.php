@@ -19,6 +19,9 @@ $routes->post('/pengguna/checkUsername', 'PenggunaController::checkUsername');
 $routes->post('/pengguna/edit/(:num)', 'PenggunaController::edit/$1');
 $routes->post('/pengguna/delete/(:num)', 'PenggunaController::delete/$1');
 
+/***
+ * ROUTES UNTUK INVENTARIS */
+
 // Routes untuk mengelola data PENGAJUAN INVENTARIS
 $routes->get('/pengajuan_inventaris', 'PengajuanInventarisController::index');
 $routes->post('/pengajuan_inventaris/add', 'PengajuanInventarisController::add');
@@ -58,6 +61,9 @@ $routes->get('/penerimaan_inventaris/generate-qr', 'PenerimaanInventarisControll
 $routes->get('/pembayaran_inventaris', 'PembayaranInventarisController::index');
 $routes->post('/pembayaran_inventaris/add', 'PembayaranInventarisController::add');
 $routes->get('/pembayaran_inventaris/delete/(:any)', 'PembayaranInventarisController::delete/$1');
+
+/***
+ * ROUTES UNTUK NON MEDIS */
 
 // Routes untuk mengelola data PENGAJUAN NON MEDIS
 $routes->get('/pengajuan_non_medis', 'PengajuanNonMedisController::index');

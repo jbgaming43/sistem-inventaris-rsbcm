@@ -11,14 +11,14 @@ class PenggunaController extends BaseController
     public function index()
     {
         // objek PenggunaModel
-        $pm = new PenggunaModel();
+        $pengguna_mod = new PenggunaModel();
 
         $data = [
             'title' => 'Data Pengguna',
             'active_menu' => 'master',
             'active_submenu' => 'pengguna',
 
-            'pc' => $pm->getData()
+            'pengguna_con' => $pengguna_mod->getData()
         ];
 
         return view('pengguna/index', $data);
@@ -27,7 +27,7 @@ class PenggunaController extends BaseController
     public function add()
     {
         // objek PenggunaModel
-        $pm = new PenggunaModel();
+        $pengguna_mod = new PenggunaModel();
 
         // Upload file
         $profile_image = $this->request->getFile('profile_image');
@@ -52,7 +52,7 @@ class PenggunaController extends BaseController
             'created_at' => date('Y-m-d H:i:s'),
         ];
 
-        $pm->insertData($data);
+        $pengguna_mod->insertData($data);
 
         session()->setFlashdata('success', 'ditambahkan');
         return redirect()->to('/pengguna');
@@ -61,10 +61,10 @@ class PenggunaController extends BaseController
     public function checkUsername()
     {
         $username = $this->request->getPost('username');
-        $pm = new PenggunaModel();
+        $pengguna_mod = new PenggunaModel();
 
         // mendapatkan username dalam database
-        $result = $pm->where('username', $username)->first();
+        $result = $pengguna_mod->where('username', $username)->first();
 
         if ($result) {
             // Username sudah digunakan
@@ -77,7 +77,7 @@ class PenggunaController extends BaseController
 
     public function edit($id)
     {
-        $pm = new PenggunaModel();
+        $pengguna_mod = new PenggunaModel();
 
         $data = [
             'nama_pengguna' => $this->request->getPost('nama_pengguna'),
@@ -97,7 +97,7 @@ class PenggunaController extends BaseController
             $profile_image->move(ROOTPATH . 'public/assets/avatars', $newName);
 
             // Hapus gambar lama jika ada
-            $pengguna = $pm->find($id);
+            $pengguna = $pengguna_mod->find($id);
             $oldImage = $pengguna['profile_image'];
             if ($oldImage !== 'default.jpg' && file_exists(ROOTPATH . 'public/assets/avatars/' . $oldImage)) {
                 unlink(ROOTPATH . 'public/assets/avatars/' . $oldImage);
@@ -107,7 +107,7 @@ class PenggunaController extends BaseController
             $data['profile_image'] = $newName;
         }
 
-        $pm->updateData($id, $data);
+        $pengguna_mod->updateData($id, $data);
 
         session()->setFlashdata('success', 'diedit');
         return redirect()->to('/pengguna');
@@ -115,10 +115,10 @@ class PenggunaController extends BaseController
 
     public function delete($id)
     {
-        $pm = new PenggunaModel();
+        $pengguna_mod = new PenggunaModel();
 
         // Dapatkan data pengguna yang akan dihapus
-        $pengguna = $pm->find($id);
+        $pengguna = $pengguna_mod->find($id);
 
         if ($pengguna['id'] == session()->get('id')) {
             session()->setFlashdata('error', 'tidak bisa menghapus akun sendiri');
@@ -132,7 +132,7 @@ class PenggunaController extends BaseController
                 }
             }
 
-            $pm->deleteData($id);
+            $pengguna_mod->deleteData($id);
 
             session()->setFlashdata('success', 'dihapus');
             return redirect()->to('/pengguna');

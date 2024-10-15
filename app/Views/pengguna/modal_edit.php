@@ -1,4 +1,4 @@
-<?php foreach ($pc as $dt_pengguna) { ?>
+<?php foreach ($pengguna_con as $dt_pengguna) { ?>
     <div class="modal modal-blur fade" id="edit_pengguna<?= $dt_pengguna['id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">

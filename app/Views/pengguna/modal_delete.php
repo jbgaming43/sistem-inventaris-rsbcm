@@ -1,4 +1,4 @@
-<?php foreach ($pc as $dt_pengguna) { ?>
+<?php foreach ($pengguna_con as $dt_pengguna) { ?>
     <div class="modal modal-blur fade" id="delete_pengguna<?= $dt_pengguna['id']; ?>" tabindex="-1" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
             <div class="modal-content">

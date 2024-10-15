@@ -39,7 +39,7 @@
                             </thead>
                             <tbody class="table-border-bottom">
                                 <?php $i = 1;
-                                foreach ($pc as $dt_pengguna) { ?>
+                                foreach ($pengguna_con as $dt_pengguna) { ?>
                                     <tr>
                                         <td><?= $i++; ?></td>
                                         <td><span class="avatar avatar-sm" style="background-image: url(<?= base_url('assets/avatars/') . $dt_pengguna['profile_image']; ?>)"></span></td>
