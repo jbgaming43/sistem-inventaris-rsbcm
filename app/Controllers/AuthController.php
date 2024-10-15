@@ -33,11 +33,11 @@ class AuthController extends Controller
                     'validation' => $this->validator
                 ]);
             } else {
-                $pm = new PenggunaModel();
+                $pengguna_mod = new PenggunaModel();
                 $username = $this->request->getPost('username');
                 $password = $this->request->getPost('password');
 
-                $user = $pm->where('username', $username)->first();
+                $user = $pengguna_mod->where('username', $username)->first();
 
                 if ($user) {
                     if (password_verify($password, $user['password'])) {
