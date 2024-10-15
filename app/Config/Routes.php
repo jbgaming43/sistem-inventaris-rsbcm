@@ -95,8 +95,3 @@ $routes->get('/penerimaan_non_medis/detail/(:any)', 'PenerimaanNonMedisControlle
 $routes->get('/penerimaan_non_medis/print/(:any)', 'PenerimaanNonMedisController::print/$1');
 $routes->get('/penerimaan_non_medis/pilih_no_faktur', 'PenerimaanNonMedisController::getFaktur');
 $routes->get('/penerimaan_non_medis/info/(:any)', 'PenerimaanNonMedisController::info/$1');
-$routes->get('/penerimaan_non_medis/page_qr/(:any)', 'PenerimaanNonMedisController::page_qr/$1');
-$routes->post('/penerimaan_non_medis/add_ruang', 'PenerimaanNonMedisController::add_ruang');
-$routes->post('/penerimaan_non_medis/add_garansi', 'PenerimaanNonMedisController::add_garansi');
-$routes->get('/penerimaan_non_medis/print_qr/(:any)', 'PenerimaanNonMedisController::print_qr/$1');
-$routes->get('/penerimaan_non_medis/generate-qr', 'PenerimaanNonMedisController::generateQR');
