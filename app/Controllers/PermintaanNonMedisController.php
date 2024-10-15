@@ -78,7 +78,7 @@ class PermintaanNonMedisController extends BaseController
                 'kode_sat' => $kode_sat[$i],
                 'jumlah' => $jumlah[$i],
                 'h_pengajuan' => $h_pengajuan[$i],
-                'total' => $jumlah[$i]*$h_pengajuan[$i],
+                'total' => $jumlah[$i] * $h_pengajuan[$i],
             ];
         }
 
@@ -93,14 +93,14 @@ class PermintaanNonMedisController extends BaseController
     {
         $pen_nonmedis_det_mod = new PengajuanBarangNonMedisDetailModel();
         $detail = $pen_nonmedis_det_mod->detailData($id);
-        
-         // Debug output
+
+        // Debug output
         log_message('debug', 'Detail fetched: ' . json_encode($detail)); // Log detail untuk debug
 
         if (empty($detail)) {
             return $this->response->setJSON(['error' => 'Data tidak ditemukan']);
         }
-    
+
         return $this->response->setJSON($detail);
     }
 
@@ -167,7 +167,6 @@ class PermintaanNonMedisController extends BaseController
             'pen_nonmedis_det_con' => $pen_nonmedis_det_mod->detailData($id),
         ];
 
-        return view('pengajuan_nonmedis/page_print',$data);
-
+        return view('pengajuan_nonmedis/page_print', $data);
     }
 }
