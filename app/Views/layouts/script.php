@@ -277,7 +277,7 @@
 <!-- SCRIPT SELECT2 -->
 <script>
     $(document).ready(function() {
-        $('.select2-pegawai').select2({
+        $('.select2-pegawai-add-inv').select2({
             dropdownParent: $('#add_pengajuan_inventaris')
         });
     });
@@ -289,6 +289,11 @@
     $(document).ready(function() {
         $('.select2-pegawai').select2({
             dropdownParent: $('#add_pengajuan_nonmedis')
+        });
+    });
+    $(document).ready(function() {
+        $('.select2-pegawai-add-min-nm').select2({
+            dropdownParent: $('#add_permintaan_nonmedis')
         });
     });
     $(document).ready(function() {
@@ -304,6 +309,11 @@
     $(document).ready(function() {
         $('.select2-barangnonmedis').select2({
             dropdownParent: $('#add_pengajuan_nonmedis')
+        });
+    });
+    $(document).ready(function() {
+        $('.select2-barangnonmedis-perm').select2({
+            dropdownParent: $('#add_permintaan_nonmedis')
         });
     });
     $(document).ready(function() {

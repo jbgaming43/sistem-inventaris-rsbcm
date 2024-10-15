@@ -28,7 +28,7 @@
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Diajukan Oleh</label>
                         <div class="col">
-                            <select class="form-select select2-pegawai" name="nik" style="width: 100%">
+                            <select class="form-select select2-pegawai-add-min-nm" name="nik" style="width: 100%">
                                 <option value="">- Pilih Nama -</option>
                                 <?php foreach ($pgwc as $dt_pegawai) : ?>
                                     <option value="<?= $dt_pegawai['nik'] ?>"> <?= $dt_pegawai['nik'] ?>-<?= $dt_pegawai['nama'] ?></option>
@@ -54,7 +54,7 @@
                                 <tbody id="table-body">
                                     <tr>
                                         <td><input type="text" id="kode_brng_0" name="kode_brng[]" class="form-control" readonly></td>
-                                        <td><select id="select_barangnonmedis_0" class="form-select select2-barangnonmedis" style="width: 100%" onchange="fetchBarangNonMedisDetails(this.value, 0)">
+                                        <td><select id="select_barangnonmedis_perm_0" class="form-select select2-barangnonmedis-perm" style="width: 100%" onchange="fetchBarangNonMedisDetails(this.value, 0)">
                                                 <option value="">- Pilih Nama -</option>
                                                 <?php foreach ($ipsrsbarang_con as $dt_barangnonmedis) : ?>
                                                     <option value="<?= $dt_barangnonmedis['kode_brng'] ?>"><?= $dt_barangnonmedis['nama_brng'] ?></option>
@@ -105,7 +105,7 @@
         newRow.innerHTML = `
         <td><input type="text" id="kode_brng_${rowIndex}" name="kode_brng[]" class="form-control" readonly></td>
         <td>
-            <select id="select_barangnonmedis_${rowIndex}" class="form-select select2-barangnonmedis" style="width: 100%" onchange="fetchBarangNonMedisDetails(this.value, ${rowIndex})">
+            <select id="select_barangnonmedis_perm_${rowIndex}" class="form-select select2-barangnonmedis-perm" style="width: 100%" onchange="fetchBarangNonMedisDetails(this.value, ${rowIndex})">
                 <option value="">- Pilih Nama -</option>
                 <?php foreach ($ipsrsbarang_con as $dt_barangnonmedis) : ?>
                     <option value="<?= $dt_barangnonmedis['kode_brng'] ?>"><?= $dt_barangnonmedis['nama_brng'] ?></option>
@@ -134,8 +134,8 @@
     `;
         tableBody.appendChild(newRow);
         // Inisialisasi Select2 pada elemen baru
-        $('#select_barangnonmedis_' + rowIndex).select2({
-            dropdownParent: $('#add_pengajuan_nonmedis')
+        $('#select_barangnonmedis_perm_' + rowIndex).select2({
+            dropdownParent: $('#add_permintaan_nonmedis')
         });
 
         setupEventListenersNonMedis(rowIndex); // Setup event listeners for new row
