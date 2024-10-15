@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+<<<<<<< HEAD
 use App\Models\PermintaanModel;
 use App\Helpers\AuthHelper;
 
@@ -22,10 +23,40 @@ class PermintaanController extends BaseController
         ];
 
         return view('pengguna/index', $data);
+=======
+use App\Models\PermintaanBarangNonMedisModel;
+use App\Models\PengajuanBarangNonMedisDetailModel;
+use App\Models\PegawaiModel;
+use App\Models\IpsrsBarangModel;
+use App\Helpers\AuthHelper;
+
+class PermintaanNonMedisController extends BaseController
+{
+    public function index()
+    {
+        // objek PenggunaModel
+        $per_barang__nonmedis_mod = new PermintaanBarangNonMedisModel();
+        $pgwm = new PegawaiModel();
+        $ipsrsbarang_mod = new IpsrsBarangModel();
+
+        $data = [
+            'title' => 'Data Permintaan Non Medis',
+            'active_menu' => 'non_medis',
+            'active_submenu' => 'pengajuan_nonmedis',
+
+            'pbnc' => $per_barang__nonmedis_mod->getData(),
+            'pgwc' => $pgwm->getData(),
+            'ipsrsbarang_con' => $ipsrsbarang_mod->getData()
+        ];
+
+
+        return view('pengajuan_nonmedis/index', $data);
+>>>>>>> cff7a0c49970e82d7e0d7dbad671a683348960cf
     }
 
     public function add()
     {
+<<<<<<< HEAD
         // objek PermintaanModel
         $pengguna_mod = new PermintaanModel();
 
@@ -65,10 +96,81 @@ class PermintaanController extends BaseController
 
         session()->setFlashdata('success', 'diedit');
         return redirect()->to('/pengguna');
+=======
+        // objek PenggunaModel
+        $pen_nonmedis_mod = new PengajuanBarangNonMedisModel();
+        $pen_nonmedis_det_mod = new PengajuanBarangNonMedisDetailModel();
+
+        $no_pengajuan = $this->request->getPost('no_pengajuan');
+        $tanggal = $this->request->getPost('tanggal');
+        $nik = $this->request->getPost('nik');
+        $keterangan = $this->request->getPost('keterangan');
+
+        // Ambil data tabel barang yang diinputkan dalam bentuk array
+        $kode_brng = $this->request->getPost('kode_brng');
+        $kode_sat = $this->request->getPost('kode_sat');
+        $jumlah = $this->request->getPost('jumlah');
+        $h_pengajuan = $this->request->getPost('harga');
+
+        // Cek apakah semua input adalah array
+        if (!is_array($kode_brng) || !is_array($kode_sat) || !is_array($jumlah) || !is_array($h_pengajuan)) {
+            return redirect()->back()->with('error', 'Data input tidak valid.');
+        }
+
+        // Cek apakah panjang semua array sama
+        $arrayCount = min(count($kode_brng), count($kode_sat), count($jumlah), count($h_pengajuan));
+        if ($arrayCount === 0) {
+            return redirect()->back()->with('error', 'Tidak ada data yang valid untuk disimpan.');
+        }
+
+        $data = [
+            'no_pengajuan' => $no_pengajuan,
+            'nip' => $nik,
+            'tanggal' => $tanggal,
+            'status' => 'Proses Pengajuan',
+            'keterangan' => $keterangan,
+        ];
+
+        $pen_nonmedis_mod->insertData($data);
+        $dataDetails = [];
+
+        for ($i = 0; $i < count($kode_brng); $i++) {
+            $dataDetails[] = [
+                'no_pengajuan' => $no_pengajuan,
+                'kode_brng' => $kode_brng[$i],
+                'kode_sat' => $kode_sat[$i],
+                'jumlah' => $jumlah[$i],
+                'h_pengajuan' => $h_pengajuan[$i],
+                'total' => $jumlah[$i]*$h_pengajuan[$i],
+            ];
+        }
+
+        // Insert semua data secara batch
+        $pen_nonmedis_det_mod->insertBatch($dataDetails);
+
+        session()->setFlashdata('success', 'ditambahkan');
+        return redirect()->to('/pengajuan_non_medis');
+    }
+
+    public function detail($id)
+    {
+        $pen_nonmedis_det_mod = new PengajuanBarangNonMedisDetailModel();
+        $detail = $pen_nonmedis_det_mod->detailData($id);
+        
+         // Debug output
+        log_message('debug', 'Detail fetched: ' . json_encode($detail)); // Log detail untuk debug
+
+        if (empty($detail)) {
+            return $this->response->setJSON(['error' => 'Data tidak ditemukan']);
+        }
+    
+        return $this->response->setJSON($detail);
+>>>>>>> cff7a0c49970e82d7e0d7dbad671a683348960cf
     }
 
     public function delete($id)
     {
+<<<<<<< HEAD
         $pengguna_mod = new PermintaanModel();
 
         // Dapatkan data pengguna yang akan dihapus
@@ -78,5 +180,70 @@ class PermintaanController extends BaseController
 
         session()->setFlashdata('success', 'dihapus');
         return redirect()->to('/pengguna');
+=======
+        $pen_nonmedis_mod = new PengajuanBarangNonMedisModel();
+
+        $pen_nonmedis_mod->deleteData($id);
+
+        session()->setFlashdata('success', 'dihapus');
+        return redirect()->to('/pengajuan_non_medis');
+    }
+
+    public function getBarangDetails()
+    {
+        $ipsrsbarang_mod = new IpsrsBarangModel();
+        $kode_barang = $this->request->getGet('kode_brng'); // Mengambil kode barang dari parameter GET
+
+        if ($kode_barang) {
+            $barang = $ipsrsbarang_mod->getDataByKode($kode_barang);
+            if ($barang) {
+                return $this->response->setJSON($barang);
+            }
+        }
+
+        return $this->response->setJSON(null); // Kembalikan JSON null jika barang tidak ditemukan
+    }
+
+    public function setuju($id)
+    {
+        $pen_nonmedis_mod = new PengajuanBarangNonMedisModel();
+
+        $data = [
+            'status' => 'Disetujui'
+        ];
+
+        $pen_nonmedis_mod->updateData($id, $data);
+
+        session()->setFlashdata('success', 'disetujui');
+        return redirect()->to('/pengajuan_non_medis');
+    }
+
+    public function tolak($id)
+    {
+        $pen_nonmedis_mod = new PengajuanBarangNonMedisModel();
+
+        $data = [
+            'status' => 'Ditolak'
+        ];
+
+        $pen_nonmedis_mod->updateData($id, $data);
+
+        session()->setFlashdata('success', 'ditolak');
+        return redirect()->to('/pengajuan_non_medis');
+    }
+
+    public function print($id)
+    {
+        $pen_nonmedis_mod = new PengajuanBarangNonMedisModel();
+        $pen_nonmedis_det_mod = new PengajuanBarangNonMedisDetailModel();
+
+        $data = [
+            'pen_nonmedis_con' => $pen_nonmedis_mod->getDataById($id),
+            'pen_nonmedis_det_con' => $pen_nonmedis_det_mod->detailData($id),
+        ];
+
+        return view('pengajuan_nonmedis/page_print',$data);
+
+>>>>>>> cff7a0c49970e82d7e0d7dbad671a683348960cf
     }
 }
