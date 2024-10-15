@@ -170,15 +170,15 @@
                 </tr>
             </thead>
             <tbody>
-                <?php if (!empty($penerimaan_inv_det_con)) : ?>
+                <?php if (!empty($penerimaan_nonmedis_det_con)) : ?>
                     <?php $total_jumlah = 0; ?>
-                    <?php foreach ($penerimaan_inv_det_con as $index => $dt_penerimaan_nonmedis_det) : ?>
+                    <?php foreach ($penerimaan_nonmedis_det_con as $index => $dt_penerimaan_nonmedis_det) : ?>
                         <tr style=" white-space: nowrap;">
                             <td><?= $index + 1 ?></td>
                             <td><?= $dt_penerimaan_nonmedis_det['kode_brng'] ?></td>
-                            <td><?= $dt_penerimaan_nonmedis_det['nama_barang'] ?></td>
-                            <td><?= $dt_penerimaan_nonmedis_det['nama_merk'] ?></td>
-                            <td><?= $dt_penerimaan_nonmedis_det['nama_jenis'] ?></td>
+                            <td><?= $dt_penerimaan_nonmedis_det['nama_brng'] ?></td>
+                            <td><?= $dt_penerimaan_nonmedis_det['kode_sat'] ?></td>
+                            <td><?= $dt_penerimaan_nonmedis_det['nm_jenis'] ?></td>
                             <td>Rp <?= number_format($dt_penerimaan_nonmedis_det['harga'], 0, ',', '.'); ?></td>
                             <td><?= $dt_penerimaan_nonmedis_det['dis'] ?>%</td>
                             <td><?= $dt_penerimaan_nonmedis_det['jumlah'] ?></td>
