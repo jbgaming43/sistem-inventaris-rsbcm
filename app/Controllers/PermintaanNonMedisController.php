@@ -14,22 +14,22 @@ class PermintaanNonMedisController extends BaseController
     public function index()
     {
         // objek PenggunaModel
-        $per_barang__nonmedis_mod = new PermintaanBarangNonMedisModel();
+        $per_barang_nonmedis_mod = new PermintaanBarangNonMedisModel();
         $pgwm = new PegawaiModel();
         $ipsrsbarang_mod = new IpsrsBarangModel();
 
         $data = [
             'title' => 'Data Permintaan Non Medis',
             'active_menu' => 'non_medis',
-            'active_submenu' => 'pengajuan_nonmedis',
+            'active_submenu' => 'permintaan_nonmedis',
 
-            'pbnc' => $per_barang__nonmedis_mod->getData(),
+            'per_barang_nonmedis_con' => $per_barang_nonmedis_mod->getData(),
             'pgwc' => $pgwm->getData(),
             'ipsrsbarang_con' => $ipsrsbarang_mod->getData()
         ];
 
 
-        return view('pengajuan_nonmedis/index', $data);
+        return view('permintaan_nonmedis/index', $data);
     }
 
     public function add()

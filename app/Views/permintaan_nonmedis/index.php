@@ -40,7 +40,7 @@
                             </thead>
                             <tbody class="table-border-bottom">
                                 <?php $i = 1;
-                                foreach ($per_barang__nonmedis_mod as $dt_permintaan_nonmedis) { ?>
+                                foreach ($per_barang_nonmedis_con as $dt_permintaan_nonmedis) { ?>
                                     <tr>
                                         <td><?= $i++; ?></td>
                                         <td><?= $dt_permintaan_nonmedis['departemen']; ?></td>
