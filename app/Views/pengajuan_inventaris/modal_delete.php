@@ -1,4 +1,4 @@
-<?php foreach ($pbnc as $dt_pengajuan_inventaris) { ?>
+<?php foreach ($pengajuan_inv_con as $dt_pengajuan_inventaris) { ?>
     <div class="modal modal-blur fade" id="delete_pengajuan_inventaris<?= $dt_pengajuan_inventaris['no_pengajuan']; ?>" tabindex="-1" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
             <div class="modal-content">

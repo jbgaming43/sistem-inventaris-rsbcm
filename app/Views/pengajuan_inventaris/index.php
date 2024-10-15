@@ -60,7 +60,7 @@
                             </thead>
                             <tbody class="table-border-bottom text-nowrap">
                                 <?php $i = 1;
-                                foreach ($pbnc as $dt_pengajuan_inventaris) { ?>
+                                foreach ($pengajuan_inv_con as $dt_pengajuan_inventaris) { ?>
                                     <tr>
                                         <td><?= $i++; ?></td>
                                         <td><?= $dt_pengajuan_inventaris['no_pengajuan']; ?></td>

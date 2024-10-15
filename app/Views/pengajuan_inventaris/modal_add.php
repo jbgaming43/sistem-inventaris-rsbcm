@@ -24,7 +24,7 @@
                         <div class="col">
                             <select class="form-select select2-pegawai" name="nik" style="width: 100%">
                                 <option value="">- Pilih Nama -</option>
-                                <?php foreach ($pgwc as $dt_pegawai) : ?>
+                                <?php foreach ($pegawai_con as $dt_pegawai) : ?>
                                     <option value="<?= $dt_pegawai['nik'] ?>"> <?= $dt_pegawai['nik'] ?>-<?= $dt_pegawai['nama'] ?></option>
                                 <?php endforeach ?>
                             </select>
@@ -83,7 +83,7 @@
                         <div class="col">
                             <select class="form-select select2-pegawai" name="nik_pj" style="width: 100%">
                                 <option value="">- Pilih Nama -</option>
-                                <?php foreach ($pgwc as $dt_pegawai) : ?>
+                                <?php foreach ($pegawai_con as $dt_pegawai) : ?>
                                     <option value="<?= $dt_pegawai['nik'] ?>"> <?= $dt_pegawai['nik'] ?>-<?= $dt_pegawai['nama'] ?></option>
                                 <?php endforeach ?>
                             </select>

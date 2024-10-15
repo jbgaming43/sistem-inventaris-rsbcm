@@ -1,4 +1,4 @@
-<?php foreach ($pbnc as $dt_pengajuan_inventaris) { ?>
+<?php foreach ($pengajuan_inv_con as $dt_pengajuan_inventaris) { ?>
     <div class="modal modal-blur fade" id="edit_pengajuan_inventaris<?= $dt_pengajuan_inventaris['no_pengajuan']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -27,7 +27,7 @@
                                 <select class="form-select select2-pegawai" name="nik" style="width: 100%">
                                     <?= $nik = $dt_pengajuan_inventaris['nik']; ?>
                                     <option value="" <?= $nik == '' ? 'selected' : null; ?>>- Pilih Nama -</option>
-                                    <?php foreach ($pgwc as $dt_pegawai) : ?>
+                                    <?php foreach ($pegawai_con as $dt_pegawai) : ?>
                                         <option value="<?= $dt_pegawai['nik'] ?>" <?= $dt_pegawai['nik'] == $nik ? 'selected' : null; ?>> <?= $dt_pegawai['nik'] ?>-<?= $dt_pegawai['nama'] ?></option>
                                     <?php endforeach ?>
                                 </select>
@@ -54,7 +54,7 @@
                         <div class="mb-2 row">
                             <label class="col-3 col-form-label required">Nama Barang</label>
                             <div class="col">
-                                <input type="text" class="form-control" name="nama_barang" placeholder="Masukkan nama barang" value="<?= $dt_pengajuan_inventaris['nama_barang']?>">
+                                <input type="text" class="form-control" name="nama_barang" placeholder="Masukkan nama barang" value="<?= $dt_pengajuan_inventaris['nama_barang'] ?>">
                             </div>
                         </div>
 
@@ -67,19 +67,19 @@
                         <div class="mb-2 row">
                             <label class="col-3 col-form-label required">Jumlah</label>
                             <div class="col">
-                                <input class="form-control" type="number" id="jumlah" name="jumlah" min="0" step="1" value="<?= $dt_pengajuan_inventaris['jumlah']?>">
+                                <input class="form-control" type="number" id="jumlah" name="jumlah" min="0" step="1" value="<?= $dt_pengajuan_inventaris['jumlah'] ?>">
                             </div>
                         </div>
                         <div class="mb-2 row">
                             <label class="col-3 col-form-label required">Harga</label>
                             <div class="col">
-                                <input class="form-control" type="number" id="harga" name="harga" min="0" step="0.01" placeholder="0.00" value="<?= $dt_pengajuan_inventaris['harga']?>">
+                                <input class="form-control" type="number" id="harga" name="harga" min="0" step="0.01" placeholder="0.00" value="<?= $dt_pengajuan_inventaris['harga'] ?>">
                             </div>
                         </div>
                         <div class="mb-2 row">
                             <label class="col-3 col-form-label required">Keterangan</label>
                             <div class="col">
-                                <textarea class="form-control" name="keterangan" placeholder="Masukkan keterangan"><?= $dt_pengajuan_inventaris['keterangan']?></textarea>
+                                <textarea class="form-control" name="keterangan" placeholder="Masukkan keterangan"><?= $dt_pengajuan_inventaris['keterangan'] ?></textarea>
                             </div>
                         </div>
                         <div class="mb-2 row">
@@ -88,7 +88,7 @@
                                 <select class="form-select select2-pegawai" name="nik_pj" style="width: 100%">
                                     <?= $nik_pj = $dt_pengajuan_inventaris['nik_pj']; ?>
                                     <option value="" <?= $nik_pj == '' ? 'selected' : null; ?>>- Pilih Nama -</option>
-                                    <?php foreach ($pgwc as $dt_pegawai) : ?>
+                                    <?php foreach ($pegawai_con as $dt_pegawai) : ?>
                                         <option value="<?= $dt_pegawai['nik'] ?>" <?= $dt_pegawai['nik'] == $nik_pj ? 'selected' : null; ?>> <?= $dt_pegawai['nik'] ?>-<?= $dt_pegawai['nama'] ?></option>
                                     <?php endforeach ?>
                                 </select>
