@@ -677,3 +677,196 @@ WHERE `no_faktur` = :no_faktur:', [...], false)
 =======
 >>>>>>> c4b30b99366c8c74f867472fe1aa6e64ba32e374
 >>>>>>> 1c4f4637a59a43023f1d3d7505dd61be2a21c31f
+INFO - 2024-10-15 02:19:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-15 02:19:36 --> mysqli_sql_exception: Unknown column 'ipsrsdetailbeli.kode_brng' in 'on clause' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrsde...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrsde...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrsde...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsde...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PenerimaanNonMedisDetailModel.php(25): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PenerimaanNonMedisController.php(233): App\Models\PenerimaanNonMedisDetailModel->detailData('Adi456')
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->print('Adi456')
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-15 02:19:36 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ipsrsdetailbeli.kode_brng' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsdetailpesan`.*, `ipsrsbarang`.*, `ipsrsjenisbarang`.*
+FROM `ipsrsdetailpesan`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PenerimaanNonMedisDetailModel.php(25): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PenerimaanNonMedisController.php(233): App\Models\PenerimaanNonMedisDetailModel->detailData('Adi456')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->print('Adi456')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-15 02:19:36 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ipsrsdetailbeli.kode_brng' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrsdetailpesan`.*, `ipsrsbarang`.*, `ipsrsjenisbarang`.*
+FROM `ipsrsdetailpesan`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = \'Adi456\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrsdetailpesan`.*, `ipsrsbarang`.*, `ipsrsjenisbarang`.*
+FROM `ipsrsdetailpesan`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = \'Adi456\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsdetailpesan`.*, `ipsrsbarang`.*, `ipsrsjenisbarang`.*
+FROM `ipsrsdetailpesan`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PenerimaanNonMedisDetailModel.php(25): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PenerimaanNonMedisController.php(233): App\Models\PenerimaanNonMedisDetailModel->detailData('Adi456')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->print('Adi456')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-15 02:19:36 --> [Caused by] mysqli_sql_exception: Unknown column 'ipsrsdetailbeli.kode_brng' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrsdetailpesan`.*, `ipsrsbarang`.*, `ipsrsjenisbarang`.*
+FROM `ipsrsdetailpesan`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = \'Adi456\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrsdetailpesan`.*, `ipsrsbarang`.*, `ipsrsjenisbarang`.*
+FROM `ipsrsdetailpesan`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = \'Adi456\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrsdetailpesan`.*, `ipsrsbarang`.*, `ipsrsjenisbarang`.*
+FROM `ipsrsdetailpesan`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = \'Adi456\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsdetailpesan`.*, `ipsrsbarang`.*, `ipsrsjenisbarang`.*
+FROM `ipsrsdetailpesan`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PenerimaanNonMedisDetailModel.php(25): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PenerimaanNonMedisController.php(233): App\Models\PenerimaanNonMedisDetailModel->detailData('Adi456')
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->print('Adi456')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-15 02:19:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-15 02:19:50 --> mysqli_sql_exception: Unknown column 'ipsrsdetailbeli.kode_brng' in 'on clause' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrsde...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrsde...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrsde...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsde...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PenerimaanNonMedisDetailModel.php(25): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PenerimaanNonMedisController.php(233): App\Models\PenerimaanNonMedisDetailModel->detailData('Adi456')
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->print('Adi456')
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-15 02:19:50 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ipsrsdetailbeli.kode_brng' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsdetailpesan`.*, `ipsrsbarang`.*, `ipsrsjenisbarang`.*
+FROM `ipsrsdetailpesan`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PenerimaanNonMedisDetailModel.php(25): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PenerimaanNonMedisController.php(233): App\Models\PenerimaanNonMedisDetailModel->detailData('Adi456')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->print('Adi456')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-15 02:19:50 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ipsrsdetailbeli.kode_brng' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrsdetailpesan`.*, `ipsrsbarang`.*, `ipsrsjenisbarang`.*
+FROM `ipsrsdetailpesan`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = \'Adi456\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrsdetailpesan`.*, `ipsrsbarang`.*, `ipsrsjenisbarang`.*
+FROM `ipsrsdetailpesan`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = \'Adi456\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsdetailpesan`.*, `ipsrsbarang`.*, `ipsrsjenisbarang`.*
+FROM `ipsrsdetailpesan`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PenerimaanNonMedisDetailModel.php(25): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PenerimaanNonMedisController.php(233): App\Models\PenerimaanNonMedisDetailModel->detailData('Adi456')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->print('Adi456')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-15 02:19:50 --> [Caused by] mysqli_sql_exception: Unknown column 'ipsrsdetailbeli.kode_brng' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrsdetailpesan`.*, `ipsrsbarang`.*, `ipsrsjenisbarang`.*
+FROM `ipsrsdetailpesan`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = \'Adi456\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrsdetailpesan`.*, `ipsrsbarang`.*, `ipsrsjenisbarang`.*
+FROM `ipsrsdetailpesan`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = \'Adi456\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrsdetailpesan`.*, `ipsrsbarang`.*, `ipsrsjenisbarang`.*
+FROM `ipsrsdetailpesan`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = \'Adi456\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsdetailpesan`.*, `ipsrsbarang`.*, `ipsrsjenisbarang`.*
+FROM `ipsrsdetailpesan`
+JOIN `ipsrsbarang` ON `ipsrsdetailbeli`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_faktur` = :no_faktur:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PenerimaanNonMedisDetailModel.php(25): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PenerimaanNonMedisController.php(233): App\Models\PenerimaanNonMedisDetailModel->detailData('Adi456')
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->print('Adi456')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-15 02:21:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-15 02:21:06 --> ErrorException: Undefined variable $total_jumlah
+in APPPATH\Views\penerimaan_nonmedis\page_print.php on line 201.
+ 1 APPPATH\Views\penerimaan_nonmedis\page_print.php(201): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_jumlah', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\penerimaan_nonmedis\\page_print.php', 201)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\penerimaan_nonmedis\\page_print.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('penerimaan_nonmedis/page_print', [], true)
+ 5 APPPATH\Controllers\PenerimaanNonMedisController.php(236): view('penerimaan_nonmedis/page_print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PenerimaanNonMedisController->print('Adi456')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PenerimaanNonMedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
