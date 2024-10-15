@@ -229,8 +229,8 @@ class PenerimaanNonMedisController extends BaseController
         $penerimaan_nonmedis_det_mod = new PenerimaanNonMedisDetailModel();
 
         $data = [
-            'penerimaan_inv_con' => $penerimaan_nonmedis_mod->getDataById($id),
-            'penerimaan_inv_det_con' => $penerimaan_nonmedis_det_mod->detailData($id),
+            'penerimaan_nonmedis_con' => $penerimaan_nonmedis_mod->getDataById($id),
+            'penerimaan_nonmedis_det_con' => $penerimaan_nonmedis_det_mod->detailData($id),
         ];
 
         return view('penerimaan_nonmedis/page_print', $data);
