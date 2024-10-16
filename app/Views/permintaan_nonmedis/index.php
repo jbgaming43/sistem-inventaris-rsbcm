@@ -75,7 +75,7 @@
                                             ?>
                                         </td>
                                         <td>
-                                            <a href="<?= base_url('/pengajuan_non_medis/print/' . $dt_permintaan_nonmedis['no_permintaan']); ?>" target="_blank">
+                                            <a href="<?= base_url('/permintaan_non_medis/print/' . $dt_permintaan_nonmedis['no_permintaan']); ?>" target="_blank">
                                                 <button type="button" class="btn btn-icon btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Print">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-printer">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -85,7 +85,7 @@
                                                     </svg>
                                                 </button>
                                             </a>
-                                            <span data-bs-toggle="modal" data-bs-target="#detail_pengajuan_nonmedis<?= $dt_permintaan_nonmedis['no_permintaan']; ?>">
+                                            <span data-bs-toggle="modal" data-bs-target="#detail_permintaan_nonmedis<?= $dt_permintaan_nonmedis['no_permintaan']; ?>">
                                                 <button type="button" class="btn btn-icon btn-blue btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -128,5 +128,6 @@
 <?= $this->include('permintaan_nonmedis/modal_add') ?>
 <?= $this->include('permintaan_nonmedis/modal_delete') ?>
 <?= $this->include('permintaan_nonmedis/modal_alert') ?>
+<?= $this->include('permintaan_nonmedis/modal_detail') ?>
 
 <?= $this->endSection() ?>
