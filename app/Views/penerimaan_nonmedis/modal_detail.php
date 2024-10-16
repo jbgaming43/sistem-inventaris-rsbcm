@@ -27,7 +27,7 @@
                                     content += '<thead><tr><th>Kode Barang</th><th>Jumlah</th><th>Harga</th><th>Subtotal</th><th>Diskon</th><th>Besar Diskon</th><th>Total</th></tr></thead><tbody>';
                                     data.detail.forEach(item => {
                                         content += `<tr>
-                                        <td>${item.kode_barang}</td>
+                                        <td>${item.kode_brng}</td>
                                         <td>${item.jumlah}</td>
                                         <td>${item.harga}</td>
                                         <td>${item.subtotal}</td>
