@@ -105,3 +105,5 @@ $routes->get('/permintaan_non_medis/detail/(:any)', 'PermintaanNonMedisControlle
 $routes->get('/permintaan_non_medis/print/(:any)', 'PermintaanNonMedisController::print/$1');
 $routes->get('/permintaan_non_medis/pilih_no_faktur', 'PermintaanNonMedisController::getFaktur');
 $routes->get('/permintaan_non_medis/info/(:any)', 'PermintaanNonMedisController::info/$1');
+$routes->post('/permintaan_non_medis/setuju/(:any)', 'PermintaanNonMedisController::setuju/$1');
+$routes->post('/permintaan_non_medis/tolak/(:any)', 'PermintaanNonMedisController::tolak/$1');
