@@ -67,7 +67,7 @@ class PermintaanNonMedisController extends BaseController
             'keterangan' => $keterangan,
         ];
 
-        $pen_nonmedis_mod->insertData($data);
+        $permintaan_nonmedis_mod->insertData($data);
         $dataDetails = [];
 
         for ($i = 0; $i < count($kode_brng); $i++) {
@@ -82,7 +82,7 @@ class PermintaanNonMedisController extends BaseController
         }
 
         // Insert semua data secara batch
-        $pen_nonmedis_det_mod->insertBatch($dataDetails);
+        $permintaan_nonmedis_det_mod->insertBatch($dataDetails);
 
         session()->setFlashdata('success', 'ditambahkan');
         return redirect()->to('/pengajuan_non_medis');
@@ -90,8 +90,8 @@ class PermintaanNonMedisController extends BaseController
 
     public function detail($id)
     {
-        $pen_nonmedis_det_mod = new PengajuanBarangNonMedisDetailModel();
-        $detail = $pen_nonmedis_det_mod->detailData($id);
+        $permintaan_nonmedis_det_mod = new PermintaanNonMedisDetailModel();
+        $detail = $permintaan_nonmedis_det_mod->detailData($id);
 
         // Debug output
         log_message('debug', 'Detail fetched: ' . json_encode($detail)); // Log detail untuk debug
@@ -105,9 +105,9 @@ class PermintaanNonMedisController extends BaseController
 
     public function delete($id)
     {
-        $pen_nonmedis_mod = new PengajuanBarangNonMedisModel();
+        $permintaan_nonmedis_mod = new PermintaanNonMedisModel();
 
-        $pen_nonmedis_mod->deleteData($id);
+        $permintaan_nonmedis_mod->deleteData($id);
 
         session()->setFlashdata('success', 'dihapus');
         return redirect()->to('/pengajuan_non_medis');
@@ -130,13 +130,13 @@ class PermintaanNonMedisController extends BaseController
 
     public function setuju($id)
     {
-        $pen_nonmedis_mod = new PengajuanBarangNonMedisModel();
+        $permintaan_nonmedis_mod = new PermintaanNonMedisModel();
 
         $data = [
             'status' => 'Disetujui'
         ];
 
-        $pen_nonmedis_mod->updateData($id, $data);
+        $permintaan_nonmedis_mod->updateData($id, $data);
 
         session()->setFlashdata('success', 'disetujui');
         return redirect()->to('/pengajuan_non_medis');
@@ -144,13 +144,13 @@ class PermintaanNonMedisController extends BaseController
 
     public function tolak($id)
     {
-        $pen_nonmedis_mod = new PengajuanBarangNonMedisModel();
+        $permintaan_nonmedis_mod = new PermintaanNonMedisModel();
 
         $data = [
             'status' => 'Ditolak'
         ];
 
-        $pen_nonmedis_mod->updateData($id, $data);
+        $permintaan_nonmedis_mod->updateData($id, $data);
 
         session()->setFlashdata('success', 'ditolak');
         return redirect()->to('/pengajuan_non_medis');
@@ -158,12 +158,12 @@ class PermintaanNonMedisController extends BaseController
 
     public function print($id)
     {
-        $pen_nonmedis_mod = new PengajuanBarangNonMedisModel();
-        $pen_nonmedis_det_mod = new PengajuanBarangNonMedisDetailModel();
+        $permintaan_nonmedis_mod = new PermintaanNonMedisModel();
+        $permintaan_nonmedis_det_mod = new PermintaanNonMedisDetailModel();
 
         $data = [
-            'pen_nonmedis_con' => $pen_nonmedis_mod->getDataById($id),
-            'pen_nonmedis_det_con' => $pen_nonmedis_det_mod->detailData($id),
+            'pen_nonmedis_con' => $permintaan_nonmedis_mod->getDataById($id),
+            'pen_nonmedis_det_con' => $permintaan_nonmedis_det_mod->detailData($id),
         ];
 
         return view('pengajuan_nonmedis/page_print', $data);
