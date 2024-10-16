@@ -54,3 +54,75 @@ in APPPATH\Views\permintaan_nonmedis\index.php on line 78.
 10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
 INFO - 2024-10-16 06:17:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-16 06:18:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:22:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:22:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:22:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:22:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:22:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:23:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:23:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:23:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:24:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:24:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:24:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-16 06:24:48 --> mysqli_sql_exception: Duplicate entry 'permin' for key 'permintaan_non_medis.PRIMARY' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `pe...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pe...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pe...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pe...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 D:\RSBCM\inventaris-barang\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\RSBCM\inventaris-barang\app\Models\PermintaanNonMedisModel.php(32): CodeIgniter\Model->insert(Array)
+#8 D:\RSBCM\inventaris-barang\app\Controllers\PermintaanNonMedisController.php(71): App\Models\PermintaanNonMedisModel->insertData(Array)
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PermintaanNonMedisController->add()
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanNonMedisController))
+#11 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#14 {main}
+CRITICAL - 2024-10-16 06:24:48 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'permin' for key 'permintaan_non_medis.PRIMARY'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `permintaan_non_medis` (`no_permintaan`, `ruang`, `nip`, `tanggal`, `status`) VALUES (:no_permintaan:, :ruang:, :nip:, :tanggal:, :status:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Models\PermintaanNonMedisModel.php(32): CodeIgniter\Model->insert([...])
+ 6 APPPATH\Controllers\PermintaanNonMedisController.php(71): App\Models\PermintaanNonMedisModel->insertData([...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PermintaanNonMedisController->add()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanNonMedisController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-16 06:24:48 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'permin' for key 'permintaan_non_medis.PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `permintaan_non_medis` (`no_permintaan`, `ruang`, `nip`, `tanggal`, `status`) VALUES (\'permin\', \'A\', \'D0000004\', \'2024-10-16\', \'Baru\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `permintaan_non_medis` (`no_permintaan`, `ruang`, `nip`, `tanggal`, `status`) VALUES (\'permin\', \'A\', \'D0000004\', \'2024-10-16\', \'Baru\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `permintaan_non_medis` (`no_permintaan`, `ruang`, `nip`, `tanggal`, `status`) VALUES (:no_permintaan:, :ruang:, :nip:, :tanggal:, :status:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Models\PermintaanNonMedisModel.php(32): CodeIgniter\Model->insert([...])
+ 8 APPPATH\Controllers\PermintaanNonMedisController.php(71): App\Models\PermintaanNonMedisModel->insertData([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PermintaanNonMedisController->add()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanNonMedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-16 06:24:48 --> [Caused by] mysqli_sql_exception: Duplicate entry 'permin' for key 'permintaan_non_medis.PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `permintaan_non_medis` (`no_permintaan`, `ruang`, `nip`, `tanggal`, `status`) VALUES (\'permin\', \'A\', \'D0000004\', \'2024-10-16\', \'Baru\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `permintaan_non_medis` (`no_permintaan`, `ruang`, `nip`, `tanggal`, `status`) VALUES (\'permin\', \'A\', \'D0000004\', \'2024-10-16\', \'Baru\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `permintaan_non_medis` (`no_permintaan`, `ruang`, `nip`, `tanggal`, `status`) VALUES (\'permin\', \'A\', \'D0000004\', \'2024-10-16\', \'Baru\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `permintaan_non_medis` (`no_permintaan`, `ruang`, `nip`, `tanggal`, `status`) VALUES (:no_permintaan:, :ruang:, :nip:, :tanggal:, :status:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\PermintaanNonMedisModel.php(32): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\PermintaanNonMedisController.php(71): App\Models\PermintaanNonMedisModel->insertData([...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PermintaanNonMedisController->add()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanNonMedisController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
