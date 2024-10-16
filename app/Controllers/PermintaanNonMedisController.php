@@ -3,8 +3,8 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
-use App\Models\PermintaanBarangNonMedisModel;
-use App\Models\PengajuanBarangNonMedisDetailModel;
+use App\Models\PermintaanNonMedisModel;
+use App\Models\PermintaanNonMedisDetailModel;
 use App\Models\PegawaiModel;
 use App\Models\IpsrsBarangModel;
 use App\Helpers\AuthHelper;
@@ -13,9 +13,9 @@ class PermintaanNonMedisController extends BaseController
 {
     public function index()
     {
-        // objek PenggunaModel
-        $per_barang_nonmedis_mod = new PermintaanBarangNonMedisModel();
-        $pgwm = new PegawaiModel();
+        // objek untuk data permintaan non medis dan pilihan input
+        $permintaan_nonmedis_mod = new PermintaanNonMedisModel();
+        $pegawai_mod = new PegawaiModel();
         $ipsrsbarang_mod = new IpsrsBarangModel();
 
         $data = [
@@ -23,11 +23,10 @@ class PermintaanNonMedisController extends BaseController
             'active_menu' => 'non_medis',
             'active_submenu' => 'permintaan_nonmedis',
 
-            'per_barang_nonmedis_con' => $per_barang_nonmedis_mod->getData(),
-            'pgwc' => $pgwm->getData(),
+            'per_barang_nonmedis_con' => $permintaan_nonmedis_mod->getData(),
+            'pgwc' => $pegawai_mod->getData(),
             'ipsrsbarang_con' => $ipsrsbarang_mod->getData()
         ];
-
 
         return view('permintaan_nonmedis/index', $data);
     }
@@ -35,8 +34,8 @@ class PermintaanNonMedisController extends BaseController
     public function add()
     {
         // objek PenggunaModel
-        $pen_nonmedis_mod = new PengajuanBarangNonMedisModel();
-        $pen_nonmedis_det_mod = new PengajuanBarangNonMedisDetailModel();
+        $permintaan_nonmedis_mod = new PermintaanNonMedisModel();
+        $permintaan_nonmedis_det_mod = new PermintaanNonMedisDetailModel();
 
         $no_pengajuan = $this->request->getPost('no_pengajuan');
         $tanggal = $this->request->getPost('tanggal');

@@ -4,25 +4,27 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PermintaanModel extends Model
+class PermintaanNonMedisModel extends Model
 {
     // db name
     protected $DBGroup = 'sik';
 
     /** table name */
-    protected $table = "petugas";
+    protected $table = "permintaan_non_medis";
 
     /** primaryKey Field */
-    protected $primaryKey = 'nip';
+    protected $primaryKey = 'no_permintaan';
 
     /** primaryKey autoincrement */
-    protected $useAutoIncrement = true;
+    //protected $useAutoIncrement = true;
     /** allowed Field */
-    protected $allowedFields = ['nip', 'nama'];
+    protected $allowedFields = ['no_permintaan', 'ruang', 'nip', 'tanggal', 'status'];
 
     public function getData()
     {
-        return $this->findAll(); // retrieve all data
+        return $this->select('permintaan_non_medis.*, pegawai.*')
+            ->join('pegawai', 'permintaan_non_medis.nip=pegawai.nik',)
+            ->findAll(); // retrieve all data
     }
 
     public function insertData($data)
@@ -38,5 +40,13 @@ class PermintaanModel extends Model
     public function deleteData($id)
     {
         return $this->delete($id); // delete data by ID
+    }
+
+    public function getDataById($id)
+    {
+        return  $this->select('permintaan_non_medis.*, pegawai.*')
+            ->join('pegawai', 'permintaan_non_medis.nip=pegawai.nik')
+            ->where('no_permintaan', $id)
+            ->findAll(); // retrieve all data
     }
 }
