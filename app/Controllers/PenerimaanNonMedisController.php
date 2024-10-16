@@ -56,10 +56,10 @@ class PenerimaanNonMedisController extends BaseController
         return view('penerimaan_nonmedis/index', $data);
     }
 
-    public function detail($no_faktur)
+    public function detail($id)
     {
-        $pembelian_nonmedis_det_mod = new PembelianNonMedisDetailModel();
-        $detail = $pembelian_nonmedis_det_mod->detailData($no_faktur);
+        $penerimaan_nonmedis_det_mod = new PenerimaanNonMedisDetailModel();
+        $detail = $penerimaan_nonmedis_det_mod->detailData($id);
 
         if ($detail) {
             // Kirim data dalam format JSON

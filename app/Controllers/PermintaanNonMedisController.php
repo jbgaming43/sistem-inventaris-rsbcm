@@ -99,7 +99,7 @@ class PermintaanNonMedisController extends BaseController
     public function detail($id)
     {
         $permintaan_nonmedis_det_mod = new PermintaanNonMedisDetailModel();
-        $detail = $permintaan_nonmedis_det_mod->getDataById($id);   
+        $detail = $permintaan_nonmedis_det_mod->detailData($id);   
 
         if ($detail) {
             // Kirim data dalam format JSON
