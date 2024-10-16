@@ -46,8 +46,7 @@
                                         <th>Satuan</th>
                                         <th>Jenis</th>
                                         <th>Jumlah</th>
-                                        <th>Harga</th>
-                                        <th>Total</th>
+                                        <th>Keterangan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -63,8 +62,7 @@
                                         <td><input type="text" id="kode_sat_0" name="kode_sat[]" class="form-control" readonly></td>
                                         <td><input type="text" id="jenis_0" name="jenis[]" class="form-control" readonly></td>
                                         <td><input type="number" id="jumlah_0" name="jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" required></td>
-                                        <td><input type="number" id="harga_0" name="harga[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" required></td>
-                                        <td><input type="text" id="total_0" name="total[]" class="form-control" readonly value="Rp0.00"></td>
+                                        <td><input type="text" id="keterangan_0" name="keterangan[]" class="form-control" placeholder="Keterangan" required></td>
                                         <td class="text-center">
                                             <button type="button" class="btn btn-primary btn-icon" onclick="addRow()">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -115,8 +113,7 @@
         <td><input type="text" id="kode_sat_${rowIndex}" name="kode_sat[]" class="form-control" readonly></td>
         <td><input type="text" id="jenis_${rowIndex}" name="jenis[]" class="form-control" readonly></td>
         <td><input type="number" id="jumlah_${rowIndex}" name="jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" required></td>
-        <td><input type="number" id="harga_${rowIndex}" name="harga[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" required></td>
-        <td><input type="text" id="total_${rowIndex}" name="total[]" class="form-control" readonly value="Rp0.00"></td>
+        <td><input type="text" id="keterangan_${rowIndex}" name="keterangan[]" class="form-control" placeholder="Keterangan" required></td>
         <!-- Tambahkan input hidden untuk subtotal dan potongan -->
         
         <td>
