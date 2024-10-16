@@ -168,10 +168,10 @@ class PermintaanNonMedisController extends BaseController
         $permintaan_nonmedis_det_mod = new PermintaanNonMedisDetailModel();
 
         $data = [
-            'pen_nonmedis_con' => $permintaan_nonmedis_mod->getDataById($id),
-            'pen_nonmedis_det_con' => $permintaan_nonmedis_det_mod->detailData($id),
+            'permintaan_nonmedis_con' => $permintaan_nonmedis_mod->getDataById($id),
+            'permintaan_nonmedis_det_con' => $permintaan_nonmedis_det_mod->detailData($id),
         ];
 
-        return view('pengajuan_nonmedis/page_print', $data);
+        return view('permintaan_nonmedis/page_print', $data);
     }
 }
