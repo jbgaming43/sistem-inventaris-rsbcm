@@ -38,6 +38,14 @@ class PermintaanNonMedisController extends BaseController
         $permintaan_nonmedis_det_mod = new PermintaanNonMedisDetailModel();
 
         $no_permintaan = $this->request->getPost('no_permintaan');
+
+        $duplicate = $permintaan_nonmedis_mod->getDataById($no_permintaan); 
+        if ($duplicate){
+            session()->setFlashdata('error', 'Nomor Permintaan Sudah Ada');
+        return redirect()->to('/permintaan_non_medis');
+        }
+
+
         $ruang = $this->request->getPost('ruang');
         $tanggal = $this->request->getPost('tanggal');
         $nik = $this->request->getPost('nik');
@@ -139,7 +147,7 @@ class PermintaanNonMedisController extends BaseController
         $permintaan_nonmedis_mod->updateData($id, $data);
 
         session()->setFlashdata('success', 'disetujui');
-        return redirect()->to('/pengajuan_non_medis');
+        return redirect()->to('/permintaan_non_medis');
     }
 
     public function tolak($id)
@@ -147,13 +155,13 @@ class PermintaanNonMedisController extends BaseController
         $permintaan_nonmedis_mod = new PermintaanNonMedisModel();
 
         $data = [
-            'status' => 'Ditolak'
+            'status' => 'Tidak Disetujui'
         ];
 
         $permintaan_nonmedis_mod->updateData($id, $data);
 
         session()->setFlashdata('success', 'ditolak');
-        return redirect()->to('/pengajuan_non_medis');
+        return redirect()->to('/permintaan_non_medis');
     }
 
     public function print($id)
