@@ -22,6 +22,7 @@
                         fetch(detailUrl)
                             .then(response => response.json())
                             .then(data => {
+                                console.log(data);
                                 if (data.success && Array.isArray(data.detail)) {
                                     var content = '<table class="table table-striped">';
                                     content += '<thead><tr><th>Kode Barang</th><th>Nama Barang</th><th>Kode Satuan</th><th>Jumlah</th><th>Keterangan</th></tr></thead><tbody>';

@@ -39,10 +39,10 @@ class PermintaanNonMedisController extends BaseController
 
         $no_permintaan = $this->request->getPost('no_permintaan');
 
-        $duplicate = $permintaan_nonmedis_mod->getDataById($no_permintaan); 
-        if ($duplicate){
+        $duplicate = $permintaan_nonmedis_mod->getDataById($no_permintaan);
+        if ($duplicate) {
             session()->setFlashdata('error', 'Nomor Permintaan Sudah Ada');
-        return redirect()->to('/permintaan_non_medis');
+            return redirect()->to('/permintaan_non_medis');
         }
 
 
@@ -99,16 +99,14 @@ class PermintaanNonMedisController extends BaseController
     public function detail($id)
     {
         $permintaan_nonmedis_det_mod = new PermintaanNonMedisDetailModel();
-        $detail = $permintaan_nonmedis_det_mod->getDataById($id);
+        $detail = $permintaan_nonmedis_det_mod->getDataById($id);   
 
-        // Debug output
-        log_message('debug', 'Detail fetched: ' . json_encode($detail)); // Log detail untuk debug
-
-        if (empty($detail)) {
-            return $this->response->setJSON(['error' => 'Data tidak ditemukan']);
+        if ($detail) {
+            // Kirim data dalam format JSON
+            return $this->response->setJSON(['success' => true, 'detail' => $detail]);
+        } else {
+            return $this->response->setJSON(['success' => false]);
         }
-
-        return $this->response->setJSON($detail);
     }
 
     public function delete($id)
