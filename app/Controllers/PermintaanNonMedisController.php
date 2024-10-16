@@ -110,7 +110,7 @@ class PermintaanNonMedisController extends BaseController
         $permintaan_nonmedis_mod->deleteData($id);
 
         session()->setFlashdata('success', 'dihapus');
-        return redirect()->to('/pengajuan_non_medis');
+        return redirect()->to('/permintaan_non_medis');
     }
 
     public function getBarangDetails()

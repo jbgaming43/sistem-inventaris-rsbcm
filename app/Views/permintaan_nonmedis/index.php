@@ -96,9 +96,9 @@
                                                 </button>
                                             </span>
                                             <?php
-                                            if ($dt_permintaan_nonmedis['status'] == 'Proses Pengajuan') {
+                                            if ($dt_permintaan_nonmedis['status'] == 'Baru') {
                                             ?>
-                                                <span data-bs-toggle="modal" data-bs-target="#delete_pengajuan_nonmedis<?= $dt_permintaan_nonmedis['no_permintaan']; ?>">
+                                                <span data-bs-toggle="modal" data-bs-target="#delete_permintaan_nonmedis<?= $dt_permintaan_nonmedis['no_permintaan']; ?>">
                                                     <button type="button" class="btn btn-icon btn-red btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -126,5 +126,6 @@
 </div>
 
 <?= $this->include('permintaan_nonmedis/modal_add') ?>
+<?= $this->include('permintaan_nonmedis/modal_delete') ?>
 
 <?= $this->endSection() ?>
