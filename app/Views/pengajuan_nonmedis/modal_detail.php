@@ -25,10 +25,11 @@
                             .then(data => {
                                 console.log(data);
                                 var content = '<table class="table table-striped">';
-                                content += '<thead><tr><th>Kode Barang</th><th>Jumlah</th><th>Harga</th><th>Satuan</th><th>Total</th></tr></thead><tbody>';
+                                content += '<thead><tr><th>Kode Barang</th><th>Nama Barang</th><th>Jumlah</th><th>Harga</th><th>Satuan</th><th>Total</th></tr></thead><tbody>';
                                 data.forEach(item => {
                                     content += `<tr>
                                     <td>${item.kode_brng}</td>
+                                    <td>${item.nama_brng}</td>
                                     <td>${item.jumlah}</td>
                                     <td>${item.h_pengajuan}</td>
                                     <td>${item.kode_sat}</td>

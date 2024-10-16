@@ -83,3 +83,178 @@ INFO - 2024-10-16 06:39:10 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-10-16 06:39:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-16 06:39:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-16 06:39:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:46:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:46:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-16 06:46:16 --> Detail fetched: [{"no_pengajuan":"PBNM0000069","kode_brng":"B00002","kode_sat":"AMP","jumlah":"1","h_pengajuan":"11100","total":"11100"},{"no_pengajuan":"PBNM0000069","kode_brng":"B00003","kode_sat":"BKS","jumlah":"2","h_pengajuan":"13553.1","total":"27106.2"}]
+INFO - 2024-10-16 06:46:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-16 06:46:22 --> Detail fetched: [{"no_pengajuan":"PBNM0000069","kode_brng":"B00002","kode_sat":"AMP","jumlah":"1","h_pengajuan":"11100","total":"11100"},{"no_pengajuan":"PBNM0000069","kode_brng":"B00003","kode_sat":"BKS","jumlah":"2","h_pengajuan":"13553.1","total":"27106.2"}]
+INFO - 2024-10-16 06:47:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:47:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-16 06:47:07 --> Detail fetched: [{"no_pengajuan":"PBNM0000069","kode_brng":"B00002","kode_sat":"AMP","jumlah":"1","h_pengajuan":"11100","total":"11100"},{"no_pengajuan":"PBNM0000069","kode_brng":"B00003","kode_sat":"BKS","jumlah":"2","h_pengajuan":"13553.1","total":"27106.2"}]
+INFO - 2024-10-16 06:47:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:47:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-16 06:47:39 --> Detail fetched: [{"no_pengajuan":"PBNM0000069","kode_brng":"B00002","kode_sat":"AMP","jumlah":"1","h_pengajuan":"11100","total":"11100"},{"no_pengajuan":"PBNM0000069","kode_brng":"B00003","kode_sat":"BKS","jumlah":"2","h_pengajuan":"13553.1","total":"27106.2"}]
+INFO - 2024-10-16 06:51:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:51:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-16 06:51:19 --> ArgumentCountError: Too few arguments to function CodeIgniter\Database\BaseBuilder::join(), 1 passed in C:\xampp\htdocs\inventaris-barang\system\Model.php on line 872 and at least 2 expected
+in SYSTEMPATH\Database\BaseBuilder.php on line 617.
+ 1 SYSTEMPATH\Model.php(872): CodeIgniter\Database\BaseBuilder->join('ipsrsbarang, detail_pengajuan_barang_nonmedis.kode_brng = ipsrsbarang.kode_brng')
+ 2 APPPATH\Models\PengajuanBarangNonMedisDetailModel.php(48): CodeIgniter\Model->__call('join', [...])
+ 3 APPPATH\Controllers\PengajuanNonMedisController.php(95): App\Models\PengajuanBarangNonMedisDetailModel->detailData('PBNM0000069')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengajuanNonMedisController->detail('PBNM0000069')
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengajuanNonMedisController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-16 06:51:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-16 06:51:22 --> ArgumentCountError: Too few arguments to function CodeIgniter\Database\BaseBuilder::join(), 1 passed in C:\xampp\htdocs\inventaris-barang\system\Model.php on line 872 and at least 2 expected
+in SYSTEMPATH\Database\BaseBuilder.php on line 617.
+ 1 SYSTEMPATH\Model.php(872): CodeIgniter\Database\BaseBuilder->join('ipsrsbarang, detail_pengajuan_barang_nonmedis.kode_brng = ipsrsbarang.kode_brng')
+ 2 APPPATH\Models\PengajuanBarangNonMedisDetailModel.php(48): CodeIgniter\Model->__call('join', [...])
+ 3 APPPATH\Controllers\PengajuanNonMedisController.php(95): App\Models\PengajuanBarangNonMedisDetailModel->detailData('PBNM123')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengajuanNonMedisController->detail('PBNM123')
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengajuanNonMedisController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-16 06:52:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:52:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-16 06:52:05 --> Detail fetched: [{"no_pengajuan":"PBNM0000069","kode_brng":"B00002","kode_sat":"AMP","jumlah":"1","h_pengajuan":"11100","total":"11100","nama_brng":"TES2","jenis":"J01","stok":"48","harga":"11100","status":"1"},{"no_pengajuan":"PBNM0000069","kode_brng":"B00003","kode_sat":"BKS","jumlah":"2","h_pengajuan":"13553.1","total":"27106.2","nama_brng":"TEPUNG TERIGU","jenis":"J03","stok":"283","harga":"13553.1","status":"1"}]
+INFO - 2024-10-16 06:56:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:56:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:56:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:56:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:57:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-16 06:57:33 --> ErrorException: Undefined array key "total1"
+in APPPATH\Views\permintaan_nonmedis\modal_detail.php on line 38.
+ 1 APPPATH\Views\permintaan_nonmedis\modal_detail.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "total1"', 'C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\permintaan_nonmedis\\modal_detail.php', 38)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\permintaan_nonmedis\\modal_detail.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('permintaan_nonmedis/modal_detail', null, true)
+ 5 APPPATH\Views\permintaan_nonmedis\index.php(131): CodeIgniter\View\View->include('permintaan_nonmedis/modal_detail')
+ 6 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\inventaris-barang\\app\\Views\\permintaan_nonmedis\\index.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('permintaan_nonmedis/index', [], true)
+ 9 APPPATH\Controllers\PermintaanNonMedisController.php(31): view('permintaan_nonmedis/index', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PermintaanNonMedisController->index()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanNonMedisController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-16 06:57:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:57:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:57:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:58:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:58:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:58:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-16 06:58:24 --> BadMethodCallException: Call to undefined method App\Models\PermintaanNonMedisDetailModel::detailData
+in SYSTEMPATH\Model.php on line 874.
+ 1 APPPATH\Controllers\PermintaanNonMedisController.php(102): CodeIgniter\Model->__call('detailData', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PermintaanNonMedisController->detail('minta001')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanNonMedisController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-16 06:58:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:58:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-16 06:58:31 --> BadMethodCallException: Call to undefined method App\Models\PermintaanNonMedisDetailModel::detailData
+in SYSTEMPATH\Model.php on line 874.
+ 1 APPPATH\Controllers\PermintaanNonMedisController.php(102): CodeIgniter\Model->__call('detailData', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PermintaanNonMedisController->detail('minta001')
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanNonMedisController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-16 06:59:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 06:59:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 07:01:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-16 07:01:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-16 07:01:24 --> mysqli_sql_exception: Unknown table 'sik.permintaan_non_medis' in C:\xampp\htdocs\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `detail_...', 0)
+#1 C:\xampp\htdocs\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `detail_...')
+#2 C:\xampp\htdocs\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `detail_...')
+#3 C:\xampp\htdocs\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `detail_...', Array, false)
+#4 C:\xampp\htdocs\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\inventaris-barang\app\Models\PermintaanNonMedisDetailModel.php(52): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\inventaris-barang\app\Controllers\PermintaanNonMedisController.php(102): App\Models\PermintaanNonMedisDetailModel->getDataById('minta001')
+#8 C:\xampp\htdocs\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PermintaanNonMedisController->detail('minta001')
+#9 C:\xampp\htdocs\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanNonMedisController))
+#10 C:\xampp\htdocs\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2024-10-16 07:01:24 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'sik.permintaan_non_medis'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `detail_permintaan_non_medis`.*, `permintaan_non_medis`.*, `ipsrsbarang`.*, `kodesatuan`.*
+FROM `detail_permintaan_non_medis`
+JOIN `ipsrsbarang` ON `detail_permintaan_non_medis`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `kodesatuan` ON `detail_permintaan_non_medis`.`kode_sat`=`kodesatuan`.`kode_sat`
+WHERE `no_permintaan` = :no_permintaan:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PermintaanNonMedisDetailModel.php(52): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PermintaanNonMedisController.php(102): App\Models\PermintaanNonMedisDetailModel->getDataById('minta001')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PermintaanNonMedisController->detail('minta001')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanNonMedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-16 07:01:24 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown table 'sik.permintaan_non_medis'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `detail_permintaan_non_medis`.*, `permintaan_non_medis`.*, `ipsrsbarang`.*, `kodesatuan`.*
+FROM `detail_permintaan_non_medis`
+JOIN `ipsrsbarang` ON `detail_permintaan_non_medis`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `kodesatuan` ON `detail_permintaan_non_medis`.`kode_sat`=`kodesatuan`.`kode_sat`
+WHERE `no_permintaan` = \'minta001\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `detail_permintaan_non_medis`.*, `permintaan_non_medis`.*, `ipsrsbarang`.*, `kodesatuan`.*
+FROM `detail_permintaan_non_medis`
+JOIN `ipsrsbarang` ON `detail_permintaan_non_medis`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `kodesatuan` ON `detail_permintaan_non_medis`.`kode_sat`=`kodesatuan`.`kode_sat`
+WHERE `no_permintaan` = \'minta001\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `detail_permintaan_non_medis`.*, `permintaan_non_medis`.*, `ipsrsbarang`.*, `kodesatuan`.*
+FROM `detail_permintaan_non_medis`
+JOIN `ipsrsbarang` ON `detail_permintaan_non_medis`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `kodesatuan` ON `detail_permintaan_non_medis`.`kode_sat`=`kodesatuan`.`kode_sat`
+WHERE `no_permintaan` = :no_permintaan:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PermintaanNonMedisDetailModel.php(52): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PermintaanNonMedisController.php(102): App\Models\PermintaanNonMedisDetailModel->getDataById('minta001')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PermintaanNonMedisController->detail('minta001')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanNonMedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-16 07:01:24 --> [Caused by] mysqli_sql_exception: Unknown table 'sik.permintaan_non_medis'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `detail_permintaan_non_medis`.*, `permintaan_non_medis`.*, `ipsrsbarang`.*, `kodesatuan`.*
+FROM `detail_permintaan_non_medis`
+JOIN `ipsrsbarang` ON `detail_permintaan_non_medis`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `kodesatuan` ON `detail_permintaan_non_medis`.`kode_sat`=`kodesatuan`.`kode_sat`
+WHERE `no_permintaan` = \'minta001\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `detail_permintaan_non_medis`.*, `permintaan_non_medis`.*, `ipsrsbarang`.*, `kodesatuan`.*
+FROM `detail_permintaan_non_medis`
+JOIN `ipsrsbarang` ON `detail_permintaan_non_medis`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `kodesatuan` ON `detail_permintaan_non_medis`.`kode_sat`=`kodesatuan`.`kode_sat`
+WHERE `no_permintaan` = \'minta001\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `detail_permintaan_non_medis`.*, `permintaan_non_medis`.*, `ipsrsbarang`.*, `kodesatuan`.*
+FROM `detail_permintaan_non_medis`
+JOIN `ipsrsbarang` ON `detail_permintaan_non_medis`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `kodesatuan` ON `detail_permintaan_non_medis`.`kode_sat`=`kodesatuan`.`kode_sat`
+WHERE `no_permintaan` = \'minta001\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `detail_permintaan_non_medis`.*, `permintaan_non_medis`.*, `ipsrsbarang`.*, `kodesatuan`.*
+FROM `detail_permintaan_non_medis`
+JOIN `ipsrsbarang` ON `detail_permintaan_non_medis`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `kodesatuan` ON `detail_permintaan_non_medis`.`kode_sat`=`kodesatuan`.`kode_sat`
+WHERE `no_permintaan` = :no_permintaan:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PermintaanNonMedisDetailModel.php(52): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PermintaanNonMedisController.php(102): App\Models\PermintaanNonMedisDetailModel->getDataById('minta001')
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PermintaanNonMedisController->detail('minta001')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PermintaanNonMedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\inventaris-barang\\public\\index.php')

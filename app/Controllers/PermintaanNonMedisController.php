@@ -99,7 +99,7 @@ class PermintaanNonMedisController extends BaseController
     public function detail($id)
     {
         $permintaan_nonmedis_det_mod = new PermintaanNonMedisDetailModel();
-        $detail = $permintaan_nonmedis_det_mod->detailData($id);
+        $detail = $permintaan_nonmedis_det_mod->getDataById($id);
 
         // Debug output
         log_message('debug', 'Detail fetched: ' . json_encode($detail)); // Log detail untuk debug

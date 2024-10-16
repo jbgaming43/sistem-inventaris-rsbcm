@@ -44,7 +44,8 @@ class PengajuanBarangNonMedisDetailModel extends Model
 
     public function detailData($id)
     {
-        return $this->select('detail_pengajuan_barang_nonmedis.*')
+        return $this->select('detail_pengajuan_barang_nonmedis.*, ipsrsbarang.*')
+            ->join('ipsrsbarang', 'detail_pengajuan_barang_nonmedis.kode_brng = ipsrsbarang.kode_brng')
             ->where('no_pengajuan', $id)
             ->findAll(); // retrieve all data
     }
