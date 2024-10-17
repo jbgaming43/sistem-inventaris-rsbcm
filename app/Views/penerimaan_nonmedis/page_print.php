@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Permintaan Pembelian - Print</title>
+    <title>Peneriman Non Medis - Print</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -109,7 +109,7 @@
     <div class="container">
         <div class="header">
             <img src="<?= base_url('../assets/img/icon/rsbcm_logo.png'); ?>" alt="RS BORNEO CITRA MEDIKA" style="height: 60px;">
-            <h1>PENERIMAAN INVENTARIS</h1>
+            <h1>PENERIMAAN NON MEDIS</h1>
         </div>
 
         <hr>

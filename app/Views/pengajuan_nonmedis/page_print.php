@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Permintaan Pembelian - Print</title>
+    <title>Pengajuan Non Medis - Print</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -66,13 +66,16 @@
 
         .signatures {
             position: absolute;
-            bottom: 0mm; /* Distance from the bottom of the page */
+            bottom: 0mm;
+            /* Distance from the bottom of the page */
             left: 0;
             width: 100%;
             display: flex;
             justify-content: space-between;
-            margin-top: 20mm; /* Extra margin to ensure it's pushed to the bottom */
+            margin-top: 20mm;
+            /* Extra margin to ensure it's pushed to the bottom */
         }
+
         .signatures div {
             text-align: center;
             width: 24%;
@@ -106,7 +109,7 @@
     <div class="container">
         <div class="header">
             <img src="<?= base_url('../assets/img/icon/rsbcm_logo.png'); ?>" alt="RS BORNEO CITRA MEDIKA" style="height: 60px;">
-            <h1>PENGAJUAN NONMEDIS</h1>
+            <h1>PENGAJUAN NON MEDIS</h1>
         </div>
 
         <hr>
@@ -143,9 +146,9 @@
                 </tr>
             </thead>
             <tbody>
-                <?php if (!empty($pen_nonmedis_det_con)) : 
+                <?php if (!empty($pen_nonmedis_det_con)) :
                     $total_jumlah = 0;
-                    $total_total = 0;?>
+                    $total_total = 0; ?>
                     <?php ?>
                     <?php foreach ($pen_nonmedis_det_con as $index => $dt_pen_nonmedis_det) : ?>
                         <tr style=" white-space: nowrap;">
@@ -159,21 +162,21 @@
                         </tr>
 
                         <!-- menghitung sum jumlah -->
-                        <?php 
+                        <?php
                         $total_jumlah += $dt_pen_nonmedis_det['jumlah'];
-                        $total_total += $dt_pen_nonmedis_det['total']?>
+                        $total_total += $dt_pen_nonmedis_det['total'] ?>
                     <?php endforeach; ?>
                 <?php else : ?>
                     <tr>
                         <td colspan="6">Tidak ada data</td>
                     </tr>
                 <?php endif; ?>
-                
-                        <tr>
-                            <td colspan="5"></td>
-                            <td><?= $total_jumlah; ?></td>
-                            <td>Rp <?= number_format($total_total, 0, ',', '.'); ?></td>
-                        </tr>
+
+                <tr>
+                    <td colspan="5"></td>
+                    <td><?= $total_jumlah; ?></td>
+                    <td>Rp <?= number_format($total_total, 0, ',', '.'); ?></td>
+                </tr>
             </tbody>
         </table>
 

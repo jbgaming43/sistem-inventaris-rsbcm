@@ -121,9 +121,9 @@
                     <td>:</td>
                     <td><?= $dt_permintaan_nonmedis['no_permintaan'] ?></td>
                     <!-- untuk yang kanan -->
-                    <td>Ruang</td>
+                    <td style="padding-left: 5cm;">Ruang</td>
                     <td>:</td>
-                    <td><?= date('d-M-Y', strtotime($dt_permintaan_nonmedis['tanggal'])) ?></td>
+                    <td><?= $dt_permintaan_nonmedis['ruang'] ?></td>
                 </tr>
                 <tr>
                     <!-- untuk yang kiri -->
@@ -131,7 +131,7 @@
                     <td>:</td>
                     <td><?= $dt_permintaan_nonmedis['nama'] ?></td>
                     <!-- untuk yang kanan -->
-                    <td>Jatuh Tempo</td>
+                    <td style="padding-left: 5cm;">Jatuh Tempo</td>
                     <td>:</td>
                     <td><?= date('d-M-Y', strtotime($dt_permintaan_nonmedis['tanggal'])) ?></td>
                 </tr>
@@ -173,6 +173,14 @@
                         <td colspan="7">Tidak ada data</td>
                     </tr>
                 <?php endif; ?>
+                <?php if ($total_jumlah) : ?>
+                    <tr>
+                        <td colspan="5"></td>
+                        <td><?= $total_jumlah; ?></td>
+                        <td></td>
+                    </tr>
+                <?php endif; ?>
+
             </tbody>
         </table>
 
