@@ -33,6 +33,7 @@ class PermintaanNonMedisDetailModel extends Model
         return $this->select('detail_permintaan_non_medis.*, ipsrsbarang.*, kodesatuan.*')
             ->join('ipsrsbarang', 'detail_permintaan_non_medis.kode_brng=ipsrsbarang.kode_brng',)
             ->join('kodesatuan', 'detail_permintaan_non_medis.kode_sat=kodesatuan.kode_sat',)
+            ->join('ipsrsjenisbarang', 'ipsrsbarang.jenis=ipsrsjenisbarang.kd_jenis',)
             ->where('no_permintaan', $id)
             ->findAll(); // retrieve all data
     }

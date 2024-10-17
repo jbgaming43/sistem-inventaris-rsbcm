@@ -121,36 +121,19 @@
                     <td>:</td>
                     <td><?= $dt_permintaan_nonmedis['no_permintaan'] ?></td>
                     <!-- untuk yang kanan -->
-                    <td>Tgl. Datang</td>
+                    <td>Ruang</td>
                     <td>:</td>
-                    <td><?= date('d-M-Y', strtotime($dt_permintaan_nonmedis['tgl_pesan'])) ?></td>
+                    <td><?= date('d-M-Y', strtotime($dt_permintaan_nonmedis['tanggal'])) ?></td>
                 </tr>
                 <tr>
                     <!-- untuk yang kiri -->
-                    <td>No. Order</td>
+                    <td>Diajukan oleh</td>
                     <td>:</td>
-                    <td><?= $dt_permintaan_nonmedis['no_order'] ?></td>
-                    <!-- untuk yang kanan -->
-                    <td>Tgl. Beli</td>
-                    <td>:</td>
-                    <td><?= date('d-M-Y', strtotime($dt_permintaan_nonmedis['tgl_faktur'])) ?></td>
-                </tr>
-                <tr>
-                    <!-- untuk yang kiri -->
-                    <td>Supplier</td>
-                    <td>:</td>
-                    <td><?= $dt_permintaan_nonmedis['nama_suplier'] ?></td>
+                    <td><?= $dt_permintaan_nonmedis['nama'] ?></td>
                     <!-- untuk yang kanan -->
                     <td>Jatuh Tempo</td>
                     <td>:</td>
-                    <td><?= date('d-M-Y', strtotime($dt_permintaan_nonmedis['tgl_tempo'])) ?></td>
-                </tr>
-                <tr>
-                    <!-- untuk yang kiri -->
-                    <td>Petugas</td>
-                    <td>:</td>
-                    <td style="padding-right: 30px"><?= $dt_permintaan_nonmedis['nama'] ?></td>
-                    <!-- untuk yang kanan -->
+                    <td><?= date('d-M-Y', strtotime($dt_permintaan_nonmedis['tanggal'])) ?></td>
                 </tr>
             </table>
         <?php endforeach ?>
@@ -161,28 +144,24 @@
                     <th>No.</th>
                     <th>Kode Barang</th>
                     <th>Nama Barang</th>
-                    <th>Merk</th>
+                    <th>Satuan</th>
                     <th>Jenis</th>
-                    <th>Harga Beli</th>
-                    <th>Diskon</th>
                     <th>Jumlah</th>
-                    <th>Total</th>
+                    <th>Keterangan</th>
                 </tr>
             </thead>
             <tbody>
-                <?php if (!empty($penerimaan_nonmedis_det_con)) : ?>
+                <?php if (!empty($permintaan_nonmedis_det_con)) : ?>
                     <?php $total_jumlah = 0; ?>
-                    <?php foreach ($penerimaan_nonmedis_det_con as $index => $dt_permintaan_nonmedis_det) : ?>
+                    <?php foreach ($permintaan_nonmedis_det_con as $index => $dt_permintaan_nonmedis_det) : ?>
                         <tr style=" white-space: nowrap;">
                             <td><?= $index + 1 ?></td>
                             <td><?= $dt_permintaan_nonmedis_det['kode_brng'] ?></td>
                             <td><?= $dt_permintaan_nonmedis_det['nama_brng'] ?></td>
                             <td><?= $dt_permintaan_nonmedis_det['kode_sat'] ?></td>
-                            <td><?= $dt_permintaan_nonmedis_det['nm_jenis'] ?></td>
-                            <td>Rp <?= number_format($dt_permintaan_nonmedis_det['harga'], 0, ',', '.'); ?></td>
-                            <td><?= $dt_permintaan_nonmedis_det['dis'] ?>%</td>
+                            <td><?= $dt_permintaan_nonmedis_det['jenis'] ?></td>
                             <td><?= $dt_permintaan_nonmedis_det['jumlah'] ?></td>
-                            <td>Rp <?= number_format($dt_permintaan_nonmedis_det['total'], 0, ',', '.'); ?></td>
+                            <td><?= $dt_permintaan_nonmedis_det['keterangan'] ?></td>
                         </tr>
 
                         <!-- menghitung sum jumlah -->
@@ -194,15 +173,6 @@
                         <td colspan="7">Tidak ada data</td>
                     </tr>
                 <?php endif; ?>
-                <?php foreach ($permintaan_nonmedis_con as $dt_permintaan_nonmedis) : ?>
-                    <?php if ($dt_permintaan_nonmedis['total1']) : ?>
-                        <tr>
-                            <td colspan="7"></td>
-                            <td><?= $total_jumlah; ?></td>
-                            <td>Rp <?= number_format($dt_permintaan_nonmedis['total1'], 0, ',', '.'); ?></td>
-                        </tr>
-                    <?php endif ?>
-                <?php endforeach ?>
             </tbody>
         </table>
 

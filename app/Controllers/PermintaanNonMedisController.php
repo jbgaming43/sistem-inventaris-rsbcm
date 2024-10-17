@@ -99,7 +99,7 @@ class PermintaanNonMedisController extends BaseController
     public function detail($id)
     {
         $permintaan_nonmedis_det_mod = new PermintaanNonMedisDetailModel();
-        $detail = $permintaan_nonmedis_det_mod->detailData($id);   
+        $detail = $permintaan_nonmedis_det_mod->detailData($id);
 
         if ($detail) {
             // Kirim data dalam format JSON
@@ -171,6 +171,8 @@ class PermintaanNonMedisController extends BaseController
             'permintaan_nonmedis_con' => $permintaan_nonmedis_mod->getDataById($id),
             'permintaan_nonmedis_det_con' => $permintaan_nonmedis_det_mod->detailData($id),
         ];
+        // $t = $permintaan_nonmedis_det_mod->detailData($id);
+        // dd($t);
 
         return view('permintaan_nonmedis/page_print', $data);
     }
