@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Permintaan Pembelian - Print</title>
+    <title>Pembelian Inventaris - Print</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -162,8 +162,8 @@
                 </tr>
             </thead>
             <tbody>
-                <?php if (!empty($pem_inv_det_con)) : 
-                    $total_jumlah = 0;?>
+                <?php if (!empty($pem_inv_det_con)) :
+                    $total_jumlah = 0; ?>
                     <?php ?>
                     <?php foreach ($pem_inv_det_con as $index => $dt_pem_inv_det) : ?>
                         <tr style=" white-space: nowrap;">
@@ -178,7 +178,7 @@
                         </tr>
 
                         <!-- menghitung sum jumlah -->
-                        <?php 
+                        <?php
                         $total_jumlah += $dt_pem_inv_det['jumlah'] ?>
                     <?php endforeach; ?>
                 <?php else : ?>
