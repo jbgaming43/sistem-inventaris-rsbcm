@@ -150,7 +150,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-danger" href="<?= base_url('/logout'); ?>">
+                    <a class="nav-link text-danger" href="#logout" data-bs-toggle="modal">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon text-danger" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -203,7 +203,7 @@
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <p class="dropdown-item"><?= session()->get('nama_pengguna') ?></p>
                     <div class="dropdown-divider m-0"></div>
-                    <a href="<?= base_url('/logout'); ?>" class="dropdown-item">
+                    <a href="#logout" class="dropdown-item" data-bs-toggle="modal">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon text-danger" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -237,5 +237,41 @@
                         </form>
                     </div> -->
         </div>
+
+        <!-- MODAL LOGOUT -->
+        <div class="modal modal-blur fade" id="logout" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-status bg-danger"></div>
+                    <div class="modal-body text-center py-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-2 text-danger icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M10.24 3.957l-8.422 14.06a1.989 1.989 0 0 0 1.7 2.983h16.845a1.989 1.989 0 0 0 1.7 -2.983l-8.423 -14.06a1.989 1.989 0 0 0 -3.4 0z"></path>
+                            <path d="M12 9v4"></path>
+                            <path d="M12 17h.01"></path>
+                        </svg>
+                        <h3>LOGOUT</h3>
+                        <div class="text-muted">Apakah anda yakin keluar dari sistem? <strong></strong>?</div>
+                    </div>
+                    <div class="modal-footer">
+                        <form action="/logout" method="GET">
+                            <div class="w-100">
+                                <div class="row">
+                                    <div class="col"><button type="submit" class="btn btn-danger w-100">
+                                            Iya 🥲
+                                        </button></div>
+                                    <div class="col"><button type="button" class="btn w-100" data-bs-dismiss="modal">
+                                            Tidak 😊
+                                        </button></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /MODAL LOGOUT -->
+
     </div>
 </header>
