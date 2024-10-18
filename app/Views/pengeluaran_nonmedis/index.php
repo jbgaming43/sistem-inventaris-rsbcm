@@ -12,7 +12,7 @@
                     <div class="card-header">
                         <!-- <h3 class="card-title">Card with action</h3> -->
                         <div class="card-actions">
-                            <button type="button" class="btn btn-green" data-bs-toggle="modal" data-bs-target="#add_permintaan_nonmedis">
+                            <button type="button" class="btn btn-green" data-bs-toggle="modal" data-bs-target="#add_pengeluaran_nonmedis">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -31,7 +31,7 @@
                                     <th>No Keluar</th>
                                     <th>Petugas</th>
                                     <th>Tanggal</th>
-                                    <th>User</th>
+                                    <th>Keterangan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -45,7 +45,7 @@
                                         <td><?= $dt_pengeluaran_nonmedis['tanggal']; ?></td>
                                         <td><?= $dt_pengeluaran_nonmedis['keterangan']; ?></td>
                                         <td>
-                                            <a href="<?= base_url('/permintaan_non_medis/print/' . $dt_pengeluaran_nonmedis['no_keluar']); ?>" target="_blank">
+                                            <a href="<?= base_url('/pengeluaran_non_medis/print/' . $dt_pengeluaran_nonmedis['no_keluar']); ?>" target="_blank">
                                                 <button type="button" class="btn btn-icon btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Print">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-printer">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -55,7 +55,7 @@
                                                     </svg>
                                                 </button>
                                             </a>
-                                            <span data-bs-toggle="modal" data-bs-target="#detail_permintaan_nonmedis<?= $dt_pengeluaran_nonmedis['no_keluar']; ?>">
+                                            <span data-bs-toggle="modal" data-bs-target="#detail_pengeluaran_nonmedis<?= $dt_pengeluaran_nonmedis['no_keluar']; ?>">
                                                 <button type="button" class="btn btn-icon btn-blue btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -65,7 +65,7 @@
                                                     </svg>
                                                 </button>
                                             </span>
-                                            <span data-bs-toggle="modal" data-bs-target="#delete_permintaan_nonmedis<?= $dt_pengeluaran_nonmedis['no_keluar']; ?>">
+                                            <span data-bs-toggle="modal" data-bs-target="#delete_pengeluaran_nonmedis<?= $dt_pengeluaran_nonmedis['no_keluar']; ?>">
                                                 <button type="button" class="btn btn-icon btn-red btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -89,5 +89,6 @@
     </div>
 </div>
 
+<?= $this->include('pengeluaran_nonmedis/modal_add') ?>
 
 <?= $this->endSection() ?>

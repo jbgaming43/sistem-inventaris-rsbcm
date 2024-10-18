@@ -31,6 +31,7 @@ class PengeluaranNonMedisDetailModel extends Model
             ->join('ipsrspengeluaran', 'ipsrsdetailpengeluaran.no_keluar=ipsrspengeluaran.no_keluar')
             ->join('ipsrsbarang', 'ipsrsdetailpengeluaran.kode_brng=ipsrsbarang.kode_brng')
             ->join('kodesatuan', 'ipsrsdetailpengeluaran.kode_sat=kodesatuan.kode_sat')
+            ->join('ipsrsjenisbarang', 'ipsrsbarang.jenis=ipsrsjenisbarang.kd_jenis',)
             ->where('no_keluar', $id)
             ->findAll(); // retrieve all data
     }
