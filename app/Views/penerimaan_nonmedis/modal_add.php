@@ -136,7 +136,7 @@
 
                         console.log(no_faktur);
                         // Fetch inventory details for the faktur
-                        fetch(`/pembelian_non_medis/detail/${no_faktur}`)
+                        fetch(`/penerimaan_non_medis/detail/${no_faktur}`)
                             .then(response => response.json())
                             .then(data => {
                                 if (data.success) {
