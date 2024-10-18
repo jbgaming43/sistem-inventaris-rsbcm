@@ -399,3 +399,259 @@ INFO - 2024-10-18 07:27:08 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-10-18 07:27:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-18 07:27:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-18 07:27:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:29:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:29:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:30:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:32:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:32:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:33:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:39:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:40:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:40:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:40:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:41:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:41:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:41:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:41:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:41:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:42:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:42:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:43:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:43:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:43:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-18 07:43:12 --> mysqli_sql_exception: Unknown column 'ipsrspemesanan.nip' in 'on clause' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrspe...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrspe...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrspe...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspe...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PengeluaranNonMedisModel.php(35): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PengeluaranNonMedisController.php(42): App\Models\PengeluaranNonMedisModel->getDataById('123')
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->add()
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-18 07:43:12 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ipsrspemesanan.nip' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspengeluaran`.*, `petugas`.*
+FROM `ipsrspengeluaran`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`
+WHERE `no_keluar` = :no_keluar:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PengeluaranNonMedisModel.php(35): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PengeluaranNonMedisController.php(42): App\Models\PengeluaranNonMedisModel->getDataById('123')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->add()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-18 07:43:12 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ipsrspemesanan.nip' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrspengeluaran`.*, `petugas`.*
+FROM `ipsrspengeluaran`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`
+WHERE `no_keluar` = \'123\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrspengeluaran`.*, `petugas`.*
+FROM `ipsrspengeluaran`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`
+WHERE `no_keluar` = \'123\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspengeluaran`.*, `petugas`.*
+FROM `ipsrspengeluaran`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`
+WHERE `no_keluar` = :no_keluar:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PengeluaranNonMedisModel.php(35): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PengeluaranNonMedisController.php(42): App\Models\PengeluaranNonMedisModel->getDataById('123')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->add()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-18 07:43:12 --> [Caused by] mysqli_sql_exception: Unknown column 'ipsrspemesanan.nip' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrspengeluaran`.*, `petugas`.*
+FROM `ipsrspengeluaran`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`
+WHERE `no_keluar` = \'123\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrspengeluaran`.*, `petugas`.*
+FROM `ipsrspengeluaran`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`
+WHERE `no_keluar` = \'123\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrspengeluaran`.*, `petugas`.*
+FROM `ipsrspengeluaran`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`
+WHERE `no_keluar` = \'123\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspengeluaran`.*, `petugas`.*
+FROM `ipsrspengeluaran`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`
+WHERE `no_keluar` = :no_keluar:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PengeluaranNonMedisModel.php(35): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PengeluaranNonMedisController.php(42): App\Models\PengeluaranNonMedisModel->getDataById('123')
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->add()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-18 07:43:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-18 07:43:52 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`sik`.`ipsrspengeluaran`, CONSTRAINT `ipsrspengeluaran_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `petugas` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE) in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `ip...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ip...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ip...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ip...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 D:\RSBCM\inventaris-barang\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\RSBCM\inventaris-barang\app\Models\PengeluaranNonMedisModel.php(40): CodeIgniter\Model->insert(Array)
+#8 D:\RSBCM\inventaris-barang\app\Controllers\PengeluaranNonMedisController.php(77): App\Models\PengeluaranNonMedisModel->insertData(Array)
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->add()
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+#11 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#14 {main}
+CRITICAL - 2024-10-18 07:43:52 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`sik`.`ipsrspengeluaran`, CONSTRAINT `ipsrspengeluaran_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `petugas` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ipsrspengeluaran` (`no_keluar`, `tanggal`, `nip`, `keterangan`) VALUES (:no_keluar:, :tanggal:, :nip:, :keterangan:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Models\PengeluaranNonMedisModel.php(40): CodeIgniter\Model->insert([...])
+ 6 APPPATH\Controllers\PengeluaranNonMedisController.php(77): App\Models\PengeluaranNonMedisModel->insertData([...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->add()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-18 07:43:52 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`sik`.`ipsrspengeluaran`, CONSTRAINT `ipsrspengeluaran_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `petugas` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ipsrspengeluaran` (`no_keluar`, `tanggal`, `nip`, `keterangan`) VALUES (\'123\', \'2024-10-18\', \'D0000003\', \'gak ada\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ipsrspengeluaran` (`no_keluar`, `tanggal`, `nip`, `keterangan`) VALUES (\'123\', \'2024-10-18\', \'D0000003\', \'gak ada\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ipsrspengeluaran` (`no_keluar`, `tanggal`, `nip`, `keterangan`) VALUES (:no_keluar:, :tanggal:, :nip:, :keterangan:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Models\PengeluaranNonMedisModel.php(40): CodeIgniter\Model->insert([...])
+ 8 APPPATH\Controllers\PengeluaranNonMedisController.php(77): App\Models\PengeluaranNonMedisModel->insertData([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->add()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-18 07:43:52 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`sik`.`ipsrspengeluaran`, CONSTRAINT `ipsrspengeluaran_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `petugas` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `ipsrspengeluaran` (`no_keluar`, `tanggal`, `nip`, `keterangan`) VALUES (\'123\', \'2024-10-18\', \'D0000003\', \'gak ada\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ipsrspengeluaran` (`no_keluar`, `tanggal`, `nip`, `keterangan`) VALUES (\'123\', \'2024-10-18\', \'D0000003\', \'gak ada\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ipsrspengeluaran` (`no_keluar`, `tanggal`, `nip`, `keterangan`) VALUES (\'123\', \'2024-10-18\', \'D0000003\', \'gak ada\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ipsrspengeluaran` (`no_keluar`, `tanggal`, `nip`, `keterangan`) VALUES (:no_keluar:, :tanggal:, :nip:, :keterangan:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\PengeluaranNonMedisModel.php(40): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\PengeluaranNonMedisController.php(77): App\Models\PengeluaranNonMedisModel->insertData([...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->add()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-18 07:43:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:43:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:44:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:44:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:44:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-18 07:44:15 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`sik`.`ipsrspengeluaran`, CONSTRAINT `ipsrspengeluaran_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `petugas` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE) in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `ip...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ip...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ip...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ip...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(802): CodeIgniter\Model->doInsert(Array)
+#6 D:\RSBCM\inventaris-barang\system\Model.php(744): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\RSBCM\inventaris-barang\app\Models\PengeluaranNonMedisModel.php(40): CodeIgniter\Model->insert(Array)
+#8 D:\RSBCM\inventaris-barang\app\Controllers\PengeluaranNonMedisController.php(77): App\Models\PengeluaranNonMedisModel->insertData(Array)
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->add()
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+#11 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#14 {main}
+CRITICAL - 2024-10-18 07:44:15 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`sik`.`ipsrspengeluaran`, CONSTRAINT `ipsrspengeluaran_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `petugas` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ipsrspengeluaran` (`no_keluar`, `tanggal`, `nip`, `keterangan`) VALUES (:no_keluar:, :tanggal:, :nip:, :keterangan:)', [...], false)
+ 2 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Models\PengeluaranNonMedisModel.php(40): CodeIgniter\Model->insert([...])
+ 6 APPPATH\Controllers\PengeluaranNonMedisController.php(77): App\Models\PengeluaranNonMedisModel->insertData([...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->add()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-18 07:44:15 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`sik`.`ipsrspengeluaran`, CONSTRAINT `ipsrspengeluaran_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `petugas` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ipsrspengeluaran` (`no_keluar`, `tanggal`, `nip`, `keterangan`) VALUES (\'123\', \'2024-10-18\', \'D0000003\', \'gak ada\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ipsrspengeluaran` (`no_keluar`, `tanggal`, `nip`, `keterangan`) VALUES (\'123\', \'2024-10-18\', \'D0000003\', \'gak ada\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ipsrspengeluaran` (`no_keluar`, `tanggal`, `nip`, `keterangan`) VALUES (:no_keluar:, :tanggal:, :nip:, :keterangan:)', [...], false)
+ 4 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Models\PengeluaranNonMedisModel.php(40): CodeIgniter\Model->insert([...])
+ 8 APPPATH\Controllers\PengeluaranNonMedisController.php(77): App\Models\PengeluaranNonMedisModel->insertData([...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->add()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-18 07:44:15 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`sik`.`ipsrspengeluaran`, CONSTRAINT `ipsrspengeluaran_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `petugas` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `ipsrspengeluaran` (`no_keluar`, `tanggal`, `nip`, `keterangan`) VALUES (\'123\', \'2024-10-18\', \'D0000003\', \'gak ada\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ipsrspengeluaran` (`no_keluar`, `tanggal`, `nip`, `keterangan`) VALUES (\'123\', \'2024-10-18\', \'D0000003\', \'gak ada\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ipsrspengeluaran` (`no_keluar`, `tanggal`, `nip`, `keterangan`) VALUES (\'123\', \'2024-10-18\', \'D0000003\', \'gak ada\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ipsrspengeluaran` (`no_keluar`, `tanggal`, `nip`, `keterangan`) VALUES (:no_keluar:, :tanggal:, :nip:, :keterangan:)', [...], false)
+ 5 SYSTEMPATH\Model.php(326): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(802): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(744): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\PengeluaranNonMedisModel.php(40): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\PengeluaranNonMedisController.php(77): App\Models\PengeluaranNonMedisModel->insertData([...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->add()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-18 07:46:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:46:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:49:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-18 07:49:21 --> ErrorException: Undefined array key "nik"
+in APPPATH\Views\pengeluaran_nonmedis\modal_add.php on line 28.
+ 1 APPPATH\Views\pengeluaran_nonmedis\modal_add.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nik"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pengeluaran_nonmedis\\modal_add.php', 28)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pengeluaran_nonmedis\\modal_add.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('pengeluaran_nonmedis/modal_add', null, true)
+ 5 APPPATH\Views\pengeluaran_nonmedis\index.php(92): CodeIgniter\View\View->include('pengeluaran_nonmedis/modal_add')
+ 6 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pengeluaran_nonmedis\\index.php')
+ 7 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pengeluaran_nonmedis/index', [], true)
+ 9 APPPATH\Controllers\PengeluaranNonMedisController.php(31): view('pengeluaran_nonmedis/index', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->index()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-18 07:49:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:49:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:49:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:50:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:50:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:50:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:50:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:50:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -10,30 +10,30 @@
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Nomor pengeluaran</label>
                         <div class="col">
-                            <input type="text" class="form-control" name="no_keluar" placeholder="Masukkan no pengeluaran" id="no_pengeluaran">
+                            <input type="text" class="form-control" name="no_keluar" placeholder="Masukkan no pengeluaran" id="no_pengeluaran" required>
                         </div>
                     </div>
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Tanggal</label>
                         <div class="col">
-                            <input type="date" class="form-control" name="tanggal" placeholder="Masukkan tanggal">
+                            <input type="date" class="form-control" name="tanggal" placeholder="Masukkan tanggal" required>
                         </div>
                     </div>
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Diajukan Oleh</label>
                         <div class="col">
-                            <select class="form-select select2-pegawai-add-kel-nm" name="nik" style="width: 100%">
+                            <select class="form-select select2-petugas-add-kel-nm" name="nip" style="width: 100%" required>
                                 <option value="">- Pilih Nama -</option>
-                                <?php foreach ($pgwc as $dt_pegawai) : ?>
-                                    <option value="<?= $dt_pegawai['nik'] ?>"> <?= $dt_pegawai['nik'] ?>-<?= $dt_pegawai['nama'] ?></option>
+                                <?php foreach ($petugas_con as $dt_petugas) : ?>
+                                    <option value="<?= $dt_petugas['nip'] ?>"> <?= $dt_petugas['nip'] ?>-<?= $dt_petugas['nama'] ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
                     </div>
                     <div class="mb-2 row">
-                        <label class="col-3 col-form-label required">harga</label>
+                        <label class="col-3 col-form-label required">keterangan</label>
                         <div class="col">
-                            <textarea class="form-control" name="harga" placeholder="Masukkan harga"></textarea>
+                            <textarea class="form-control" name="keterangan" placeholder="Masukkan keterangan" required></textarea>
                         </div>
                     </div>
                     <div class="mb-2 row">

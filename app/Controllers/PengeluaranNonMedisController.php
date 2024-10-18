@@ -5,7 +5,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\PengeluaranNonMedisModel;
 use App\Models\PengeluaranNonMedisDetailModel;
-use App\Models\PegawaiModel;
+use App\Models\PetugasModel;
 use App\Models\IpsrsBarangModel;
 use App\Helpers\AuthHelper;
 
@@ -15,7 +15,7 @@ class PengeluaranNonMedisController extends BaseController
     {
         // objek untuk data permintaan non medis dan pilihan input
         $pengeluaran_nonmedis_mod = new PengeluaranNonMedisModel();
-        $pegawai_mod = new PegawaiModel();
+        $petugas_mod = new PetugasModel();
         $ipsrsbarang_mod = new IpsrsBarangModel();
 
         $data = [
@@ -24,7 +24,7 @@ class PengeluaranNonMedisController extends BaseController
             'active_submenu' => 'pengeluaran_non_medis',
 
             'pengeluaran_nonmedis_con' => $pengeluaran_nonmedis_mod->getData(),
-            'pgwc' => $pegawai_mod->getData(),
+            'petugas_con' => $petugas_mod->getData(),
             'ipsrsbarang_con' => $ipsrsbarang_mod->getData()
         ];
 
@@ -35,30 +35,29 @@ class PengeluaranNonMedisController extends BaseController
     {
         // objek PenggunaModel
         $pengeluaran_nonmedis_mod = new PengeluaranNonMedisModel();
-        $permintaan_nonmedis_det_mod = new PengeluaranNonMedisDetailModel();
+        $pengeluaran_nonmedis_det_mod = new PengeluaranNonMedisDetailModel();
 
-        $no_permintaan = $this->request->getPost('no_permintaan');
+        $no_keluar = $this->request->getPost('no_keluar');
 
-        $duplicate = $pengeluaran_nonmedis_mod->getDataById($no_permintaan);
+        $duplicate = $pengeluaran_nonmedis_mod->getDataById($no_keluar);
         if ($duplicate) {
-            session()->setFlashdata('error', 'Nomor Permintaan Sudah Ada');
-            return redirect()->to('/permintaan_non_medis');
+            session()->setFlashdata('error', 'Nomor Pengeluar Sudah Ada');
+            return redirect()->to('/pengeluaran_nonmedis');
         }
 
-
-        $ruang = $this->request->getPost('ruang');
         $tanggal = $this->request->getPost('tanggal');
-        $nik = $this->request->getPost('nik');
+        $nip = $this->request->getPost('nip');
         $keterangan = $this->request->getPost('keterangan');
 
         // Ambil data tabel barang yang diinputkan dalam bentuk array
         $kode_brng = $this->request->getPost('kode_brng');
         $kode_sat = $this->request->getPost('kode_sat');
         $jumlah = $this->request->getPost('jumlah');
-        $keterangan = $this->request->getPost('keterangan');
+        $harga = $this->request->getPost('harga');
+        $total = $this->request->getPost('total');
 
         // Cek apakah semua input adalah array
-        if (!is_array($kode_brng) || !is_array($kode_sat) || !is_array($jumlah)) {
+        if (!is_array($kode_brng) || !is_array($kode_sat) || !is_array($jumlah) || !is_array($harga) || !is_array($total)) {
             return redirect()->back()->with('error', 'Data input tidak valid.');
         }
 
@@ -69,11 +68,10 @@ class PengeluaranNonMedisController extends BaseController
         }
 
         $data = [
-            'no_permintaan' => $no_permintaan,
-            'ruang' => $ruang,
-            'nip' => $nik,
+            'no_keluar' => $no_keluar,
             'tanggal' => $tanggal,
-            'status' => 'Baru',
+            'nip' => $nip,
+            'keterangan' => $keterangan,
         ];
 
         $pengeluaran_nonmedis_mod->insertData($data);
@@ -81,25 +79,26 @@ class PengeluaranNonMedisController extends BaseController
 
         for ($i = 0; $i < count($kode_brng); $i++) {
             $dataDetails[] = [
-                'no_permintaan' => $no_permintaan,
+                'no_keluar' => $no_keluar,
                 'kode_brng' => $kode_brng[$i],
                 'kode_sat' => $kode_sat[$i],
                 'jumlah' => $jumlah[$i],
-                'keterangan' => $keterangan[$i],
+                'harga' => $harga[$i],
+                'total' => $total[$i],
             ];
         }
 
         // Insert semua data secara batch
-        $permintaan_nonmedis_det_mod->insertBatch($dataDetails);
+        $pengeluaran_nonmedis_det_mod->insertBatch($dataDetails);
 
         session()->setFlashdata('success', 'ditambahkan');
-        return redirect()->to('/permintaan_non_medis');
+        return redirect()->to('/pengeluaran_non_medis');
     }
 
     public function detail($id)
     {
-        $permintaan_nonmedis_det_mod = new PengeluaranNonMedisDetailModel();
-        $detail = $permintaan_nonmedis_det_mod->detailData($id);
+        $pengeluaran_nonmedis_det_mod = new PengeluaranNonMedisDetailModel();
+        $detail = $pengeluaran_nonmedis_det_mod->detailData($id);
 
         if ($detail) {
             // Kirim data dalam format JSON
@@ -116,7 +115,7 @@ class PengeluaranNonMedisController extends BaseController
         $pengeluaran_nonmedis_mod->deleteData($id);
 
         session()->setFlashdata('success', 'dihapus');
-        return redirect()->to('/permintaan_non_medis');
+        return redirect()->to('/pengeluaran_nonmedis');
     }
 
     public function getBarangDetails()
@@ -137,13 +136,13 @@ class PengeluaranNonMedisController extends BaseController
     public function print($id)
     {
         $pengeluaran_nonmedis_mod = new PengeluaranNonMedisModel();
-        $permintaan_nonmedis_det_mod = new PengeluaranNonMedisDetailModel();
+        $pengeluaran_nonmedis_det_mod = new PengeluaranNonMedisDetailModel();
 
         $data = [
             'permintaan_nonmedis_con' => $pengeluaran_nonmedis_mod->getDataById($id),
-            'permintaan_nonmedis_det_con' => $permintaan_nonmedis_det_mod->detailData($id),
+            'permintaan_nonmedis_det_con' => $pengeluaran_nonmedis_det_mod->detailData($id),
         ];
-        // $t = $permintaan_nonmedis_det_mod->detailData($id);
+        // $t = $pengeluaran_nonmedis_det_mod->detailData($id);
         // dd($t);
 
         return view('permintaan_nonmedis/page_print', $data);

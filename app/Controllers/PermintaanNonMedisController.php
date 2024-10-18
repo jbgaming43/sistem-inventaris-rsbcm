@@ -49,7 +49,6 @@ class PermintaanNonMedisController extends BaseController
         $ruang = $this->request->getPost('ruang');
         $tanggal = $this->request->getPost('tanggal');
         $nik = $this->request->getPost('nik');
-        $keterangan = $this->request->getPost('keterangan');
 
         // Ambil data tabel barang yang diinputkan dalam bentuk array
         $kode_brng = $this->request->getPost('kode_brng');
