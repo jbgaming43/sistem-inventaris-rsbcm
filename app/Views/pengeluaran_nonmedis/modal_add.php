@@ -22,7 +22,7 @@
                     <div class="mb-2 row">
                         <label class="col-3 col-form-label required">Diajukan Oleh</label>
                         <div class="col">
-                            <select class="form-select select2-pegawai-add-min-nm" name="nik" style="width: 100%">
+                            <select class="form-select select2-pegawai-add-kel-nm" name="nik" style="width: 100%">
                                 <option value="">- Pilih Nama -</option>
                                 <?php foreach ($pgwc as $dt_pegawai) : ?>
                                     <option value="<?= $dt_pegawai['nik'] ?>"> <?= $dt_pegawai['nik'] ?>-<?= $dt_pegawai['nama'] ?></option>
@@ -31,9 +31,9 @@
                         </div>
                     </div>
                     <div class="mb-2 row">
-                        <label class="col-3 col-form-label required">Keterangan</label>
+                        <label class="col-3 col-form-label required">harga</label>
                         <div class="col">
-                            <textarea class="form-control" name="keterangan" placeholder="Masukkan Keterangan"></textarea>
+                            <textarea class="form-control" name="harga" placeholder="Masukkan harga"></textarea>
                         </div>
                     </div>
                     <div class="mb-2 row">
@@ -46,14 +46,15 @@
                                         <th>Satuan</th>
                                         <th>Jenis</th>
                                         <th>Jumlah</th>
-                                        <th>Keterangan</th>
+                                        <th>Harga</th>
+                                        <th>Total</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody id="table-body">
                                     <tr>
                                         <td><input type="text" id="kode_brng_0" name="kode_brng[]" class="form-control" readonly></td>
-                                        <td><select id="select_pengeluaran_nonmedis0" class="form-select select2-barangnonmedis-perm" style="width: 100%" onchange="fetchBarangNonMedisDetails(this.value, 0)">
+                                        <td><select id="select_pengeluaran_nonmedis0" class="form-select select2-pengeluaran-nonmedis" style="width: 100%" onchange="fetchBarangNonMedisDetails(this.value, 0)">
                                                 <option value="">- Pilih Nama -</option>
                                                 <?php foreach ($ipsrsbarang_con as $dt_barangnonmedis) : ?>
                                                     <option value="<?= $dt_barangnonmedis['kode_brng'] ?>"><?= $dt_barangnonmedis['nama_brng'] ?></option>
@@ -62,7 +63,8 @@
                                         <td><input type="text" id="kode_sat_0" name="kode_sat[]" class="form-control" readonly></td>
                                         <td><input type="text" id="jenis_0" name="jenis[]" class="form-control" readonly></td>
                                         <td><input type="number" id="jumlah_0" name="jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" required></td>
-                                        <td><input type="text" id="keterangan_0" name="keterangan[]" class="form-control" placeholder="Keterangan" required></td>
+                                        <td><input type="text" id="harga_0" name="harga[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" required></td>
+                                        <td><input type="text" id="total_0" name="total[]" class="form-control" readonly value="Rp0.00"></td>
                                         <td class="text-center">
                                             <button type="button" class="btn btn-primary btn-icon" onclick="addRow()">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -103,7 +105,7 @@
         newRow.innerHTML = `
         <td><input type="text" id="kode_brng_${rowIndex}" name="kode_brng[]" class="form-control" readonly></td>
         <td>
-            <select id="select_pengeluaran_nonmedis${rowIndex}" class="form-select select2-barangnonmedis-perm" style="width: 100%" onchange="fetchBarangNonMedisDetails(this.value, ${rowIndex})">
+            <select id="select_pengeluaran_nonmedis${rowIndex}" class="form-select select2-pengeluaran-nonmedis" style="width: 100%" onchange="fetchBarangNonMedisDetails(this.value, ${rowIndex})">
                 <option value="">- Pilih Nama -</option>
                 <?php foreach ($ipsrsbarang_con as $dt_barangnonmedis) : ?>
                     <option value="<?= $dt_barangnonmedis['kode_brng'] ?>"><?= $dt_barangnonmedis['nama_brng'] ?></option>
@@ -113,7 +115,8 @@
         <td><input type="text" id="kode_sat_${rowIndex}" name="kode_sat[]" class="form-control" readonly></td>
         <td><input type="text" id="jenis_${rowIndex}" name="jenis[]" class="form-control" readonly></td>
         <td><input type="number" id="jumlah_${rowIndex}" name="jumlah[]" class="form-control" placeholder="Jumlah" min="0" step="1" required></td>
-        <td><input type="text" id="keterangan_${rowIndex}" name="keterangan[]" class="form-control" placeholder="Keterangan" required></td>
+        <td><input type="text" id="harga_${rowIndex}" name="harga[]" class="form-control" placeholder="Masukkan harga beli" min="0" step="0.01" required></td>
+        <td><input type="text" id="total_${rowIndex}" name="total[]" class="form-control" readonly value="Rp0.00"></td>
         <!-- Tambahkan input hidden untuk subtotal dan potongan -->
         
         <td>
