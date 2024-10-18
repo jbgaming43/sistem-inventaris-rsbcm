@@ -326,6 +326,11 @@
             dropdownParent: $('#add_pengeluaran_nonmedis')
         });
     });
+    $(document).ready(function() {
+        $('.select2-pengeluaran-nonmedis').select2({
+            dropdownParent: $('#add_pengeluaran_nonmedis')
+        });
+    });
 
     function resetForm(formClass) {
         $('.' + formClass)[0].reset();
