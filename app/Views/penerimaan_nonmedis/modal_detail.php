@@ -24,10 +24,11 @@
                             .then(data => {
                                 if (data.success && Array.isArray(data.detail)) {
                                     var content = '<table class="table table-striped">';
-                                    content += '<thead><tr><th>Kode Barang</th><th>Jumlah</th><th>Harga</th><th>Subtotal</th><th>Diskon</th><th>Besar Diskon</th><th>Total</th></tr></thead><tbody>';
+                                    content += '<thead><tr><th>Kode Barang</th><th>Nama Barang</th><th>Jumlah</th><th>Harga</th><th>Subtotal</th><th>Diskon</th><th>Besar Diskon</th><th>Total</th></tr></thead><tbody>';
                                     data.detail.forEach(item => {
                                         content += `<tr>
                                         <td>${item.kode_brng}</td>
+                                        <td>${item.nama_brng}</td>
                                         <td>${item.jumlah}</td>
                                         <td>${item.harga}</td>
                                         <td>${item.subtotal}</td>
@@ -37,7 +38,7 @@
                                         </tr>`;
                                     });
                                     console.log(data.detail);
-                                    content += '<tr><td colspan="6"></td><th><?= $dt_penerimaan_nonmedis['total1'] ?></th></tr><tbody>';
+                                    content += '<tr><td colspan="7"></td><th><?= $dt_penerimaan_nonmedis['total1'] ?></th></tr><tbody>';
                                     content += '</tbody></table>';
                                     document.getElementById(detailContentId).innerHTML = content;
                                 } else {
