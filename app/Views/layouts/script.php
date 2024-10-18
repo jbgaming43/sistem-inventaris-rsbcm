@@ -321,6 +321,11 @@
             dropdownParent: $('#add_penerimaan_inventaris')
         });
     });
+    $(document).ready(function() {
+        $('.select2-pegawai-add-kel-nm').select2({
+            dropdownParent: $('#add_pengeluaran_nonmedis')
+        });
+    });
 
     function resetForm(formClass) {
         $('.' + formClass)[0].reset();
