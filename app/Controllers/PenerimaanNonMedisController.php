@@ -15,6 +15,7 @@ use App\Models\PenerimaanNonMedisDetailModel;
 use App\Models\GaransiModel;
 use App\Models\PetugasModel;
 use App\Models\AkunBayarModel;
+use App\Models\IpsrsBarangModel;
 use App\Helpers\AuthHelper;
 
 use App\Libraries\phpqrcode\qrlib;
@@ -74,6 +75,8 @@ class PenerimaanNonMedisController extends BaseController
         // Inisialisasi model
         $penerimaan_nonmedis_mod = new PenerimaanNonMedisModel();
         $penerimaan_nonmedis_det_mod = new PenerimaanNonMedisDetailModel();
+        $ipsrsbarang_mod = new IpsrsBarangModel();
+
         // $inv_mod = new InventarisModel();
 
         // Ambil data dari form
@@ -83,6 +86,7 @@ class PenerimaanNonMedisController extends BaseController
         if ($penerimaan_nonmedis_mod->where('no_faktur', $no_faktur)->first()) {
             return redirect()->back()->with('error', 'Nomor faktur sudah ada, gunakan nomor faktur yang berbeda.');
         }
+
         $no_order = $this->request->getPost('no_order');
         $kode_suplier = $this->request->getPost('kode_suplier');
         $nip = $this->request->getPost('nip');
@@ -104,12 +108,6 @@ class PenerimaanNonMedisController extends BaseController
         // Cek apakah semua input adalah array
         if (!is_array($kode_barang) || !is_array($jumlah) || !is_array($harga_beli) || !is_array($diskon) || !is_array($total)) {
             return redirect()->back()->with('error', 'Data input tidak valid.');
-        }
-
-        // Cek apakah panjang semua array sama
-        $arrayCount = min(count($kode_barang), count($jumlah), count($harga_beli), count($diskon), count($total));
-        if ($arrayCount === 0) {
-            return redirect()->back()->with('error', 'Tidak ada data yang valid untuk disimpan.');
         }
 
         $totalBesardis = 0;
@@ -150,10 +148,14 @@ class PenerimaanNonMedisController extends BaseController
         // Simpan data pembelian ke tabel inventaris_pembelian
         $penerimaan_nonmedis_mod->insertData($dataPembelian);
 
-        // Tentukan format tanggal untuk keperluan nomor inventaris (format Ymd)
-        $tanggal = date('Y-m-d');
-
         for ($index = 0; $index < count($kode_barang); $index++) {
+            // Ambil stok lama dari database
+            $stok_lama = $ipsrsbarang_mod->getStokByKode($kode_barang[$index])['stok'];
+
+            // Update stok dengan menambahkan jumlah barang yang diterima
+            $stok_baru = $stok_lama + $jumlah[$index];
+            $ipsrsbarang_mod->updateStok($kode_barang[$index], $stok_baru);
+
             // Ambil nilai jumlah dari setiap item
             $jumlahBarang = $jumlah[$index];
 

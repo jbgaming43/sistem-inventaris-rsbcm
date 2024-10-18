@@ -44,9 +44,21 @@ class IpsrsBarangModel extends Model
 
     public function getDataByKode($kode_barang)
     {
-        return $this->select('ipsrsbarang.kode_brng, ipsrsbarang.nama_brng, ipsrsbarang.kode_sat, ipsrsjenisbarang.nm_jenis, ipsrsbarang.harga')
+        return $this->select('ipsrsbarang.kode_brng, ipsrsbarang.nama_brng, ipsrsbarang.kode_sat, ipsrsjenisbarang.nm_jenis, ipsrsbarang.harga, ipsrsbarang.stok')
             ->join('ipsrsjenisbarang', 'ipsrsbarang.jenis = ipsrsjenisbarang.kd_jenis')
             ->where('ipsrsbarang.kode_brng', $kode_barang)
             ->first();
+    }
+
+    public function getStokByKode($kode_barang)
+    {
+        return $this->select('stok')
+            ->where('kode_brng', $kode_barang)
+            ->first();
+    }
+
+    public function updateStok($kode_barang, $stok_baru)
+    {
+        return $this->update($kode_barang, ['stok' => $stok_baru]);
     }
 }

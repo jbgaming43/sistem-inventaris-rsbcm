@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-full-width modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Data Pembayaran Non Medis</h5>
+                <h5 class="modal-title">Tambah Data Penerimaan Non Medis</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="/penerimaan_non_medis/add" method="POST" class="validation_penerimaan_nonmedis" enctype="multipart/form-data">
@@ -136,7 +136,7 @@
 
                         console.log(no_faktur);
                         // Fetch inventory details for the faktur
-                        fetch(`/penerimaan_non_medis/detail/${no_faktur}`)
+                        fetch(`/pembelian_non_medis/detail/${no_faktur}`)
                             .then(response => response.json())
                             .then(data => {
                                 if (data.success) {
