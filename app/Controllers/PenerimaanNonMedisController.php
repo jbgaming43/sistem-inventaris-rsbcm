@@ -59,8 +59,8 @@ class PenerimaanNonMedisController extends BaseController
 
     public function detail($id)
     {
-        $penerimaan_nonmedis_det_mod = new PenerimaanNonMedisDetailModel();
-        $detail = $penerimaan_nonmedis_det_mod->detailData($id);
+        $pembelian_nonmedis_det_mod = new PembelianNonMedisDetailModel();
+        $detail = $pembelian_nonmedis_det_mod->detailData($id);
 
         if ($detail) {
             // Kirim data dalam format JSON
