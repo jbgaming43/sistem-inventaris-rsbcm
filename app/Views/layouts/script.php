@@ -322,7 +322,7 @@
         });
     });
     $(document).ready(function() {
-        $('.select2-pegawai-add-kel-nm').select2({
+        $('.select2-petugas-add-kel-nm').select2({
             dropdownParent: $('#add_pengeluaran_nonmedis')
         });
     });

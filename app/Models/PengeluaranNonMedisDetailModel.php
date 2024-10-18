@@ -27,8 +27,7 @@ class PengeluaranNonMedisDetailModel extends Model
 
     public function detailData($id)
     {
-        return $this->select('ipsrsdetailpengeluaran.*, ipsrspengeluaran.*, ipsrsbarang.*')
-            ->join('ipsrspengeluaran', 'ipsrsdetailpengeluaran.no_keluar=ipsrspengeluaran.no_keluar')
+        return $this->select('ipsrsdetailpengeluaran.*, ipsrsbarang.*')
             ->join('ipsrsbarang', 'ipsrsdetailpengeluaran.kode_brng=ipsrsbarang.kode_brng')
             ->join('kodesatuan', 'ipsrsdetailpengeluaran.kode_sat=kodesatuan.kode_sat')
             ->join('ipsrsjenisbarang', 'ipsrsbarang.jenis=ipsrsjenisbarang.kd_jenis',)

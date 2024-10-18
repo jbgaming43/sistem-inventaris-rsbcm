@@ -30,7 +30,7 @@ class PengeluaranNonMedisModel extends Model
     public function getDataById($id)
     {
         return $this->select('ipsrspengeluaran.*, petugas.*')
-            ->join('petugas', 'ipsrspemesanan.nip = petugas.nip')
+            ->join('petugas', 'ipsrspengeluaran.nip = petugas.nip')
             ->where('no_keluar', $id)
             ->findAll(); // retrieve all data
     }
