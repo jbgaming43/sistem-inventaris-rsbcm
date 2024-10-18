@@ -56,6 +56,7 @@ class Filters extends BaseConfig
                     'dashboard/*', 'dashboard', 'pengguna', 'pengguna/*',
                     'pengajuan_non_medis', 'pengajuan_non_medis/*', 'pembelian_non_medis', 'pembelian_non_medis/*',
                     'penerimaan_non_medis', 'penerimaan_non_medis/*', 'permintaan_non_medis', 'permintaan_non_medis/*',
+                    'pengeluaran_non_medis', 'pengeluaran_non_medis/*',
                     'pengajuan_inventaris', 'pengajuan_inventaris/*', 'pembelian_inventaris', 'pembelian_inventaris/*',
                     'penerimaan_inventaris', 'penerimaan_inventaris/*', 'pembayaran_inventaris', 'pembayaran_inventaris/*'
                 ]

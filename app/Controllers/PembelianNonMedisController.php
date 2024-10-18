@@ -27,7 +27,7 @@ class PembelianNonmedisController extends BaseController
         $data = [
             'title' => 'Data Pembelian NonMedis',
             'active_menu' => 'non_medis',
-            'active_submenu' => 'pembelian_nonmedis',
+            'active_submenu' => 'pembelian_non_medis',
 
             'pem_nonmedis_con' => $pem_nonmedis_mod->getData(),
             'ipsrs_barang_con' => $ipsrs_barang_mod->getData(),

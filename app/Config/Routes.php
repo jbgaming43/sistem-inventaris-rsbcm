@@ -107,3 +107,13 @@ $routes->get('/permintaan_non_medis/pilih_no_faktur', 'PermintaanNonMedisControl
 $routes->get('/permintaan_non_medis/info/(:any)', 'PermintaanNonMedisController::info/$1');
 $routes->post('/permintaan_non_medis/setuju/(:any)', 'PermintaanNonMedisController::setuju/$1');
 $routes->post('/permintaan_non_medis/tolak/(:any)', 'PermintaanNonMedisController::tolak/$1');
+
+// Routes untuk mengelola data PENGELUARAN NON MEDIS
+$routes->get('/pengeluaran_non_medis', 'PengeluaranNonMedisController::index');
+$routes->post('/pengeluaran_non_medis/add', 'PengeluaranNonMedisController::add');
+$routes->post('/pengeluaran_non_medis/edit/(:any)', 'PengeluaranNonMedisController::edit/$1');
+$routes->post('/pengeluaran_non_medis/delete/(:any)', 'PengeluaranNonMedisController::delete/$1');
+$routes->get('/pengeluaran_non_medis/detail/(:any)', 'PengeluaranNonMedisController::detail/$1');
+$routes->get('/pengeluaran_non_medis/print/(:any)', 'PengeluaranNonMedisController::print/$1');
+$routes->get('/pengeluaran_non_medis/pilih_no_faktur', 'PengeluaranNonMedisController::getFaktur');
+$routes->get('/pengeluaran_non_medis/info/(:any)', 'PengeluaranNonMedisController::info/$1');

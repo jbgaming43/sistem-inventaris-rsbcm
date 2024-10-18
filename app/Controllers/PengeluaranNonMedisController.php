@@ -3,43 +3,43 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
-use App\Models\PermintaanNonMedisModel;
-use App\Models\PermintaanNonMedisDetailModel;
+use App\Models\PengeluaranNonMedisModel;
+use App\Models\PengeluaranNonMedisDetailModel;
 use App\Models\PegawaiModel;
 use App\Models\IpsrsBarangModel;
 use App\Helpers\AuthHelper;
 
-class PermintaanNonMedisController extends BaseController
+class PengeluaranNonMedisController extends BaseController
 {
     public function index()
     {
         // objek untuk data permintaan non medis dan pilihan input
-        $permintaan_nonmedis_mod = new PermintaanNonMedisModel();
+        $pengeluaran_nonmedis_mod = new PengeluaranNonMedisModel();
         $pegawai_mod = new PegawaiModel();
         $ipsrsbarang_mod = new IpsrsBarangModel();
 
         $data = [
-            'title' => 'Data Permintaan Non Medis',
+            'title' => 'Data Pengeluaran Non Medis',
             'active_menu' => 'non_medis',
-            'active_submenu' => 'permintaan_non_medis',
+            'active_submenu' => 'pengeluaran_non_medis',
 
-            'per_barang_nonmedis_con' => $permintaan_nonmedis_mod->getData(),
+            'pengeluaran_nonmedis_con' => $pengeluaran_nonmedis_mod->getData(),
             'pgwc' => $pegawai_mod->getData(),
             'ipsrsbarang_con' => $ipsrsbarang_mod->getData()
         ];
 
-        return view('permintaan_nonmedis/index', $data);
+        return view('pengeluaran_nonmedis/index', $data);
     }
 
     public function add()
     {
         // objek PenggunaModel
-        $permintaan_nonmedis_mod = new PermintaanNonMedisModel();
-        $permintaan_nonmedis_det_mod = new PermintaanNonMedisDetailModel();
+        $pengeluaran_nonmedis_mod = new PengeluaranNonMedisModel();
+        $permintaan_nonmedis_det_mod = new PengeluaranNonMedisDetailModel();
 
         $no_permintaan = $this->request->getPost('no_permintaan');
 
-        $duplicate = $permintaan_nonmedis_mod->getDataById($no_permintaan);
+        $duplicate = $pengeluaran_nonmedis_mod->getDataById($no_permintaan);
         if ($duplicate) {
             session()->setFlashdata('error', 'Nomor Permintaan Sudah Ada');
             return redirect()->to('/permintaan_non_medis');
@@ -76,7 +76,7 @@ class PermintaanNonMedisController extends BaseController
             'status' => 'Baru',
         ];
 
-        $permintaan_nonmedis_mod->insertData($data);
+        $pengeluaran_nonmedis_mod->insertData($data);
         $dataDetails = [];
 
         for ($i = 0; $i < count($kode_brng); $i++) {
@@ -98,7 +98,7 @@ class PermintaanNonMedisController extends BaseController
 
     public function detail($id)
     {
-        $permintaan_nonmedis_det_mod = new PermintaanNonMedisDetailModel();
+        $permintaan_nonmedis_det_mod = new PengeluaranNonMedisDetailModel();
         $detail = $permintaan_nonmedis_det_mod->detailData($id);
 
         if ($detail) {
@@ -111,9 +111,9 @@ class PermintaanNonMedisController extends BaseController
 
     public function delete($id)
     {
-        $permintaan_nonmedis_mod = new PermintaanNonMedisModel();
+        $pengeluaran_nonmedis_mod = new PengeluaranNonMedisModel();
 
-        $permintaan_nonmedis_mod->deleteData($id);
+        $pengeluaran_nonmedis_mod->deleteData($id);
 
         session()->setFlashdata('success', 'dihapus');
         return redirect()->to('/permintaan_non_medis');
@@ -134,41 +134,13 @@ class PermintaanNonMedisController extends BaseController
         return $this->response->setJSON(null); // Kembalikan JSON null jika barang tidak ditemukan
     }
 
-    public function setuju($id)
-    {
-        $permintaan_nonmedis_mod = new PermintaanNonMedisModel();
-
-        $data = [
-            'status' => 'Disetujui'
-        ];
-
-        $permintaan_nonmedis_mod->updateData($id, $data);
-
-        session()->setFlashdata('success', 'disetujui');
-        return redirect()->to('/permintaan_non_medis');
-    }
-
-    public function tolak($id)
-    {
-        $permintaan_nonmedis_mod = new PermintaanNonMedisModel();
-
-        $data = [
-            'status' => 'Tidak Disetujui'
-        ];
-
-        $permintaan_nonmedis_mod->updateData($id, $data);
-
-        session()->setFlashdata('success', 'ditolak');
-        return redirect()->to('/permintaan_non_medis');
-    }
-
     public function print($id)
     {
-        $permintaan_nonmedis_mod = new PermintaanNonMedisModel();
-        $permintaan_nonmedis_det_mod = new PermintaanNonMedisDetailModel();
+        $pengeluaran_nonmedis_mod = new PengeluaranNonMedisModel();
+        $permintaan_nonmedis_det_mod = new PengeluaranNonMedisDetailModel();
 
         $data = [
-            'permintaan_nonmedis_con' => $permintaan_nonmedis_mod->getDataById($id),
+            'permintaan_nonmedis_con' => $pengeluaran_nonmedis_mod->getDataById($id),
             'permintaan_nonmedis_det_con' => $permintaan_nonmedis_det_mod->detailData($id),
         ];
         // $t = $permintaan_nonmedis_det_mod->detailData($id);

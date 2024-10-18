@@ -182,3 +182,170 @@ INFO - 2024-10-18 06:27:32 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-10-18 06:27:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-18 06:27:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-18 06:27:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:28:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:29:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:29:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:49:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:49:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:49:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:49:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:50:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:50:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:50:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:50:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:50:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:51:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:51:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-18 06:51:26 --> mysqli_sql_exception: Unknown column 'ipsrspemesanan.nip' in 'on clause' in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrspe...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrspe...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrspe...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspe...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PengeluaranNonMedisModel.php(27): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PengeluaranNonMedisController.php(26): App\Models\PengeluaranNonMedisModel->getData()
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->index()
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-18 06:51:26 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ipsrspemesanan.nip' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspengeluaran`.*, `petugas`.*
+FROM `ipsrspengeluaran`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PengeluaranNonMedisModel.php(27): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PengeluaranNonMedisController.php(26): App\Models\PengeluaranNonMedisModel->getData()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-18 06:51:26 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ipsrspemesanan.nip' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrspengeluaran`.*, `petugas`.*
+FROM `ipsrspengeluaran`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrspengeluaran`.*, `petugas`.*
+FROM `ipsrspengeluaran`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspengeluaran`.*, `petugas`.*
+FROM `ipsrspengeluaran`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PengeluaranNonMedisModel.php(27): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PengeluaranNonMedisController.php(26): App\Models\PengeluaranNonMedisModel->getData()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-18 06:51:26 --> [Caused by] mysqli_sql_exception: Unknown column 'ipsrspemesanan.nip' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrspengeluaran`.*, `petugas`.*
+FROM `ipsrspengeluaran`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrspengeluaran`.*, `petugas`.*
+FROM `ipsrspengeluaran`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrspengeluaran`.*, `petugas`.*
+FROM `ipsrspengeluaran`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrspengeluaran`.*, `petugas`.*
+FROM `ipsrspengeluaran`
+JOIN `petugas` ON `ipsrspemesanan`.`nip` = `petugas`.`nip`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PengeluaranNonMedisModel.php(27): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PengeluaranNonMedisController.php(26): App\Models\PengeluaranNonMedisModel->getData()
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->index()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-18 06:55:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:55:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:55:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-18 06:55:23 --> ErrorException: Undefined array key "departemen"
+in APPPATH\Views\pengeluaran_nonmedis\index.php on line 45.
+ 1 APPPATH\Views\pengeluaran_nonmedis\index.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "departemen"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pengeluaran_nonmedis\\index.php', 45)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pengeluaran_nonmedis\\index.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pengeluaran_nonmedis/index', [], true)
+ 5 APPPATH\Controllers\PengeluaranNonMedisController.php(31): view('pengeluaran_nonmedis/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-18 06:56:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-18 06:56:52 --> ErrorException: Undefined array key "no_permintaan"
+in APPPATH\Views\pengeluaran_nonmedis\index.php on line 74.
+ 1 APPPATH\Views\pengeluaran_nonmedis\index.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "no_permintaan"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pengeluaran_nonmedis\\index.php', 74)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pengeluaran_nonmedis\\index.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pengeluaran_nonmedis/index', [], true)
+ 5 APPPATH\Controllers\PengeluaranNonMedisController.php(31): view('pengeluaran_nonmedis/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-18 06:57:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-18 06:57:07 --> ErrorException: Undefined array key "no_permintaan"
+in APPPATH\Views\pengeluaran_nonmedis\index.php on line 48.
+ 1 APPPATH\Views\pengeluaran_nonmedis\index.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "no_permintaan"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pengeluaran_nonmedis\\index.php', 48)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pengeluaran_nonmedis\\index.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pengeluaran_nonmedis/index', [], true)
+ 5 APPPATH\Controllers\PengeluaranNonMedisController.php(31): view('pengeluaran_nonmedis/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-18 06:57:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-18 06:57:14 --> ErrorException: Undefined array key "no_permintaan"
+in APPPATH\Views\pengeluaran_nonmedis\index.php on line 48.
+ 1 APPPATH\Views\pengeluaran_nonmedis\index.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "no_permintaan"', 'D:\\RSBCM\\inventaris-barang\\app\\Views\\pengeluaran_nonmedis\\index.php', 48)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pengeluaran_nonmedis\\index.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pengeluaran_nonmedis/index', [], true)
+ 5 APPPATH\Controllers\PengeluaranNonMedisController.php(31): view('pengeluaran_nonmedis/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-18 06:57:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:57:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:57:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 06:58:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
