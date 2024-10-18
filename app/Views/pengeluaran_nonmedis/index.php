@@ -90,5 +90,7 @@
 </div>
 
 <?= $this->include('pengeluaran_nonmedis/modal_add') ?>
+<?= $this->include('pengeluaran_nonmedis/modal_delete') ?>
+<?= $this->include('pengeluaran_nonmedis/modal_detail') ?>
 
 <?= $this->endSection() ?>

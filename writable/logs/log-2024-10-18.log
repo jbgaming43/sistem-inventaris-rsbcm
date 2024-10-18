@@ -664,3 +664,154 @@ INFO - 2024-10-18 07:50:32 --> Session: Class initialized using 'CodeIgniter\Ses
 =======
 >>>>>>> bce0bfa5f570ac2199947577264af6b2ec3dc710
 >>>>>>> c46c7d09852e6375e423d0113d124d3b69b140ca
+INFO - 2024-10-18 07:51:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:53:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:54:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-18 07:54:08 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "pengeluaran_nonmedis/modal_delete3.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('pengeluaran_nonmedis/modal_delete3.php')
+ 2 SYSTEMPATH\View\View.php(469): CodeIgniter\View\View->render('pengeluaran_nonmedis/modal_delete3', null, true)
+ 3 APPPATH\Views\pengeluaran_nonmedis\index.php(93): CodeIgniter\View\View->include('pengeluaran_nonmedis/modal_delete3')
+ 4 SYSTEMPATH\View\View.php(228): include('D:\\RSBCM\\inventaris-barang\\app\\Views\\pengeluaran_nonmedis\\index.php')
+ 5 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('pengeluaran_nonmedis/index', [], true)
+ 7 APPPATH\Controllers\PengeluaranNonMedisController.php(31): view('pengeluaran_nonmedis/index', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-18 07:54:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:54:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:54:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:54:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:54:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:55:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:55:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:55:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-18 07:55:36 --> mysqli_sql_exception: Column 'no_keluar' in where clause is ambiguous in D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\RSBCM\inventaris-barang\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrsde...', 0)
+#1 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrsde...')
+#2 D:\RSBCM\inventaris-barang\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrsde...')
+#3 D:\RSBCM\inventaris-barang\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsde...', Array, false)
+#4 D:\RSBCM\inventaris-barang\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\RSBCM\inventaris-barang\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\RSBCM\inventaris-barang\app\Models\PengeluaranNonMedisDetailModel.php(36): CodeIgniter\BaseModel->findAll()
+#7 D:\RSBCM\inventaris-barang\app\Controllers\PengeluaranNonMedisController.php(101): App\Models\PengeluaranNonMedisDetailModel->detailData('123')
+#8 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->detail('123')
+#9 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+#10 D:\RSBCM\inventaris-barang\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\RSBCM\inventaris-barang\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\RSBCM\inventaris-barang\system\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\invent...')
+#13 {main}
+CRITICAL - 2024-10-18 07:55:36 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'no_keluar' in where clause is ambiguous
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsdetailpengeluaran`.*, `ipsrspengeluaran`.*, `ipsrsbarang`.*
+FROM `ipsrsdetailpengeluaran`
+JOIN `ipsrspengeluaran` ON `ipsrsdetailpengeluaran`.`no_keluar`=`ipsrspengeluaran`.`no_keluar`
+JOIN `ipsrsbarang` ON `ipsrsdetailpengeluaran`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `kodesatuan` ON `ipsrsdetailpengeluaran`.`kode_sat`=`kodesatuan`.`kode_sat`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_keluar` = :no_keluar:', [...], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\PengeluaranNonMedisDetailModel.php(36): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\PengeluaranNonMedisController.php(101): App\Models\PengeluaranNonMedisDetailModel->detailData('123')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->detail('123')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-18 07:55:36 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'no_keluar' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrsdetailpengeluaran`.*, `ipsrspengeluaran`.*, `ipsrsbarang`.*
+FROM `ipsrsdetailpengeluaran`
+JOIN `ipsrspengeluaran` ON `ipsrsdetailpengeluaran`.`no_keluar`=`ipsrspengeluaran`.`no_keluar`
+JOIN `ipsrsbarang` ON `ipsrsdetailpengeluaran`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `kodesatuan` ON `ipsrsdetailpengeluaran`.`kode_sat`=`kodesatuan`.`kode_sat`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_keluar` = \'123\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrsdetailpengeluaran`.*, `ipsrspengeluaran`.*, `ipsrsbarang`.*
+FROM `ipsrsdetailpengeluaran`
+JOIN `ipsrspengeluaran` ON `ipsrsdetailpengeluaran`.`no_keluar`=`ipsrspengeluaran`.`no_keluar`
+JOIN `ipsrsbarang` ON `ipsrsdetailpengeluaran`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `kodesatuan` ON `ipsrsdetailpengeluaran`.`kode_sat`=`kodesatuan`.`kode_sat`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_keluar` = \'123\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsdetailpengeluaran`.*, `ipsrspengeluaran`.*, `ipsrsbarang`.*
+FROM `ipsrsdetailpengeluaran`
+JOIN `ipsrspengeluaran` ON `ipsrsdetailpengeluaran`.`no_keluar`=`ipsrspengeluaran`.`no_keluar`
+JOIN `ipsrsbarang` ON `ipsrsdetailpengeluaran`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `kodesatuan` ON `ipsrsdetailpengeluaran`.`kode_sat`=`kodesatuan`.`kode_sat`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_keluar` = :no_keluar:', [...], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\PengeluaranNonMedisDetailModel.php(36): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\PengeluaranNonMedisController.php(101): App\Models\PengeluaranNonMedisDetailModel->detailData('123')
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->detail('123')
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+CRITICAL - 2024-10-18 07:55:36 --> [Caused by] mysqli_sql_exception: Column 'no_keluar' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `ipsrsdetailpengeluaran`.*, `ipsrspengeluaran`.*, `ipsrsbarang`.*
+FROM `ipsrsdetailpengeluaran`
+JOIN `ipsrspengeluaran` ON `ipsrsdetailpengeluaran`.`no_keluar`=`ipsrspengeluaran`.`no_keluar`
+JOIN `ipsrsbarang` ON `ipsrsdetailpengeluaran`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `kodesatuan` ON `ipsrsdetailpengeluaran`.`kode_sat`=`kodesatuan`.`kode_sat`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_keluar` = \'123\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ipsrsdetailpengeluaran`.*, `ipsrspengeluaran`.*, `ipsrsbarang`.*
+FROM `ipsrsdetailpengeluaran`
+JOIN `ipsrspengeluaran` ON `ipsrsdetailpengeluaran`.`no_keluar`=`ipsrspengeluaran`.`no_keluar`
+JOIN `ipsrsbarang` ON `ipsrsdetailpengeluaran`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `kodesatuan` ON `ipsrsdetailpengeluaran`.`kode_sat`=`kodesatuan`.`kode_sat`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_keluar` = \'123\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ipsrsdetailpengeluaran`.*, `ipsrspengeluaran`.*, `ipsrsbarang`.*
+FROM `ipsrsdetailpengeluaran`
+JOIN `ipsrspengeluaran` ON `ipsrsdetailpengeluaran`.`no_keluar`=`ipsrspengeluaran`.`no_keluar`
+JOIN `ipsrsbarang` ON `ipsrsdetailpengeluaran`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `kodesatuan` ON `ipsrsdetailpengeluaran`.`kode_sat`=`kodesatuan`.`kode_sat`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_keluar` = \'123\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `ipsrsdetailpengeluaran`.*, `ipsrspengeluaran`.*, `ipsrsbarang`.*
+FROM `ipsrsdetailpengeluaran`
+JOIN `ipsrspengeluaran` ON `ipsrsdetailpengeluaran`.`no_keluar`=`ipsrspengeluaran`.`no_keluar`
+JOIN `ipsrsbarang` ON `ipsrsdetailpengeluaran`.`kode_brng`=`ipsrsbarang`.`kode_brng`
+JOIN `kodesatuan` ON `ipsrsdetailpengeluaran`.`kode_sat`=`kodesatuan`.`kode_sat`
+JOIN `ipsrsjenisbarang` ON `ipsrsbarang`.`jenis`=`ipsrsjenisbarang`.`kd_jenis`
+WHERE `no_keluar` = :no_keluar:', [...], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\PengeluaranNonMedisDetailModel.php(36): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\PengeluaranNonMedisController.php(101): App\Models\PengeluaranNonMedisDetailModel->detailData('123')
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\PengeluaranNonMedisController->detail('123')
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PengeluaranNonMedisController))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\RSBCM\\inventaris-barang\\public\\index.php')
+INFO - 2024-10-18 07:56:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:56:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:56:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:56:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:56:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:56:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:57:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:57:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:57:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:57:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:57:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:57:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:57:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:58:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:58:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:58:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:58:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:59:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 07:59:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 08:02:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-18 08:02:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -115,7 +115,7 @@ class PengeluaranNonMedisController extends BaseController
         $pengeluaran_nonmedis_mod->deleteData($id);
 
         session()->setFlashdata('success', 'dihapus');
-        return redirect()->to('/pengeluaran_nonmedis');
+        return redirect()->to('/pengeluaran_non_medis');
     }
 
     public function getBarangDetails()
