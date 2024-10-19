@@ -57,8 +57,18 @@ class IpsrsBarangModel extends Model
             ->first();
     }
 
+    public function getStokByKodeArray(array $kode_barang)
+    {
+        return $this->select('kode_brng, stok')
+                    ->whereIn('kode_brng', $kode_barang)
+                    ->findAll(); // Mengambil semua data berdasarkan kode barang yang diberikan
+    }
+
+    // Metode untuk mengupdate stok
     public function updateStok($kode_barang, $stok_baru)
     {
-        return $this->update($kode_barang, ['stok' => $stok_baru]);
+        return $this->set('stok', $stok_baru)
+                    ->where('kode_brng', $kode_barang)
+                    ->update();
     }
 }
