@@ -71,149 +71,125 @@ class PenerimaanNonMedisController extends BaseController
     }
 
     public function add()
-    {
-        // Inisialisasi model
-        $penerimaan_nonmedis_mod = new PenerimaanNonMedisModel();
-        $penerimaan_nonmedis_det_mod = new PenerimaanNonMedisDetailModel();
-        $ipsrsbarang_mod = new IpsrsBarangModel();
+{
+    // Inisialisasi model
+    $penerimaan_nonmedis_mod = new PenerimaanNonMedisModel();
+    $penerimaan_nonmedis_det_mod = new PenerimaanNonMedisDetailModel();
+    $ipsrsbarang_mod = new IpsrsBarangModel();
 
-        // $inv_mod = new InventarisModel();
+    // Ambil data dari form
+    $no_faktur = $this->request->getPost('no_faktur');
 
-        // Ambil data dari form
-        $no_faktur = $this->request->getPost('no_faktur');
+    // Cek apakah nomor faktur sudah ada di database
+    if ($penerimaan_nonmedis_mod->where('no_faktur', $no_faktur)->first()) {
+        return redirect()->back()->with('error', 'Nomor faktur sudah ada, gunakan nomor faktur yang berbeda.');
+    }
 
-        // Cek apakah nomor faktur sudah ada di database
-        if ($penerimaan_nonmedis_mod->where('no_faktur', $no_faktur)->first()) {
-            return redirect()->back()->with('error', 'Nomor faktur sudah ada, gunakan nomor faktur yang berbeda.');
-        }
+    $no_order = $this->request->getPost('no_order');
+    $kode_suplier = $this->request->getPost('kode_suplier');
+    $nip = $this->request->getPost('nip');
+    $tgl_pesan = $this->request->getPost('tgl_pesan');
+    $tgl_faktur = $this->request->getPost('tgl_faktur');
+    $tgl_tempo = $this->request->getPost('tgl_tempo');
+    $kd_rek_aset = $this->request->getPost('kd_rek_aset');
+    $ppn = $this->request->getPost('ppn');
+    $meterai = $this->request->getPost('meterai');
 
-        $no_order = $this->request->getPost('no_order');
-        $kode_suplier = $this->request->getPost('kode_suplier');
-        $nip = $this->request->getPost('nip');
-        $tgl_pesan = $this->request->getPost('tgl_pesan');
-        $tgl_faktur = $this->request->getPost('tgl_faktur');
-        $tgl_tempo = $this->request->getPost('tgl_tempo');
-        $kd_rek_aset = $this->request->getPost('kd_rek_aset');
-        $ppn = $this->request->getPost('ppn');
-        $meterai = $this->request->getPost('meterai');
+    // Ambil data tabel barang yang diinputkan dalam bentuk array
+    $kode_barang = $this->request->getPost('kode_barang'); // pastikan ini dikirim sebagai array
+    $kode_sat = $this->request->getPost('kode_sat'); // pastikan ini dikirim sebagai array
+    $jumlah = $this->request->getPost('jumlah'); // array
+    $harga_beli = $this->request->getPost('harga_beli'); // array
+    $diskon = $this->request->getPost('diskon'); // array
+    $total = $this->request->getPost('total'); // array
 
-        // Ambil data tabel barang yang diinputkan dalam bentuk array
-        $kode_barang = $this->request->getPost('kode_barang'); // pastikan ini dikirim sebagai array
-        $kode_sat = $this->request->getPost('kode_sat'); // pastikan ini dikirim sebagai array
-        $jumlah = $this->request->getPost('jumlah'); // array
-        $harga_beli = $this->request->getPost('harga_beli'); // array
-        $diskon = $this->request->getPost('diskon'); // array
-        $total = $this->request->getPost('total'); // array
+    // Cek apakah semua input adalah array
+    if (!is_array($kode_barang) || !is_array($jumlah) || !is_array($harga_beli) || !is_array($diskon) || !is_array($total)) {
+        return redirect()->back()->with('error', 'Data input tidak valid.');
+    }
 
-        // Cek apakah semua input adalah array
-        if (!is_array($kode_barang) || !is_array($jumlah) || !is_array($harga_beli) || !is_array($diskon) || !is_array($total)) {
-            return redirect()->back()->with('error', 'Data input tidak valid.');
-        }
+    $totalBesardis = 0;
+    $totalTotal = 0;
 
-        $totalBesardis = 0;
-        $totalTotal = 0;
+    for ($i = 0; $i < count($kode_barang); $i++) {
+        // hitung untuk data saat ini
+        $subtotal = $harga_beli[$i] * $jumlah[$i];
+        $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
+        $total = $subtotal - $besardis;
 
-        for ($i = 0; $i < count($kode_barang); $i++) {
-            //hitung utk data saat ini
-            $subtotal = $harga_beli[$i] * $jumlah[$i];
-            $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
-            $total = $subtotal - $besardis;
+        $totalBesardis += $besardis;
+        $totalTotal += $total;
+    }
 
-            $totalBesardis += $besardis;
-            $totalTotal += $total;
-        }
+    $tagihan = ($totalTotal - $totalBesardis) + (($totalTotal - $totalBesardis) * ($ppn / 100)) + $meterai;
 
-        $tagihan = ($totalTotal - $totalBesardis) + (($totalTotal - $totalBesardis) * ($ppn / 100)) + $meterai;
+    // Persiapkan data untuk tabel inventaris_pembelian
+    $dataPembelian = [
+        'no_faktur' => $no_faktur,
+        'no_order' => $no_order,
+        'kode_suplier' => $kode_suplier,
+        'nip' => $nip,
+        'tgl_pesan' => $tgl_pesan,
+        'tgl_faktur' => $tgl_faktur,
+        'tgl_tempo' => $tgl_tempo,
+        'total1' => $totalTotal,
+        'potongan' => $totalBesardis,
+        'total2' => $totalTotal - $totalBesardis,
+        'ppn' => $ppn,
+        'meterai' => $meterai,
+        'tagihan' => $tagihan,
+        'status' => 'Belum Dibayar',
+    ];
 
-        // Persiapkan data untuk tabel inventaris_pembelian
-        $dataPembelian = [
+    // Simpan data pembelian ke tabel inventaris_pembelian
+    $penerimaan_nonmedis_mod->insertData($dataPembelian);
+
+    // Ambil stok barang dari database dalam satu query
+    $stok_barang = $ipsrsbarang_mod->getStokByKodeArray($kode_barang);
+
+    // Convert hasil menjadi array yang mudah digunakan dengan key 'kode_barang'
+    $stok_map = [];
+    foreach ($stok_barang as $barang) {
+        $stok_map[$barang['kode_brng']] = $barang['stok'];
+    }
+
+    // Proses data detail barang
+    for ($index = 0; $index < count($kode_barang); $index++) {
+        // Ambil stok lama dari $stok_map
+        $stok_lama = isset($stok_map[$kode_barang[$index]]) ? $stok_map[$kode_barang[$index]] : 0;
+
+        // Update stok dengan menambahkan jumlah barang yang diterima
+        $stok_baru = $stok_lama + $jumlah[$index];
+        $ipsrsbarang_mod->updateStok($kode_barang[$index], $stok_baru);
+
+        // Ambil nilai jumlah dari setiap item
+        $jumlahBarang = $jumlah[$index];
+
+        // Hitung subtotal, potongan, dan total
+        $subtotal = $harga_beli[$index] * $jumlahBarang;
+        $besardis = ($harga_beli[$index] * $jumlahBarang) * ($diskon[$index] / 100);
+        $total = $subtotal - $besardis;
+
+        // Simpan data detail pembelian ke tabel inventaris_detail_beli
+        $dataDetail = [
             'no_faktur' => $no_faktur,
-            'no_order' => $no_order,
-            'kode_suplier' => $kode_suplier,
-            'nip' => $nip,
-            'tgl_pesan' => $tgl_pesan,
-            'tgl_faktur' => $tgl_faktur,
-            'tgl_tempo' => $tgl_tempo,
-            'total1' => $totalTotal,
-            'potongan' => $totalBesardis,
-            'total2' => $totalTotal - $totalBesardis,
-            'ppn' => $ppn,
-            'meterai' => $meterai,
-            'tagihan' => $tagihan,
-            'status' => 'Belum Dibayar',
-
-            // hitung subtotal, potongan, dll. jika diperlukan
+            'kode_brng' => $kode_barang[$index],
+            'kode_sat' => $kode_sat[$index],
+            'jumlah' => $jumlah[$index],
+            'harga' => $harga_beli[$index],
+            'subtotal' => $subtotal,
+            'dis' => $diskon[$index],
+            'besardis' => $besardis,
+            'total' => $total
         ];
 
-        // Simpan data pembelian ke tabel inventaris_pembelian
-        $penerimaan_nonmedis_mod->insertData($dataPembelian);
-
-        for ($index = 0; $index < count($kode_barang); $index++) {
-            // Ambil stok lama dari database
-            $stok_lama = $ipsrsbarang_mod->getStokByKode($kode_barang[$index])['stok'];
-
-            // Update stok dengan menambahkan jumlah barang yang diterima
-            $stok_baru = $stok_lama + $jumlah[$index];
-            $ipsrsbarang_mod->updateStok($kode_barang[$index], $stok_baru);
-
-            // Ambil nilai jumlah dari setiap item
-            $jumlahBarang = $jumlah[$index];
-
-            // Loop untuk setiap jumlah barang
-            for ($j = 0; $j < $jumlahBarang; $j++) {
-                // Logika nomor inventaris tetap sama seperti sebelumnya
-                $subtotal = $harga_beli[$index] * $jumlahBarang;
-                $besardis = ($harga_beli[$index] * $jumlahBarang) * ($diskon[$index] / 100);
-                $total = $subtotal - $besardis;
-
-                // // Cek inventaris terakhir
-                // $result = $inv_mod->getNoInventarisLast($tanggal);
-
-                // if ($result) {
-                //     $lastNoInventaris = $result['no_inventaris'];
-                //     $lastIncrement = (int)substr($lastNoInventaris, -3);
-                //     $newIncrement = $lastIncrement + 1;
-                // } else {
-                //     $newIncrement = 1;
-                // }
-
-                // $incrementFormatted = str_pad($newIncrement, 3, '0', STR_PAD_LEFT);
-                // $no_inventaris_baru = 'INV-' . $tanggal . '-' . $incrementFormatted;
-
-                // // Data inventaris baru
-                // $dataInventaris = [
-                //     'no_inventaris' => $no_inventaris_baru,
-                //     'kode_barang' => $kode_barang[$index],
-                //     'asal_barang' => 'Beli',
-                //     'tgl_pengadaan' => $tgl_pesan,
-                //     'harga' => $harga_beli[$index],
-                //     'status_barang' => 'Ada'
-                // ];
-
-                // // Simpan data inventaris ke database
-                // $inv_mod->insert($dataInventaris);
-            }
-
-            // Simpan data detail pembelian ke tabel inventaris_detail_beli
-            $dataDetail = [
-                'no_faktur' => $no_faktur,
-                'kode_brng' => $kode_barang[$index],
-                'kode_sat' => $kode_sat[$index],
-                'jumlah' => $jumlah[$index],
-                'harga' => $harga_beli[$index],
-                'subtotal' => $subtotal,
-                'dis' => $diskon[$index],
-                'besardis' => $besardis,
-                'total' => $total
-            ];
-
-            $penerimaan_nonmedis_det_mod->insert($dataDetail);
-        }
-
-
-        // Redirect atau tampilkan pesan sukses
-        return redirect()->to('/penerimaan_non_medis')->with('success', 'Data penerimaan berhasil disimpan.');
+        $penerimaan_nonmedis_det_mod->insert($dataDetail);
     }
+
+    // Redirect atau tampilkan pesan sukses
+    return redirect()->to('/penerimaan_non_medis')->with('success', 'Data penerimaan berhasil disimpan.');
+}
+    
 
     public function delete($id)
     {
