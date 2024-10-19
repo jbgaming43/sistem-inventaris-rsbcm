@@ -162,9 +162,9 @@
                             <td><?= $dt_pengeluaran_nonmedis_det['nama_brng'] ?></td>
                             <td><?= $dt_pengeluaran_nonmedis_det['kode_sat'] ?></td>
                             <td><?= $dt_pengeluaran_nonmedis_det['jenis'] ?></td>
-                            <td><?= $dt_pengeluaran_nonmedis_det['harga'] ?></td>
+                            <td>Rp <?= number_format($dt_pengeluaran_nonmedis_det['harga'], 0, ',', '.'); ?></td>
                             <td><?= $dt_pengeluaran_nonmedis_det['jumlah'] ?></td>
-                            <td><?= $dt_pengeluaran_nonmedis_det['total'] ?></td>
+                            <td>Rp <?= number_format($dt_pengeluaran_nonmedis_det['total'], 0, ',', '.'); ?></td>
                         </tr>
 
                         <!-- menghitung sum jumlah -->
@@ -181,7 +181,7 @@
                     <tr>
                         <td colspan="6"></td>
                         <td><?= $total_jumlah; ?></td>
-                        <td><?= $total_total; ?></td>
+                        <td>Rp <?= number_format($total_total, 0, ',', '.'); ?></td>
                     </tr>
                 <?php endif; ?>
 
