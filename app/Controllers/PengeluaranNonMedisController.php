@@ -36,6 +36,7 @@ class PengeluaranNonMedisController extends BaseController
         // objek PenggunaModel
         $pengeluaran_nonmedis_mod = new PengeluaranNonMedisModel();
         $pengeluaran_nonmedis_det_mod = new PengeluaranNonMedisDetailModel();
+        $ipsrsbarang_mod = new IpsrsBarangModel();
 
         $no_keluar = $this->request->getPost('no_keluar');
 
@@ -77,6 +78,11 @@ class PengeluaranNonMedisController extends BaseController
         $dataDetails = [];
 
         for ($i = 0; $i < count($kode_brng); $i++) {
+            $stok_lama = $ipsrsbarang_mod->getStokByKode($kode_brng[$i])['stok'];
+
+            $stok_baru = $stok_lama - $jumlah[$i];
+            $ipsrsbarang_mod->updateStok($kode_brng[$i], $stok_baru);
+            
             $dataDetails[] = [
                 'no_keluar' => $no_keluar,
                 'kode_brng' => $kode_brng[$i],
