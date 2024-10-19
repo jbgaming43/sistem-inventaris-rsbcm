@@ -83,7 +83,7 @@ class PengeluaranNonMedisController extends BaseController
                 'kode_sat' => $kode_sat[$i],
                 'jumlah' => $jumlah[$i],
                 'harga' => $harga[$i],
-                'total' => $jumlah[$i]*$harga[$i],
+                'total' => $jumlah[$i] * $harga[$i],
             ];
         }
 
@@ -138,12 +138,10 @@ class PengeluaranNonMedisController extends BaseController
         $pengeluaran_nonmedis_det_mod = new PengeluaranNonMedisDetailModel();
 
         $data = [
-            'permintaan_nonmedis_con' => $pengeluaran_nonmedis_mod->getDataById($id),
-            'permintaan_nonmedis_det_con' => $pengeluaran_nonmedis_det_mod->detailData($id),
+            'pengeluaran_nonmedis_con' => $pengeluaran_nonmedis_mod->getDataById($id),
+            'pengeluaran_nonmedis_det_con' => $pengeluaran_nonmedis_det_mod->detailData($id),
         ];
-        // $t = $pengeluaran_nonmedis_det_mod->detailData($id);
-        // dd($t);
 
-        return view('permintaan_nonmedis/page_print', $data);
+        return view('pengeluaran_nonmedis/page_print', $data);
     }
 }

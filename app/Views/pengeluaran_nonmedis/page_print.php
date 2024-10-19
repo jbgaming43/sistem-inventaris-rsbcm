@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Permintaan Non Medis - Print</title>
+    <title>Pengeluaran Non Medis - Print</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -109,31 +109,31 @@
     <div class="container">
         <div class="header">
             <img src="<?= base_url('../assets/img/icon/rsbcm_logo.png'); ?>" alt="RS BORNEO CITRA MEDIKA" style="height: 60px;">
-            <h1>PERMINTAAN NON MEDIS</h1>
+            <h1>PENGELUARAN NON MEDIS</h1>
         </div>
 
         <hr>
-        <?php foreach ($permintaan_nonmedis_con as $dt_permintaan_nonmedis) : ?>
+        <?php foreach ($pengeluaran_nonmedis_con as $dt_pengeluaran_nonmedis) : ?>
             <table class="details">
                 <tr>
                     <!-- untuk yang kiri -->
                     <td>No. Faktur</td>
                     <td>:</td>
-                    <td><?= $dt_permintaan_nonmedis['no_permintaan'] ?></td>
+                    <td><?= $dt_pengeluaran_nonmedis['no_keluar'] ?></td>
                     <!-- untuk yang kanan -->
                     <td style="padding-left: 5cm;">Ruang</td>
                     <td>:</td>
-                    <td><?= $dt_permintaan_nonmedis['ruang'] ?></td>
+                    <td><?= $dt_pengeluaran_nonmedis['ruang'] ?></td>
                 </tr>
                 <tr>
                     <!-- untuk yang kiri -->
                     <td>Diajukan oleh</td>
                     <td>:</td>
-                    <td><?= $dt_permintaan_nonmedis['nama'] ?></td>
+                    <td><?= $dt_pengeluaran_nonmedis['nama'] ?></td>
                     <!-- untuk yang kanan -->
                     <td style="padding-left: 5cm;">Jatuh Tempo</td>
                     <td>:</td>
-                    <td><?= date('d-M-Y', strtotime($dt_permintaan_nonmedis['tanggal'])) ?></td>
+                    <td><?= date('d-M-Y', strtotime($dt_pengeluaran_nonmedis['tanggal'])) ?></td>
                 </tr>
             </table>
         <?php endforeach ?>
@@ -153,20 +153,20 @@
             <tbody>
                 <?php if (!empty($permintaan_nonmedis_det_con)) : ?>
                     <?php $total_jumlah = 0; ?>
-                    <?php foreach ($permintaan_nonmedis_det_con as $index => $dt_permintaan_nonmedis_det) : ?>
+                    <?php foreach ($permintaan_nonmedis_det_con as $index => $dt_pengeluaran_nonmedis_det) : ?>
                         <tr style=" white-space: nowrap;">
                             <td><?= $index + 1 ?></td>
-                            <td><?= $dt_permintaan_nonmedis_det['kode_brng'] ?></td>
-                            <td><?= $dt_permintaan_nonmedis_det['nama_brng'] ?></td>
-                            <td><?= $dt_permintaan_nonmedis_det['kode_sat'] ?></td>
-                            <td><?= $dt_permintaan_nonmedis_det['jenis'] ?></td>
-                            <td><?= $dt_permintaan_nonmedis_det['jumlah'] ?></td>
-                            <td><?= $dt_permintaan_nonmedis_det['keterangan'] ?></td>
+                            <td><?= $dt_pengeluaran_nonmedis_det['kode_brng'] ?></td>
+                            <td><?= $dt_pengeluaran_nonmedis_det['nama_brng'] ?></td>
+                            <td><?= $dt_pengeluaran_nonmedis_det['kode_sat'] ?></td>
+                            <td><?= $dt_pengeluaran_nonmedis_det['jenis'] ?></td>
+                            <td><?= $dt_pengeluaran_nonmedis_det['jumlah'] ?></td>
+                            <td><?= $dt_pengeluaran_nonmedis_det['keterangan'] ?></td>
                         </tr>
 
                         <!-- menghitung sum jumlah -->
                         <?php
-                        $total_jumlah += $dt_permintaan_nonmedis_det['jumlah'] ?>
+                        $total_jumlah += $dt_pengeluaran_nonmedis_det['jumlah'] ?>
                     <?php endforeach; ?>
                 <?php else : ?>
                     <tr>
