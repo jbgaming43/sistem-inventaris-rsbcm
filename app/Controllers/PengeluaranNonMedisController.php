@@ -54,10 +54,9 @@ class PengeluaranNonMedisController extends BaseController
         $kode_sat = $this->request->getPost('kode_sat');
         $jumlah = $this->request->getPost('jumlah');
         $harga = $this->request->getPost('harga');
-        $total = $this->request->getPost('total');
 
         // Cek apakah semua input adalah array
-        if (!is_array($kode_brng) || !is_array($kode_sat) || !is_array($jumlah) || !is_array($harga) || !is_array($total)) {
+        if (!is_array($kode_brng) || !is_array($kode_sat) || !is_array($jumlah) || !is_array($harga)) {
             return redirect()->back()->with('error', 'Data input tidak valid.');
         }
 
@@ -84,7 +83,7 @@ class PengeluaranNonMedisController extends BaseController
                 'kode_sat' => $kode_sat[$i],
                 'jumlah' => $jumlah[$i],
                 'harga' => $harga[$i],
-                'total' => $total[$i],
+                'total' => $jumlah[$i]*$harga[$i],
             ];
         }
 
