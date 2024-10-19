@@ -46,9 +46,8 @@ class PengeluaranNonMedisController extends BaseController
         return redirect()->back()->with('error', 'Nomor pengeluaran sudah ada, gunakan nomor pengeluaran yang berbeda.');
     }
 
-    $tgl_keluar = $this->request->getPost('tgl_keluar');
+    $tanggal = $this->request->getPost('tanggal');
     $nip = $this->request->getPost('nip');
-    $lokasi_tujuan = $this->request->getPost('lokasi_tujuan');
     $keterangan = $this->request->getPost('keterangan');
 
     // Ambil data tabel barang yang diinputkan dalam bentuk array
@@ -62,21 +61,19 @@ class PengeluaranNonMedisController extends BaseController
         return redirect()->back()->with('error', 'Data input tidak valid.');
     }
 
-    $total_harga = 0;
+    $total = 0;
 
     // Hitung total harga
     for ($i = 0; $i < count($kode_barang); $i++) {
-        $total_harga += $harga[$i] * $jumlah[$i];
+        $total += $harga[$i] * $jumlah[$i];
     }
 
     // Persiapkan data untuk tabel pengeluaran_non_medis
     $dataPengeluaran = [
         'no_keluar' => $no_keluar,
-        'tgl_keluar' => $tgl_keluar,
+        'tanggal' => $tanggal,
         'nip' => $nip,
-        'lokasi_tujuan' => $lokasi_tujuan,
         'keterangan' => $keterangan,
-        'total' => $total_harga,
     ];
 
     // Simpan data pengeluaran ke tabel pengeluaran_non_medis
@@ -112,7 +109,7 @@ class PengeluaranNonMedisController extends BaseController
             'kode_sat' => $kode_sat[$index],
             'jumlah' => $jumlah[$index],
             'harga' => $harga[$index],
-            'subtotal' => $harga[$index] * $jumlah[$index],
+            'total' => $harga[$index] * $jumlah[$index],
         ];
 
         $pengeluaran_nonmedis_det_mod->insert($dataDetail);
