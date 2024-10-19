@@ -121,9 +121,9 @@
                     <td>:</td>
                     <td><?= $dt_pengeluaran_nonmedis['no_keluar'] ?></td>
                     <!-- untuk yang kanan -->
-                    <td style="padding-left: 5cm;">Ruang</td>
+                    <td style="padding-left: 5cm;">Tanggal</td>
                     <td>:</td>
-                    <td><?= $dt_pengeluaran_nonmedis['ruang'] ?></td>
+                    <td><?= date('d-M-Y', strtotime($dt_pengeluaran_nonmedis['tanggal'])) ?></td>
                 </tr>
                 <tr>
                     <!-- untuk yang kiri -->
@@ -131,9 +131,9 @@
                     <td>:</td>
                     <td><?= $dt_pengeluaran_nonmedis['nama'] ?></td>
                     <!-- untuk yang kanan -->
-                    <td style="padding-left: 5cm;">Jatuh Tempo</td>
+                    <td style="padding-left: 5cm;">Keterangan</td>
                     <td>:</td>
-                    <td><?= date('d-M-Y', strtotime($dt_pengeluaran_nonmedis['tanggal'])) ?></td>
+                    <td><?= $dt_pengeluaran_nonmedis['keterangan'] ?></td>
                 </tr>
             </table>
         <?php endforeach ?>
@@ -146,38 +146,42 @@
                     <th>Nama Barang</th>
                     <th>Satuan</th>
                     <th>Jenis</th>
+                    <th>Harga</th>
                     <th>Jumlah</th>
-                    <th>Keterangan</th>
+                    <th>Total</th>
                 </tr>
             </thead>
             <tbody>
-                <?php if (!empty($permintaan_nonmedis_det_con)) : ?>
+                <?php if (!empty($pengeluaran_nonmedis_det_con)) : ?>
                     <?php $total_jumlah = 0; ?>
-                    <?php foreach ($permintaan_nonmedis_det_con as $index => $dt_pengeluaran_nonmedis_det) : ?>
+                    <?php $total_total = 0; ?>
+                    <?php foreach ($pengeluaran_nonmedis_det_con as $index => $dt_pengeluaran_nonmedis_det) : ?>
                         <tr style=" white-space: nowrap;">
                             <td><?= $index + 1 ?></td>
                             <td><?= $dt_pengeluaran_nonmedis_det['kode_brng'] ?></td>
                             <td><?= $dt_pengeluaran_nonmedis_det['nama_brng'] ?></td>
                             <td><?= $dt_pengeluaran_nonmedis_det['kode_sat'] ?></td>
                             <td><?= $dt_pengeluaran_nonmedis_det['jenis'] ?></td>
+                            <td><?= $dt_pengeluaran_nonmedis_det['harga'] ?></td>
                             <td><?= $dt_pengeluaran_nonmedis_det['jumlah'] ?></td>
-                            <td><?= $dt_pengeluaran_nonmedis_det['keterangan'] ?></td>
+                            <td><?= $dt_pengeluaran_nonmedis_det['total'] ?></td>
                         </tr>
 
                         <!-- menghitung sum jumlah -->
                         <?php
-                        $total_jumlah += $dt_pengeluaran_nonmedis_det['jumlah'] ?>
+                        $total_jumlah += $dt_pengeluaran_nonmedis_det['jumlah'];
+                        $total_total += $dt_pengeluaran_nonmedis_det['total']; ?>
                     <?php endforeach; ?>
                 <?php else : ?>
                     <tr>
-                        <td colspan="7">Tidak ada data</td>
+                        <td colspan="8">Tidak ada data</td>
                     </tr>
                 <?php endif; ?>
                 <?php if ($total_jumlah) : ?>
                     <tr>
-                        <td colspan="5"></td>
+                        <td colspan="6"></td>
                         <td><?= $total_jumlah; ?></td>
-                        <td></td>
+                        <td><?= $total_total; ?></td>
                     </tr>
                 <?php endif; ?>
 
