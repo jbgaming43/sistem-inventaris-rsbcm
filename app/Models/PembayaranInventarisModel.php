@@ -26,6 +26,7 @@ class PembayaranInventarisModel extends Model
             ->join('inventaris_pemesanan', 'bayar_pemesanan_inventaris.no_faktur = inventaris_pemesanan.no_faktur')
             ->join('petugas', 'bayar_pemesanan_inventaris.nip = petugas.nip')
             ->join('akun_bayar_hutang', 'bayar_pemesanan_inventaris.nama_bayar = akun_bayar_hutang.nama_bayar')
+            ->orderBy('tgl_bayar', 'DESC')
             ->findAll(); // Retrieve all data
     }
 

@@ -24,6 +24,7 @@ class PengajuanBarangNonMedisModel extends Model
     {
         return $this->select('pengajuan_barang_nonmedis.*, pegawai.*')
             ->join('pegawai', 'pengajuan_barang_nonmedis.nip=pegawai.nik')
+            ->orderBy('tanggal', 'DESC')
             ->findAll(); // retrieve all data
     }
 

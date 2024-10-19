@@ -26,6 +26,7 @@ class PenerimaanInventarisModel extends Model
             ->join('petugas', 'inventaris_pemesanan.nip = petugas.nip')
             ->join('inventaris_suplier', 'inventaris_pemesanan.kode_suplier = inventaris_suplier.kode_suplier')
             ->join('rekening ', 'inventaris_pemesanan.kd_rek_aset = rekening.kd_rek')
+            ->orderBy('tgl_faktur', 'DESC')
             ->findAll(); // Retrieve all data
     }
 

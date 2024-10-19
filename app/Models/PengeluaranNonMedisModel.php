@@ -24,6 +24,7 @@ class PengeluaranNonMedisModel extends Model
     {
         return $this->select('ipsrspengeluaran.*, petugas.*')
             ->join('petugas', 'ipsrspengeluaran.nip = petugas.nip')
+            ->orderBy('tanggal', 'DESC')
             ->findAll(); // Retrieve all data
     }
 

@@ -25,6 +25,7 @@ class PenerimaanNonMedisModel extends Model
         return $this->select('ipsrspemesanan.*, petugas.*, inventaris_suplier.*')
             ->join('petugas', 'ipsrspemesanan.nip = petugas.nip')
             ->join('inventaris_suplier', 'ipsrspemesanan.kode_suplier = inventaris_suplier.kode_suplier')
+            ->orderBy('tgl_pesan', 'DESC')
             ->findAll(); // Retrieve all data
     }
 

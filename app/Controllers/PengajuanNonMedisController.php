@@ -21,7 +21,7 @@ class PengajuanNonMedisController extends BaseController
         $data = [
             'title' => 'Data Pengajuan Non Medis',
             'active_menu' => 'non_medis',
-            'active_submenu' => 'pengajuan_nonmedis',
+            'active_submenu' => 'pengajuan_non_medis',
 
             'pbnc' => $pbnm->getData(),
             'pgwc' => $pgwm->getData(),

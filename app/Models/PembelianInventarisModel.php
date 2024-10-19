@@ -28,6 +28,7 @@ class PembelianInventarisModel extends Model
             ->join('rekening', 'inventaris_pembelian.kd_rek = rekening.kd_rek')
             ->join('rekening as rekening_aset', 'inventaris_pembelian.kd_rek_aset = rekening_aset.kd_rek')
             ->select('rekening_aset.nm_rek as nm_rek_aset')
+            ->orderBy('tgl_beli', 'DESC')
             ->findAll(); // Retrieve all data
     }
 

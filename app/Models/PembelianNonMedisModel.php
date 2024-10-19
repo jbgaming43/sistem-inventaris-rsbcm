@@ -26,6 +26,7 @@ class PembelianNonMedisModel extends Model
             ->join('petugas', 'ipsrspembelian.nip = petugas.nip')
             ->join('ipsrssuplier', 'ipsrspembelian.kode_suplier = ipsrssuplier.kode_suplier')
             ->join('rekening', 'ipsrspembelian.kd_rek = rekening.kd_rek')
+            ->orderBy('tgl_beli', 'DESC')
             ->findAll(); // Retrieve all data
     }
 
