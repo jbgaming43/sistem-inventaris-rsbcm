@@ -244,7 +244,7 @@ class PembelianNonmedisController extends BaseController
             $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
             $total = $subtotal - $besardis;
             // Persiapkan data untuk tabel inventaris_detail_beli
-            $dataDetail = [
+            $dataDetail[] = [
                 'no_faktur' => $no_faktur,
                 'kode_brng' => $kode_barang[$i],
                 'kode_sat' => $kode_sat[$i],
@@ -255,10 +255,10 @@ class PembelianNonmedisController extends BaseController
                 'besardis' => $besardis,
                 'total' => $total
             ];
-
-            // Simpan data detail pembelian ke tabel inventaris_detail_beli
-            $pem_nonmedis_det_mod->insert($dataDetail);
         }
+
+        // Simpan data detail pembelian ke tabel inventaris_detail_beli
+        $pem_nonmedis_det_mod->insertBatch($dataDetail);
 
         // Redirect atau tampilkan pesan sukses
         return redirect()->to('/pembelian_non_medis')->with('success', 'Data pembelian berhasil diedit.');

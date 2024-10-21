@@ -115,7 +115,7 @@ class PengeluaranNonMedisController extends BaseController
                 }
 
                 // Simpan data detail pengeluaran ke tabel pengeluaran_non_medis_detail
-                $dataDetail = [
+                $dataDetail[] = [
                     'no_keluar' => $no_keluar,
                     'kode_brng' => $kode_barang[$index],
                     'kode_sat' => $kode_sat[$index],
@@ -123,9 +123,9 @@ class PengeluaranNonMedisController extends BaseController
                     'harga' => $harga[$index],
                     'total' => $harga[$index] * $jumlah[$index],
                 ];
-
-                $pengeluaran_nonmedis_det_mod->insert($dataDetail);
             }
+
+            $pengeluaran_nonmedis_det_mod->insertBatch($dataDetail);
 
             if ($dbSik->transStatus() === false) {
                 $dbSik->transRollback();

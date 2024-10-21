@@ -177,7 +177,7 @@ class PenerimaanNonMedisController extends BaseController
                 $total = $subtotal - $besardis;
 
                 // Simpan data detail pembelian ke tabel inventaris_detail_beli
-                $dataDetail = [
+                $dataDetail[] = [
                     'no_faktur' => $no_faktur,
                     'kode_brng' => $kode_barang[$index],
                     'kode_sat' => $kode_sat[$index],
@@ -188,9 +188,9 @@ class PenerimaanNonMedisController extends BaseController
                     'besardis' => $besardis,
                     'total' => $total
                 ];
-
-                $penerimaan_nonmedis_det_mod->insert($dataDetail);
             }
+
+            $penerimaan_nonmedis_det_mod->insertBatch($dataDetail);
 
             if ($dbSik->transStatus() === false) {
                 $dbSik->transRollback();
@@ -199,7 +199,6 @@ class PenerimaanNonMedisController extends BaseController
                 $dbSik->transCommit();
                 return redirect()->to('/penerimaan_non_medis')->with('success', 'Data berhasil disimpan.');
             }
-            
         } catch (\Exception $e) {
             $dbSik->transRollback();
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());

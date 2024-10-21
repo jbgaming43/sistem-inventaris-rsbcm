@@ -132,7 +132,7 @@ class PembelianInventarisController extends BaseController
             $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
             $total = $subtotal - $besardis;
             // Persiapkan data untuk tabel inventaris_detail_beli
-            $dataDetail = [
+            $dataDetail[] = [
                 'no_faktur' => $no_faktur,
                 'kode_barang' => $kode_barang[$i],
                 'jumlah' => $jumlah[$i],
@@ -142,10 +142,10 @@ class PembelianInventarisController extends BaseController
                 'besardis' => $besardis,
                 'total' => $total
             ];
-
-            // Simpan data detail pembelian ke tabel inventaris_detail_beli
-            $pem_inv_det_mod->insert($dataDetail);
         }
+
+        // Simpan data detail pembelian ke tabel inventaris_detail_beli
+        $pem_inv_det_mod->insertBatch($dataDetail);
 
         // Redirect atau tampilkan pesan sukses
         return redirect()->to('/pembelian_inventaris')->with('success', 'Data pembelian berhasil disimpan.');
@@ -239,7 +239,7 @@ class PembelianInventarisController extends BaseController
             $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
             $total = $subtotal - $besardis;
             // Persiapkan data untuk tabel inventaris_detail_beli
-            $dataDetail = [
+            $dataDetail[] = [
                 'no_faktur' => $no_faktur,
                 'kode_barang' => $kode_barang[$i],
                 'jumlah' => $jumlah[$i],
@@ -249,10 +249,10 @@ class PembelianInventarisController extends BaseController
                 'besardis' => $besardis,
                 'total' => $total
             ];
-
-            // Simpan data detail pembelian ke tabel inventaris_detail_beli
-            $pem_inv_det_mod->insert($dataDetail);
         }
+
+        // Simpan data detail pembelian ke tabel inventaris_detail_beli
+        $pem_inv_det_mod->insertBatch($dataDetail);
 
         // Redirect atau tampilkan pesan sukses
         return redirect()->to('/pembelian_inventaris')->with('success', 'Data pembelian berhasil diedit.');
