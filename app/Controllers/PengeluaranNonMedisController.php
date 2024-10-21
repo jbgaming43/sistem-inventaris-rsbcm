@@ -32,92 +32,113 @@ class PengeluaranNonMedisController extends BaseController
     }
 
     public function add()
-{
-    // Inisialisasi model
-    $pengeluaran_nonmedis_mod = new PengeluaranNonMedisModel();
-    $pengeluaran_nonmedis_det_mod = new PengeluaranNonMedisDetailModel();
-    $ipsrsbarang_mod = new IpsrsBarangModel();
+    {
+        $dbSik = \Config\Database::connect('sik');
 
-    // Ambil data dari form
-    $no_keluar = $this->request->getPost('no_keluar');
+        // Inisialisasi model
+        $pengeluaran_nonmedis_mod = new PengeluaranNonMedisModel();
+        $pengeluaran_nonmedis_det_mod = new PengeluaranNonMedisDetailModel();
+        $ipsrsbarang_mod = new IpsrsBarangModel();
 
-    // Cek apakah nomor pengeluaran sudah ada di database
-    if ($pengeluaran_nonmedis_mod->where('no_keluar', $no_keluar)->first()) {
-        return redirect()->back()->with('error', 'Nomor pengeluaran sudah ada, gunakan nomor pengeluaran yang berbeda.');
-    }
+        // Ambil data dari form
+        $no_keluar = $this->request->getPost('no_keluar');
 
-    $tanggal = $this->request->getPost('tanggal');
-    $nip = $this->request->getPost('nip');
-    $keterangan = $this->request->getPost('keterangan');
-
-    // Ambil data tabel barang yang diinputkan dalam bentuk array
-    $kode_barang = $this->request->getPost('kode_brng'); // pastikan ini dikirim sebagai array
-    $kode_sat = $this->request->getPost('kode_sat'); // pastikan ini dikirim sebagai array
-    $jumlah = $this->request->getPost('jumlah'); // array
-    $harga = $this->request->getPost('harga'); // array
-
-    // Cek apakah semua input adalah array
-    if (!is_array($kode_barang) || !is_array($jumlah) || !is_array($harga)) {
-        return redirect()->back()->with('error', 'Data input tidak valid.');
-    }
-
-    $total = 0;
-
-    // Hitung total harga
-    for ($i = 0; $i < count($kode_barang); $i++) {
-        $total += $harga[$i] * $jumlah[$i];
-    }
-
-    // Persiapkan data untuk tabel pengeluaran_non_medis
-    $dataPengeluaran = [
-        'no_keluar' => $no_keluar,
-        'tanggal' => $tanggal,
-        'nip' => $nip,
-        'keterangan' => $keterangan,
-    ];
-
-    // Simpan data pengeluaran ke tabel pengeluaran_non_medis
-    $pengeluaran_nonmedis_mod->insertData($dataPengeluaran);
-
-    // Ambil stok barang dari database dalam satu query
-    $stok_barang = $ipsrsbarang_mod->getStokByKodeArray($kode_barang);
-
-    // Convert hasil menjadi array yang mudah digunakan dengan key 'kode_barang'
-    $stok_map = [];
-    foreach ($stok_barang as $barang) {
-        $stok_map[$barang['kode_brng']] = $barang['stok'];
-    }
-
-    // Proses data detail barang dan update stok dalam satu loop
-    for ($index = 0; $index < count($kode_barang); $index++) {
-        // Ambil stok lama dari $stok_map
-        $stok_lama = isset($stok_map[$kode_barang[$index]]) ? $stok_map[$kode_barang[$index]] : 0;
-
-        // Cek apakah stok cukup untuk pengeluaran
-        if ($stok_lama < $jumlah[$index]) {
-            return redirect()->back()->with('error', 'Stok barang ' . $kode_barang[$index] . ' tidak mencukupi.');
+        // Cek apakah nomor pengeluaran sudah ada di database
+        if ($pengeluaran_nonmedis_mod->where('no_keluar', $no_keluar)->first()) {
+            return redirect()->back()->with('error', 'Nomor pengeluaran sudah ada, gunakan nomor pengeluaran yang berbeda.');
         }
 
-        // Update stok dengan mengurangi jumlah barang yang dikeluarkan
-        $stok_baru = $stok_lama - $jumlah[$index];
-        $ipsrsbarang_mod->updateStok($kode_barang[$index], $stok_baru);
+        $tanggal = $this->request->getPost('tanggal');
+        $nip = $this->request->getPost('nip');
+        $keterangan = $this->request->getPost('keterangan');
 
-        // Simpan data detail pengeluaran ke tabel pengeluaran_non_medis_detail
-        $dataDetail = [
-            'no_keluar' => $no_keluar,
-            'kode_brng' => $kode_barang[$index],
-            'kode_sat' => $kode_sat[$index],
-            'jumlah' => $jumlah[$index],
-            'harga' => $harga[$index],
-            'total' => $harga[$index] * $jumlah[$index],
-        ];
+        // Ambil data tabel barang yang diinputkan dalam bentuk array
+        $kode_barang = $this->request->getPost('kode_brng'); // pastikan ini dikirim sebagai array
+        $kode_sat = $this->request->getPost('kode_sat'); // pastikan ini dikirim sebagai array
+        $jumlah = $this->request->getPost('jumlah'); // array
+        $harga = $this->request->getPost('harga'); // array
 
-        $pengeluaran_nonmedis_det_mod->insert($dataDetail);
+        // Cek apakah semua input adalah array
+        if (!is_array($kode_barang) || !is_array($jumlah) || !is_array($harga)) {
+            return redirect()->back()->with('error', 'Data input tidak valid.');
+        }
+
+        $total = 0;
+
+        // mulai transaksi
+        $dbSik->transBegin();
+
+        try {
+
+            // Hitung total harga
+            for ($i = 0; $i < count($kode_barang); $i++) {
+                $total += $harga[$i] * $jumlah[$i];
+            }
+
+            // Persiapkan data untuk tabel pengeluaran_non_medis
+            $dataPengeluaran = [
+                'no_keluar' => $no_keluar,
+                'tanggal' => $tanggal,
+                'nip' => $nip,
+                'keterangan' => $keterangan,
+            ];
+
+            // Simpan data pengeluaran ke tabel pengeluaran_non_medis
+            $pengeluaran_nonmedis_mod->insertData($dataPengeluaran);
+
+            // Ambil stok barang dari database dalam satu query
+            $stok_barang = $ipsrsbarang_mod->getStokByKodeArray($kode_barang);
+
+            // Convert hasil menjadi array yang mudah digunakan dengan key 'kode_barang'
+            $stok_map = [];
+            foreach ($stok_barang as $barang) {
+                $stok_map[$barang['kode_brng']] = $barang['stok'];
+            }
+
+            // Proses data detail barang dan update stok dalam satu loop
+            for ($index = 0; $index < count($kode_barang); $index++) {
+                // Ambil stok lama dari $stok_map
+                $stok_lama = isset($stok_map[$kode_barang[$index]]) ? $stok_map[$kode_barang[$index]] : 0;
+
+                // Cek apakah stok cukup untuk pengeluaran
+                // if ($stok_lama < $jumlah[$index]) {
+                //     return redirect()->back()->with('error', 'Stok barang ' . $kode_barang[$index] . ' tidak mencukupi.');
+                // }
+
+                // Update stok dengan mengurangi jumlah barang yang dikeluarkan
+                $stok_baru = $stok_lama - $jumlah[$index];
+                if ($stok_baru >= 0) {
+                    $ipsrsbarang_mod->updateStok($kode_barang[$index], $stok_baru);
+                } else {
+                    $dbSik->transRollback();
+                    return redirect()->back()->with('error', 'Stok barang ' . $kode_barang[$index] . ' tidak mencukupi.');
+                }
+
+                // Simpan data detail pengeluaran ke tabel pengeluaran_non_medis_detail
+                $dataDetail = [
+                    'no_keluar' => $no_keluar,
+                    'kode_brng' => $kode_barang[$index],
+                    'kode_sat' => $kode_sat[$index],
+                    'jumlah' => $jumlah[$index],
+                    'harga' => $harga[$index],
+                    'total' => $harga[$index] * $jumlah[$index],
+                ];
+
+                $pengeluaran_nonmedis_det_mod->insert($dataDetail);
+            }
+
+            if ($dbSik->transStatus() === false) {
+                $dbSik->transRollback();
+                return redirect()->back()->with('error', 'Transaksi gagal.');
+            } else {
+                $dbSik->transCommit();
+                return redirect()->to('/pengeluaran_non_medis')->with('success', 'Data berhasil disimpan.');
+            }
+        } catch (\Exception $e) {
+            $dbSik->transRollback();
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
     }
-
-    // Redirect atau tampilkan pesan sukses
-    return redirect()->to('/pengeluaran_non_medis')->with('success', 'Data pengeluaran berhasil disimpan.');
-}
 
     public function detail($id)
     {
