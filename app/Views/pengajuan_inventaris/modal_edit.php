@@ -21,10 +21,10 @@
                                 <input type="date" class="form-control" name="tanggal" placeholder="Masukkan tanggal" value="<?= $dt_pengajuan_inventaris['tanggal']; ?>">
                             </div>
                         </div>
-                        <div class="mb-2 row">
+                        <div class="mb-2 row" >
                             <label class="col-3 col-form-label required">Diajukan Oleh</label>
                             <div class="col">
-                                <select class="form-select select2-pegawai" name="nik" style="width: 100%">
+                                <select class="form-select" name="nik" style="width: 100%">
                                     <?= $nik = $dt_pengajuan_inventaris['nik']; ?>
                                     <option value="" <?= $nik == '' ? 'selected' : null; ?>>- Pilih Nama -</option>
                                     <?php foreach ($pegawai_con as $dt_pegawai) : ?>
@@ -82,10 +82,10 @@
                                 <textarea class="form-control" name="keterangan" placeholder="Masukkan keterangan"><?= $dt_pengajuan_inventaris['keterangan'] ?></textarea>
                             </div>
                         </div>
-                        <div class="mb-2 row">
+                        <div class="mb-2 row" id="add_pengajuan_inventaris2">
                             <label class="col-3 col-form-label required">NIK P.J.</label>
                             <div class="col">
-                                <select class="form-select select2-pegawai" name="nik_pj" style="width: 100%">
+                                <select class="form-select" name="nik_pj" style="width: 100%">
                                     <?= $nik_pj = $dt_pengajuan_inventaris['nik_pj']; ?>
                                     <option value="" <?= $nik_pj == '' ? 'selected' : null; ?>>- Pilih Nama -</option>
                                     <?php foreach ($pegawai_con as $dt_pegawai) : ?>
@@ -107,4 +107,17 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.select2-pegawai-add-inv').select2({
+                dropdownParent: $('#edit_pengajuan_inventaris<?= $dt_pengajuan_inventaris['no_pengajuan']; ?>')
+            });
+        });
+        $(document).ready(function() {
+            $('.select2-pegawai-add-inv2').select2({
+                dropdownParent: $('#edit_pengajuan_inventaris2')
+            });
+        });
+    </script>
 <?php } ?>
