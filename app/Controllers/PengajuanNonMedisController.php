@@ -34,6 +34,9 @@ class PengajuanNonMedisController extends BaseController
 
     public function add()
     {
+        // ngedefine untuk transaction
+        $dbSik = \Config\Database::connect('sik');
+
         // objek PenggunaModel
         $pen_nonmedis_mod = new PengajuanBarangNonMedisModel();
         $pen_nonmedis_det_mod = new PengajuanBarangNonMedisDetailModel();
@@ -60,47 +63,62 @@ class PengajuanNonMedisController extends BaseController
             return redirect()->back()->with('error', 'Tidak ada data yang valid untuk disimpan.');
         }
 
-        $data = [
-            'no_pengajuan' => $no_pengajuan,
-            'nip' => $nik,
-            'tanggal' => $tanggal,
-            'status' => 'Proses Pengajuan',
-            'keterangan' => $keterangan,
-        ];
+        // mulai transaksi
+        $dbSik->transBegin();
 
-        $pen_nonmedis_mod->insertData($data);
-        $dataDetails = [];
+        try {
 
-        for ($i = 0; $i < count($kode_brng); $i++) {
-            $dataDetails[] = [
+            $data = [
                 'no_pengajuan' => $no_pengajuan,
-                'kode_brng' => $kode_brng[$i],
-                'kode_sat' => $kode_sat[$i],
-                'jumlah' => $jumlah[$i],
-                'h_pengajuan' => $h_pengajuan[$i],
-                'total' => $jumlah[$i]*$h_pengajuan[$i],
+                'nip' => $nik,
+                'tanggal' => $tanggal,
+                'status' => 'Proses Pengajuan',
+                'keterangan' => $keterangan,
             ];
+
+            $pen_nonmedis_mod->insertData($data);
+            $dataDetails = [];
+
+            for ($i = 0; $i < count($kode_brng); $i++) {
+                $dataDetails[] = [
+                    'no_pengajuan' => $no_pengajuan,
+                    'kode_brng' => $kode_brng[$i],
+                    'kode_sat' => $kode_sat[$i],
+                    'jumlah' => $jumlah[$i],
+                    'h_pengajuan' => $h_pengajuan[$i],
+                    'total' => $jumlah[$i] * $h_pengajuan[$i],
+                ];
+            }
+
+            // Insert semua data secara batch
+            $pen_nonmedis_det_mod->insertBatch($dataDetails);
+
+            if ($dbSik->transStatus() === false) {
+                $dbSik->transRollback();
+                return redirect()->back()->with('error', 'Transaksi gagal.');
+            } else {
+                $dbSik->transCommit();
+                session()->setFlashdata('success', 'ditambahkan');
+                return redirect()->to('/pengajuan_non_medis');
+            }
+        } catch (\Exception $e) {
+            $dbSik->transRollback();
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
-
-        // Insert semua data secara batch
-        $pen_nonmedis_det_mod->insertBatch($dataDetails);
-
-        session()->setFlashdata('success', 'ditambahkan');
-        return redirect()->to('/pengajuan_non_medis');
     }
 
     public function detail($id)
     {
         $pen_nonmedis_det_mod = new PengajuanBarangNonMedisDetailModel();
         $detail = $pen_nonmedis_det_mod->detailData($id);
-        
-         // Debug output
+
+        // Debug output
         log_message('debug', 'Detail fetched: ' . json_encode($detail)); // Log detail untuk debug
 
         if (empty($detail)) {
             return $this->response->setJSON(['error' => 'Data tidak ditemukan']);
         }
-    
+
         return $this->response->setJSON($detail);
     }
 
@@ -167,7 +185,6 @@ class PengajuanNonMedisController extends BaseController
             'pen_nonmedis_det_con' => $pen_nonmedis_det_mod->detailData($id),
         ];
 
-        return view('pengajuan_nonmedis/page_print',$data);
-
+        return view('pengajuan_nonmedis/page_print', $data);
     }
 }

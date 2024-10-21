@@ -56,6 +56,9 @@ class PembelianNonmedisController extends BaseController
 
     public function add()
     {
+        // ngedefine untuk transaction
+        $dbSik = \Config\Database::connect('sik');
+
         // Inisialisasi model
         $pem_nonmedis_mod = new PembelianNonMedisModel();
         $pem_nonmedis_det_mod = new PembelianNonMedisDetailModel();
@@ -97,68 +100,85 @@ class PembelianNonmedisController extends BaseController
         $totalBesardis = 0;
         $totalTotal = 0;
 
-        for ($i = 0; $i < count($kode_barang); $i++) {
-            //hitung utk data saat ini
-            $subtotal = $harga_beli[$i] * $jumlah[$i];
-            $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
-            $total = $subtotal - $besardis;
+        // mulai transaksi
+        $dbSik->transBegin();
 
-            $totalBesardis += $besardis;
-            $totalTotal += $total;
-        }
+        try {
+            for ($i = 0; $i < count($kode_barang); $i++) {
+                //hitung utk data saat ini
+                $subtotal = $harga_beli[$i] * $jumlah[$i];
+                $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
+                $total = $subtotal - $besardis;
 
-        $tagihan = ($totalTotal - $totalBesardis) + (($totalTotal - $totalBesardis) * ($ppn / 100)) + $meterai;
+                $totalBesardis += $besardis;
+                $totalTotal += $total;
+            }
 
-        // Persiapkan data untuk tabel inventaris_pembelian
-        $dataPembelian = [
-            'no_faktur' => $no_faktur,
-            'kode_suplier' => $kode_suplier,
-            'nip' => $nip,
-            'tgl_beli' => $tgl_beli,
-            'subtotal' => $totalTotal,
-            'potongan' => $totalBesardis,
-            'total' => $totalTotal - $totalBesardis,
-            'ppn' => $ppn,
-            'meterai' => $meterai,
-            'tagihan' => $tagihan,
-            'kd_rek' => $kd_rek,
+            $tagihan = ($totalTotal - $totalBesardis) + (($totalTotal - $totalBesardis) * ($ppn / 100)) + $meterai;
 
-            // hitung subtotal, potongan, dll. jika diperlukan
-        ];
-
-        // Simpan data pembelian ke tabel nonmedis_pembelian
-        $pem_nonmedis_mod->insertData($dataPembelian);
-        $dataDetail = [];
-        // Loop melalui setiap barang yang diinputkan
-        for ($i = 0; $i < count($kode_barang); $i++) {
-            //hitung utk data saat ini
-            $subtotal = $harga_beli[$i] * $jumlah[$i];
-            $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
-            $total = $subtotal - $besardis;
-            // Persiapkan data untuk tabel  nonmedis_detail_beli
-            $dataDetail[] = [
+            // Persiapkan data untuk tabel inventaris_pembelian
+            $dataPembelian = [
                 'no_faktur' => $no_faktur,
-                'kode_brng' => $kode_barang[$i],
-                'kode_sat' => $kode_sat[$i],
-                'jumlah' => $jumlah[$i],
-                'harga' => $harga_beli[$i],
-                'subtotal' => $subtotal,
-                'dis' => $diskon[$i],
-                'besardis' => $besardis,
-                'total' => $total
+                'kode_suplier' => $kode_suplier,
+                'nip' => $nip,
+                'tgl_beli' => $tgl_beli,
+                'subtotal' => $totalTotal,
+                'potongan' => $totalBesardis,
+                'total' => $totalTotal - $totalBesardis,
+                'ppn' => $ppn,
+                'meterai' => $meterai,
+                'tagihan' => $tagihan,
+                'kd_rek' => $kd_rek,
+
+                // hitung subtotal, potongan, dll. jika diperlukan
             ];
 
-            // Simpan data detail pembelian ke tabel nonmedis_detail_beli
+            // Simpan data pembelian ke tabel nonmedis_pembelian
+            $pem_nonmedis_mod->insertData($dataPembelian);
+            $dataDetail = [];
+            // Loop melalui setiap barang yang diinputkan
+            for ($i = 0; $i < count($kode_barang); $i++) {
+                //hitung utk data saat ini
+                $subtotal = $harga_beli[$i] * $jumlah[$i];
+                $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
+                $total = $subtotal - $besardis;
+                // Persiapkan data untuk tabel  nonmedis_detail_beli
+                $dataDetail[] = [
+                    'no_faktur' => $no_faktur,
+                    'kode_brng' => $kode_barang[$i],
+                    'kode_sat' => $kode_sat[$i],
+                    'jumlah' => $jumlah[$i],
+                    'harga' => $harga_beli[$i],
+                    'subtotal' => $subtotal,
+                    'dis' => $diskon[$i],
+                    'besardis' => $besardis,
+                    'total' => $total
+                ];
 
+                // Simpan data detail pembelian ke tabel nonmedis_detail_beli
+
+            }
+            $pem_nonmedis_det_mod->insertData($dataDetail);
+
+            if ($dbSik->transStatus() === false) {
+                $dbSik->transRollback();
+                return redirect()->back()->with('error', 'Transaksi gagal.');
+            } else {
+                $dbSik->transCommit();
+                // Redirect atau tampilkan pesan sukses
+                return redirect()->to('/pembelian_non_medis')->with('success', 'Data pembelian berhasil disimpan.');
+            }
+        } catch (\Exception $e) {
+            $dbSik->transRollback();
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
-        $pem_nonmedis_det_mod->insertData($dataDetail);
-
-        // Redirect atau tampilkan pesan sukses
-        return redirect()->to('/pembelian_non_medis')->with('success', 'Data pembelian berhasil disimpan.');
     }
 
     public function edit($id)
     {
+        // ngedefine untuk transaction
+        $dbSik = \Config\Database::connect('sik');
+
         // Inisialisasi model
         $pem_nonmedis_mod = new PembelianNonMedisModel();
         $pem_nonmedis_det_mod = new PembelianNonMedisDetailModel();
@@ -202,66 +222,80 @@ class PembelianNonmedisController extends BaseController
         $totalBesardis = 0;
         $totalTotal = 0;
 
-        for ($i = 0; $i < count($kode_barang); $i++) {
-            //hitung utk data saat ini
-            $subtotal = $harga_beli[$i] * $jumlah[$i];
-            $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
-            $total = $subtotal - $besardis;
+        // mulai transaksi
+        $dbSik->transBegin();
 
-            $totalBesardis += $besardis;
-            $totalTotal += $total;
-        }
+        try {
+            for ($i = 0; $i < count($kode_barang); $i++) {
+                //hitung utk data saat ini
+                $subtotal = $harga_beli[$i] * $jumlah[$i];
+                $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
+                $total = $subtotal - $besardis;
 
-        $tagihan = ($totalTotal - $totalBesardis) + (($totalTotal - $totalBesardis) * ($ppn / 100)) + $meterai;
+                $totalBesardis += $besardis;
+                $totalTotal += $total;
+            }
 
-        // Persiapkan data untuk tabel inventaris_pembelian
-        $dataPembelian = [
-            'no_faktur' => $no_faktur,
-            'kode_suplier' => $kode_suplier,
-            'nip' => $nip,
-            'tgl_beli' => $tgl_beli,
-            'subtotal' => $totalTotal,
-            'potongan' => $totalBesardis,
-            'total' => $totalTotal - $totalBesardis,
-            'ppn' => $ppn,
-            'meterai' => $meterai,
-            'tagihan' => $tagihan,
-            'kd_rek' => $kd_rek,
+            $tagihan = ($totalTotal - $totalBesardis) + (($totalTotal - $totalBesardis) * ($ppn / 100)) + $meterai;
 
-            // hitung subtotal, potongan, dll. jika diperlukan
-        ];
-
-        // Simpan data pembelian ke tabel inventaris_pembelian
-        $pem_nonmedis_mod->updateData($id, $dataPembelian);
-
-        //hapus detail pembelian
-        $pem_nonmedis_det_mod->deleteDataByNoFaktur($no_faktur);
-
-        // Loop melalui setiap barang yang diinputkan
-        for ($i = 0; $i < count($kode_barang); $i++) {
-            //hitung utk data saat ini
-            $subtotal = $harga_beli[$i] * $jumlah[$i];
-            $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
-            $total = $subtotal - $besardis;
-            // Persiapkan data untuk tabel inventaris_detail_beli
-            $dataDetail[] = [
+            // Persiapkan data untuk tabel inventaris_pembelian
+            $dataPembelian = [
                 'no_faktur' => $no_faktur,
-                'kode_brng' => $kode_barang[$i],
-                'kode_sat' => $kode_sat[$i],
-                'jumlah' => $jumlah[$i],
-                'harga' => $harga_beli[$i],
-                'subtotal' => $subtotal,
-                'dis' => $diskon[$i],
-                'besardis' => $besardis,
-                'total' => $total
+                'kode_suplier' => $kode_suplier,
+                'nip' => $nip,
+                'tgl_beli' => $tgl_beli,
+                'subtotal' => $totalTotal,
+                'potongan' => $totalBesardis,
+                'total' => $totalTotal - $totalBesardis,
+                'ppn' => $ppn,
+                'meterai' => $meterai,
+                'tagihan' => $tagihan,
+                'kd_rek' => $kd_rek,
+
+                // hitung subtotal, potongan, dll. jika diperlukan
             ];
+
+            // Simpan data pembelian ke tabel inventaris_pembelian
+            $pem_nonmedis_mod->updateData($id, $dataPembelian);
+
+            //hapus detail pembelian
+            $pem_nonmedis_det_mod->deleteDataByNoFaktur($no_faktur);
+
+            // Loop melalui setiap barang yang diinputkan
+            for ($i = 0; $i < count($kode_barang); $i++) {
+                //hitung utk data saat ini
+                $subtotal = $harga_beli[$i] * $jumlah[$i];
+                $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
+                $total = $subtotal - $besardis;
+                // Persiapkan data untuk tabel inventaris_detail_beli
+                $dataDetail[] = [
+                    'no_faktur' => $no_faktur,
+                    'kode_brng' => $kode_barang[$i],
+                    'kode_sat' => $kode_sat[$i],
+                    'jumlah' => $jumlah[$i],
+                    'harga' => $harga_beli[$i],
+                    'subtotal' => $subtotal,
+                    'dis' => $diskon[$i],
+                    'besardis' => $besardis,
+                    'total' => $total
+                ];
+            }
+
+            // Simpan data detail pembelian ke tabel inventaris_detail_beli
+            $pem_nonmedis_det_mod->insertBatch($dataDetail);
+
+            if ($dbSik->transStatus() === false) {
+                $dbSik->transRollback();
+                return redirect()->back()->with('error', 'Transaksi gagal.');
+            } else {
+                $dbSik->transCommit();
+                // Redirect atau tampilkan pesan sukses
+                return redirect()->to('/pembelian_non_medis')->with('success', 'Data pembelian berhasil diedit.');
+            }
+        } catch (\Exception $e) {
+            $dbSik->transRollback();
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
-
-        // Simpan data detail pembelian ke tabel inventaris_detail_beli
-        $pem_nonmedis_det_mod->insertBatch($dataDetail);
-
-        // Redirect atau tampilkan pesan sukses
-        return redirect()->to('/pembelian_non_medis')->with('success', 'Data pembelian berhasil diedit.');
     }
 
     public function delete($id)

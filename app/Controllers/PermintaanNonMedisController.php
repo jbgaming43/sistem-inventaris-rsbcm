@@ -33,6 +33,9 @@ class PermintaanNonMedisController extends BaseController
 
     public function add()
     {
+        // ngedefine untuk transaction
+        $dbSik = \Config\Database::connect('sik');
+
         // objek PenggunaModel
         $permintaan_nonmedis_mod = new PermintaanNonMedisModel();
         $permintaan_nonmedis_det_mod = new PermintaanNonMedisDetailModel();
@@ -44,7 +47,6 @@ class PermintaanNonMedisController extends BaseController
             session()->setFlashdata('error', 'Nomor Permintaan Sudah Ada');
             return redirect()->to('/permintaan_non_medis');
         }
-
 
         $ruang = $this->request->getPost('ruang');
         $tanggal = $this->request->getPost('tanggal');
@@ -67,32 +69,46 @@ class PermintaanNonMedisController extends BaseController
             return redirect()->back()->with('error', 'Tidak ada data yang valid untuk disimpan.');
         }
 
-        $data = [
-            'no_permintaan' => $no_permintaan,
-            'ruang' => $ruang,
-            'nip' => $nik,
-            'tanggal' => $tanggal,
-            'status' => 'Baru',
-        ];
+        // mulai transaksi
+        $dbSik->transBegin();
 
-        $permintaan_nonmedis_mod->insertData($data);
-        $dataDetails = [];
-
-        for ($i = 0; $i < count($kode_brng); $i++) {
-            $dataDetails[] = [
+        try {
+            $data = [
                 'no_permintaan' => $no_permintaan,
-                'kode_brng' => $kode_brng[$i],
-                'kode_sat' => $kode_sat[$i],
-                'jumlah' => $jumlah[$i],
-                'keterangan' => $keterangan[$i],
+                'ruang' => $ruang,
+                'nip' => $nik,
+                'tanggal' => $tanggal,
+                'status' => 'Baru',
             ];
+
+            $permintaan_nonmedis_mod->insertData($data);
+            $dataDetails = [];
+
+            for ($i = 0; $i < count($kode_brng); $i++) {
+                $dataDetails[] = [
+                    'no_permintaan' => $no_permintaan,
+                    'kode_brng' => $kode_brng[$i],
+                    'kode_sat' => $kode_sat[$i],
+                    'jumlah' => $jumlah[$i],
+                    'keterangan' => $keterangan[$i],
+                ];
+            }
+
+            // Insert semua data secara batch
+            $permintaan_nonmedis_det_mod->insertBatch($dataDetails);
+
+            if ($dbSik->transStatus() === false) {
+                $dbSik->transRollback();
+                return redirect()->back()->with('error', 'Transaksi gagal.');
+            } else {
+                $dbSik->transCommit();
+                session()->setFlashdata('success', 'ditambahkan');
+                return redirect()->to('/permintaan_non_medis');
+            }
+        } catch (\Exception $e) {
+            $dbSik->transRollback();
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
-
-        // Insert semua data secara batch
-        $permintaan_nonmedis_det_mod->insertBatch($dataDetails);
-
-        session()->setFlashdata('success', 'ditambahkan');
-        return redirect()->to('/permintaan_non_medis');
     }
 
     public function detail($id)

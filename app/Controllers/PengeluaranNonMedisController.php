@@ -33,6 +33,7 @@ class PengeluaranNonMedisController extends BaseController
 
     public function add()
     {
+        // ngedefine untuk transaction
         $dbSik = \Config\Database::connect('sik');
 
         // Inisialisasi model
@@ -69,7 +70,6 @@ class PengeluaranNonMedisController extends BaseController
         $dbSik->transBegin();
 
         try {
-
             // Hitung total harga
             for ($i = 0; $i < count($kode_barang); $i++) {
                 $total += $harga[$i] * $jumlah[$i];

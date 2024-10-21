@@ -71,6 +71,9 @@ class PenerimaanInventarisController extends BaseController
 
     public function add()
     {
+        // ngedefine untuk transaction
+        $dbSik = \Config\Database::connect('sik');
+
         // Inisialisasi model
         $penerimaan_inv_mod = new PenerimaanInventarisModel();
         $pem_inv_det_mod = new PenerimaanInventarisDetailModel();
@@ -114,102 +117,114 @@ class PenerimaanInventarisController extends BaseController
         $totalBesardis = 0;
         $totalTotal = 0;
 
-        for ($i = 0; $i < count($kode_barang); $i++) {
-            //hitung utk data saat ini
-            $subtotal = $harga_beli[$i] * $jumlah[$i];
-            $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
-            $total = $subtotal - $besardis;
+        // mulai transaksi
+        $dbSik->transBegin();
 
-            $totalBesardis += $besardis;
-            $totalTotal += $total;
-        }
-
-        $tagihan = ($totalTotal - $totalBesardis) + (($totalTotal - $totalBesardis) * ($ppn / 100)) + $meterai;
-
-        // Persiapkan data untuk tabel inventaris_pembelian
-        $dataPembelian = [
-            'no_faktur' => $no_faktur,
-            'no_order' => $no_order,
-            'kode_suplier' => $kode_suplier,
-            'nip' => $nip,
-            'tgl_pesan' => $tgl_pesan,
-            'tgl_faktur' => $tgl_faktur,
-            'tgl_tempo' => $tgl_tempo,
-            'total1' => $totalTotal,
-            'potongan' => $totalBesardis,
-            'total2' => $totalTotal - $totalBesardis,
-            'ppn' => $ppn,
-            'meterai' => $meterai,
-            'tagihan' => $tagihan,
-            'status' => 'Belum Dibayar',
-            'kd_rek_aset' => $kd_rek_aset,
-
-            // hitung subtotal, potongan, dll. jika diperlukan
-        ];
-
-        // Simpan data pembelian ke tabel inventaris_pembelian
-        $penerimaan_inv_mod->insertData($dataPembelian);
-
-        // Tentukan format tanggal untuk keperluan nomor inventaris (format Ymd)
-        $tanggal = date('Y-m-d');
-
-        for ($index = 0; $index < count($kode_barang); $index++) {
-            // Ambil nilai jumlah dari setiap item
-            $jumlahBarang = $jumlah[$index];
-
-            // Loop untuk setiap jumlah barang
-            for ($j = 0; $j < $jumlahBarang; $j++) {
-                // Logika nomor inventaris tetap sama seperti sebelumnya
-                $subtotal = $harga_beli[$index] * $jumlahBarang;
-                $besardis = ($harga_beli[$index] * $jumlahBarang) * ($diskon[$index] / 100);
+        try {
+            for ($i = 0; $i < count($kode_barang); $i++) {
+                //hitung utk data saat ini
+                $subtotal = $harga_beli[$i] * $jumlah[$i];
+                $besardis = ($harga_beli[$i] * $jumlah[$i]) * ($diskon[$i] / 100);
                 $total = $subtotal - $besardis;
 
-                // Cek inventaris terakhir
-                $result = $inv_mod->getNoInventarisLast($tanggal);
-
-                if ($result) {
-                    $lastNoInventaris = $result['no_inventaris'];
-                    $lastIncrement = (int)substr($lastNoInventaris, -3);
-                    $newIncrement = $lastIncrement + 1;
-                } else {
-                    $newIncrement = 1;
-                }
-
-                $incrementFormatted = str_pad($newIncrement, 3, '0', STR_PAD_LEFT);
-                $no_inventaris_baru = 'INV-' . $tanggal . '-' . $incrementFormatted;
-
-                // Data inventaris baru
-                $dataInventaris[] = [
-                    'no_inventaris' => $no_inventaris_baru,
-                    'kode_barang' => $kode_barang[$index],
-                    'asal_barang' => 'Beli',
-                    'tgl_pengadaan' => $tgl_pesan,
-                    'harga' => $harga_beli[$index],
-                    'status_barang' => 'Ada'
-                ];
+                $totalBesardis += $besardis;
+                $totalTotal += $total;
             }
 
-            // Simpan data inventaris ke database
-            $inv_mod->insert($dataInventaris);
+            $tagihan = ($totalTotal - $totalBesardis) + (($totalTotal - $totalBesardis) * ($ppn / 100)) + $meterai;
 
-            // Simpan data detail pembelian ke tabel inventaris_detail_beli
-            $dataDetail = [
+            // Persiapkan data untuk tabel inventaris_pembelian
+            $dataPembelian = [
                 'no_faktur' => $no_faktur,
-                'kode_barang' => $kode_barang[$index],
-                'jumlah' => $jumlah[$index],
-                'harga' => $harga_beli[$index],
-                'subtotal' => $subtotal,
-                'dis' => $diskon[$index],
-                'besardis' => $besardis,
-                'total' => $total
+                'no_order' => $no_order,
+                'kode_suplier' => $kode_suplier,
+                'nip' => $nip,
+                'tgl_pesan' => $tgl_pesan,
+                'tgl_faktur' => $tgl_faktur,
+                'tgl_tempo' => $tgl_tempo,
+                'total1' => $totalTotal,
+                'potongan' => $totalBesardis,
+                'total2' => $totalTotal - $totalBesardis,
+                'ppn' => $ppn,
+                'meterai' => $meterai,
+                'tagihan' => $tagihan,
+                'status' => 'Belum Dibayar',
+                'kd_rek_aset' => $kd_rek_aset,
+
+                // hitung subtotal, potongan, dll. jika diperlukan
             ];
 
-            $pem_inv_det_mod->insert($dataDetail);
+            // Simpan data pembelian ke tabel inventaris_pembelian
+            $penerimaan_inv_mod->insertData($dataPembelian);
+
+            // Tentukan format tanggal untuk keperluan nomor inventaris (format Ymd)
+            $tanggal = date('Y-m-d');
+
+            for ($index = 0; $index < count($kode_barang); $index++) {
+                // Ambil nilai jumlah dari setiap item
+                $jumlahBarang = $jumlah[$index];
+
+                // Loop untuk setiap jumlah barang
+                for ($j = 0; $j < $jumlahBarang; $j++) {
+                    // Logika nomor inventaris tetap sama seperti sebelumnya
+                    $subtotal = $harga_beli[$index] * $jumlahBarang;
+                    $besardis = ($harga_beli[$index] * $jumlahBarang) * ($diskon[$index] / 100);
+                    $total = $subtotal - $besardis;
+
+                    // Cek inventaris terakhir
+                    $result = $inv_mod->getNoInventarisLast($tanggal);
+
+                    if ($result) {
+                        $lastNoInventaris = $result['no_inventaris'];
+                        $lastIncrement = (int)substr($lastNoInventaris, -3);
+                        $newIncrement = $lastIncrement + 1;
+                    } else {
+                        $newIncrement = 1;
+                    }
+
+                    $incrementFormatted = str_pad($newIncrement, 3, '0', STR_PAD_LEFT);
+                    $no_inventaris_baru = 'INV-' . $tanggal . '-' . $incrementFormatted;
+
+                    // Data inventaris baru
+                    $dataInventaris[] = [
+                        'no_inventaris' => $no_inventaris_baru,
+                        'kode_barang' => $kode_barang[$index],
+                        'asal_barang' => 'Beli',
+                        'tgl_pengadaan' => $tgl_pesan,
+                        'harga' => $harga_beli[$index],
+                        'status_barang' => 'Ada'
+                    ];
+                }
+
+                // Simpan data inventaris ke database
+                $inv_mod->insert($dataInventaris);
+
+                // Simpan data detail pembelian ke tabel inventaris_detail_beli
+                $dataDetail[] = [
+                    'no_faktur' => $no_faktur,
+                    'kode_barang' => $kode_barang[$index],
+                    'jumlah' => $jumlah[$index],
+                    'harga' => $harga_beli[$index],
+                    'subtotal' => $subtotal,
+                    'dis' => $diskon[$index],
+                    'besardis' => $besardis,
+                    'total' => $total
+                ];
+            }
+            $pem_inv_det_mod->insertBatch($dataDetail);
+
+            if ($dbSik->transStatus() === false) {
+                $dbSik->transRollback();
+                return redirect()->back()->with('error', 'Transaksi gagal.');
+            } else {
+                $dbSik->transCommit();
+                // Redirect atau tampilkan pesan sukses
+                return redirect()->to('/penerimaan_inventaris')->with('success', 'Data penerimaan berhasil disimpan.');
+            }
+        } catch (\Exception $e) {
+            $dbSik->transRollback();
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
-
-
-        // Redirect atau tampilkan pesan sukses
-        return redirect()->to('/penerimaan_inventaris')->with('success', 'Data penerimaan berhasil disimpan.');
     }
 
     public function delete($id)

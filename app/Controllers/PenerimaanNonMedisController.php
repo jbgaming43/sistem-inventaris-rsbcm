@@ -72,6 +72,7 @@ class PenerimaanNonMedisController extends BaseController
 
     public function add()
     {
+        // ngedefine untuk transaction
         $dbSik = \Config\Database::connect('sik');
 
         // Inisialisasi model
