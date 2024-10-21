@@ -282,6 +282,11 @@
         });
     });
     $(document).ready(function() {
+        $('.select2-pegawai-add-inv2').select2({
+            dropdownParent: $('#add_pengajuan_inventaris2')
+        });
+    });
+    $(document).ready(function() {
         $('.select2-pegawai2').select2({
             dropdownParent: $('#print_pengajuan_inventaris')
         });

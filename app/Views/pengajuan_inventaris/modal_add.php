@@ -78,10 +78,10 @@
                             <textarea class="form-control" name="keterangan" placeholder="Masukkan keterangan"></textarea>
                         </div>
                     </div>
-                    <div class="mb-2 row">
+                    <div class="mb-2 row" id="add_pengajuan_inventaris2">
                         <label class="col-3 col-form-label required">NIK P.J.</label>
                         <div class="col">
-                            <select class="form-select select2-pegawai" name="nik_pj" style="width: 100%">
+                            <select class="form-select select2-pegawai-add-inv2" name="nik_pj" style="width: 100%">
                                 <option value="">- Pilih Nama -</option>
                                 <?php foreach ($pegawai_con as $dt_pegawai) : ?>
                                     <option value="<?= $dt_pegawai['nik'] ?>"> <?= $dt_pegawai['nik'] ?>-<?= $dt_pegawai['nama'] ?></option>
