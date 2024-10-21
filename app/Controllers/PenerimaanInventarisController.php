@@ -231,9 +231,25 @@ class PenerimaanInventarisController extends BaseController
     {
         $penerimaan_inv_mod = new PenerimaanInventarisModel();
 
-        $penerimaan_inv_mod->deleteData($id);
+        try {
+            // Attempt to delete the record
+            $penerimaan_inv_mod->deleteData($id);
 
-        session()->setFlashdata('success', 'dihapus');
+            // Set a success message if deletion is successful
+            session()->setFlashdata('success', 'dihapus');
+        } catch (\CodeIgniter\Database\Exceptions\DatabaseException $e) {
+            // Catch any database-related exceptions (such as foreign key constraint violations)
+
+            if ($e->getCode() == 1451) {
+                // Code 1451 refers to a foreign key constraint violation
+                session()->setFlashdata('error', 'Cannot delete the data because it is referenced in another table.');
+            } else {
+                // For other database errors
+                session()->setFlashdata('error', 'An error occurred while deleting the data: ' . $e->getMessage());
+            }
+        }
+
+        // Redirect back to the page
         return redirect()->to('/penerimaan_inventaris');
     }
 
