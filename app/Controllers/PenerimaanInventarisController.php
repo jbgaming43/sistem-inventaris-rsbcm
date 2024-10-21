@@ -186,7 +186,7 @@ class PenerimaanInventarisController extends BaseController
                     $no_inventaris_baru = 'INV-' . $tanggal . '-' . $incrementFormatted;
 
                     // Data inventaris baru
-                    $dataInventaris[] = [
+                    $dataInventaris = [
                         'no_inventaris' => $no_inventaris_baru,
                         'kode_barang' => $kode_barang[$index],
                         'asal_barang' => 'Beli',
@@ -194,10 +194,10 @@ class PenerimaanInventarisController extends BaseController
                         'harga' => $harga_beli[$index],
                         'status_barang' => 'Ada'
                     ];
+                    // Simpan data inventaris ke database
+                    $inv_mod->insert($dataInventaris);
                 }
 
-                // Simpan data inventaris ke database
-                $inv_mod->insert($dataInventaris);
 
                 // Simpan data detail pembelian ke tabel inventaris_detail_beli
                 $dataDetail[] = [
