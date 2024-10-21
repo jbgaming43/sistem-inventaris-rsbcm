@@ -364,7 +364,7 @@ class PenerimaanInventarisController extends BaseController
         ];
 
         $inv_mod->updateRuang($no_inventaris, $data);
-        return redirect()->to('/penerimaan_inventaris')->with('success', 'Data penerimaan berhasil disimpan.');
+        return redirect()->to('/penerimaan_inventaris')->with('success', 'data ruang berhasil ditambahkan');
     }
 
     public function add_garansi()
@@ -400,7 +400,7 @@ class PenerimaanInventarisController extends BaseController
         } else {
             $garansi_mod->insertData($data);
         }
-        return redirect()->to('/penerimaan_inventaris')->with('success', 'Data penerimaan berhasil disimpan.');
+        return redirect()->to('/penerimaan_inventaris')->with('success', 'data garansi berhasil ditambahkan');
     }
 
     public function print_qr($id)
