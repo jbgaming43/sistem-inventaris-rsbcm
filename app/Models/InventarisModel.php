@@ -64,6 +64,40 @@ class InventarisModel extends Model
             ->findAll(); // retrieve all data
     }
 
+    public function getDataGaransiBelum()
+    {
+        return $this->select('inventaris.*, inventaris_barang.*')
+            ->join('inventaris_barang', 'inventaris.kode_barang=inventaris_barang.kode_barang')
+            ->join('inventaris_garansi', 'inventaris.no_inventaris=inventaris_garansi.no_inventaris', 'left')
+            ->where('inventaris_garansi.no_inventaris', null) // Exclude items that already exist in the garansi table
+            ->findAll(); // retrieve all data
+    }
+
+    public function getDataGaransiSudah()
+    {
+        return $this->select('inventaris.*, inventaris_barang.*')
+            ->join('inventaris_barang', 'inventaris.kode_barang=inventaris_barang.kode_barang')
+            ->join('inventaris_garansi', 'inventaris.no_inventaris=inventaris_garansi.no_inventaris') // Inner join to get only matching records
+            ->findAll(); // retrieve all data
+    }
+
+    public function getDataRuangBelum()
+    {
+        return $this->select('inventaris.*, inventaris_barang.*')
+            ->join('inventaris_barang', 'inventaris.kode_barang=inventaris_barang.kode_barang')
+            ->join('inventaris_ruang', 'inventaris.id_ruang=inventaris_ruang.id_ruang', 'left')
+            ->where('inventaris_ruang.id_ruang', null) // Exclude items that already exist in the ruang table
+            ->findAll(); // retrieve all data
+    }
+
+    public function getDataRuangSudah()
+    {
+        return $this->select('inventaris.*, inventaris_barang.*')
+            ->join('inventaris_barang', 'inventaris.kode_barang=inventaris_barang.kode_barang')
+            ->join('inventaris_ruang', 'inventaris.id_ruang=inventaris_ruang.id_ruang') // Inner join to get only matching records
+            ->findAll(); // retrieve all data
+    }
+
     public function getDataBytgl_kd($tgl, $kd)
     {
         return $this->select('inventaris.*, inventaris_barang.*')
@@ -75,8 +109,8 @@ class InventarisModel extends Model
 
     public function updateRuang($id, $data)
     {
-        return $this->where('no_inventaris',$id)
-        ->set($data)
-        ->update();
+        return $this->where('no_inventaris', $id)
+            ->set($data)
+            ->update();
     }
 }

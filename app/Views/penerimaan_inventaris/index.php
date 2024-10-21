@@ -12,12 +12,20 @@
                     <div class="card-header">
                         <!-- <h3 class="card-title">Card with action</h3> -->
                         <div class="card-actions">
-                        <button type="button" class="btn btn-red" data-bs-toggle="modal" data-bs-target="#add_garansi_penerimaan_inventaris">
+                            <button type="button" class="btn btn-red" data-bs-toggle="modal" data-bs-target="#add_garansi_penerimaan_inventaris">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <path d="M12 5l0 14"></path>
                                     <path d="M5 12l14 0"></path>
+                                </svg>
+                                Garansi
+                            </button>
+                            <button type="button" class="btn btn-red" data-bs-toggle="modal" data-bs-target="#edit_garansi_penerimaan_inventaris">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-refresh">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
+                                    <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
                                 </svg>
                                 Garansi
                             </button>
@@ -27,6 +35,14 @@
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <path d="M12 5l0 14"></path>
                                     <path d="M5 12l14 0"></path>
+                                </svg>
+                                Ruang
+                            </button>
+                            <button type="button" class="btn btn-blue" data-bs-toggle="modal" data-bs-target="#edit_ruang_penerimaan_inventaris">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-refresh">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
+                                    <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
                                 </svg>
                                 Ruang
                             </button>

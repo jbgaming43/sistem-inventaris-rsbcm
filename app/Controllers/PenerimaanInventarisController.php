@@ -49,6 +49,10 @@ class PenerimaanInventarisController extends BaseController
             'rekc' => $rekm->getData(),
             'brgc' => $brgm->getData(),
             'inv_con' => $inv_mod->getData(),
+            'inv_garansi_belum_con' => $inv_mod->getDataGaransiBelum(),
+            'inv_garansi_sudah_con' => $inv_mod->getDataGaransiSudah(),
+            'inv_ruang_belum_con' => $inv_mod->getDataRuangBelum(),
+            'inv_ruang_sudah_con' => $inv_mod->getDataRuangSudah(),
             'ruang_con' => $ruang_mod->getData(),
         ];
 
@@ -231,9 +235,25 @@ class PenerimaanInventarisController extends BaseController
     {
         $penerimaan_inv_mod = new PenerimaanInventarisModel();
 
-        $penerimaan_inv_mod->deleteData($id);
+        try {
+            // Attempt to delete the record
+            $penerimaan_inv_mod->deleteData($id);
 
-        session()->setFlashdata('success', 'dihapus');
+            // Set a success message if deletion is successful
+            session()->setFlashdata('success', 'dihapus');
+        } catch (\CodeIgniter\Database\Exceptions\DatabaseException $e) {
+            // Catch any database-related exceptions (such as foreign key constraint violations)
+
+            if ($e->getCode() == 1451) {
+                // Code 1451 refers to a foreign key constraint violation
+                session()->setFlashdata('error', 'Cannot delete the data because it is referenced in another table.');
+            } else {
+                // For other database errors
+                session()->setFlashdata('error', 'An error occurred while deleting the data: ' . $e->getMessage());
+            }
+        }
+
+        // Redirect back to the page
         return redirect()->to('/penerimaan_inventaris');
     }
 
@@ -358,13 +378,25 @@ class PenerimaanInventarisController extends BaseController
         $no_inventaris = $this->request->getPost('no_inventaris');
         $id_ruang = $this->request->getPost('id_ruang');
 
+        // Fetch the current data of the inventory by no_inventaris
+        $existingData = $inv_mod->getDataById($no_inventaris);
+
+        // Check if id_ruang already exists for this no_inventaris
+        if (!empty($existingData) && $existingData[0]['id_ruang'] !== null) {
+            // This is an update (edit) operation
+            $flashMessage = 'data ruang berhasil diubah';
+        } else {
+            // This is an insert (add) operation
+            $flashMessage = 'data ruang berhasil ditambahkan';
+        }
+
         $data = [
             'no_inventaris' => $no_inventaris,
             'id_ruang' => $id_ruang,
         ];
 
         $inv_mod->updateRuang($no_inventaris, $data);
-        return redirect()->to('/penerimaan_inventaris')->with('success', 'Data penerimaan berhasil disimpan.');
+        return redirect()->to('/penerimaan_inventaris')->with('success', $flashMessage);
     }
 
     public function add_garansi()
@@ -397,10 +429,11 @@ class PenerimaanInventarisController extends BaseController
         $garansi = $garansi_mod->getDataById($no_inventaris);
         if ($garansi) {
             $garansi_mod->updateData($no_inventaris, $data);
+            return redirect()->to('/penerimaan_inventaris')->with('success', 'data garansi berhasil diubah');
         } else {
             $garansi_mod->insertData($data);
+            return redirect()->to('/penerimaan_inventaris')->with('success', 'data garansi berhasil ditambahkan');
         }
-        return redirect()->to('/penerimaan_inventaris')->with('success', 'Data penerimaan berhasil disimpan.');
     }
 
     public function print_qr($id)
