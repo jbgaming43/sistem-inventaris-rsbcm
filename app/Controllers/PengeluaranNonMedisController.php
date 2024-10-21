@@ -101,13 +101,18 @@ class PengeluaranNonMedisController extends BaseController
                 $stok_lama = isset($stok_map[$kode_barang[$index]]) ? $stok_map[$kode_barang[$index]] : 0;
 
                 // Cek apakah stok cukup untuk pengeluaran
-                if ($stok_lama < $jumlah[$index]) {
-                    return redirect()->back()->with('error', 'Stok barang ' . $kode_barang[$index] . ' tidak mencukupi.');
-                }
+                // if ($stok_lama < $jumlah[$index]) {
+                //     return redirect()->back()->with('error', 'Stok barang ' . $kode_barang[$index] . ' tidak mencukupi.');
+                // }
 
                 // Update stok dengan mengurangi jumlah barang yang dikeluarkan
                 $stok_baru = $stok_lama - $jumlah[$index];
-                $ipsrsbarang_mod->updateStok($kode_barang[$index], $stok_baru);
+                if ($stok_baru >= 0) {
+                    $ipsrsbarang_mod->updateStok($kode_barang[$index], $stok_baru);
+                } else {
+                    $dbSik->transRollback();
+                    return redirect()->back()->with('error', 'Stok barang ' . $kode_barang[$index] . ' tidak mencukupi.');
+                }
 
                 // Simpan data detail pengeluaran ke tabel pengeluaran_non_medis_detail
                 $dataDetail = [
@@ -121,15 +126,14 @@ class PengeluaranNonMedisController extends BaseController
 
                 $pengeluaran_nonmedis_det_mod->insert($dataDetail);
             }
-            
+
             if ($dbSik->transStatus() === false) {
                 $dbSik->transRollback();
                 return redirect()->back()->with('error', 'Transaksi gagal.');
             } else {
                 $dbSik->transCommit();
-                return redirect()->to('/pengeluaran_non_medis')->with('success', 'Data pengeluaran berhasil disimpan.');
+                return redirect()->to('/pengeluaran_non_medis')->with('success', 'Data berhasil disimpan.');
             }
-
         } catch (\Exception $e) {
             $dbSik->transRollback();
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
