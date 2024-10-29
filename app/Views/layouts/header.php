@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Inventari Barang RSBCM</title>
+    <title>Inventaris Barang RSBCM</title>
 
     <link rel="icon" type="image/png" href="<?= base_url(); ?>/assets/img/icon/rsbcm_logo.png" />
 
