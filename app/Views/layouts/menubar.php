@@ -56,31 +56,33 @@
                         </span>
                     </a>
                 </li>
-                <li class="nav-item dropdown <?= ($active_menu == 'master') ? 'active' : ''; ?>">
-                    <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
-                        <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-                                <path d="M12 8.5v7" />
-                                <path d="M9 10l6 4" />
-                                <path d="M9 14l6 -4" />
-                            </svg>
-                        </span>
-                        <span class="nav-link-title">
-                            Master
-                        </span>
-                    </a>
-                    <div class="dropdown-menu <?= ($active_menu == 'master') ? 'show' : ''; ?>">
-                        <div class="dropdown-menu-columns">
-                            <div class="dropdown-menu-column">
-                                <a class="dropdown-item <?= ($active_submenu == 'pengguna') ? 'active' : ''; ?>" href="<?= base_url('/pengguna'); ?>">
-                                    Data Pengguna
-                                </a>
+                <?php if (session()->get('level') == 'Admin') { ?>
+                    <li class="nav-item dropdown <?= ($active_menu == 'master') ? 'active' : ''; ?>">
+                        <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                    <path d="M12 8.5v7" />
+                                    <path d="M9 10l6 4" />
+                                    <path d="M9 14l6 -4" />
+                                </svg>
+                            </span>
+                            <span class="nav-link-title">
+                                Master
+                            </span>
+                        </a>
+                        <div class="dropdown-menu <?= ($active_menu == 'master') ? 'show' : ''; ?>">
+                            <div class="dropdown-menu-columns">
+                                <div class="dropdown-menu-column">
+                                    <a class="dropdown-item <?= ($active_submenu == 'pengguna') ? 'active' : ''; ?>" href="<?= base_url('/pengguna'); ?>">
+                                        Data Pengguna
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
+                <?php } ?>
                 <li class="nav-item dropdown <?= ($active_menu == 'inventaris') ? 'active' : ''; ?>">
                     <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">

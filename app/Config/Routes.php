@@ -25,10 +25,10 @@ $routes->post('/pengguna/delete/(:num)', 'PenggunaController::delete/$1');
 // Routes untuk mengelola data PENGAJUAN INVENTARIS
 $routes->get('/pengajuan_inventaris', 'PengajuanInventarisController::index');
 $routes->post('/pengajuan_inventaris/add', 'PengajuanInventarisController::add');
-$routes->post('/pengajuan_inventaris/edit/(:num)', 'PengajuanInventarisController::edit/$1');
-$routes->post('/pengajuan_inventaris/delete/(:num)', 'PengajuanInventarisController::delete/$1');
-$routes->post('/pengajuan_inventaris/setuju/(:num)', 'PengajuanInventarisController::setuju/$1');
-$routes->post('/pengajuan_inventaris/tolak/(:num)', 'PengajuanInventarisController::tolak/$1');
+$routes->post('/pengajuan_inventaris/edit/(:any)', 'PengajuanInventarisController::edit/$1');
+$routes->post('/pengajuan_inventaris/delete/(:any)', 'PengajuanInventarisController::delete/$1');
+$routes->post('/pengajuan_inventaris/setuju/(:any)', 'PengajuanInventarisController::setuju/$1');
+$routes->post('/pengajuan_inventaris/tolak/(:any)', 'PengajuanInventarisController::tolak/$1');
 $routes->post('/pengajuan_inventaris/print', 'PengajuanInventarisController::print');
 
 // Routes untuk mengelola data PEMBELIAN INVENTARIS

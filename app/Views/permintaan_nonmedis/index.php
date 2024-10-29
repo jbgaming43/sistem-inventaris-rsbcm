@@ -34,7 +34,9 @@
 
                                     <th>User</th>
                                     <th>Status</th>
-                                    <th>Persetujuan</th>
+                                    <?php if (session()->get('level') == 'Admin') { ?>
+                                        <th>Persetujuan</th>
+                                    <?php } ?>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -48,32 +50,34 @@
                                         <td><?= $dt_permintaan_nonmedis['tanggal']; ?></td>
                                         <td><?= $dt_permintaan_nonmedis['nama']; ?></td>
                                         <td><?= $dt_permintaan_nonmedis['status']; ?></td>
-                                        <td class="text-center">
-                                            <?php
-                                            if ($dt_permintaan_nonmedis['status'] == 'Baru') {
-                                            ?>
-                                                <span data-bs-toggle="modal" data-bs-target="#setuju_permintaan_nonmedis<?= $dt_permintaan_nonmedis['no_permintaan']; ?>">
-                                                    <button type="button" class="btn btn-icon btn-green btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Setuju">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-square-check">
-                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                            <path d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-                                                            <path d="M9 12l2 2l4 -4" />
-                                                        </svg>
-                                                    </button>
-                                                </span>
-                                                <span data-bs-toggle="modal" data-bs-target="#tolak_permintaan_nonmedis<?= $dt_permintaan_nonmedis['no_permintaan']; ?>">
-                                                    <button type="button" class="btn btn-icon btn-red btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Tolak">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-square-x">
-                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                            <path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z" />
-                                                            <path d="M9 9l6 6m0 -6l-6 6" />
-                                                        </svg>
-                                                    </button>
-                                                </span>
-                                            <?php
-                                            }
-                                            ?>
-                                        </td>
+                                        <?php if (session()->get('level') == 'Admin') { ?>
+                                            <td class="text-center">
+                                                <?php
+                                                if ($dt_permintaan_nonmedis['status'] == 'Baru') {
+                                                ?>
+                                                    <span data-bs-toggle="modal" data-bs-target="#setuju_permintaan_nonmedis<?= $dt_permintaan_nonmedis['no_permintaan']; ?>">
+                                                        <button type="button" class="btn btn-icon btn-green btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Setuju">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-square-check">
+                                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                                <path d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                                                                <path d="M9 12l2 2l4 -4" />
+                                                            </svg>
+                                                        </button>
+                                                    </span>
+                                                    <span data-bs-toggle="modal" data-bs-target="#tolak_permintaan_nonmedis<?= $dt_permintaan_nonmedis['no_permintaan']; ?>">
+                                                        <button type="button" class="btn btn-icon btn-red btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Tolak">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-square-x">
+                                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                                <path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z" />
+                                                                <path d="M9 9l6 6m0 -6l-6 6" />
+                                                            </svg>
+                                                        </button>
+                                                    </span>
+                                                <?php
+                                                }
+                                                ?>
+                                            </td>
+                                        <?php } ?>
                                         <td>
                                             <a href="<?= base_url('/permintaan_non_medis/print/' . $dt_permintaan_nonmedis['no_permintaan']); ?>" target="_blank">
                                                 <button type="button" class="btn btn-icon btn-dark btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Print">
