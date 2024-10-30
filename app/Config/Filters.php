@@ -40,12 +40,12 @@ class Filters extends BaseConfig
         'before' => [
             'filterAdmin' => [
                 'except' => [
-                    'login', '/'
+                    'login', '/', 'penerimaan_inventaris/info/*'
                 ]
             ],
             'filterPetugas' => [
                 'except' => [
-                    'login', '/'
+                    'login', '/', 'penerimaan_inventaris/info/*'
                 ]
             ]
         ],
