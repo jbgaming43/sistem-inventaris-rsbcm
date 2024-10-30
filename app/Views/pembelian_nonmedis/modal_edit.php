@@ -118,7 +118,7 @@
 <?php endforeach; ?>
 
 <script>
-    let rowIndex2 = 0;
+    let rowIndex2 = 1;
     document.addEventListener('DOMContentLoaded', function() {
         <?php foreach ($pem_nonmedis_con as $dt_pembelian_nonmedis) : ?>
                 (function(modalId, tableBodyId, detailUrl) {
@@ -244,7 +244,7 @@
 
 <script>
     // Menambahkan event listener saat modal ditampilkan
-    $('#edit_pembelian_nonmedis<?= $dt_pembelian_nonmedis['no_faktur']; ?>').on('shown.bs.modal', function () {
+    $('#edit_pembelian_nonmedis<?= $dt_pembelian_nonmedis['no_faktur']; ?>').on('shown.bs.modal', function() {
         setupEventListenersNonMedis(0); // Menambahkan event listener untuk baris pertama
     });
 </script>
